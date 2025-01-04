@@ -1,0 +1,39 @@
+.addContacts-container{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 20px;
+    display: flex;
+    background-color: #f9f9f9;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    margin-top: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.saveContactsButton{
+    text-align: center;
+    justify-content: center;
+}
+.addContacts-container label{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.addContacts-container input{
+    width: 100%;
+    height: 40px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: transparent;
+}
+.saveContactsButton button{
+padding: 8px 26px;
+font-size: 22px;
+color: white;
+background-color: orangered;
+border: transparent;
+border-radius: 5px;
+}

@@ -1,0 +1,157 @@
+.c-header{
+display: flex;
+margin: 20px;
+background-color: #0078d4;
+padding: 20px;
+justify-content: space-between;
+border-radius: 5px;
+}
+.c-h2{
+    display: flex;
+
+}
+.c-h1 h3{
+    color: white;
+}
+.c-h2 span{
+    font-size: 32px;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-weight: 600;
+}
+.c-h2 p{
+    color: white;
+}
+.contacts-buttons{
+    margin: 20px;
+    display: flex;
+}
+.contacts-buttons button{
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 5px;
+border-radius: 5px;
+color: black;
+font-weight: 700;
+padding-bottom: 5px;
+}
+.import{
+    display: flex;
+}
+.add{
+    display: flex;
+}
+.importB button{
+background-color: rgb(5, 172, 243);
+}
+.downloadB{
+    margin-left: 20px;
+}
+.addB{
+    margin-left: 20px;
+}
+.downloadB button{
+    background-color: rgb(63, 227, 17);
+}
+.addB button{
+    background-color: rgb(5, 172, 243);
+}
+.contacts-table {
+    width: 100%;
+    margin: 20px auto;
+    overflow-x: auto; /* For horizontal scrolling on smaller screens */
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contacts-table table {
+    width: 100%;
+    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.contacts-table th, 
+.contacts-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.contacts-table thead {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.contacts-table thead tr {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.contacts-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.contacts-table tbody tr:hover {
+    background-color: #e8f5ff; /* Highlight row on hover */
+    transition: background-color 0.3s ease;
+}
+
+.contacts-table td:last-child {
+    text-align: center;
+}
+
+.contacts-table td {
+    font-size: 14px;
+    color: #555;
+}
+
+.contacts-table th {
+    font-size: 14px;
+    color: #000;
+}
+.contacts-table{
+    
+}
+
+@media (max-width: 768px) {
+   
+}
+
+@media (max-width: 480px) {
+    .contacts-table{
+        overflow-x: auto;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+
+    }
+    .c-header{
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+    }
+    .contacts-buttons{
+        flex-direction: column;
+    }
+    .add{
+        margin-top: 20px;
+        justify-content: space-between;
+    }
+    .downloadB{
+        margin-left: 0px;
+    }
+    .addB{
+        margin-left: 0px;
+    }
+    .import{
+        justify-content: space-between;
+    }
+     .contacts-table table {
+        font-size: 10px;
+    }
+
+    .contacts-table td, .contacts-table th {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,181 @@
+.inbox-container{
+    margin: 20px;
+    padding: 20px;
+}
+.inbox-container select{
+    height: 40px;
+    width: 400px;
+}
+.inbox-holder {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    font-family: Arial, sans-serif;
+  }
+  
+  table {
+    width: 100%;
+
+    overflow-x: auto;
+    text-overflow: inherit;
+  }
+  
+  thead tr {
+    background-color: #0078d4;
+    color: #fff;
+  }
+  
+  thead td {
+    font-weight: bold;
+    padding: 5px 5px;
+    text-align: left;
+  }
+  
+  tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tbody td {
+    padding: 5px;
+    vertical-align: top;
+  }
+  
+  tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  h3, h4 {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  h3 {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  h4 {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  button {
+    padding: 8px 12px;
+    margin: 5px 0;
+    background-color: #0078d4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  button:hover {
+    background-color: #005a9e;
+  }
+  
+  button:active {
+    background-color: #003c6d;
+  }
+  
+  td p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+  
+  td p svg {
+    vertical-align: middle;
+    margin-right: 5px;
+    color: #0078d4;
+  }
+  
+  td:last-child p {
+    color: #555;
+  }
+  
+  tbody td:last-child {
+    font-size: 0.9rem;
+  }
+  .inbox-holder {
+    overflow-x: auto; /* Enables horizontal scrolling if content overflows */
+  }
+  
+  table {
+    width: 100%;
+    table-layout: auto; /* Allows columns to adjust their width based on content */
+    word-wrap: break-word; /* Break long words to fit within cells */
+  }
+  
+  td, th {
+    word-break: break-word; /* Break long text within cells */
+  }
+  
+  thead td {
+    font-size: 0.9rem; /* Adjust header font size for better readability on small screens */
+  }
+  
+  tbody td {
+    font-size: 0.85rem; /* Adjust body font size for mobile view */
+  }
+  
+  @media (max-width: 480px){
+    table {
+      font-size: 0.8rem; /* Further reduce font size on smaller screens */
+    }
+  .inbox-holder table{
+    overflow-x:auto ;
+    width: 100%;
+ 
+  }
+    td, th {
+      padding: 10px; /* Adjust padding for better fit on smaller screens */
+    }
+  
+    button {
+      font-size: 0.8rem; /* Adjust button size for mobile view */
+      padding: 6px 10px;
+    }
+  
+    h3, h4 {
+      font-size: 0.9rem; /* Reduce header sizes for mobile */
+    }
+  
+    td p {
+      font-size: 0.8rem; /* Adjust paragraph size */
+    }
+    .inbox-container select{
+        height: 40px;
+        width: 250px;
+    }
+    thead td {
+        font-weight: bold;
+        padding: 5px 5px;
+        text-align: left;
+      }
+      
+      tbody tr {
+        border-bottom: 1px solid #ddd;
+      }
+      
+      tbody td {
+        padding: 5px;
+        vertical-align: top;
+      }
+    .inbox-holder {
+        margin-top: 10px ;
+        margin-bottom: 10px;
+       
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+       
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        
+        font-family: Arial, sans-serif;
+      }
+      
+  }
+  

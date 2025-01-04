@@ -1,0 +1,72 @@
+.myMembership-button{
+    margin-left: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.myMembership-container{
+    width: 60%;
+    margin: 20px;
+    border: 1px solid rgb(194, 191, 191);
+    border-radius: 9px;
+}
+.membershipH1{
+    
+    border-bottom: 1px solid rgb(194, 191, 191);
+    width: 100%;
+}
+.membershipH1 h1{
+    margin-left: 10px;
+}
+.memtable{
+    display: flex;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+.t1{
+    width: 50%;
+    border: 1px solid rgb(194, 191, 191);
+}
+.t2{
+    width: 50%;
+    
+    border: 1px solid rgb(194, 191, 191);
+}
+.m1t1{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+.m1t2{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+.m1t3{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}.m1t4{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+.m2t1{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+.m2t2{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+.m2t3{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+.m2t4{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+@media(max-width:480px){
+    .myMembership-container{
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
