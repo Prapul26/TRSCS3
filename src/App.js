@@ -7,6 +7,9 @@ import Email from "./UserNavbar/Email";
 import Intro from "./UserNavbar/Intro";
 import AddContacts from "./UserNavbar/AddContacts";
 import MyMembership from "./UserNavbar/MyMembership";
+import OrderHistory from "./UserNavbar/OrderHistory";
+import OrderStatus from "./UserNavbar/OrderStatus";
+import AccountSettings from "./UserNavbar/AccountSettings";
 
 const App = () => {
   return (
@@ -21,6 +24,9 @@ const App = () => {
           <Route path="/intro" element={<Intro/>}/>
           <Route path="/addContacts" element={<AddContacts/>}/>
           <Route path="/" element={<MyMembership/>} />
+          <Route path="/orderHistory" element={<OrderHistory/>}/>
+          < Route path="/orderStatus" element={<OrderStatus/>}/>
+          <Route path="/accountSettings" element={<AccountSettings/>}/>
         </Routes>
       </div>
     </Router>

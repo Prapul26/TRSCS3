@@ -1,16 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './MyMembership.css'
 import UserHeader from '../components/UserHeader'
 const MyMembership = () => {
   return (
-    <div>
+    <div className='fz2'>
       <UserHeader/>
       <div className='myMembership-button'>
-        <button>Order History</button>
+       <Link to='/orderHistory'style={{color:"inherit",textDecoration:"none"}}><button>Order History</button></Link> 
       </div>
-      <div className='myMembership-container'>
+      <div className='myMembership-container' >
 <div className='membershipH1'><h1>Current Active Package</h1></div>
-<div className='memtable'>
+<div className='memtable' >
    <div className='t1'>
     <div className='m1t1'><p>Package Name</p></div>
     <div className='m1t2'><p>Price</p></div>

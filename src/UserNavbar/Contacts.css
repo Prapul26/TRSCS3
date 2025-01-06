@@ -10,8 +10,12 @@ border-radius: 5px;
     display: flex;
 
 }
+
 .c-h1 h3{
     color: white;
+    margin-top: 13px;
+    font-size: larger;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .c-h2 span{
     font-size: 32px;
