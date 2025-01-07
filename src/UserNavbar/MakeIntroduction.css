@@ -1,0 +1,110 @@
+.crub{
+    background-color: aqua;
+    justify-content: center;
+    justify-items: center;
+    padding: 1px;
+    background: linear-gradient(to right, rgb(70, 40, 201), #1c1cda);
+    color: rgb(251, 251, 251);
+}
+
+.info-holder{
+    margin-top: 30px;
+    padding: 20px;
+    margin-bottom: 30px;
+    width: 80%;
+    margin-right: 10%;
+    border-radius: 10px;
+   
+    margin-left: 10%;
+    box-shadow:  6px 6px 8px rgba(0, 0, 0, 0.1);
+height: fit-content;
+background: linear-gradient(90deg, rgb(154, 247, 247), rgb(98, 187, 255));
+}
+.toSelect{
+    width: 80.7%;
+    height: 40px;
+    margin-top: 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.searchInput{
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.checkbox-list{
+    background-color: rgb(140, 184, 173);
+    height: 100px;
+    overflow-y: auto;
+    width: 80%;
+}
+.info-holder label{
+    font-weight: 700;
+    font-size: larger;
+    font-family:sans-serif;
+}
+.selected-emails{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.selected-emails h4{
+    color: black;
+    font-size: larger;
+}
+.email-item{
+display: flex;
+justify-content: space-between;
+width: 80%;
+background-color: rgb(255, 255, 255);
+padding: 5px;
+
+
+}
+.email-item button{
+    height: 5px;
+    padding: 0px;
+    background-color: red;
+}
+.templateSelect{
+    width: 80.7%;
+    height: 40px;
+    margin-top: 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.subjectInput{
+    width: 80%;
+    height: 40px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+.messageText{
+    width: 80%;
+    height: 150px;
+    margin-top: 15px;
+    margin-bottom: 80px;
+}
+.formButtons{
+    display: flex;
+    float: left;
+    margin-top: -40px;
+}
+@media(max-width:480px){
+    .info-holder{
+        margin-top: 30px;
+        padding: 20px;
+        margin-bottom: 30px;
+        width: 80%;
+       margin-left: 6%;
+       margin-right: 10%;
+        border-radius: 10px;
+       
+        
+        box-shadow:  6px 6px 8px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    background: linear-gradient(90deg, rgb(154, 247, 247), rgb(98, 187, 255));
+    } 
+}

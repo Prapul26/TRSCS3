@@ -1,6 +1,6 @@
 .headerContainer{
     height: 70px;
-background-color: #d4dfed;
+    background: linear-gradient(to right, #16dd16, #ac2eda);
 display: flex;
 width: 100%;
 align-items: center;
@@ -11,7 +11,7 @@ align-items: center;
 }
 .header {
     display: flex;
-    position: relative; /* Ensures the `.usernav` is positioned relative to this container */
+    position: relative; 
 }
 
 .userProfile-container{

@@ -142,6 +142,10 @@ background-color: rgb(5, 172, 243);
         margin-top: 20px;
         justify-content: space-between;
     }
+    .c-h2 {
+        text-align: center;
+        
+    }
     .downloadB{
         margin-left: 0px;
     }

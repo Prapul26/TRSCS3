@@ -1,0 +1,147 @@
+.footer-container {
+  
+}
+
+.appleStore-container img {
+    height: 50px;
+    margin-top: 10px;
+    width: 180px;
+}
+
+.playStore-container img {
+    height: 50px;
+    margin-top: 0px;
+    width: 180px;
+}
+
+.socilaMediaStore-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.f-holder button {
+    height: 25px;
+    width: 25px;
+}
+
+.x-holder button {
+    height: 25px;
+    width: 25px;
+}
+
+.t-holder button {
+    height: 25px;
+    width: 25px;
+}
+
+.dlc-holder {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: -0px;
+    
+    height: fit-content;
+    margin-bottom: 13px;
+    height: 100vh;
+    background: #eee;
+    ;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    flex-wrap: wrap;
+    /* Allows wrapping of items for smaller screens */
+}
+
+.download-container,
+.important-links-container,
+.contact-container {
+    flex: 1 1 300px;
+    /* Ensures items take at least 300px width */
+    margin: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    /* Centers text for smaller screens */
+}
+
+.copyright-container {
+    background-color: rgb(23, 12, 12);
+    color: white;
+    padding: 20px;
+    margin-top: -10px;
+    text-align: center;
+    /* Centers text */
+}
+
+.tpc-container {
+    margin-bottom: 10px;
+}
+
+/* Media queries */
+
+/* For phones - smaller than 600px */
+@media (max-width: 600px) {
+    .dlc-holder {
+        flex-direction: column;
+        /* Stack items vertically */
+        height: auto;
+        /* Adjust height to auto */
+    }
+
+    .download-container,
+    .important-links-container,
+    .contact-container {
+        flex: 1 1 auto;
+        /* Adjust for flexible sizing */
+        margin: 5px;
+    }
+}
+
+/* For tablets - between 600px and 1024px */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .dlc-holder {
+        flex-direction: row;
+        /* Maintain row direction */
+        justify-content: space-around;
+        /* Space evenly around items */
+        height: auto;
+        /* Allow height to adjust */
+    }
+
+    .download-container,
+    .important-links-container,
+    .contact-container {
+        flex: 1 1 200px;
+        /* Set minimum width for items */
+    }
+}
+
+/* For laptops and small desktops - between 1025px and 1440px */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .dlc-holder {
+        flex-direction: row;
+        height: 240px;
+    }
+
+    .download-container,
+    .important-links-container,
+    .contact-container {
+        flex: 1 1 250px;
+        margin: 10px;
+    }
+}
+
+/* For large desktops - wider than 1440px */
+@media (min-width: 1441px) {
+    .dlc-holder {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 240px;
+    }
+
+    .download-container,
+    .important-links-container,
+    .contact-container {
+        flex: 1 1 300px;
+        margin: 10px;
+    }
+}

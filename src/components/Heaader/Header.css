@@ -1,0 +1,222 @@
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10%;
+   
+    padding-right: 10%;
+    background: linear-gradient(to right, #16dd16, #ac2eda);
+}
+.socila-icons{
+    display: flex;
+}
+.dropdowns{
+    display: flex;
+}
+.facebook{
+color: #316FF6;
+}
+.x{
+margin-left: 8px;
+color: #000000;
+}
+.LinkedIn{
+    margin-left: 8px;
+    color: #137db6 ;
+}
+.globe{
+    display: flex;
+
+}
+.header-profile{
+    display: flex;
+    margin-left: 25px;
+
+}
+.picPro{
+    height: 27px;
+width: 27px;
+
+
+
+}.drop1{
+    margin-top: 10px;
+    
+
+}
+.drop2{
+    margin-top: 10px;
+    margin-left: 3px;
+}
+.pic{
+    display: none;
+}
+.menu{
+    display: none;
+}
+.dropDown1{
+    height: 32px;
+    width: 130px;
+    margin-left: -40px;
+    position: absolute;
+    padding: 10px;
+    background-color: #26a5ea;
+    display: flex;
+    cursor: pointer;
+}
+.dropDown1:hover{
+    background-color: #a0a0ec;
+}
+.usaFlag{
+    height: 24px;
+    width: 40px;
+}
+.usa{
+    margin-left: 20px;
+}
+.usa h3:hover{
+color: white;
+}
+.dropDown2{
+    height: fit-content;
+    width: 120px;
+    margin-left: -60px;
+    position: absolute;
+  
+    background-color: #26a5ea;
+ 
+    cursor: pointer;
+}
+.profileDrop{
+
+padding-left: 5px;
+padding-top:5px ;
+padding-bottom: 5px;
+}
+.dropLogout{
+
+padding-left: 5px;
+padding-top:5px ;
+padding-bottom: 5px;
+margin-top: 5px;
+}
+.profileDrop:hover{
+    background-color: #a0a0ec;
+    color: white;
+}
+.dropLogout:hover{
+    background-color: #a0a0ec;
+    color: white;
+}
+.profileDrop h3:hover{
+    color: white;
+}
+.dropLogout h3:hover{
+    color: white;
+}
+@media(max-width:480px){
+    .socila-icons{
+       display: none;
+    }
+    .header-profile{
+        display: none;
+    }
+    .pic {
+        display: block; /* Show the pic div (logo) */
+      
+    }
+    .menu{
+        display: block;
+        margin-top: 2px;
+    }
+    .Menu{
+transition: 09s ease-in-out;
+        height: 100vh;
+        width: 90%;
+        background: linear-gradient(to right, #bfc4e4, #919ee3, #a0a0ec);
+        position: absolute;
+    }
+    .cross{
+       
+        padding: 20px;
+        
+    }
+    .crossPosition{
+        float: right;
+        margin-bottom: 20px;
+        border-bottom: 1px solid black;
+    }
+    .home{
+        padding-left: 10px;
+        border-bottom: 1px solid black;
+        width:95%;
+        cursor: pointer;
+    }
+
+    .aboutUs{
+        padding-left: 10px;
+        border-bottom: 1px solid black;
+        width:95%;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+    }
+    .pricing{
+        padding-left: 10px;
+        border-bottom: 1px solid black;
+        width:95%;
+        cursor: pointer;
+    }
+    .login{
+padding-top: 10px;
+    }
+  
+    .register{
+        padding-top: 10px;
+    }
+    .login button{
+        width: 90%;
+        margin-left:5% ;
+        margin-right: 5%;
+        background-color: orange;
+        height: 35px;
+        font-size: larger;
+        cursor: pointer;
+    }
+    .register button{
+        width: 90%;
+        font-size: larger;
+        margin-left:5% ;
+        background-color: orange;
+        margin-right: 5%;
+        height: 35px;
+        cursor: pointer;
+    }
+    .dropAbout{
+        margin-left: 10px;
+       
+        transition:  0.9s ease-in-out; 
+        border-bottom: 1px solid black;
+       
+    }
+    .social-Media{
+        display: flex;
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-top: 40px;
+        justify-content: space-between;
+    }
+    .fff{
+        color: #316FF6;
+        }
+        .ffx{
+       
+        color: #000000;
+        }
+        .ffn{
+           
+            color: #137db6 ;
+        }
+}
