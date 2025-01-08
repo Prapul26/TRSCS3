@@ -15,6 +15,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import MakeIntroduction from "./UserNavbar/MakeIntroduction";
 import BusinessProfile from "./UserNavbar/BusinessProfile";
+import CreateBusinessProfile from "./UserNavbar/CreateBusinessProfile";
+import Signature from "./UserNavbar/Signature";
 
 const App = () => {
   return (
@@ -37,6 +39,8 @@ const App = () => {
           <Route path="/footer" element={<Footer/>}/>
           <Route path="/makeIntro" element={<MakeIntroduction />}/>
           <Route path="/businessProfile" element={<BusinessProfile/>}/>
+<Route path="/signature" element={<Signature/>}/>
+          <Route path="/createBusinessProfile" element={<CreateBusinessProfile/>} />
         </Routes>
       </div>
     </Router>

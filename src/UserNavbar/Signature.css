@@ -1,0 +1,28 @@
+.signature-holder{
+    margin-top: 40px;
+    padding: 20px;
+    align-items: center;
+    align-content: center;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
+    background: linear-gradient(to right, #b0e0b0, #c996db);
+}
+.signature-holder textarea{
+    width: 300px;
+    height: 150px;
+}
+.signature-holder button{
+margin-top: 30px;
+padding-left: 20px;
+padding-right: 20px;
+background-color: orange;
+}
+@media(max-width:480px){
+    .signature-holder{
+        width: 80%;
+        margin-left: 5%;
+        margin-right: 10%;
+    }
+}

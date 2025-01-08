@@ -1,0 +1,35 @@
+.businessProfileButton{
+margin: 20px;
+}
+.createBusinessProfileContainer{
+    margin: 20px;
+    padding: 20px;
+}
+.businessInformation {
+margin-bottom: 1px solid black;
+}
+.businessInformation h2{
+    margin-bottom: 20px;
+}
+.businessInformation-holder{
+
+}
+.cp-holder{
+    display: flex;
+    justify-content: space-between;
+}
+.category{
+
+}
+.Phone{
+
+}
+.titleInput{
+
+}
+.profileInput{
+
+}
+.phone-Holder{
+    display: flex;
+}

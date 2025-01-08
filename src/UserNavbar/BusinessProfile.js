@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./BusinessProfile.css";
 import UserHeader from "../components/UserHeader";
-
+import { Link } from "react-router-dom";
 const BusinessProfile = () => {
   const [activeTab, setActiveTab] = useState("active");
 
@@ -20,9 +20,9 @@ const BusinessProfile = () => {
           <p>Business Profile</p>
         </div>
       </div>
-      <div className="businessButton">
+    <Link to='/createBusinessProfile'><div className="businessButton">
         <button>Create Business Profile</button>
-      </div>
+      </div></Link>  
       <br />
       <div className="activeStatus">
         <div className="activeStatus-holder">
