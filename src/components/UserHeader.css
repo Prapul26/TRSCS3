@@ -120,13 +120,19 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 
 @media (max-width: 480px) {
     .headerContainer {
         padding: 5px;
     }
-
+.home2{
+    display: block;
+}
+.home3{
+    display: none;
+}
     .profile-pic {
         height: 35px;
         width: 35px;
