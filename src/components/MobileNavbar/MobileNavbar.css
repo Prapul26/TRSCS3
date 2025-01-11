@@ -1,0 +1,127 @@
+.mob-nav{
+    display: none;
+}
+@media (max-width:480px){
+    .mob-nav{
+        display: flex;
+      overflow-x: auto;
+      background: linear-gradient(to right, #777877, #000000);
+        white-space: nowrap;
+        border-bottom: 5px solid black;
+       border-top: 5px solid black;
+    }
+    .mobMembership{
+        margin-top: 20px;
+        font-weight: 500;
+        font-size:small;
+        color: white;
+        background-color: rgb(22, 236, 54);
+        margin-bottom: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    border: 3px dotted rgb(215, 245, 47);
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    }
+    .introws{
+        background: linear-gradient(to right, #3574e1, #2edaa4);
+        width: fit-content;
+        height: fit-content;
+        color: white;
+        float: right;
+        margin-left: 300px;
+       position: absolute;
+    }
+    .mobSettings{
+        margin-top: 20px;
+        font-weight: 500;
+        font-size:small;
+        color: white;
+        background-color: rgb(22, 236, 54);
+        margin-bottom: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    border: 3px dotted rgb(215, 245, 47);
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    }
+    .mobBusiness{
+        margin-top: 20px;
+        font-weight: 500;
+        font-size:small;
+        color: white;
+        background-color: rgb(22, 236, 54);
+        margin-bottom: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    border: 3px dotted rgb(215, 245, 47);
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    }
+    .mobLogout{
+        margin-top: 20px;
+        font-weight: 500;
+        font-size:small;
+        color: white;
+        background-color: rgb(22, 236, 54);
+        margin-bottom: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    border: 3px dotted rgb(215, 245, 47);
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    }
+    .mobIntro{
+        margin-top: 20px;
+        font-weight: 500;
+        font-size:small;
+        color: white;
+        background-color: rgb(22, 236, 54);
+        margin-bottom: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    border: 3px dotted rgb(215, 245, 47);
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    }
+    .mobBusiness:hover{
+        background-color: rgb(4, 91, 243);
+    }
+    .mobIntro:hover{
+        background-color: rgb(4, 91, 243);
+    }
+    .mobLogout:hover{
+        background-color: rgb(4, 91, 243);
+    }
+    .mobMembership:hover{
+        background-color: rgb(4, 91, 243);
+    }
+    .mobMembership:hover{
+        background-color: rgb(4, 91, 243);
+    }
+    .contactspp{
+display: flex;
+padding: 10px;
+    }
+    .inboxpp{
+        display: flex;
+        padding: 10px;
+    }
+    .intropp{
+        display: flex;
+        padding: 10px;
+    }
+    .emailpp{
+        display: flex;
+        padding: 10px;
+    }
+    .signaturepp{
+        display: flex;
+        padding: 10px;
+    }
+}

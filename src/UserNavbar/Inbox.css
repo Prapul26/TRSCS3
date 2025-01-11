@@ -121,7 +121,14 @@
   tbody td {
     font-size: 0.85rem; /* Adjust body font size for mobile view */
   }
-  
+  .IBPPP{
+    width: 100%;
+    display: flex;
+  }
+  .IBPP{
+    width: 75%;
+    
+  }
   @media (max-width: 480px){
     table {
       font-size: 0.8rem; /* Further reduce font size on smaller screens */
@@ -139,7 +146,10 @@
       font-size: 0.8rem; /* Adjust button size for mobile view */
       padding: 6px 10px;
     }
-  
+    .IBPP{
+      width: 100%;
+      
+    }
     h3, h4 {
       font-size: 0.9rem; /* Reduce header sizes for mobile */
     }

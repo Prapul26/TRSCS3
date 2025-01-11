@@ -1,7 +1,11 @@
+.overH{
+    display: flex;
+}
 .fz1{
     
     height:100%;
     margin: 0px;
+    width: 75%;
 
 }
 .profileContainer1{
@@ -161,6 +165,13 @@ margin: 60px;
     }
     .pc12{
     width: 100%;
+    
+    }
+    .fz1{
+    
+        height:100%;
+        margin: 0px;
+        width: 100%;
     
     }
     .pc111{

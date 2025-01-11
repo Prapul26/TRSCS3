@@ -53,12 +53,11 @@ const handelUserNav=()=>{
         </div>
       }
       <div className="headerContainer">
-        <div  className="show"  style={{display:"flex"}}>
-       
-        <div className="arrow" onClick={handelUserNav}>
       
-         <div className="a1">{userNav ?  <FaArrowCircleLeft size={26} style={{paddingLeft:"10px"}}/>:<FaArrowCircleRight size={26}   style={{paddingLeft:"10px"}}/>}</div>
-        </div></div>
+       <div className="home2">
+   <div style={{marginRight:"5px"}}> <FaHome size={26}/></div>    <h3>Home</h3>
+       
+       </div>
         <div className="userProfile-container">
           <div className="profile-pic">
             <img src="https://tracsdev.apttechsol.com/public/uploads/custom-images/user-2024-07-09-02-52-30-9248.png" style={{height:"100%",width:"100%"}}/>

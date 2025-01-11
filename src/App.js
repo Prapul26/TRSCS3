@@ -17,6 +17,7 @@ import MakeIntroduction from "./UserNavbar/MakeIntroduction";
 import BusinessProfile from "./UserNavbar/BusinessProfile";
 import CreateBusinessProfile from "./UserNavbar/CreateBusinessProfile";
 import Signature from "./UserNavbar/Signature";
+import MobileNavbar from "./components/MobileNavbar/MobileNavbar";
 
 const App = () => {
   return (
@@ -41,6 +42,7 @@ const App = () => {
           <Route path="/businessProfile" element={<BusinessProfile/>}/>
 <Route path="/signature" element={<Signature/>}/>
           <Route path="/createBusinessProfile" element={<CreateBusinessProfile/>} />
+          <Route path="/mobileNavbar" element={<MobileNavbar/>}/>
         </Routes>
       </div>
     </Router>

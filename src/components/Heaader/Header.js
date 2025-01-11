@@ -77,6 +77,11 @@ showDrop1(false)
                 <h2>Pricing</h2>
             </div>
           </div>
+          <div className="pricing">
+          <Link to='/' style={{textDecoration:"none",color:"inherit"}}> <div className="Pricing">
+                <h2>Profile</h2>
+            </div></Link> 
+          </div>
           <div className="login">
             <button>Login</button>
           </div>

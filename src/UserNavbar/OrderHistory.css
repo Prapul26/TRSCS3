@@ -1,3 +1,7 @@
+.OHP{
+  width: 100%;
+  display: flex;
+}
 .orderHistoryTable {
     background: linear-gradient(90deg, rgb(154, 247, 247), rgb(98, 187, 255));
 
@@ -11,6 +15,10 @@
     
     float:right ;
     
+  }
+  .orderHistoryPage{
+    width: 75%;
+    height: 100vh;
   }
   .orderHistoryTable table {
     width: 100%; /* Ensure the table takes the full width */
@@ -42,5 +50,7 @@
     background-color: rgb(255, 213, 1);
   }
   @media (max-width: 480px){
-
+    .orderHistoryPage{
+      width: 100%;
+    }
   }

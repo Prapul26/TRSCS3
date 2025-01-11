@@ -2,7 +2,17 @@
     margin: 20px;
   
     float: right;
-}.Email-container {
+    
+}
+.EMPP{
+width: 75%;
+height: 100vh;
+}
+.EMPPP{
+    width: 100%;
+    display: flex;
+}
+.Email-container {
     overflow-x: auto; /* Enable horizontal scrolling */
    margin-left: 5%;
    margin-right: 5%;
@@ -45,4 +55,7 @@
     .Email-container table {
         min-width: 600px; /* Ensure the table retains its structure on small screens */
     }
-}
+    .EMPP{
+        width: 100%;
+        height: 100vh;
+        }}
