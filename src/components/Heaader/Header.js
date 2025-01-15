@@ -51,7 +51,7 @@ showDrop1(false)
           </div>
           <div className="home">
             <div className="Home">
-                <h2>Home</h2>
+               <Link to='/home' style={{textDecoration:"none",color:"inherit"}}><h2>Home</h2></Link> 
             </div>
           </div>
           <div className="aboutUs">
@@ -61,11 +61,11 @@ showDrop1(false)
           </div> {
             about && <div className="dropAbout">
 <div className="dropAboutUs">
-    <h2>About Us</h2>
+  <Link to='/about_us' style={{textDecoration:"none",color:"inherit"}}> <h2>About Us</h2></Link> 
 
 </div>
 <div className="dropContact">
-    <h2>Contact</h2>
+   <Link to='/contact' style={{textDecoration:"none",color:"inherit"}}> <h2>Contact</h2></Link>
 </div>
 <div className="dropPartner">
     <h2>Partners</h2>
@@ -74,11 +74,11 @@ showDrop1(false)
          }
           <div className="pricing">
             <div className="Pricing">
-                <h2>Pricing</h2>
+               <Link to='/pricing' style={{textDecoration:"none",color:"inherit"}}><h2>Pricing</h2></Link> 
             </div>
           </div>
           <div className="pricing">
-          <Link to='/' style={{textDecoration:"none",color:"inherit"}}> <div className="Pricing">
+          <Link to='/myMembership' style={{textDecoration:"none",color:"inherit"}}> <div className="Pricing">
                 <h2>Profile</h2>
             </div></Link> 
           </div>

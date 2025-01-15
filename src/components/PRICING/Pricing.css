@@ -1,0 +1,113 @@
+.pricing-holder{
+width: 70%;
+margin-left: 15%;
+margin-right: 15%;
+text-align: center;
+height: fit-content;
+margin-bottom: 20px;
+}
+.ph1{
+    height: 70px;
+    text-align: center;
+    background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
+    margin-top: -26px;
+}
+.p1h1 h1{
+    padding-top: 17px;
+    color: white;
+    font-size: 33px;
+}
+.pricing-details2{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+.pd1,.pd2,.pd3{
+    width: 30%;
+    margin-top: 30px;
+    border: .04rem solid rgb(185, 180, 180);
+    height: fit-content;
+    text-align: center;
+    border-radius: 20px;
+}
+.pricing-details2 button{
+margin-top: 20px;
+padding: 15px;
+background-color: blue;
+font-weight: 800;
+color: white;
+font-size: larger;
+}
+.pricing-details2 button:hover{
+    box-shadow: none;
+    background-color: aliceblue;
+    border: 1px solid black;
+    color: black;
+}
+.pricing-details2 ul{
+    text-decoration: none;
+}
+.pd1 ul, .pd2 ul, .pd3 ul {
+    list-style-type: none;
+    padding: 0;
+}
+.getb{
+margin-bottom: 30px;
+}
+.popup{
+    height: fit-content;
+   background: linear-gradient(to right, rgb(191, 215, 215), rgb(191, 215, 215));
+
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 20px;
+    position: fixed;
+    padding-bottom: 20px;
+}
+.popmsg{
+    display: flex;
+    text-align: center;
+    padding: 10px;
+}
+.popmsg h2{
+    color: white;
+}
+.paybutton{
+    border-top: .01rem solid black;
+    padding-top: 40px;
+    justify-content: left;
+    
+}
+.paybutton button{
+    margin-left: 20px;
+    width: 100px;
+    height: 40px;
+    background-color: rgb(239, 120, 35);
+}
+
+@media (min-width: 601px) and (max-width: 1024px){
+    .pricing-details2{
+        display: flex;
+        flex-direction: column;
+    }
+    .pd1,.pd2,.pd3{
+        width: 100%;
+    }
+    .pricing-holder:hover{
+        background-color:white;
+    }
+      }
+      @media (max-width: 600px){
+        .pricing-details2{
+            display: flex;
+            flex-direction: column;
+        }
+        .pd1,.pd2,.pd3{
+            width: 100%;
+        }
+        .pricing-holder :hover{
+            background-color:white;
+        }
+      }
+      

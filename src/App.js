@@ -18,6 +18,10 @@ import BusinessProfile from "./UserNavbar/BusinessProfile";
 import CreateBusinessProfile from "./UserNavbar/CreateBusinessProfile";
 import Signature from "./UserNavbar/Signature";
 import MobileNavbar from "./components/MobileNavbar/MobileNavbar";
+import Home from "./components/Home/Home";
+import Pricing from "./components/PRICING/Pricing";
+import About_us from "./components/ABOUT_US/About_us";
+
 
 const App = () => {
   return (
@@ -25,13 +29,16 @@ const App = () => {
       <div>
        
         <Routes>
-         
+         <Route path="/" element={<Home />}/>
+         <Route path="/about_us" element={<About_us/>}/>
+         <Route path="/home" element={<Home/>}/>
+         <Route path="/pricing" element={<Pricing/>}/>
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/inbox" element={<Inbox/>}/>
           <Route path="/email" element={<Email/>}/>
           <Route path="/intro" element={<Intro/>}/>
           <Route path="/addContacts" element={<AddContacts/>}/>
-          <Route path="/" element={<MyMembership/>} />
+          <Route path="/myMembership" element={<MyMembership/>} />
           <Route path="/orderHistory" element={<OrderHistory/>}/>
           < Route path="/orderStatus" element={<OrderStatus/>}/>
           <Route path="/accountSettings" element={<AccountSettings/>}/>
