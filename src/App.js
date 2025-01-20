@@ -21,16 +21,22 @@ import MobileNavbar from "./components/MobileNavbar/MobileNavbar";
 import Home from "./components/Home/Home";
 import Pricing from "./components/PRICING/Pricing";
 import About_us from "./components/ABOUT_US/About_us";
-
-
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
+import { useState } from "react";
+import Network from "./components/Network/Network";
+import Contact from "./components/Contact/Contact";
+import Partner from "./components/Partner/Partner";
 const App = () => {
+  const [isLogin, setIsLogin] = useState(true);
   return (
+    
     <Router>
       <div>
        
-        <Routes>
-         <Route path="/" element={<Home />}/>
+        <Routes><Route path='/' element={isLogin ? <Login switchToRegister={() => setIsLogin(false)} /> : <Register switchToLogin={() => setIsLogin(true)} />} />
          <Route path="/about_us" element={<About_us/>}/>
+         <Route path="/network" element={<Network/>}/>
          <Route path="/home" element={<Home/>}/>
          <Route path="/pricing" element={<Pricing/>}/>
           <Route path="/contacts" element={<Contacts />} />
@@ -45,11 +51,13 @@ const App = () => {
           <Route path="/header" element={<Header/>}/>
           <Route path="/navbar" element={<Navbar/>}/>
           <Route path="/footer" element={<Footer/>}/>
+          <Route path="/partner" element={<Partner/>}/>
           <Route path="/makeIntro" element={<MakeIntroduction />}/>
           <Route path="/businessProfile" element={<BusinessProfile/>}/>
 <Route path="/signature" element={<Signature/>}/>
           <Route path="/createBusinessProfile" element={<CreateBusinessProfile/>} />
           <Route path="/mobileNavbar" element={<MobileNavbar/>}/>
+          <Route path="/contact" element={<Contact/>}/>
         </Routes>
       </div>
     </Router>

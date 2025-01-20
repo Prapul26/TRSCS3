@@ -26,15 +26,12 @@ const Home = () => {
             <Header/>
             <Navbar />
             <div className='serch-container'>
-                <div className='sh3'>ajfbajnfiaf</div>
-                <div className='sh2'>Search Member Directory</div>
-                <div className='search-input'>
-                    <input type='text' placeholder='What are you looking for?' />
-                    <button>Search</button>
-                </div>
+               
+                <div className='sh2'><h2 >TRACS helps you effortlessly connect and make introductions like a champion!</h2></div>
+               
                 <div className='network-container'>
-                    <Link to='/members'><button>Manage Your Connections</button></Link>
-                    <button>Networking Meetings</button>
+                    <Link to='/makeIntro'><button>Make Introduction Instantly</button></Link>
+                   <Link to='/myMembership'><button><span>My Dashboard</span></button></Link> 
                 </div>
 
 
@@ -94,7 +91,7 @@ const Home = () => {
             </div>
             <div className='cardBottom'>
                 <div className='cdh'>
-                    <h1>Meet some happy customers</h1>
+                    <h1 >Meet some happy customers</h1>
                 </div>
                 <div className='bottnav3'>
                     <div className='bottnav1'></div>

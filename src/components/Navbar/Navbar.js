@@ -14,7 +14,7 @@ const Navbar = () => {
            <Link to='/home' style={{textDecoration:"none",color:"inherit"}}><li >HOME</li></Link> 
            <Link to='/about_us' style={{textDecoration:"none",color:"inherit"}}><li>ABOUT US</li></Link> 
            <Link to="/pricing" style={{textDecoration:"none",color:"inherit"}}><li>PRICING</li></Link> 
-            <li>NETWORK 101</li>
+           <Link to='/network' style={{textDecoration:"none",color:"inherit"}}> <li>NETWORK 101</li></Link>
         </ul>
       </div>
     </div>

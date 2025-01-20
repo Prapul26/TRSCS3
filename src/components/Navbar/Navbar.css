@@ -16,12 +16,13 @@
     margin-left: 20px;
     font-weight: 600;
     font-size: larger;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    font-family:sans-serif;
 }
 .navbar-holder li:hover{
-    border-bottom: 5px dotted rgb(255, 136, 0);
+   
     color: rgb(226, 16, 16);
-    font-weight: 900;
+    font-weight: 800;
+    margin-top: -3px;
 }
 @media(max-width:480px){
     .Navbar-Container{

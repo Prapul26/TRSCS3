@@ -33,9 +33,9 @@ const Signature = () => {
   <MobileNavbar/>
   <div className='SPPP'>
  <div className="usernav">
-          <div className="home-container">
+          <Link to='/home' style={{color:"inherit",textDecoration:"none"}}><div className="home-container">
           <FaHome size={25} style={{marginRight:'6px'}}/> <h2>Home</h2>
-          </div>
+          </div></Link> 
           <div className="navs">
           <Link to='/'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><MdOutlineCardMembership size={20} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Membership</h3> </div></Link>
            <Link to='/accountSettings'   style={{color:"inherit",textDecoration:"none"}}><div className="accountSettings"><div className="a3"><IoSettingsSharp size={20}  style={{marginTop:"22px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>Account Settings/Profile</h3> </div></Link> 
