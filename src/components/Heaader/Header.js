@@ -83,10 +83,10 @@ showDrop1(false)
             </div></Link> 
           </div>
           <div className="login">
-            <button>Login</button>
+           <Link to='/'style={{textDecoration:"none",color:"inherit"}}><button>Login</button></Link> 
           </div>
           <div className="register">
-            <button>Register</button>
+          <Link to='/register'style={{textDecoration:"none",color:"inherit"}}><button>Register</button></Link>  
           </div>
           <div className="social-Media">
           <a href="https://www.facebook.com/h7network"> <div className="fff"><FaFacebook size={30} /></div></a> 
