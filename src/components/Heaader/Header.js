@@ -4,6 +4,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
 import { FcGlobe } from "react-icons/fc";
+import { IoMenu } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropup } from "react-icons/io";
 import { CiMenuKebab } from "react-icons/ci";

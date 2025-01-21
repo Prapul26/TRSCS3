@@ -29,6 +29,7 @@ const MobileNavbar = () => {
         </div>
         
       </div>{
+        
           intros && <div className="introws">
          <Link to='/contacts' style={{textDecoration:"none",color:"inherit"}}> <div className="contactspp">Contacts</div></Link>  
           <Link  to='/inbox' style={{textDecoration:"none",color:"inherit"}}><div className="inboxpp">Inbox</div></Link>  
