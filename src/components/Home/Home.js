@@ -54,7 +54,7 @@ const Home = () => {
               Strengthening your reputation, while strengthening your
               Trusted-Relationships.
             </h1>
-            <Link to="/myMembership">
+            <Link to="/register">
               <button>Join Now</button>
             </Link>
           </div>

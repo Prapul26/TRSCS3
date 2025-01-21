@@ -76,7 +76,7 @@ const Footer = () => {
                     <p> Terms and Condition /  Privact Policy  /  Contact</p>
                 </div>
                 <div>
-                    <h3>copyright2024.ApiTech Solutions,Inc. All Rights Reserved.</h3>
+                    <h3>Copyright 2025 .AptTech Solutions Inc . All Rights Reserved.</h3>
                 </div>
 
             </div>

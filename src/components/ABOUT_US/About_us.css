@@ -18,7 +18,7 @@
     margin-bottom: 100px;
 }
 .a_1{
-    text-align: center;
+    
 }
 .a_1 h1{
 margin-top: 40px;
@@ -28,6 +28,7 @@ color: rgb(3, 3, 152);
 }
 .a_1 p{
     color: black;
+    justify-content: left;
 }
 .a_2{
     height: 400px;
