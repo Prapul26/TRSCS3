@@ -46,10 +46,10 @@ const Pricing = () => {
                     Basic.map((item,index)=>(
                         <div key={index} className='pd2'><button>Basic</button>
                          <h1>${item.price}</h1>
-                    <h2>{item.days} Days</h2>
+                    <h2>{item.days}  Days Trail</h2>
                     <ul>
                                 {item.details.map((detail, i) => (
-                                    <li key={i}>{detail}</li>
+                                    <li key={i}><p>{detail}</p></li>
                                 ))}
                             </ul>
                             <div className='getb'><button onClick={popUp}>GetStarted</button></div>
@@ -60,10 +60,10 @@ const Pricing = () => {
                     Standard.map((item,index)=>(
                          <div key={index} className='pd3'><button>Standard</button>
                           <h1>${item.price}</h1>
-                    <h2>{item.days} Days</h2>
+                    <h2>{item.days} Days Trail</h2>
                     <ul>
                                 {item.details.map((detail, i) => (
-                                    <li key={i}>{detail}</li>
+                                    <li key={i}><p>{detail}</p></li>
                                 ))}
                             </ul>
                             <div className='getb'><button onClick={popUp}>GetStarted</button></div>
