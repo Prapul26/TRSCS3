@@ -392,4 +392,13 @@ border-radius: 20px;
     .hd3-pic {
         width: 100%;
     }
+    .network-container{
+        margin-top: 115px;
+        flex-direction: column;
+    }
+    .sh2{
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+    }
 }

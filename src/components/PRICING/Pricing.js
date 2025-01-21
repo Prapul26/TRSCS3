@@ -41,18 +41,7 @@ const Pricing = () => {
                     <p>Discover the perfect plan for your needs with our flexible and affordable pricing packages. Whether you're an individual professional, a small business, or a growing enterprise, we have options tailored to suit you.</p>
                 </div>
                 <div className='pricing-details2'>
-                  {
-                    Trail.map((item,index)=>( <div key={index} className='pd1'><button>Trail</button>
-                    <h1>${item.price}</h1>
-                    <h2>{item.days} Days</h2>
-                    <ul>
-                                {item.details.map((detail, i) => (
-                                    <li key={i}>{detail}</li>
-                                ))}
-                            </ul>
-                            <div className='getb'><button onClick={popUp}>GetStarted</button></div>
-                            </div>))
-                  } 
+                 
                    {
                     Basic.map((item,index)=>(
                         <div key={index} className='pd2'><button>Basic</button>
