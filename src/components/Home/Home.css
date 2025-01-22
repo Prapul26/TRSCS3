@@ -2,8 +2,8 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #00FFFF, #007FFF);
-    height: 150px;
+background-image: url(https://tracsdev.apttechsol.com/public/uploads/website-images/home-page-banner-2023-12-22-06-38-08-6613.jpg)
+;    height: 150px;
 
 }
 
@@ -84,10 +84,10 @@ h1{
 }
 
 .network-container button {
-    border-radius: 5px;
+    border-radius: 15px;
     margin-left: 15px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
 
     color: aliceblue;
     background:  #e38418;

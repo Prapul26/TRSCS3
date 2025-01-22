@@ -25,7 +25,7 @@ const Home = () => {
     <div className="homeHolder">
       <Header />
       <Navbar />
-      <div className="serch-container">
+      <div className="serch-container" >
         <div className="sh2">
           <h2>
             TRACS helps you effortlessly connect and make introductions like a
