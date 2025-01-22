@@ -84,7 +84,7 @@ showDrop1(false)
             </div></Link> 
           </div>
           <div className="login">
-           <Link to='/'style={{textDecoration:"none",color:"inherit"}}><button>Login</button></Link> 
+           <Link to='/login'style={{textDecoration:"none",color:"inherit"}}><button>Login</button></Link> 
           </div>
           <div className="register">
           <Link to='/register'style={{textDecoration:"none",color:"inherit"}}><button>Register</button></Link>  

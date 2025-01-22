@@ -34,11 +34,12 @@ const App = () => {
     <Router>
       <div>
        
-        <Routes><Route path='/' element={isLogin ? <Login switchToRegister={() => setIsLogin(false)} /> : <Register switchToLogin={() => setIsLogin(true)} />} />
+        <Routes><Route path='/login' element={isLogin ? <Login switchToRegister={() => setIsLogin(false)} /> : <Register switchToLogin={() => setIsLogin(true)} />} />
           <Route path="/register" element={<Register/>}/>
          <Route path="/about_us" element={<About_us/>}/>
          <Route path="/network" element={<Network/>}/>
-         <Route path="/home" element={<Home/>}/>
+         <Route path="/" element={<Home/>}/>
+         <Route path='/home' element={<Home/>}/>
          <Route path="/pricing" element={<Pricing/>}/>
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/inbox" element={<Inbox/>}/>
