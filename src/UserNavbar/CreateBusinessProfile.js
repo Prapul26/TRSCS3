@@ -3,7 +3,7 @@ import './CreateBusinessProfile.css'
 import UserHeader from '../components/UserHeader'
 const CreateBusinessProfile = () => {
   return (
-    <div>
+    <div className='cbpbc'>
       <UserHeader/>
       <div className="c-header">
           <div className="c-h1">

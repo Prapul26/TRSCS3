@@ -33,3 +33,7 @@ margin-bottom: 1px solid black;
 .phone-Holder{
     display: flex;
 }
+.cbpbc{
+    background-color: rgb(218, 217, 216);
+    height: 100vh;
+}

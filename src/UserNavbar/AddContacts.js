@@ -3,7 +3,7 @@ import "./AddContacts.css";
 import UserHeader from "../components/UserHeader";
 const AddContacts = () => {
   return (
-    <div>
+    <div className="addcon">
       <UserHeader />
       <div className="addContacts-container">
         <form>

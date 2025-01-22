@@ -37,3 +37,7 @@ background-color: orangered;
 border: transparent;
 border-radius: 5px;
 }
+.addcon{
+    background-color: rgb(218, 217, 216);
+    height: 100vh;
+}

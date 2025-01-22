@@ -80,6 +80,9 @@
     width: 75%;
     height: 100vh;
 }
+.OMH {
+    background-color: rgb(218, 217, 216);
+}
 @media(max-width:480px){
     .myMembership-container{
         width: 90%;
