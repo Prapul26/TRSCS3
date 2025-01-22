@@ -90,9 +90,9 @@ showDrop1(false)
           <Link to='/register'style={{textDecoration:"none",color:"inherit"}}><button>Register</button></Link>  
           </div>
           <div className="social-Media">
-          <a href="https://www.facebook.com/h7network"> <div className="fff"><FaFacebook size={30} /></div></a> 
-           <a href="https://twitter.com"><div className="ffx"><FaSquareXTwitter size={30} /></div></a> 
-           <a href="https://www.linkedin.com/company/h7network/"><div className="ffn"> <FaLinkedin size={30} /></div></a> 
+          <a href="https://www.facebook.com/h7network"> <div className="fff"><FaFacebook size={30}  color="white" /></div></a> 
+           <a href="https://twitter.com"><div className="ffx"><FaSquareXTwitter size={30}  color="white"/></div></a> 
+           <a href="https://www.linkedin.com/company/h7network/"><div className="ffn"> <FaLinkedin size={30}  color="white"/></div></a> 
           </div>
         </div>
       )}
@@ -100,14 +100,14 @@ showDrop1(false)
         <div className="socila-icons">
          <a href="https://www.facebook.com/h7network"><div className="facebook">
             {" "}
-            <FaFacebook size={28} />
+            <FaFacebook size={28} color="white" />
           </div></a> 
          <a href="https://twitter.com"><div className="x">
             {" "}
-            <FaSquareXTwitter size={28} />
+            <FaSquareXTwitter size={28}  color="white"/>
           </div></a> 
          <a href="https://www.linkedin.com/company/h7network/"><div className="LinkedIn">
-            <FaLinkedin size={28} />
+            <FaLinkedin size={28}  color="white"/>
           </div></a> 
         </div>
         <div className="pic">

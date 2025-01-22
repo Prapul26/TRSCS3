@@ -54,15 +54,15 @@ const Footer = () => {
                 <div className='contact-container'>
                     <div className='contact'>
                         <h1>Contact Us</h1>
-                        <div style={{ borderBottom: "1px solid #9a9a9a " }}><ul style={{ display: "flex", flexDirection: "column", flexWrap: "wrap" }}>
-                            <li >4031 Colonel Glenn Hwy Suite 416,Dayton ,OH 45431</li></ul></div>
+                        <div style={{ borderBottom: "1px solid #9a9a9a " }}><ul style={{ display: "flex", flexDirection: "column", flexWrap: "wrap",textDecoration:"none" }}>
+                            <li style={{listStyle:"none"}}>4031 Colonel Glenn Hwy Suite 416,Dayton ,OH 45431</li></ul></div>
 
 
-                        <div style={{ borderBottom: "1px solid #9a9a9a " }}><ul><li >support@tracs.app</li>
+                        <div style={{ borderBottom: "1px solid #9a9a9a " }}><ul><li style={{listStyle:"none"}}>support@tracs.app</li>
                         </ul></div>
                         <div >
                             <ul>
-                                <li>513.371.5299</li>
+                                <li style={{listStyle:"none"}}>513.371.5299</li>
                             </ul>
                         </div>
 

@@ -90,7 +90,7 @@ h1{
     padding-right: 25px;
 
     color: aliceblue;
-    background: linear-gradient(to right, #e38418, #cff720);
+    background:  #e38418;
 }
 
 .home-details {
@@ -125,7 +125,7 @@ h1{
     margin-top: 20px;
     height: 30px;
     width: 150px;
-    background-color: orange;
+    background:  #e38418;
 }
 
 .line-1 {
