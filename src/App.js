@@ -27,6 +27,7 @@ import { useState } from "react";
 import Network from "./components/Network/Network";
 import Contact from "./components/Contact/Contact";
 import Partner from "./components/Partner/Partner";
+import MemberDetails from "./components/MemberDetails/MemberDetails";
 const App = () => {
   const [isLogin, setIsLogin] = useState(true);
   return (
@@ -37,6 +38,7 @@ const App = () => {
         <Routes><Route path='/login' element={isLogin ? <Login switchToRegister={() => setIsLogin(false)} /> : <Register switchToLogin={() => setIsLogin(true)} />} />
           <Route path="/register" element={<Register/>}/>
          <Route path="/about_us" element={<About_us/>}/>
+         <Route path="/memberDetails" element={<MemberDetails/>}/>
          <Route path="/network" element={<Network/>}/>
          <Route path="/" element={<Home/>}/>
          <Route path='/home' element={<Home/>}/>

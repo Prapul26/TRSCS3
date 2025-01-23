@@ -127,6 +127,8 @@
   }
   .IBPP{
     width: 75%;
+    margin-left: 25%;
+    background-color: rgb(218, 217, 216);
     
   }
   @media (max-width: 480px){
@@ -148,6 +150,7 @@
     }
     .IBPP{
       width: 100%;
+      margin: 0px;
       
     }
     h3, h4 {

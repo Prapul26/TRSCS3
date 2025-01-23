@@ -7,6 +7,7 @@
     height:100%;
     margin: 0px;
     width: 75%;
+  margin-left: 25%;
 
 }
 .profileContainer1{
@@ -173,7 +174,7 @@ margin: 60px;
         height:100%;
         margin: 0px;
         width: 100%;
-    
+   
     }
     .pc111{
         display: flex;

@@ -19,6 +19,9 @@
   .orderHistoryPage{
     width: 75%;
     height: 100vh;
+    background-color: rgb(243, 241, 239);
+    margin-left: 25%;
+
   }
   .orderHistoryTable table {
     width: 100%; /* Ensure the table takes the full width */

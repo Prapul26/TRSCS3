@@ -36,11 +36,13 @@
   .BPP{
     width: 75%;
     height: 100vh;
+    margin-left: 25%;
   }
   .BPPPPP{
     width: 100%;
     display: flex;
     background-color: rgb(218, 217, 216);
+    
   }
   @media (max-width: 480px){
     .activeStatus{
@@ -50,5 +52,6 @@
     .BPP{
       width: 100%;
       height: 100vh;
+      margin: 0px;
     }
   }

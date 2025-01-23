@@ -1,7 +1,7 @@
 .headerContainer{
     height: 70px;
-    background: linear-gradient(to right, #16dd16, #ac2eda);
-display: flex;
+background-color: white;
+    display: flex;
 width: 100%;
 align-items: center;
 
@@ -66,21 +66,22 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-top: 30px;
 }
 .navs{
-    color: wheat;
+    color: rgb(24, 24, 24);
     padding: 10px;
 }
 
 
 .usernav{
     width: 25%;
-
-
-    background-color: #000000;
-    cursor: pointer;
+color: #000000;
+position: fixed;
+height: 100%;
+margin-top: -70px;
+background-color: white;    cursor: pointer;
 }
 .membership{
     display: flex;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid black;
 }
 .navs h3:hover{
     color: rgb(25, 232, 18);
@@ -94,25 +95,25 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .businessProfile{
     display: flex;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid black;
 }
 .accountSettings{
     display: flex;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid black;
 }
 .intoNav{
     padding-left: 10px;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid black;
     cursor: pointer;
 }
 
 .intro1{
-    border-bottom: 1px solid;
+    border-bottom: 1px solid black;
 }
 .navs h3{
     margin-top: 19px;
     margin-bottom: 3px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 .home2{
     display: flex;
@@ -122,7 +123,12 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     align-items: center;
     display: none;
 }
-
+.home-container{
+    color: #000000;
+}.home-container h2{
+    color: #000000;
+    
+}
 @media (max-width: 480px) {
     .headerContainer {
         padding: 5px;
