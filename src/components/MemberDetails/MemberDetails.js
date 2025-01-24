@@ -198,19 +198,7 @@ const MemberDetails = () => {
                     </ul>
                   </div>
                 </div>
-                <div className="location">
-                  <div className="location-card" style={{ padding: "15px" }}>
-                    <h1>Locations</h1>
-                    <ul style={{ listStyle: "none", padding: "0px" }}>
-                      {data && (
-                        <li>
-                          <IoIosArrowForward />
-                          {data.location}
-                        </li>
-                      )}
-                    </ul>
-                  </div>
-                </div>
+              
               </div>
             </div>
             <div className="c-holder">
@@ -260,40 +248,6 @@ const MemberDetails = () => {
                     <a href="https://www.youtube.com/watch?v=3ctoSEQsY54">
                       <FaRegCirclePlay className="play" size="35" />
                     </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rate" style={{marginBottom:"30px"}}>
-                <div className="rate-card" style={{ padding: "10px" }}>
-                  <h1>Add Review & Rate</h1>
-                  <div className="rate-form">
-                    <select
-                      value={rating}
-                      onChange={handleRatingChange}
-                      className="rating-dropdown"
-                    >
-                      <IoIosStarOutline />
-                      <option value="" disabled>
-                        <IoIosStarOutline />1
-                      </option>
-                      <option value="1">1</option>
-                      <option value="2">2 </option>
-                      <option value="3">3 </option>
-                      <option value="4">4 </option>
-                      <option value="5">5</option>
-                    </select>
-                    <br></br>
-                    <textarea
-                      value={comment}
-                      onChange={handleCommentChange}
-                      className="comment-box"
-                      placeholder="COMMENT"
-                    />
-                    <br></br>
-                    <button onClick={handleSubmit} className="submit-button">
-                      Submit Review
-                    </button>
                   </div>
                 </div>
               </div>
