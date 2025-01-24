@@ -3,8 +3,7 @@
   display: flex;
 }
 .orderHistoryTable {
-    background: linear-gradient(90deg, rgb(154, 247, 247), rgb(98, 187, 255));
-
+background-color: white;
     margin-top:120px ;
     margin-left:20px ;
     margin-right: 20px;

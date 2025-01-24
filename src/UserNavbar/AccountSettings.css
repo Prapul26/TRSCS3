@@ -25,6 +25,7 @@ width: 30%;
 }
 .nameInput{
 width: 100%;
+border: 1px solid black;
 background-color: white;
 display: flex;
 margin-top: 10px;margin-bottom: 20px;
@@ -33,11 +34,12 @@ margin-top: 10px;margin-bottom: 20px;
     width: 100%;
     background-color: white;
     display: flex;
+    border: 1px solid black;
     margin-top: 10px;margin-bottom: 20px;
 }
 .emailInput{
     width: 100%;
-   
+    border: 1px solid black;
     background-color: white;
     display: flex;
     margin-top: 10px;margin-bottom: 20px;
@@ -49,9 +51,11 @@ margin-top: 10px;margin-bottom: 20px;
 }
 .email{
     width: 50%;
+    
 }
 .addressInput{
     width: 100%;
+    border: 1px solid black;
     background-color: white;
     display: flex;
     margin-top: 10px;margin-bottom: 20px;
@@ -104,14 +108,14 @@ margin: 60px;
 }
 
 .prc1{
-    background: linear-gradient(90deg, rgb(154, 247, 247), rgb(98, 187, 255));
+    background: white;
     margin: 20px;
 }
 .profileContainer2{
     margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
-    background: linear-gradient(90deg, rgb(154, 247, 247), rgb(98, 187, 255));
+background-color: white;
     margin-bottom: 0px;
     padding: 20px;
 
@@ -127,6 +131,7 @@ margin: 60px;
 }
 .current{
     width: 48%;
+   
     
 }
 .new{
@@ -137,6 +142,7 @@ margin: 60px;
 }
 .currentInput ,.newInput,.confirmInput {
     display: flex;
+    border: 1px solid black;
     margin-top: 10px;
     margin-bottom: 20px;
    background-color: white;

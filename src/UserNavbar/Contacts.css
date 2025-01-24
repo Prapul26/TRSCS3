@@ -93,11 +93,11 @@ background-color: rgb(5, 172, 243);
 }
 
 .contacts-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
 }
 
 .contacts-table tbody tr:hover {
-    background-color: #e8f5ff; /* Highlight row on hover */
+    background-color: #ffffff; /* Highlight row on hover */
     transition: background-color 0.3s ease;
 }
 

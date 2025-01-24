@@ -6,3 +6,8 @@
     width: 80%;
     height: 600px;
 }
+@media(max-width:480px){
+  .networkContainer{
+    height: 100vh;
+  }
+}
