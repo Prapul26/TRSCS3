@@ -46,7 +46,7 @@ const Footer = () => {
                         </h1>
                       <Link to='/home' style={{textDecoration:"none",color:"inherit"}}> <p>Home</p></Link> 
                       <Link to='/pricing' style={{textDecoration:"none",color:"inherit"}}> <p>Pricing</p></Link> 
-                      <Link to='/aboutUs' style={{textDecoration:"none",color:"inherit"}}><p>About Us</p></Link>  
+                      <Link to='/about_us' style={{textDecoration:"none",color:"inherit"}}><p>About Us</p></Link>  
                       <Link to='/blog' style={{textDecoration:"none",color:"inherit"}}> <p>Blog</p></Link>
 
                     </div>
