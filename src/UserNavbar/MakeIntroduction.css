@@ -203,5 +203,23 @@ word-wrap: break-word;
             .addContacts input{
                 height: 30px;
             }
+            .email-item{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                background-color: rgb(255, 255, 255);
+                padding: 5px;
+                
+                
+                }
+                .selected-user-photo{
+width: 30%;
+                }
+                .selected-user-info{
+                    width: 100%;
+                    word-break: normal;
+                    margin-left: -10px;
+                   
+                }
             
 }
