@@ -36,8 +36,8 @@ height: fit-content;
     margin-bottom: 30px;
 }
 .checkbox-list{
-    background-color: rgb(140, 184, 173);
-    height: 100px;
+    background-color: rgb(230, 242, 239);
+    height: 200px;
     overflow-y: auto;
     width: 80%;
 }
@@ -93,6 +93,32 @@ padding: 5px;
     float: left;
     margin-top: -40px;
 }
+.checkbox-item img{
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+    margin-top: -10px;
+    margin-left: 5px;
+    margin-right: 10px;
+    }
+    .checkbox-item input{
+        margin-top: 30px;
+        
+    }
+    .spandiv{
+        display: flex;
+        margin-left: 20px;
+        
+        margin-top: -30px;
+        margin-bottom: 30px;
+    }
+    .spandiv h4{
+        color: black;
+        
+    }
+    .spandiv h3{
+        color: black;
+    }
 @media(max-width:480px){
     .info-holder{
         margin-top: 30px;
@@ -107,4 +133,10 @@ padding: 5px;
        
     height: fit-content;
     } 
+    .checkbox-list{
+        background-color: rgb(140, 184, 173);
+        height: 200px;
+        overflow-y: auto;
+        width: 100%;
+    }
 }
