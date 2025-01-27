@@ -66,6 +66,7 @@ const MakeIntroduction = () => {
   const [selectedEmails, setSelectedEmails] = useState([]);
   const [searchText, setSearchText] = useState("");
 const[addContacts,showAdd]=useState(false);
+const [selectedOption, setSelectedOption] = useState("H7 Members"); // New state
 const handleToggle = (user) => {
   setSelectedEmails((prevSelected) =>
     prevSelected.find((item) => item.email === user.email)
@@ -83,7 +84,7 @@ const handleRemove = (email) => {
   const filteredUsers = users.filter((user) =>
     user.name.toLowerCase().includes(searchText.toLowerCase())
   );
-const hnadlePlus=()=>{
+const handlePlus=()=>{
   showAdd(!addContacts)
 }
 const handelcross=()=>{
@@ -100,10 +101,11 @@ const handelcross=()=>{
         <div className="form-group">
           <label>To</label>
           <br />
-          <select className="toSelect">
-            <option>H7 Members</option>
-            <option>TRACS Members</option>
-            <option>My Contact</option>
+          <select className="toSelect"   value={selectedOption}
+  onChange={(e) => setSelectedOption(e.target.value)} >
+            <option value='h7member'>H7 Members</option>
+            <option value='tracs'>TRACS Members</option>
+            <option value='myContact'>My Contact</option>
           
           </select>
         </div>
@@ -117,7 +119,15 @@ const handelcross=()=>{
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             className="searchInput"
-          /><div style={{marginTop:"18px",marginLeft:"25px"}} onClick={hnadlePlus}><FaPlus color="green" size={25}/></div></div>
+          />    {selectedOption === "myContact" && (
+            <div
+              className="addbuttoncontacts"
+              style={{ marginTop: "18px", marginLeft: "25px" }}
+              onClick={handlePlus}
+            >
+              <FaPlus color="green" size={25} />
+            </div>
+          )}</div>
            {
       addContacts && <div className="addContacts">
 <div style={{padding:"20px",borderBottom:"1px solid black",display:"flex",justifyContent:"space-between"}}>
