@@ -2,8 +2,9 @@ import React from "react";
 import "./MakeIntroduction.css";
 import { useState } from "react";
 import { IoMail } from "react-icons/io5";
+import { RxCross2 } from "react-icons/rx";
 import { IoMdPerson } from "react-icons/io";
-
+import { FaPlus } from "react-icons/fa";
 import Header from "../components/Heaader/Header";
 import Navbar from "../components/Navbar/Navbar";
 import { ImCross } from "react-icons/im";
@@ -64,25 +65,30 @@ const MakeIntroduction = () => {
 
   const [selectedEmails, setSelectedEmails] = useState([]);
   const [searchText, setSearchText] = useState("");
+const[addContacts,showAdd]=useState(false);
+const handleToggle = (user) => {
+  setSelectedEmails((prevSelected) =>
+    prevSelected.find((item) => item.email === user.email)
+      ? prevSelected.filter((item) => item.email !== user.email)
+      : [...prevSelected, user]
+  );
+};
 
-  const handleToggle = (email) => {
-    setSelectedEmails((prevSelected) =>
-      prevSelected.includes(email)
-        ? prevSelected.filter((item) => item !== email)
-        : [...prevSelected, email]
-    );
-  };
-
-  const handleRemove = (email) => {
-    setSelectedEmails((prevSelected) =>
-      prevSelected.filter((item) => item !== email)
-    );
-  };
+const handleRemove = (email) => {
+  setSelectedEmails((prevSelected) =>
+    prevSelected.filter((item) => item.email !== email)
+  );
+};
 
   const filteredUsers = users.filter((user) =>
     user.name.toLowerCase().includes(searchText.toLowerCase())
   );
-
+const hnadlePlus=()=>{
+  showAdd(!addContacts)
+}
+const handelcross=()=>{
+  showAdd(false)
+}
   return (
     <div className="make">
       <Header />
@@ -98,25 +104,51 @@ const MakeIntroduction = () => {
             <option>H7 Members</option>
             <option>TRACS Members</option>
             <option>My Contact</option>
+          
           </select>
         </div>
 
         <div className="form-group">
           <label>Who would you like to send email to</label> <br />
-          <input
+          
+          <div style={{display:"flex"}}><input
             type="text"
             placeholder="Search..."
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             className="searchInput"
-          />
+          /><div style={{marginTop:"18px",marginLeft:"25px"}} onClick={hnadlePlus}><FaPlus color="green" size={25}/></div></div>
+           {
+      addContacts && <div className="addContacts">
+<div style={{padding:"20px",borderBottom:"1px solid black",display:"flex",justifyContent:"space-between"}}>
+  <div><h3>Add New Contact</h3></div>
+  <div onClick={handelcross}><RxCross2 size={20}/></div>
+  
+  </div>
+<div style={{padding:"20px"}}>
+  <h3>First Name</h3>
+  <input style={{width:"100%",marginTop:"10px"}}/>
+</div>
+<div style={{padding:"20px"}}>
+  <h3>last Name</h3>
+  <input style={{width:"100%",marginTop:"10px"}}/>
+</div>
+<div style={{padding:"20px"}}>
+  <h3>email </h3>
+  <input style={{width:"100%",marginTop:"10px"}}/>
+</div>
+<div style={{display:"flex",padding:"20px"}}>
+   <button style={{background:"grey"}}>cancel</button><button style={{background:"orange",marginLeft:"20px"}} >SAVE</button>
+</div>
+      </div>
+    }
           <div className="checkbox-list">
             {filteredUsers.map((user) => (
               <div key={user.email} className="checkbox-item">
                 <input
                   type="checkbox"
                   checked={selectedEmails.includes(user.email)}
-                  onChange={() => handleToggle(user.email)}
+                  onChange={() => handleToggle(user)}
                 />
                 <span className="spandiv">
                   <div className="spanImg">
@@ -151,19 +183,25 @@ const MakeIntroduction = () => {
         </div>
 
         <div className="selected-emails">
-          <h4>Selected Emails</h4>
-          {selectedEmails.map((email) => (
-            <div key={email} className="email-item">
-              <IoMdPerson size={25} />
-              <span>{email}</span>
-              <ImCross
-                size={20}
-                color="red"
-                onClick={() => handleRemove(email)}
-              />
-            </div>
-          ))}
-        </div>
+  <h4>Selected Emails</h4>
+  {selectedEmails.map((user) => (
+    <div key={user.email} className="email-item">
+      <div className="selected-user-photo">
+        <img src={user.photo} alt={user.name} style={{ width: "40px", height: "40px", borderRadius: "50%" }} />
+      </div>
+      <div className="selected-user-info">
+        
+        <span>{user.name} ({user.email})</span>
+      </div>
+      <ImCross
+        size={20}
+        color="red"
+        onClick={() => handleRemove(user.email)}
+      />
+    </div>
+  ))}
+</div>
+
         <label>Select Template</label>
         <br />
         <select className="templateSelect">
@@ -188,8 +226,9 @@ const MakeIntroduction = () => {
           </button>
         </div>
       </div>
-      <Footer />
+      <Footer /> 
     </div>
+  
   );
 };
 

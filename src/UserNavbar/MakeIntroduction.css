@@ -134,6 +134,24 @@ word-wrap: break-word;
         word-wrap: break-word;
         line-break: auto;
     }
+    .addContacts{
+        height: fit-content;
+     
+        width: 40%;
+        margin-top: -400px;
+        margin-right: 20%;
+        margin-left: 20%;
+        background-color: #d2daf9;
+        position: fixed;
+        border-radius: 5px;
+    }
+    .addContacts h3{
+        color: black;
+    }
+    .addContacts input{
+        height: 30px;
+        border-radius: 5px;
+    }
 @media(max-width:480px){
     .info-holder{
         margin-top: 30px;
@@ -172,4 +190,18 @@ word-wrap: break-word;
             .emailSpan{
               
             }
+            .addContacts{
+                height: fit-content;
+             
+                width: 90%;
+                margin-top: -200px;
+                margin-right: 0%;
+                margin-left: -6%;
+                background-color: #d2daf9;
+                position: fixed;
+            }
+            .addContacts input{
+                height: 30px;
+            }
+            
 }
