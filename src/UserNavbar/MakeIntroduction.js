@@ -46,7 +46,7 @@ const MakeIntroduction = () => {
       <Header/>
       <Navbar/>
       <div className='crub'>
-       <h1>Make Introduction</h1>
+       <h1 style={{color:'white'}}>Make Introduction</h1>
       </div>
       <div className='info-holder'> 
       <div className="form-group">
