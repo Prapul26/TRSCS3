@@ -40,6 +40,7 @@ height: fit-content;
     height: 200px;
     overflow-y: auto;
     width: 80%;
+    overflow-x: auto;
 }
 .info-holder label{
     font-weight: 700;
@@ -108,7 +109,7 @@ padding: 5px;
     .spandiv{
         display: flex;
         margin-left: 20px;
-        
+     
         margin-top: -30px;
         margin-bottom: 30px;
     }
@@ -118,6 +119,20 @@ padding: 5px;
     }
     .spandiv h3{
         color: black;
+    }
+    .spamData{
+margin-left: 20px;
+word-wrap: break-word;
+    }
+    .spamImg{
+        width: 40px;
+    }
+    .spamImg image{
+        width: 100%;
+    }
+    .emailSpan{
+        word-wrap: break-word;
+        line-break: auto;
     }
 @media(max-width:480px){
     .info-holder{
@@ -134,9 +149,27 @@ padding: 5px;
     height: fit-content;
     } 
     .checkbox-list{
-        background-color: rgb(140, 184, 173);
+        background-color: rgb(212, 223, 220);
         height: 200px;
         overflow-y: auto;
+       overflow-x: scroll;
         width: 100%;
     }
+    .spandiv{
+        display: flex;
+    }
+    .spamData{
+      
+      width: 70%;
+            }
+            .spamImg{
+                width: 30%;
+               
+            }
+            .spamImg image{
+               
+            }
+            .emailSpan{
+              
+            }
 }
