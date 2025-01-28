@@ -91,7 +91,8 @@ padding: 5px;
 }
 .formButtons{
     display: flex;
-    float: left;
+ float: right;
+  margin-right:20%;
     margin-top: -40px;
 }
 .checkbox-item img{
@@ -151,6 +152,9 @@ word-wrap: break-word;
     .addContacts input{
         height: 30px;
         border-radius: 5px;
+    }
+    .lastbutton{
+        justify-content: space-between;
     }
 @media(max-width:480px){
     .info-holder{
@@ -221,5 +225,10 @@ width: 30%;
                     margin-left: -10px;
                    
                 }
-            
+                .lastbutton{
+                    flex-direction: column;
+                }
+            .formButtons{
+                margin-top: 20px;
+            }
 }

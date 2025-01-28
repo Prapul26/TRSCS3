@@ -81,13 +81,17 @@ background-color: white;    cursor: pointer;
 }
 .membership{
     display: flex;
-    border-bottom: 1px solid black;
+   
 }
 .navs h3:hover{
     color: rgb(25, 232, 18);
 }
 .logout{
     display: flex;
+}
+.accountSettings{
+    display: flex;
+    justify-content: space-between;
 }
 .introduction{
     display: flex;

@@ -21,9 +21,15 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { IoPerson } from "react-icons/io5";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
+import SideNav from "./SideNav";
 const Contacts = () => {
   const[intro,showIntro]=useState(false)
+  const [settings,showSettings]=useState(false);
+     const handelSettings=()=>{
+      showSettings(!settings);
+     }
     const handelIntro=()=>{
       showIntro(!intro)
     }
@@ -32,28 +38,8 @@ const Contacts = () => {
     <MobileNavbar/>
       <div className="CPPPPP">
          <div className="usernav">
-                 <Link to='/home' style={{color:"inherit",textDecoration:"none"}}><div className="home-container">
-                  <FaHome size={25} style={{marginRight:'6px'}}/> <h2>Home</h2>
-                  </div></Link>  
-                  <div className="navs">
-                  <Link to='/myMembership'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><MdOutlineCardMembership size={20} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Membership</h3> </div></Link>
-                   <Link to='/accountSettings'   style={{color:"inherit",textDecoration:"none"}}><div className="accountSettings"><div className="a3"><IoSettingsSharp size={20}  style={{marginTop:"22px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>Account Settings/Profile</h3> </div></Link> 
-                  <Link to='/businessProfile'style={{color:"inherit",textDecoration:"none"}}><div className="businessProfile"><div className="a5"><ImProfile size={20} style={{marginTop:"22px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Business Profile</h3> </div></Link>  
-                   <div className="intro1">
-                    <div className="introduction" onClick={handelIntro}><h3><span style={{marginTop:'5px'}}><FaBriefcase  size={20} style={{paddingLeft:'5px',paddingRight:'5px' ,alignContent:"center",justifyContent:"center"}}/></span>Introduction</h3> {intro ?< IoIosArrowDropup size={22} style={{marginTop:"20px"}}/>:<IoIosArrowDropdown size={22} style={{marginTop:"20px"}} />}</div>
-                    {
-                      intro && <div className="intoNav">
-                        <Link to='/contacts' style={{color:"inherit",textDecoration:"none"}}><h3>< RiContactsFill style={{marginRight:'3px',}} />Contacts</h3></Link>
-                       <Link to='/inbox'  style={{color:"inherit",textDecoration:"none"}}><h3><HiInboxArrowDown style={{marginRight:'3px'}}/>Inbox</h3></Link> 
-                       <Link to='/makeIntro'style={{color:"inherit",textDecoration:"none"}} > <h3><IoBookOutline style={{marginRight:'3px'}}/>Make Introduction</h3></Link>
-                       <Link to='/email'style={{color:"inherit",textDecoration:"none"}} ><h3><MdOutlineEmail style={{marginRight:'3px'}} />Email Templates</h3></Link> 
-                       <Link to='/signature'style={{color:"inherit",textDecoration:"none"}} ><h3><FaFileSignature style={{marginRight:'3px'}} />Signature</h3></Link> 
-        
-                      </div>
-                    }</div>
-                    <div className="logout" style={{display:"flex"}}><div className="a4"><SlLogout style={{marginTop:'23px',paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>Logout</h3> </div>
-                  </div>
-                </div>
+                       <SideNav/>
+                          </div>
     <div  className="CPP">
       
       <div className="contacts-container">
@@ -80,7 +66,7 @@ const Contacts = () => {
           </div>
           <div className="add">
             <div className="downloadB">
-              <button>Download Sample</button>
+              <button>Download Template</button>
             </div>
             <div className="addB">
              <Link to='/addContacts' style={{textDecoration:"none",color:"inherit"}}> <button>Add Contacts</button></Link> 
@@ -93,6 +79,7 @@ const Contacts = () => {
                     <tr>
                         <td>First Name</td>
                         <td>Last Name</td>
+                        <td>Group name</td>
                         <td>Email</td>
                         <td>Created On</td>
                         <td>Action</td>
@@ -102,6 +89,7 @@ const Contacts = () => {
                     <tr>
                         <td>dawda</td>
                         <td>awdad</td>
+                        <td>H7 member</td>
                         <td>awdad</td>
                         <td>awdad</td>
                         <td ><button style={{background:"green"}}>edit</button><button style={{background:"red"}}>delete</button></td>
@@ -109,6 +97,8 @@ const Contacts = () => {
                     <tr>
                         <td>dawda</td>
                         <td>awdad</td>
+                        <td>TRACS member</td>
+
                         <td>awdad</td>
                         <td>awdad</td>
                         <td ><button style={{background:"green"}}>edit</button><button style={{background:"red"}}>delete</button></td>
@@ -116,6 +106,8 @@ const Contacts = () => {
                     <tr>
                         <td>dawda</td>
                         <td>awdad</td>
+                        <td>H7 member</td>
+
                         <td>awdad</td>
                         <td>awdad</td>
                         <td ><button style={{background:"green"}}>edit</button><button style={{background:"red"}}>delete</button></td>
@@ -123,6 +115,8 @@ const Contacts = () => {
                     <tr>
                         <td>dawda</td>
                         <td>awdad</td>
+                        <td>Tracs member</td>
+
                         <td>awdad</td>
                         <td>awdad</td>
                         <td ><button style={{background:"green"}}>edit</button><button style={{background:"red"}}>delete</button></td>
