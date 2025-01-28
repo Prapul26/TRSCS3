@@ -99,7 +99,7 @@ const Pricing = () => {
               <input type="text" placeholder="Email" />
             </div>
             <div className="ppbutton">
-              <button>Subscribe Here</button>
+              <button >Subscribe Here</button>
             </div>
           </div>
         </div>

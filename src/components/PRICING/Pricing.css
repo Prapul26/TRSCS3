@@ -104,6 +104,12 @@ width: 50%;
 margin-bottom: 3%;
 margin-left: 7%;
 }
+.priceData h1{
+    color: white;
+}
+.priceData p{
+    color: white;
+}
 .priceSearch{
 height:40px;
 
@@ -130,6 +136,7 @@ display: flex;
     height: 110%;
     background-color: rgb(0, 0, 0);
     margin-top: -0%;
+    border-radius: 0px;
 }
 @media (min-width: 601px) and (max-width: 1024px){
     .pricing-details2{
@@ -168,7 +175,10 @@ display: flex;
             margin-right: 5%;
         }
         .searchdiv{
-
+width: 70%;
+        }
+        .ppbutton{
+            width: 30%;
         }
       }
       
