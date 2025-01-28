@@ -7,12 +7,13 @@
 .EMPP{
 width: 75%;
 height: 100vh;
-margin-left: 25%;
+margin-left: 20%;
 background-color: #f5f2f2;
 }
 .EMPPP{
     width: 100%;
     display: flex;
+    background-color: rgb(218, 217, 216);
 }
 .Email-container {
     overflow-x: auto; /* Enable horizontal scrolling */

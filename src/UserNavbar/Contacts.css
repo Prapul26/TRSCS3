@@ -119,12 +119,13 @@ background-color: rgb(5, 172, 243);
 }
 .CPPPPP{
     width: 100%;
-    display:flex
+    display: flex;
+    background-color: rgb(218, 217, 216);
 }
 .CPP{
     width: 75%;
     height: 100vh;
-    margin-left: 25%;
+   margin-left: 20%;
 background-color: #f5f2f2;
 
 }

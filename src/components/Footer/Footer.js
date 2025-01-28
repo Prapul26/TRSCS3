@@ -44,10 +44,10 @@ const Footer = () => {
                         <h1>
                             Important Links
                         </h1>
-                      <Link to='/home' style={{textDecoration:"none",color:"inherit"}}> <p>Home</p></Link> 
-                      <Link to='/pricing' style={{textDecoration:"none",color:"inherit"}}> <p>Pricing</p></Link> 
-                      <Link to='/about_us' style={{textDecoration:"none",color:"inherit"}}><p>About Us</p></Link>  
-                      <Link to='/blog' style={{textDecoration:"none",color:"inherit"}}> <p>Blog</p></Link>
+                      <Link to='/home' style={{textDecoration:"none",color:"inherit"}}> <p style={{color:"black"}}>Home</p></Link> 
+                      <Link to='/pricing' style={{textDecoration:"none",color:"inherit"}}> <p style={{color:"black"}}>Pricing</p></Link> 
+                      <Link to='/about_us' style={{textDecoration:"none",color:"inherit"}}><p style={{color:"black"}}>About Us</p></Link>  
+                      <Link to='/blog' style={{textDecoration:"none",color:"inherit"}}> <p style={{color:"black"}}>Blog</p></Link>
 
                     </div>
                 </div>
@@ -55,7 +55,8 @@ const Footer = () => {
                     <div className='contact'>
                         <h1>Contact Us</h1>
                         <div style={{ borderBottom: "1px solid #9a9a9a " }}><ul style={{ display: "flex", flexDirection: "column", flexWrap: "wrap",textDecoration:"none" }}>
-                            <li style={{listStyle:"none"}}>4031 Colonel Glenn Hwy Suite 416,Dayton ,OH 45431</li></ul></div>
+                            <li style={{listStyle:"none"}}>4031 Colonel Glenn Hwy Suite 416</li>
+                               <li style={{listStyle:"none"}}> Dayton ,OH 45431</li></ul></div>
 
 
                         <div style={{ borderBottom: "1px solid #9a9a9a " }}><ul><li style={{listStyle:"none"}}>support@tracs.app</li>
@@ -76,7 +77,7 @@ const Footer = () => {
                     <p> Terms and Condition /  Privact Policy  /  Contact</p>
                 </div>
                 <div>
-                    <h3>Copyright 2025 .AptTech Solutions Inc . All Rights Reserved.</h3>
+                    <h3 style={{color:"white"}}>Copyright 2025 .AptTech Solutions Inc . All Rights Reserved.</h3>
                 </div>
 
             </div>

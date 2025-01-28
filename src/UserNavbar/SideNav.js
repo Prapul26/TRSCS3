@@ -35,7 +35,7 @@ const SideNav = () => {
                                 <FaHome size={25} style={{marginRight:'6px'}}/> <h2>Home</h2>
                                 </div></Link> 
                                 <div className="navs">
-                                <div onClick={handelSettings} style={{display:"flex",justifyContent:"space-between",borderBottom:"1px solid black"}} ><div style={{display:"flex"}}><div style={{marginTop:'19px',marginRight:"5px",marginLeft:"5px"}}><IoSettingsSharp size={20}/></div><h3>Account Settings</h3></div> <div style={{marginTop:"15px"}}>{settings ?< IoIosArrowDropup size={22} style={{marginTop:"0px"}}/>:<IoIosArrowDropdown size={22} style={{marginTop:"0px"}} />}</div>
+                                <div onClick={handelSettings} style={{display:"flex",justifyContent:"space-between",borderBottom:"1px solid black"}} ><div style={{display:"flex"}}><div style={{marginTop:'19px',marginRight:"5px",marginLeft:"5px"}}><IoSettingsSharp size={20}/></div><h3>Account Settings</h3></div> <div style={{marginTop:"15px",marginLeft:'30px'}}>{settings ?< IoIosArrowDropup size={22} style={{marginTop:"0px"}}/>:<IoIosArrowDropdown size={22} style={{marginTop:"0px"}} />}</div>
                                
                                 </div>
                                 {

@@ -9,12 +9,13 @@ background-color: white;
 .OSP{
     display: flex;
     width: 100%;
+    background-color: rgb(218, 217, 216);
 }
 .Ordersp{
     width: 75%;
     height: 100vh;
     background-color: rgb(243, 241, 239);
-margin-left: 25%;
+margin-left: 20%;
 }
 .ods{
 display: flex;

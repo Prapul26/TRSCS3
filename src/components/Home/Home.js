@@ -27,7 +27,7 @@ const Home = () => {
       <Navbar />
       <div className="serch-container" >
         <div className="sh2">
-          <h2>
+          <h2 style={{color:"white"}}>
             TRACS helps you effortlessly connect and make introductions like a
             champion!
           </h2>
