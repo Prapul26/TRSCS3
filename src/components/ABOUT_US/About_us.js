@@ -31,7 +31,9 @@ const About_us = () => {
                 <div className='a_4'>
                     <div className='a_41'><img src={pic1} /></div>
                     <div className='a_42'><h1>Our Mission:</h1>
-                        <p>Empowering individuals to grow, succeed, and innovate through the strength of their network. We are on a mission to redefine how professionals connect, communicate, and collaborate in today's fast-paced business landscape.</p></div>
+                        <p>Empowering individuals to grow, succeed, and innovate through the strength of their network. We are on a mission to redefine how professionals connect, communicate, and collaborate in today's fast-paced business landscape.</p>
+                        <h1>Our Vision</h1>
+                        <p>Our platform aims to be the cornerstone of global networking, empowering individuals and enterprises to expand their reach, exchange knowledge, and forge impactful partnerships.</p></div>
                 </div>
                 <div className='a_5'>
                     <div className='a_51'><h1 >What We Offer:</h1>

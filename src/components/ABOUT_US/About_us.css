@@ -55,9 +55,13 @@ color: rgb(3, 3, 152);
 .a_4{
     display:flex ;
 }
-.a_4 img{
-    max-height: 350px;
-    
+.a_41{
+   width: 50%;
+
+}
+
+.a_42{
+    width: 50%;
 }
 .a_42 p{
     color: black;
@@ -67,18 +71,17 @@ color: rgb(3, 3, 152);
 }
 .a_51{
 width: 50%;
-background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
 border-radius: 20px;
 padding: 10px;
 }
 .a_51 h1{
     font-weight: 500;
     margin-bottom: 40px;
-    color: rgb(20, 20, 250);
+    color: rgb(3, 3, 152);
 
 }
 .a_51 p{
-color: rgb(223, 219, 219);
+color: rgb(0, 0, 0);
 }
 .a_5 h3{
     color: orange;
@@ -96,7 +99,6 @@ color: rgb(223, 219, 219);
 }
 .a_62{
     width: 50%;
-    background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
 border-radius: 20px;
 padding: 10px;
 }
@@ -104,13 +106,13 @@ padding: 10px;
     color: orange;
 }
 .a_62 p{
-    color: rgb(223, 219, 219);
+    color: rgb(0, 0, 0);
 
 }
 .a_62 h1{
     font-weight: 500;
     margin-bottom: 40px;
-    color: rgb(20, 20, 250);
+    color: rgb(3, 3, 152);
 }
 .a_7{
     
@@ -145,4 +147,12 @@ width: 100%;
     .a_61,.a_62{
 width: 100%;
     }
+    .a_41{
+        width: 100%;
+     
+     }
+     
+     .a_42{
+         width: 100%;
+     }
 }
