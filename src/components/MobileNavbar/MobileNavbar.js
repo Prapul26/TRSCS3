@@ -10,7 +10,7 @@ const MobileNavbar = () => {
   return (
     <div>
       <div className="mob-nav">
-        <Link to="/" style={{textDecoration:"none",color:"inherit"}}>
+        <Link to="/myMembership" style={{textDecoration:"none",color:"inherit"}}>
           <div className="mobMembership">My Membership</div>
         </Link>
         <Link to="/accountSettings" style={{textDecoration:"none",color:"inherit"}}>
