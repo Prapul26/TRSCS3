@@ -63,12 +63,12 @@
     display: flex;
     }
     .mobLogout{
-        margin-top: 20px;
+        margin-top: 22px;
         font-weight: 500;
         font-size:small;
         color: white;
         background-color: rgb(22, 236, 54);
-        margin-bottom: 20px;
+        margin-bottom: 27px;
         margin-left: 10px;
         margin-right: 10px;
     
@@ -77,12 +77,13 @@
     display: flex;
     }
     .mobIntro{
-        margin-top: 20px;
+       
         font-weight: 500;
         font-size:small;
         color: white;
         background-color: rgb(22, 236, 54);
-        margin-bottom: 20px;
+        height: 18px;
+        margin-top: 22px;
         margin-left: 10px;
         margin-right: 10px;
     

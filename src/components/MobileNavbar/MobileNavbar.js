@@ -14,7 +14,7 @@ const MobileNavbar = () => {
           <div className="mobMembership">My Membership</div>
         </Link>
         <Link to="/accountSettings" style={{textDecoration:"none",color:"inherit"}}>
-          <div className="mobSettings">Account Settings Profile</div>
+          <div className="mobSettings">My Profile</div>
         </Link>
         <Link to="/businessProfile" style={{textDecoration:"none",color:"inherit"}}>
           <div className="mobBusiness">My Business Profile</div>

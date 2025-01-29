@@ -47,11 +47,11 @@ const Email = () => {
           <h3>Template</h3>
         </div>
         <div className="c-h2">
-          <p>Home</p>
+         <Link to='/home'><p>Home</p></Link> 
           <span>.</span>
-          <p>Dashboard</p>
+        <Link to='/myMembership'> <p>Dashboard</p></Link> 
           <span>.</span>
-          <p>template</p>
+        <Link to='/email'> <p>template</p></Link> 
         </div>
       </div>
       <div className="addTemplateButton">

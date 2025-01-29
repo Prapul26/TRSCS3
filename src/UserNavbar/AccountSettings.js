@@ -50,11 +50,11 @@ const AccountSettings = () => {
             <h3>My Profile</h3>
           </div>
           <div className="c-h2">
-            <p>Home</p>
-            <span>.</span>
-            <p>Dashboard</p>
-            <span>.</span>
-            <p>my profile</p>
+           <Link to='/home'><p>Home</p></Link> 
+                    <span>.</span>
+                  <Link to='/myMembership'> <p>Dashboard</p></Link> 
+                    <span>.</span>
+                  <Link to='/accountSettings'> <p>my profile</p></Link> 
           </div>
         </div>
       </div>

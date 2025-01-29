@@ -48,11 +48,11 @@ const BusinessProfile = () => {
           <h3>Business Profile</h3>
         </div>
         <div className="c-h2">
-          <p>Home</p>
-          <span>.</span>
-          <p>Dashboard</p>
-          <span>.</span>
-          <p>Business Profile</p>
+            <Link to='/home'><p>Home</p></Link> 
+                             <span>.</span>
+                           <Link to='/myMembership'> <p>Dashboard</p></Link> 
+                             <span>.</span>
+                           <Link to='/businessProfile'> <p>business profile</p></Link>
         </div>
       </div>
     <Link to='/createBusinessProfile'><div className="businessButton">
