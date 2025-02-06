@@ -16,9 +16,7 @@ const MobileNavbar = () => {
         <Link to="/accountSettings" style={{textDecoration:"none",color:"inherit"}}>
           <div className="mobSettings">My Profile</div>
         </Link>
-        <Link to="/businessProfile" style={{textDecoration:"none",color:"inherit"}}>
-          <div className="mobBusiness">My Business Profile</div>
-        </Link>
+      
         <div className="mobLogout"> Logout</div>
         
         <div className="mobIntro" onClick={handelIntrows}>
@@ -32,9 +30,9 @@ const MobileNavbar = () => {
         
           intros && <div className="introws">
          <Link to='/contacts' style={{textDecoration:"none",color:"inherit"}}> <div className="contactspp">Contacts</div></Link>  
-          <Link  to='/inbox' style={{textDecoration:"none",color:"inherit"}}><div className="inboxpp">Inbox</div></Link>  
-           <Link to='/makeIntro' style={{textDecoration:"none",color:"inherit"}}><div className="intropp">Make Introduction</div></Link> 
-           <Link to='/email' style={{textDecoration:"none",color:"inherit"}}><div className="emailpp">Emial Tempalte</div></Link> 
+          <Link  to='/inbox' style={{textDecoration:"none",color:"inherit"}}><div className="inboxpp">Messages</div></Link>  
+    
+           <Link to='/email' style={{textDecoration:"none",color:"inherit"}}><div className="emailpp">Tempalte</div></Link> 
            <Link  to='/signature' style={{textDecoration:"none",color:"inherit"}}><div className="signaturepp">Signature</div></Link>
             </div>
         }
