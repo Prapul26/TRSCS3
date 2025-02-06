@@ -39,10 +39,9 @@ const SideNav = () => {
                                
                                 </div>
                                 {
-                                  settings && <div>
+                                  settings && <div style={{marginLeft:"15px"}}>
                                               <Link to='/myMembership'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><MdOutlineCardMembership size={18} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Membership</h3> </div></Link>
                                               <Link to='/accountSettings'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><IoPerson size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Profile</h3> </div></Link>
-                                              <Link to='/businessProfile'style={{color:"inherit",textDecoration:"none"}}><div className="businessProfile"><div className="a5"><ImProfile size={16} style={{marginTop:"22px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Business Profile</h3> </div></Link>  
                       
                                   </div>
                                 }
@@ -50,10 +49,9 @@ const SideNav = () => {
                                  <div onClick={handelIntro} style={{display:"flex",justifyContent:"space-between"}} ><div style={{display:"flex"}}><div style={{marginTop:'19px',marginRight:"5px",marginLeft:"5px"}}><FaBriefcase size={20}/></div><h3>Introduction</h3></div> <div style={{marginTop:"15px"}}>{settings ?< IoIosArrowDropup size={22} style={{marginTop:"0px"}}/>:<IoIosArrowDropdown size={22} style={{marginTop:"0px"}} />}</div>
                                
                                </div>                                  {
-                                    intro && <div className="intoNav">
+                                    intro && <div className="intoNav" style={{marginLeft:"7px"}}>
                                       <Link to='/contacts' style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex"}}><div>< RiContactsFill style={{marginRight:'7px',marginTop:'24px'}} /></div><h3>Contacts</h3></div></Link>
-                                     <Link to='/inbox'  style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex"}}><div><HiInboxArrowDown style={{marginRight:'7px',marginTop:'24px'}} /></div><h3>Inbox</h3></div></Link> 
-                                     <Link to='/makeIntro'style={{color:"inherit",textDecoration:"none"}} ><div style={{display:"flex"}}><div><IoBookOutline style={{marginRight:'7px',marginTop:'24px'}}/></div> <h3>Make Introduction</h3></div></Link>
+                                     <Link to='/inbox'  style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex"}}><div><HiInboxArrowDown style={{marginRight:'7px',marginTop:'24px'}} /></div><h3>Messages</h3></div></Link> 
                                      <Link to='/email'style={{color:"inherit",textDecoration:"none"}} ><div style={{display:"flex"}}> <div><MdOutlineEmail style={{marginRight:'7px',marginTop:'24px'}} /></div><h3>Template</h3></div></Link> 
                                      <Link to='/signature'style={{color:"inherit",textDecoration:"none"}} > <div style={{display:"flex"}}><div><FaFileSignature style={{marginRight:'7px',marginTop:'24px'}} /></div><h3>Signature</h3></div></Link> 
                       

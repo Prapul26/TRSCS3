@@ -1,10 +1,29 @@
 .inbox-container{
     margin: 20px;
-    padding: 20px;
+    
+
 }
 .inbox-container select{
     height: 40px;
     width: 400px;
+}
+.messageInbox{
+display: flex;
+justify-content: space-around;
+width: 100%;
+
+}
+.mI1{
+width: 30%;
+}
+.mI2{
+  width: 30%;
+}
+.mI3{
+  width: 30%;
+}
+.messageInbox select{
+  width: 100%;
 }
 .inbox-holder {
     margin: 20px auto;
@@ -85,6 +104,10 @@
   td p {
     margin: 5px 0;
     font-size: 0.9rem;
+  }
+  .messageInbox button{
+    background-color: orange;
+    margin-top: 50px;
   }
   
   td p svg {
@@ -190,6 +213,13 @@
         
         font-family: Arial, sans-serif;
       }
-      
+      .messageInbox{
+        flex-direction: column;
+      }
+      .messageInbox button{
+        margin-top: 15px;
+        width: 250%;
+        background-color: orange;
+      }
   }
   

@@ -6,7 +6,7 @@ import { FaArrowCircleLeft } from "react-icons/fa";
 import { FaFileSignature } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
-import { MdOutlineCardMembership } from "react-icons/md";
+import { MdBusiness, MdLink, MdLocationCity, MdOutlineCardMembership, MdOutlineFormatTextdirectionRToL } from "react-icons/md";
 import { FaBriefcase } from "react-icons/fa6";
 import { IoSettingsSharp } from "react-icons/io5";
 import { ImProfile } from "react-icons/im";
@@ -61,7 +61,7 @@ const AccountSettings = () => {
       <div className="prc1">
         <div className="profileContainer1">
           <div className="pc11">
-            <label>Name</label>
+            <label>First Name</label> <span style={{color:"red",fontWeight:'600'}}>*</span>
             <br />
             <div className="nameInput">
               <div style={{ marginTop: "0px", marginLeft: "9px" }}>
@@ -69,9 +69,18 @@ const AccountSettings = () => {
               </div>
               <input type="text" />
             </div>
+            <label>Last Name</label> <span  style={{color:"red",fontWeight:'600'}}>*</span>
+            <br />
+            <div className="nameInput">
+              <div style={{ marginTop: "0px", marginLeft: "9px" }}>
+                <MdPerson size={30} />
+              </div>
+              <input type="text" />
+            </div>
+            
             <div className="pc111">
               <div className="phone">
-                <label>Phone</label>
+                <label>Phone</label> <span  style={{color:"red",fontWeight:'600'}}>*</span>
                 <br />
                 <div className="phoneInput">
                   <div style={{ marginTop: "6px", marginLeft: "10px" }}>
@@ -80,8 +89,9 @@ const AccountSettings = () => {
                   <input type="text" />
                 </div>
               </div>
+              
               <div className="email">
-                <label>Email</label>
+                <label>Email</label> <span  style={{color:"red",fontWeight:'600'}}>*</span>
                 <br />
                 <div className="emailInput">
                   {" "}
@@ -96,6 +106,30 @@ const AccountSettings = () => {
             <br />
             <textarea className="textArea" />
             <br />
+            <div className="pc111">
+              <div className="phone">
+                <label>State</label>
+                <br />
+                <div className="phoneInput">
+                  <div style={{ marginTop: "6px", marginLeft: "10px" }}>
+                    <IoLocationSharp size={26} />
+                  </div>
+                  <input type="text" />
+                </div>
+              </div>
+              
+              <div className="email">
+                <label>City</label>
+                <br />
+                <div className="emailInput">
+                  {" "}
+                  <div style={{ marginTop: "3.5px", marginLeft: "10px" }}>
+                    <MdLocationCity size={26} />
+                  </div>
+                  <input type="text" />
+                </div>
+              </div>
+            </div>
             <label>Address</label>
             <br />
             <div className="addressInput">
@@ -104,7 +138,38 @@ const AccountSettings = () => {
               </div>
               <input type="text" />
             </div>
+            <label>Linked In Profile (URL)</label>
+            <br />
+            <div className="nameInput">
+              <div style={{ marginTop: "0px", marginLeft: "9px" }}>
+                <MdLink size={30} />
+              </div>
+              <input type="text" />
+            </div>
+            <label>Business Name</label>
+            <br />
+            <div className="nameInput">
+              <div style={{ marginTop: "0px", marginLeft: "9px" }}>
+                <MdBusiness size={30} />
+              </div>
+              <input type="text" />
+            </div>
+            <label>Business Description</label>
+            <br />
+           
+            
+            <textarea className="textArea" />
+          
+            <label>Website</label>
+            <br />
+            <div className="nameInput">
+              <div style={{ marginTop: "0px", marginLeft: "9px" }}>
+                <MdLink size={30} />
+              </div>
+              <input type="text" />
+            </div>
           </div>
+
           <div className="pc12">
             <div className="proPic">
               <img
