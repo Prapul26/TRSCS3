@@ -53,7 +53,8 @@ const Pricing = () => {
             {Basic.map((item, index) => (
               <div key={index} className="pd2">
                 <button>Basic</button>
-                <h1>$60/yr to $80/yr</h1>
+                <h1>$60-$80
+                </h1>
                 <h2>{item.days} Days Trail</h2>
                 <ul>
                   {item.details.map((detail, i) => (
@@ -70,7 +71,7 @@ const Pricing = () => {
             {Standard.map((item, index) => (
               <div key={index} className="pd3">
                 <button>Standard</button>
-                <h1>$120/yr to $150/yr</h1>
+                <h1>$120-$150</h1>
                 <h2>{item.days} Days Trail</h2>
                 <ul>
                   {item.details.map((detail, i) => (
