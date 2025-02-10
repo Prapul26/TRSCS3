@@ -62,7 +62,7 @@ showBasic(!basic)
   </div>
   {
     basic && <div className='bpack'>
-       <div style={{width:"60%"}}><input/></div>
+       <div style={{width:"60%"}}><input placeholder="basic/packae/Id"/></div>
        <div style={{marginLeft:'20px'}}><IoCopy  size={25} /></div>
       </div>
   }
@@ -73,7 +73,7 @@ showBasic(!basic)
     <div ><button onClick={handelStandard}>Generate Link</button></div>
   </div>
   { standard && <div className='spack'>
-   <div style={{width:"60%"}}> <input/></div>
+   <div style={{width:"60%"}}> <input  placeholder="Stanard/packae/Id"/></div>
     <div style={{marginLeft:'20px'}}><IoCopy size={25}/>
     </div>
     </div>}
