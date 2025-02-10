@@ -28,6 +28,8 @@ import Network from "./components/Network/Network";
 import Contact from "./components/Contact/Contact";
 import Partner from "./components/Partner/Partner";
 import MemberDetails from "./components/MemberDetails/MemberDetails";
+import Affiliation from "./UserNavbar/Affiliation";
+import MyAffiliation from "./UserNavbar/MyAffiliation";
 const App = () => {
   const [isLogin, setIsLogin] = useState(true);
   return (
@@ -62,6 +64,8 @@ const App = () => {
           <Route path="/createBusinessProfile" element={<CreateBusinessProfile/>} />
           <Route path="/mobileNavbar" element={<MobileNavbar/>}/>
           <Route path="/contact" element={<Contact/>}/>
+          <Route path="/affiliation" element={<Affiliation/>}/>
+          <Route path="/myAffiliation" element={<MyAffiliation/>}/>
         </Routes>
       </div>
     </Router>

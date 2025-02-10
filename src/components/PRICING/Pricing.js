@@ -9,10 +9,15 @@ import { Link } from "react-router-dom";
 import Header from "../Heaader/Header";
 const Pricing = () => {
   const [popup, setPopup] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(false) 
   const popUp = () => {
     setPopup(!popup);
     console.log("Popup state:", popup);
   };
+  const addDropdown=()=>{
+    
+    setSelectedOption(!selectedOption)
+  }
 
   return (
     <div>
@@ -85,6 +90,25 @@ const Pricing = () => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="memberDrop">
+            <p>How did you Know About US ?</p>
+            <select onChange={addDropdown}>
+              <option >nan</option>
+              <option value="H7Member">H7 Menmber</option>
+            </select>
+            {selectedOption && (
+            <div className="addDrop"> 
+              <p>Select your H7 Member</p>
+              <select>
+                <option value="">Select</option>
+                <option value="Referral 1">Referral 1</option>
+                <option value="Referral 2">Referral 2</option>
+                <option value="Referral 3">Referral 3</option>
+                <option value="Referral 4">Referral 4</option>
+              </select>
+            </div>
+          )}
           </div>
         </div>{" "}
         <div className="pricingSearch">

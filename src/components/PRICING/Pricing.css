@@ -138,6 +138,21 @@ display: flex;
     margin-top: -0%;
     border-radius: 0px;
 }
+.addDrop select{
+    width: 80%;
+    height: 40px;
+}
+.memberDrop select{
+    width: 80%;
+    height: 40px;
+   
+}
+.addDrop p{
+    color: black;
+}
+.memberDrop p{
+    color: black;
+}
 @media (min-width: 601px) and (max-width: 1024px){
     .pricing-details2{
         display: flex;

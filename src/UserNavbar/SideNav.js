@@ -9,6 +9,7 @@ import { ImProfile } from "react-icons/im";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
 import { RiContactsFill } from "react-icons/ri";
+import { TbArrowsRandom } from "react-icons/tb";
 import { HiInboxArrowDown } from "react-icons/hi2";
 import { IoBookOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
@@ -20,6 +21,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { IoPerson } from "react-icons/io5";
+import { BsGraphUp } from "react-icons/bs";
 const SideNav = () => {
      const [intro, showIntro] = useState(false);
       const [settings,showSettings]=useState(false);
@@ -42,7 +44,9 @@ const SideNav = () => {
                                   settings && <div style={{marginLeft:"15px"}}>
                                               <Link to='/myMembership'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><MdOutlineCardMembership size={18} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Membership</h3> </div></Link>
                                               <Link to='/accountSettings'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><IoPerson size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Profile</h3> </div></Link>
-                      
+                                              <Link to='/affiliation'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><TbArrowsRandom size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>Affiliation</h3> </div></Link>
+                                              <Link to='/myAffiliation'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><BsGraphUp size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Affiliation</h3> </div></Link>
+
                                   </div>
                                 }
                                  <div className="intro1">

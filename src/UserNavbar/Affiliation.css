@@ -1,0 +1,42 @@
+.bpackage{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+.spackage{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.bpackage button{
+    background-color: rgb(28, 222, 28);
+    border-radius: 5px;
+}
+.spackage button{
+    background-color: rgb(28, 222, 28);
+    border-radius: 5px;
+}
+.bpack{
+margin-left: 20px;
+margin-bottom: 30px;
+display: flex;
+width: 100%;
+
+}
+.spack{
+    margin-left: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    width: 100%;
+ 
+}
+.bpack input{
+height: 40px;
+width: 100%;
+
+}
+.spack input{
+    height: 40px;
+    width: 100%;
+}
