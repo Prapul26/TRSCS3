@@ -30,6 +30,7 @@ import Partner from "./components/Partner/Partner";
 import MemberDetails from "./components/MemberDetails/MemberDetails";
 import Affiliation from "./UserNavbar/Affiliation";
 import MyAffiliation from "./UserNavbar/MyAffiliation";
+import Payment from "./components/Payment/Payment";
 const App = () => {
   const [isLogin, setIsLogin] = useState(true);
   return (
@@ -66,6 +67,7 @@ const App = () => {
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/affiliation" element={<Affiliation/>}/>
           <Route path="/myAffiliation" element={<MyAffiliation/>}/>
+          <Route path="/payment" element={<Payment/>}/>
         </Routes>
       </div>
     </Router>
