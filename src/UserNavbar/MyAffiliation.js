@@ -11,12 +11,12 @@ const MyAffiliation = () => {
   return (
     <div>
       <UserHeader />
-      <MobileNavbar />
+      
       <div className="myAfflilationPage">
         <div className="usernav">
           <SideNav />
         </div>
-        <div className="myAffiliationCOntainer">
+        <div className="myAffiliationCOntainer"><div style={{marginLeft:"-79px"}}><MobileNavbar /></div>
          <div className="e1-header">
                  <div className="c-h1">
                    <h3>My Affiliation</h3>

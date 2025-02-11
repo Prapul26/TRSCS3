@@ -36,13 +36,13 @@ const OrderStatus = () => {
         }
   return (
     <div > <UserHeader />
-    <MobileNavbar/>
+   
     <div className="OSP">
   <div className="usernav">
                    <SideNav/>
                     </div>
     <div className="Ordersp">
-     
+      <MobileNavbar/>
       <div className="c-header">
         <div className="c-h1">
           <h3>Order History</h3>

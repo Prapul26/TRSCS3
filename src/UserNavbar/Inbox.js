@@ -39,12 +39,12 @@ const Inbox = () => {
     <div>
       {" "}
       <UserHeader />
-      <MobileNavbar />
+     
       <div className="IBPPP">
         <div className="usernav">
           <SideNav />
         </div>
-        <div className="IBPP">
+        <div className="IBPP"> <MobileNavbar />
           <div className="c-header">
             <div className="c-h1">
               <h3>Inbox</h3>

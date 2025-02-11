@@ -36,14 +36,14 @@ const AccountSettings = () => {
     showIntro(!intro)
   }
   return (  <div> <UserHeader />
-  <MobileNavbar/>
+
     <div className="overH">
     <div className="usernav">
             <SideNav/>
             </div>
        
     <div className="fz1">
-   
+     <MobileNavbar/>
       <div className="contacts-container">
         <div className="c-header">
           <div className="c-h1">

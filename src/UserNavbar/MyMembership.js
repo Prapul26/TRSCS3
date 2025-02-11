@@ -37,7 +37,7 @@ const MyMembership = () => {
     }
   return (
     <div><UserHeader/>
-   <MobileNavbar/>
+  
     <div className='OMH'>
 
   <div className="usernav">
@@ -45,7 +45,7 @@ const MyMembership = () => {
         </div>
    
     <div className='fz2'>
-      
+    <MobileNavbar/>
       <div className='myMembership-button'>
        <Link to='/orderHistory'style={{color:"inherit",textDecoration:"none"}}><button>Order History</button></Link> 
       </div>

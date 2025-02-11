@@ -35,13 +35,13 @@ const Email = () => {
     }
   return (
     <div> <UserHeader />
-    <MobileNavbar/>
+    
 <div className="EMPPP">
   <div className="usernav">
                    <SideNav/>
                    </div>
     <div  className="EMPP">
-     
+     <MobileNavbar/>
       <div className="c-header">
         <div className="c-h1">
           <h3>Template</h3>

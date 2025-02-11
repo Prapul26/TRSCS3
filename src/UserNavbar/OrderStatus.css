@@ -54,6 +54,8 @@ background-color: rgb(158, 112, 26);
         justify-content: center;
     }
     .Ordersp{
-width: 100%;
+        width: 100%;
+        margin-left: 0%;
+      
     }
 }

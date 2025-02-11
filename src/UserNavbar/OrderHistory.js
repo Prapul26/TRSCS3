@@ -38,14 +38,14 @@ const OrderHistory = () => {
       }
   return (
     <div> <UserHeader />
-    <MobileNavbar/>
+   
     <div className="OHP">
       
    <div className="usernav">
                       <SideNav/>
                      </div>
     <div className="orderHistoryPage">
-     
+      <MobileNavbar/>
       <div className="c-header">
         <div className="c-h1">
           <h3>Order History</h3>

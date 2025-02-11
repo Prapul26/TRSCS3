@@ -185,9 +185,12 @@ background-color: white;    cursor: pointer;
         color: white;
     }
     .usernav{
-        display: none;
+        display:none;
     }
     .arrow{
+        display: none;
+    }
+    .headerContainer{
         display: none;
     }
 }

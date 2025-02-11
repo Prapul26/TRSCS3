@@ -36,12 +36,12 @@ const Signature = () => {
   return (
     <div>
       <UserHeader />
-      <MobileNavbar />
+      
       <div className="SPPP">
        <div className="usernav">
                      <SideNav/>
                         </div>
-        <div className="SPP">
+        <div className="SPP"><MobileNavbar />
           <div className="signature-holder">
             <form>
               <label>

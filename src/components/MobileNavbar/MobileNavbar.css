@@ -1,130 +1,89 @@
-.mob-nav{
+.mobnav{
     display: none;
 }
-@media (max-width:480px){
-    .mob-nav{
-        display: flex;
-      overflow-x: auto;
-      background: linear-gradient(to right, #777877, #000000);
-        white-space: nowrap;
-        border-bottom: 5px solid black;
-       border-top: 5px solid black;
+@media(max-width:480px){
+    .mobnav{
+        display: block;
+
     }
-    .mobMembership{
-        margin-top: 20px;
-        font-weight: 500;
-        font-size:small;
-        color: white;
-        background-color: rgb(22, 236, 54);
-        margin-bottom: 20px;
-        margin-left: 10px;
-        margin-right: 10px;
-   
-    padding: 10px;
-    border-radius: 20px;
-    display: flex;
+    .mobnav h2{
+ color: white;
+        font-size: large;
     }
-    .introws{
-        background: linear-gradient(to right, #3574e1, #2edaa4);
-        width: fit-content;
+    .menuButton{
+        margin: 20px;
+    }
+    .mobMenu{
         height: fit-content;
-        color: white;
-     float: right;
-    right: 20px;
-  
-       position: absolute;
-      
+        width: 60%;
+        background-color: rgb(40, 108, 225);
+        position: absolute;
+        margin-top: -74px;
     }
-    .mobSettings{
+    .proPic2{
+        display: flex;
+        justify-content: space-between;
+    }
+    .picImage{
+        height: 80px;
+        border-radius: 50%;
+         margin-left: 32%;
+    }
+    .picImage img{
+        height: 100%;
+        border-radius: 50%;
+    }
+    .pic4{
+       width: 90%;
         margin-top: 20px;
-        font-weight: 500;
-        font-size:small;
+    }
+    .userName{
+        width: 100%;
+        word-wrap: break-word; /* Ensures long words break */
+        overflow-wrap: break-word; /* Additional support for breaking words */
+        white-space: normal; 
+        padding: 10px;/* Allows text to wrap */
+        text-align: center;
+    }
+    .userName h2{
         color: white;
-        background-color: rgb(22, 236, 54);
-        margin-bottom: 20px;
-        margin-left: 10px;
-        margin-right: 10px;
-    
-    padding: 10px;
-    border-radius: 20px;
-    display: flex;
+        font-size: large;
+        margin-top: 0px;
     }
-    .mobBusiness{
-        margin-top: 20px;
-        font-weight: 500;
-        font-size:small;
-        color: white;
-        background-color: rgb(22, 236, 54);
-        margin-bottom: 20px;
-        margin-left: 10px;
-        margin-right: 10px;
-    
-    padding: 10px;
-    border-radius: 20px;
-    display: flex;
-    }
-    .mobLogout{
-        margin-top: 22px;
-        font-weight: 500;
-        font-size:small;
-        color: white;
-        background-color: rgb(22, 236, 54);
-        margin-bottom: 27px;
-        margin-left: 10px;
-        margin-right: 10px;
-    
-    padding: 10px;
-    border-radius: 20px;
-    display: flex;
-    }
-    .mobIntro{
-       
-        font-weight: 500;
-        font-size:small;
-        color: white;
-        background-color: rgb(22, 236, 54);
-        height: 18px;
-        margin-top: 22px;
-        margin-left: 10px;
-        margin-right: 10px;
-    
-    padding: 10px;
-    border-radius: 20px;
-    display: flex;
-    }
-    .mobBusiness:hover{
-        background-color: rgb(4, 91, 243);
-    }
-    .mobIntro:hover{
-        background-color: rgb(4, 91, 243);
-    }
-    .mobLogout:hover{
-        background-color: rgb(4, 91, 243);
-    }
-    .mobMembership:hover{
-        background-color: rgb(4, 91, 243);
-    }
-    .mobMembership:hover{
-        background-color: rgb(4, 91, 243);
-    }
-    .contactspp{
+    .home4{
 display: flex;
 padding: 10px;
     }
-    .inboxpp{
+    .myMembership4{
         display: flex;
         padding: 10px;
+        margin-top: -10px;
     }
-    .intropp{
+    .myProfile4{
         display: flex;
         padding: 10px;
+        margin-top: -10px;
     }
-    .emailpp{
+    .logout4{
         display: flex;
         padding: 10px;
+        margin-top: -10px;
     }
-    .signaturepp{
+    .introduction4{
         display: flex;
         padding: 10px;
+        margin-top: -10px;
+        justify-content: space-between;
     }
+    .affiliation4{
+        display: flex;
+        padding: 10px;
+        margin-top: -10px;
+    }
+    .myaffiliation4{
+        display: flex;
+        padding: 10px;
+        margin-top: -10px;
+    }
+
 }

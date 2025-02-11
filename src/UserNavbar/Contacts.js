@@ -22,12 +22,12 @@ const Contacts = () => {
   return (
     <div>
       <UserHeader />
-      <MobileNavbar />
+      
       <div className="CPPPPP">
         <div className="usernav">
           <SideNav />
         </div>
-        <div className="CPP">
+        <div className="CPP"><MobileNavbar />
           <div className="contacts-container">
             <div className="c-header">
               <div className="c-h1">
