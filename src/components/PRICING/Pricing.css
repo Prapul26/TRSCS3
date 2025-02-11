@@ -195,5 +195,10 @@ width: 70%;
         .ppbutton{
             width: 30%;
         }
+        .popup{
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
       }
       

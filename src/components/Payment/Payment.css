@@ -146,9 +146,11 @@ flex-direction: column;
 }
 .cardy{
     width: 10%;
+    border: transparent;
 }
 .cardm{
     width: 10%;
+    border: transparent;
 }
 .cardd{
     width: 10%; 
@@ -161,13 +163,32 @@ flex-direction: column;
 }
 .cardy input{
     width: 100%;
-    border: transparent;
+  border: 1px solid white;
     height: 28px;
+    outline: none;
 }
 .cardm input{
     width: 100%;
     border: transparent;
+    border: 1px solid white;
     height: 28px;
+    outline: none;
+}
+.cardm input:focus {
+    border: 1px solid white; /* Ensures the border remains the same on focus */
+    outline: none; /* Prevents any additional outline */
+}
+.cardy input:focus {
+    border: 1px solid white; /* Ensures the border remains the same on focus */
+    outline: none; /* Prevents any additional outline */
+}
+.cardd input:focus {
+    border: 1px solid white; /* Ensures the border remains the same on focus */
+    outline: none; /* Prevents any additional outline */
+}
+.cardn input:focus {
+    border: 1px solid white; /* Ensures the border remains the same on focus */
+    outline: none; /* Prevents any additional outline */
 }
 .stripe{
     margin-top: 50px;
