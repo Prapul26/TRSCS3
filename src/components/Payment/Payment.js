@@ -66,7 +66,7 @@ const Payment = () => {
                         <div className='cardn'><input type='text' placeholder='card number'/></div>
                         <div className='cardy'><input type='text' placeholder='YY'/></div>
                         <div  className='cardm'><input type='text'placeholder='MM'/></div>
-                        <div  className='cardd'><input type='text' placeholder='DD'/></div>
+                        <div  className='cardd'><input type='text' placeholder='DD' style={{borderRight:"1px solid black"}}/></div>
                     </div>
                 </div>
                 

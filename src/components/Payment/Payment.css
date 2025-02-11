@@ -151,7 +151,8 @@ flex-direction: column;
     width: 10%;
 }
 .cardd{
-    width: 10%;
+    width: 10%; 
+    border-right: 1px solid black;
 }
 .cardd input{
     width: 100%;
