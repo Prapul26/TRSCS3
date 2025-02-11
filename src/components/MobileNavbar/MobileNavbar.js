@@ -32,7 +32,7 @@ const MobileNavbar = () => {
          <Link to='/contacts' style={{textDecoration:"none",color:"inherit"}}> <div className="contactspp">Contacts</div></Link>  
           <Link  to='/inbox' style={{textDecoration:"none",color:"inherit"}}><div className="inboxpp">Messages</div></Link>  
     
-           <Link to='/email' style={{textDecoration:"none",color:"inherit"}}><div className="emailpp">Tempalte</div></Link> 
+           <Link to='/email' style={{textDecoration:"none",color:"inherit"}}><div className="emailpp">Template</div></Link> 
            <Link  to='/signature' style={{textDecoration:"none",color:"inherit"}}><div className="signaturepp">Signature</div></Link>
             </div>
         }
