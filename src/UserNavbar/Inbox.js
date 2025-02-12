@@ -102,7 +102,7 @@ const Inbox = () => {
                     </td>
 
                     <td>
-                      <button style={{ background: "green" }}>Reply</button>
+                    <Link to='/reply'><button style={{ background: "green" }}>Reply</button></Link> 
                       <button style={{ background: "pink" }}>Bump</button>
                     </td>
                     <td>
@@ -128,7 +128,7 @@ const Inbox = () => {
                     </td>
 
                     <td>
-                      <button style={{ background: "green" }}>Reply</button>
+                    <Link to='/reply'> <button style={{ background: "green" }}>Reply</button></Link>
                       <button style={{ background: "pink" }}>Bump</button>
                     </td>
                     <td>
@@ -154,7 +154,7 @@ const Inbox = () => {
                     </td>
 
                     <td>
-                      <button style={{ background: "green" }}>Reply</button>
+                    <Link to='/reply'><button style={{ background: "green" }}>Reply</button></Link> 
                       <button style={{ background: "pink" }}>Bump</button>
                     </td>
                     <td>
@@ -180,7 +180,7 @@ const Inbox = () => {
                     </td>
 
                     <td>
-                      <button style={{ background: "green" }}>Reply</button>
+                    <Link to='/reply'> <button style={{ background: "green" }}>Reply</button></Link>
                       <button style={{ background: "pink" }}>Bump</button>
                     </td>
                     <td>
@@ -206,7 +206,7 @@ const Inbox = () => {
                     </td>
 
                     <td>
-                      <button style={{ background: "green" }}>Reply</button>
+                    <Link to='/reply'>   <button style={{ background: "green" }}>Reply</button></Link>
                       <button style={{ background: "pink" }}>Bump</button>
                     </td>
                     <td>
@@ -232,7 +232,7 @@ const Inbox = () => {
                     </td>
 
                     <td>
-                      <button style={{ background: "green" }}>Reply</button>
+                     <Link to='/reply'><button style={{ background: "green" }}>Reply</button></Link> 
                       <button style={{ background: "pink" }}>Bump</button>
                     </td>
                     <td>

@@ -205,10 +205,11 @@ width: 30%;
     .inbox-holder {
         margin-top: 10px ;
         margin-bottom: 10px;
-       
+       overflow-x: auto;
         background-color: #f9f9f9;
         border: 1px solid #ddd;
-       
+      
+       white-space: nowrap;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         
         font-family: Arial, sans-serif;
