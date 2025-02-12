@@ -57,7 +57,7 @@ const Reply = () => {
                   </div>
                  
                 </div> { mail && <div className="mailDrop">
-                    <input type="checkbox"/>Sample mail</div>}
+                    <input type="checkbox"/>Sample @mail.com</div>}
               </div>
               <div className="mailSearch">
                 <div>
