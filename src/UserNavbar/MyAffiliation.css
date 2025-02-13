@@ -8,8 +8,8 @@
    
     height:fit-content;
     margin: 0px;
-    width: 75%;
-  margin-left: 20%;
+    width: 85%;
+  margin-left: 15%;
 }
 .myAffiliation-holder{
 padding: 20px;
@@ -35,6 +35,7 @@ margin: 20px;
     margin: 20px;
     padding: 10px;
 }
+
 
 @media (max-width:480px){
   

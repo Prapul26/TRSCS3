@@ -68,18 +68,18 @@ const Inbox = () => {
           <div className="inbox-container">
             <div className="messageInbox">
             <div className="mI1">
-              <p>Filter:</p>
+              <p>Filter for Replies</p>
               <select>
                 <option value="allReplies">All Replies</option>
                 <option value="noReplies">No Replies(Bump)</option>
               </select>
             </div>
             <div className="mI2">
-              <p>Filter:</p>
+              <p>Filter for Messages</p>
               <select>
                 <option value="allReplies">All </option>
-                <option value="noReplies">Inbox</option>
-                <option value="noReplies">Sent</option>
+                <option value="noReplies">Intros Recived</option>
+                <option value="noReplies">Intros Sent</option>
               </select>
             </div>
           

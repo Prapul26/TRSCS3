@@ -35,10 +35,10 @@ const Home = () => {
 
         <div className="network-container">
           <Link to="/makeIntro">
-            <button>Make Introduction Instantly</button>
+            <button style={{background:"#eeba2b"}}>Make Introduction Instantly</button>
           </Link>
           <Link to="/myMembership">
-            <button>
+            <button style={{background:"#eeba2b"}}>
               <span>My Dashboard</span>
             </button>
           </Link>
@@ -55,7 +55,7 @@ const Home = () => {
               Trusted-Relationships.
             </h1>
             <Link to="/register">
-              <button>Join Now</button>
+              <button style={{background:"#eeba2b"}}>Join Now</button>
             </Link>
           </div>
         </div>

@@ -25,9 +25,9 @@ display: flex;
 background-color: rgb(218, 217, 216);
 }
 .SPP{
-    width: 75%;
+    width: 85%;
     height: 100vh;
-    margin-left: 20%;
+    margin-left: 15%;
     background-color: rgb(243, 241, 239);
 }
 @media(max-width:480px){
