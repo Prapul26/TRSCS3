@@ -7,7 +7,7 @@ border-radius: 10px;
 height: fit-content;
 padding: 20px;
 margin-bottom: 20px;
-background-color: white;
+background-color: rgb(154, 24, 24);
 }
 .container{
   background-color: rgb(195, 199, 202);
@@ -31,13 +31,45 @@ background-color: white;
 }
 .userPic{
   width: 12%;
-  margin-left: 44%;
+  margin-left: 12%;
   margin-right: 38%;
   height: 50%;
   margin-top: -80px;
   border-radius: 50%;
   
   
+}
+.section2{
+margin-left: 7%;
+color: white;
+}
+.section2 h3{
+  color: white;
+}
+.section3{
+  display: flex;
+  margin-top: 20px;
+  width: 30%;
+  justify-content: space-between;
+}
+.EmailLink{
+text-align: center;
+color: white;
+}
+.PhoneLink{
+  text-align: center;
+  color: white;
+}
+.WebsiteLink{
+  text-align: center;
+  color: white;
+}
+.AffiliationLink{
+  text-align: center;
+  color: white;
+}
+.divider2{
+  margin-right: 20px;
 }
 .userPic img{
   height: 100%;
@@ -46,7 +78,11 @@ background-color: white;
 }
 .userNAME{
   margin-top: 7%;
-  text-align: center;
+
+  margin-left: 14%;
+}
+.userNAME h2{
+  color: white;
 }
 .informaion{
   margin-top: 10px;
@@ -54,13 +90,13 @@ background-color: white;
   border-radius: 20px;
   padding: 20px;
   width: 50%;
-  background: linear-gradient(to right, black, rgb(54, 53, 53));
+ 
 
-color: white;
+color: rgb(0, 0, 0);
 margin-bottom: 10px;
 }
 .informaion h3{
-  color: white;
+  color: rgb(248, 248, 248);
   font-size: larger;
 }
 .infoDiv{
@@ -81,13 +117,14 @@ width: 50%;
 .informationHolder{
   display: flex;
   justify-content: space-between;
+  width: 30%;
 }
 .linksContainer{
   padding: 20px;
   background-color: orange;
   width: 40%;
   height: 50px;
-  
+  flex-direction: column;
   margin-top: 20px;
   display: flex;
 justify-content: space-between;
@@ -95,6 +132,12 @@ justify-content: space-between;
 }
 .About-Container{
   padding: 20px;
+  width: 70%;
+background-color: aliceblue;
+}
+.divider{
+  display: flex;
+  justify-content: space-between;
 }
 @media(max-width:480px){
   .member-holder{
@@ -137,23 +180,26 @@ margin-left: -0%;
       
     }
     .userNAME{
-      margin-top: -5%;
+      margin-top: 5%;
       text-align: center;
+      margin-left: 0%;
+    }
+    .section2 h3{
+      color: black;
+    }
+    .section2{
+      color: black;
+      margin-top: -5px;
+      margin-left: 5%;
+      margin-bottom: 10px;
+    }
+    .userNAME h2{
+      color: black;
     }
     .informationHolder{
       flex-direction: column;
     }
-    .linksContainer{
-      padding: 20px;
-      background-color: orange;
-      width: 90%;
-      height: fit-content;
-      flex-direction: column;
-      margin-top: 20px;
-      display: flex;
-    justify-content: space-between;
-      border-radius: 30px;
-    }
+
     .informaion{
       margin-top: 10px;
       border: 1px solid black;
@@ -162,13 +208,39 @@ margin-left: -0%;
       width: 90%;
       background: linear-gradient(to right, black, rgb(54, 53, 53));
     
-    color: white;
     margin-bottom: 10px;
     }
-    .infoDiv{
-flex-direction: column;
+ 
+    .About-Container{
+      padding: 20px;
+      width: 90%;
+    background-color: aliceblue;
     }
-    .infoDiv2{
-
+    .divider{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
     }
+    .section3{
+      width: 90%;
+      padding: 20px;
+    }
+    .EmailLink{
+      text-align: center;
+      color: rgb(0, 0, 0);
+      }
+      .PhoneLink{
+        text-align: center;
+        color: rgb(3, 3, 3);
+        margin-top: 20px;
+      }
+      .WebsiteLink{
+        text-align: center;
+        color: rgb(0, 0, 0);
+      }
+      .AffiliationLink{
+        text-align: center;
+        margin-top: 20px;
+        color: rgb(0, 0, 0);
+      }
 }

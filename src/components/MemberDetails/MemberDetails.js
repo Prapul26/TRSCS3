@@ -48,31 +48,31 @@ const MemberDetails = () => {
           </div>
         </div>
         <div className="userNAME"><h2>Santhosh</h2></div>
-        <div className="About-Container">
+        <div  className="section2" style={{display:"flex"}}><div ><IoPersonSharp size={20}/></div><div style={{marginLeft:"10px",marginTop:"2px"}}><h3>Agent</h3></div> <div style={{marginLeft:"20px"}}><MdOutlineBusiness  size={20} /> </div><div style={{marginLeft:"10px",marginTop:"2px"}}><h3>Insurance Company</h3></div></div>
+        <div className="divider">
+ 
+        <div className="section3">
+          <div className="divider1">  <div className="EmailLink">
+        <div><IoMdMail /></div>
+        <div><h3>Email</h3></div></div>
+       <div className="PhoneLink">
+       <div><IoCall /></div>
+       <div><h3>987080979867</h3></div>
+       </div></div>
+     <div className="divider2"> <div className="WebsiteLink"> 
+       <div><TbArrowsRandom /></div>
+       <div><h3>Affiliation</h3></div> </div>
+       <div className="AffiliationLink">
+       <div><TbWorldWww /></div>
+       <div><h3>WebsiteLink</h3></div></div>
+      
+       </div>
+        </div>
+          <div className="About-Container">
           <div><h2>About Us:</h2></div>
           <div><p>At TRACS, we believe in the power of connections. Our platform is designed to be the heartbeat of professional networking, where members come together to forge meaningful relationships, exchange ideas, and unlock new opportunities. Our platform is designed for individuals and businesses seeking meaningful networking experiences.</p></div>
-        </div>
-        <div className="informationHolder">
-        <div className="informaion">
-          <div><h3>Information :</h3></div>
-          <div className="infoDiv">
-            <div className="infoDiv1">
-             <div style={{display:"flex",marginBottom:"20px"}}> <div ><IoPersonSharp size={20}/></div><div style={{marginLeft:"10px",marginTop:"-4px"}}><h3>Agent</h3></div> </div>
-              <div style={{display:"flex",marginBottom:"20px"}}>  <div><MdOutlineBusiness  size={20} /> </div><div style={{marginLeft:"10px",marginTop:"-4px"}}><h3>Insurance Company</h3></div></div>
-            </div>
-            <div className="infoDiv2">
-              <div style={{display:"flex",marginBottom:"20px"}}><div ><IoCall  size={20}/></div> <div style={{marginLeft:"10px",marginTop:"-4px"}}><h3>8028329328</h3></div></div>
-              <div style={{display:"flex",marginBottom:"20px"}}> <div><IoMail  size={20}/></div><div style={{marginLeft:"10px",marginTop:"-4px"}}><h3>sample@mail.com</h3></div></div>
-            </div>
-          </div>
-         
-          </div>
-           <div className="linksContainer">
-           <div style={{display:"flex",marginTop:"5px",border:"1px solid black",padding:"10px",background:"white",borderRadius:"5px"}}><div ><FaLinkedinIn  size={20}/></div> <div style={{marginLeft:"10px",marginTop:"0px"}}><h3>Linked In</h3></div></div>
-           <div style={{display:"flex",marginTop:"5px",border:"1px solid black",padding:"10px",background:"white",borderRadius:"5px"}}><div  ><TbArrowsRandom  size={20}/></div> <div style={{marginLeft:"10px",marginTop:"0px"}}><h3>Affiliation</h3></div></div>
-           <div style={{display:"flex",marginTop:"5px",border:"1px solid black",padding:"10px",background:"white",borderRadius:"5px"}}><div  ><TbWorldWww size={20}/></div> <div style={{marginLeft:"10px",marginTop:"-1px"}}><h3>website</h3></div></div>
-          </div>
-        </div>
+        </div></div>
+       
        
       </div>
       <Footer />
