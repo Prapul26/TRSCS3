@@ -7,7 +7,7 @@ border-radius: 10px;
 height: fit-content;
 padding: 20px;
 margin-bottom: 20px;
-background-color: rgb(154, 24, 24);
+background-color: rgb(255, 255, 255);
 }
 .container{
   background-color: rgb(195, 199, 202);
@@ -41,32 +41,35 @@ background-color: rgb(154, 24, 24);
 }
 .section2{
 margin-left: 7%;
-color: white;
+color: rgb(0, 0, 0);
 }
 .section2 h3{
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .section3{
   display: flex;
   margin-top: 20px;
   width: 30%;
+  margin-top: 40px;
   justify-content: space-between;
 }
 .EmailLink{
 text-align: center;
-color: white;
+color: rgb(0, 0, 0);
 }
 .PhoneLink{
   text-align: center;
-  color: white;
+  margin-top: 20px;
+  color: rgb(0, 0, 0);
 }
 .WebsiteLink{
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .AffiliationLink{
   text-align: center;
-  color: white;
+  margin-top: 20px;
+  color: rgb(0, 0, 0);
 }
 .divider2{
   margin-right: 20px;
@@ -82,7 +85,7 @@ color: white;
   margin-left: 14%;
 }
 .userNAME h2{
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .informaion{
   margin-top: 10px;
@@ -96,7 +99,7 @@ color: rgb(0, 0, 0);
 margin-bottom: 10px;
 }
 .informaion h3{
-  color: rgb(248, 248, 248);
+  color: rgb(0, 0, 0);
   font-size: larger;
 }
 .infoDiv{
