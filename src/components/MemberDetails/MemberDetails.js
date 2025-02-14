@@ -4,7 +4,7 @@ import { FaRegBuilding } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import axios from "axios";
 
-import { IoMail } from "react-icons/io5";
+import { IoMail, IoPersonSharp } from "react-icons/io5";
 import { BsGlobe } from "react-icons/bs";
 import { FaUserTag } from "react-icons/fa6";
 import { FaRegCirclePlay } from "react-icons/fa6";
@@ -12,6 +12,7 @@ import { GrFormSchedule } from "react-icons/gr";
 import Header from "../Heaader/Header";
 import { FaLinkedinIn } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
+import { MdOutlineBusiness } from "react-icons/md"
 import { FaHeart } from "react-icons/fa6";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -28,325 +29,52 @@ import Logo from "../assets/M-D1.jpg";
 import { Link } from "react-router-dom";
 import { TiArrowBackOutline } from "react-icons/ti";
 import { IoIosArrowForward } from "react-icons/io";
+import { IoCall } from "react-icons/io5";
 import { IoIosStarOutline } from "react-icons/io";
+import { TbArrowsRandom, TbWorld, TbWorldWww } from "react-icons/tb";
 
 const MemberDetails = () => {
-  const [rating, setRating] = useState("");
-  const [comment, setComment] = useState("");
-  const [share, showShare] = useState(false);
-  const [schedule, setSchedule] = useState(false);
-
-  const data = {
-    photos: "https://via.placeholder.com/150",
-    company: "Sample Company",
-    name: "John Doe",
-    role: "Manager",
-    certification: "Certified Professional",
-    tagline: "Founder/CEO and Marketing Consultant, Digital Advertising Strategist",
-    AboutUs: "We provide quality services tailored to your needs.",
-    area: "123 Main Street, City, Country",
-    number: "+1234567890",
-    link: "www.example.com",
-    categories: ["Category 1", "Category 2", "Category 3"],
-    location: "City Center",
-    products: ["Product 1", "Product 2", "Product 3"],
-    services: "Our wide range of services includes...",
-    refferal: "Earn rewards by referring us to others.",
-    picture: "https://via.placeholder.com/100",
-  };
-
-  const showSchedule = () => {
-    setSchedule(!schedule);
-  };
-  const openShare = () => {
-    showShare(!share);
-  };
-  const handleRatingChange = (e) => {
-    setRating(e.target.value);
-  };
-
-  const handleCommentChange = (e) => {
-    setComment(e.target.value);
-  };
-  const handleSubmit = () => {
-    // Handle form submission logic here
-    console.log("Rating:", rating);
-    console.log("Comment:", comment);
-  };
   return (
     <div className="container">
       <Header />
       <Navbar />
-
-      {data && (
-        <div className="details-container">
-          <button
-            style={{
-              backgroundColor: " #4D4DFF",
-              borderRadius: "30px",
-              border: "transparent",
-            }}
-          >
-            <span>
-              <Link to="/home">
-                <TiArrowBackOutline color="white" size={35} />
-              </Link>
-            </span>{" "}
-          </button>
-          <div className="pic1-container">
-            <img
-              style={{ opacity: "none" }}
-              src={Logo}
-              alt="Member"
-              className="member-image"
-            />
+      <div className="member-holder">
+        <div className="ProfilePic-holder">
+          <div className="backgroundPic">
+            <img src="https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
           </div>
-
-          <div className="cards-container">
-            <div className="ab-holder">
-              <div className="a-holder">
-                <div className="details">
-                  <div className="details-card">
-                    <div className="pic1-holder">
-                      <img
-                        src={data.photos}
-                        style={{ height: "100%", width: "100%" }}
-                      />
-                    </div>
-                    <div className="name-holder">
-                      <div className="name-holder2"></div>
-                      <h2>{data.company}</h2>
-                      <p>{data.name}</p>
-                      <p>
-                        <span style={{ marginRight: "2px", marginTop: "-3px" }}>
-                          <LuRectangleVertical />
-                        </span>
-                        {data.role}
-                      </p>
-                      <p>
-                        <span style={{ marginRight: "2px", marginTop: "-3px" }}>
-                          <FaCertificate />
-                        </span>
-                        {data.certification}
-                      </p>
-                    </div>
-                  </div>
-                  
-             
-                </div>
-                <div className="tagline">
-                  <div className="tagline-card">
-                    <h1>Tagline</h1>
-                    <p>{data.tagline}</p>
-                  </div>
-                </div>
-                <div className="about-us">
-                  <div className="about-us-card">
-                    <h1>About-Us</h1>
-                    <p>{data.AboutUs}</p>
-                  </div>
-                </div>
-              </div>
-              <div className="b-holder">
-                <div className="contacts">
-                  <div className="contacts-card">
-                    {" "}
-                    <h1>Contact</h1>
-                    <ul>
-                      <li>{data.area}</li>
-                      <li>{data.number}</li>
-                      <li>{data.link}</li>
-                    </ul>
-                  </div>
-                  <div className="socilaMediaStore-container1">
-                    <button>
-                      <span style={{ marginLeft: "-2px", marginTop: "2px" }}>
-                        <a
-                          href="https://www.facebook.com/h7network"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ textDecoration: "none", color: "inherit" }}
-                        >
-                          <FaFacebook />
-                        </a>
-                      </span>
-                    </button>
-                    <button>
-                      <span style={{ marginLeft: "-2px", marginTop: "4px" }}>
-                        <a
-                          href="https://x.com/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ textDecoration: "none", color: "inherit" }}
-                        >
-                          <FaXTwitter />
-                        </a>
-                      </span>
-                    </button>
-                  </div>
-                </div>
-                <div className="categories">
-                  <div className="categories-card" style={{ padding: "15px" }}>
-                    <h1>Categories</h1>
-                    <ul style={{ listStyle: "none", padding: "0px" }}>
-                      {data.categories.map((categorie, index) => (
-                        <li key={index}>
-                          <IoIosArrowForward />
-                          {categorie}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              
-              </div>
-            </div>
-            <div className="c-holder">
-              <div className="products">
-                <div className="products-card">
-                  <h1>Products</h1>
-                  <ul>
-                    {data.products.map((product, index) => (
-                      <li key={index}>{product}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div className="services">
-                <div className="services-card">
-                  <h1>Services</h1>
-                  <p>{data.services}</p>
-                </div>
-              </div>
-              <div className="refferal">
-                <div className="refferal-card">
-                  <h1>Refferal Reward</h1>
-                  <p>{data.refferal}</p>
-                </div>
-              </div>
-              <div className="photos">
-                <h1>Photos</h1>
-                <div className="photos-card">
-                  <div className="cardpic-holder">
-                    <img src={data.photos} className="cardpic" />
-                  </div>
-                </div>
-                <div className="smallPic">
-                  <img src={data.picture} className="smallPic1" />
-                </div>
-              </div>
-              <div className="videos">
-                <div className="videos-card" style={{ padding: "10px" }}>
-                  <h1>Videos</h1>
-                  <div
-                    className="vid-holder"
-                    style={{
-                      backgroundImage:
-                        "url(https://img.youtube.com/vi/3ctoSEQsY54/0.jpg)",
-                    }}
-                  >
-                    <a href="https://www.youtube.com/watch?v=3ctoSEQsY54">
-                      <FaRegCirclePlay className="play" size="35" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="userPic">
+            <img src="https://tracsdev.apttechsol.com/public/uploads/custom-images/user-2024-07-09-02-52-30-9248.png" />
           </div>
         </div>
-      )}
-      {share && (
-        <div
-          className="shareDetails"
-          style={{ height: "fit-content", marginTop: "-50px" }}
-        >
-          <div className="pr">
-            <div className="sd1">
-              <h3>Share</h3>
+        <div className="userNAME"><h2>Santhosh</h2></div>
+        <div className="About-Container">
+          <div><h2>About Us:</h2></div>
+          <div><p>At TRACS, we believe in the power of connections. Our platform is designed to be the heartbeat of professional networking, where members come together to forge meaningful relationships, exchange ideas, and unlock new opportunities. Our platform is designed for individuals and businesses seeking meaningful networking experiences.</p></div>
+        </div>
+        <div className="informationHolder">
+        <div className="informaion">
+          <div><h3>Information :</h3></div>
+          <div className="infoDiv">
+            <div className="infoDiv1">
+             <div style={{display:"flex",marginBottom:"20px"}}> <div ><IoPersonSharp size={20}/></div><div style={{marginLeft:"10px",marginTop:"-4px"}}><h3>Agent</h3></div> </div>
+              <div style={{display:"flex",marginBottom:"20px"}}>  <div><MdOutlineBusiness  size={20} /> </div><div style={{marginLeft:"10px",marginTop:"-4px"}}><h3>Insurance Company</h3></div></div>
             </div>
-            <div className="sd1a">
-              <RxCross2 size={25} onClick={() => showShare(false)} />
-            </div>
-          </div>
-
-          <div className="link-share-container">
-            <input />
-            <button>Copy text</button>
-          </div>
-          <div className="row">
-            <div className="row-m1">
-              <div className="row-mt1">
-                {" "}
-                <h4>SwaranJeeth</h4>
-              </div>
-              <div className="row-mt2">
-                <img src={Logo} style={{ height: "100px", width: "100px" }} />
-              </div>
-            </div>
-            <div className="row-m2">
-              <div className="k1" style={{ display: "flex" }}>
-                <FaRegBuilding
-                  style={{ marginTop: "18px", marginRight: "10px" }}
-                />
-                <p>SRR Insurance Agent Services</p>{" "}
-              </div>
-              <div className="k2" style={{ display: "flex" }}>
-                <FaPhoneAlt
-                  style={{ marginTop: "18px", marginRight: "10px" }}
-                />{" "}
-                <p>213431434</p>
-              </div>
-              <div className="k3" style={{ display: "flex" }}>
-                <IoMail style={{ marginTop: "18px", marginRight: "10px" }} />{" "}
-                <p>awfdawefdaf</p>
-              </div>
-              <div className="k4" style={{ display: "flex" }}>
-                {" "}
-                <BsGlobe
-                  style={{ marginTop: "18px", marginRight: "10px" }}
-                />{" "}
-                <p>ffefefef</p>
-              </div>
-              <div className="k5" style={{ display: "flex" }}>
-                <FaUserTag style={{ marginTop: "18px", marginRight: "10px" }} />{" "}
-                <p>efessfefefe</p>
-              </div>
-              <div className="k6"> Powered by TRACS Network</div>
+            <div className="infoDiv2">
+              <div style={{display:"flex",marginBottom:"20px"}}><div ><IoCall  size={20}/></div> <div style={{marginLeft:"10px",marginTop:"-4px"}}><h3>8028329328</h3></div></div>
+              <div style={{display:"flex",marginBottom:"20px"}}> <div><IoMail  size={20}/></div><div style={{marginLeft:"10px",marginTop:"-4px"}}><h3>sample@mail.com</h3></div></div>
             </div>
           </div>
-          <div className="m1">
-            <h4>How would you like to share</h4>
+         
           </div>
-          <div className="so1">
-            <a
-              href="https://www.facebook.com/h7network"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <FaFacebook color="white" />
-            </a>
-            <a
-              href="https://x.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              {" "}
-              <FaXTwitter color="white" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/h7network/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              {" "}
-              <FaLinkedinIn color="white" />
-            </a>
+           <div className="linksContainer">
+           <div style={{display:"flex",marginTop:"5px",border:"1px solid black",padding:"10px",background:"white",borderRadius:"5px"}}><div ><FaLinkedinIn  size={20}/></div> <div style={{marginLeft:"10px",marginTop:"0px"}}><h3>Linked In</h3></div></div>
+           <div style={{display:"flex",marginTop:"5px",border:"1px solid black",padding:"10px",background:"white",borderRadius:"5px"}}><div  ><TbArrowsRandom  size={20}/></div> <div style={{marginLeft:"10px",marginTop:"0px"}}><h3>Affiliation</h3></div></div>
+           <div style={{display:"flex",marginTop:"5px",border:"1px solid black",padding:"10px",background:"white",borderRadius:"5px"}}><div  ><TbWorldWww size={20}/></div> <div style={{marginLeft:"10px",marginTop:"-1px"}}><h3>website</h3></div></div>
           </div>
         </div>
-      )}
+       
+      </div>
       <Footer />
     </div>
   );

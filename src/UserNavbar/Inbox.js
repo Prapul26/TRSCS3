@@ -105,7 +105,7 @@ const Inbox = () => {
                     <Link to='/reply'><button style={{ background: "green" }}>Reply</button></Link> 
                       <button style={{ background: "pink" }}>Bump</button>
                     </td>
-                    <td>
+                 <Link to='/memberDetails'>   <td>
                       <p>
                         <IoMdPerson />
                         Santhosh Kumar (Replies:0)
@@ -118,7 +118,7 @@ const Inbox = () => {
                         <RiContactsBook3Line />
                         narendhar Kumar
                       </p>
-                    </td>
+                    </td></Link>
                   </tr>
                   <tr>
                     <td>
@@ -131,7 +131,7 @@ const Inbox = () => {
                     <Link to='/reply'> <button style={{ background: "green" }}>Reply</button></Link>
                       <button style={{ background: "pink" }}>Bump</button>
                     </td>
-                    <td>
+                  <Link to='/memberDetails'>  <td>
                       <p>
                         <IoMdPerson />
                         Santhosh Kumar (Replies:0)
@@ -144,7 +144,7 @@ const Inbox = () => {
                         <RiContactsBook3Line />
                         narendhar Kumar
                       </p>
-                    </td>
+                    </td></Link>
                   </tr>
                   <tr>
                     <td>
@@ -157,7 +157,7 @@ const Inbox = () => {
                     <Link to='/reply'><button style={{ background: "green" }}>Reply</button></Link> 
                       <button style={{ background: "pink" }}>Bump</button>
                     </td>
-                    <td>
+                   <Link to='/memberDetails'> <td>
                       <p>
                         <IoMdPerson />
                         Santhosh Kumar (Replies:0)
@@ -170,7 +170,7 @@ const Inbox = () => {
                         <RiContactsBook3Line />
                         narendhar Kumar
                       </p>
-                    </td>
+                    </td></Link>
                   </tr>
                   <tr>
                     <td>
@@ -183,7 +183,7 @@ const Inbox = () => {
                     <Link to='/reply'> <button style={{ background: "green" }}>Reply</button></Link>
                       <button style={{ background: "pink" }}>Bump</button>
                     </td>
-                    <td>
+                  <Link to='/memberDetails'>  <td>
                       <p>
                         <IoMdPerson />
                         Santhosh Kumar (Replies:0)
@@ -196,7 +196,7 @@ const Inbox = () => {
                         <RiContactsBook3Line />
                         narendhar Kumar
                       </p>
-                    </td>
+                    </td></Link>
                   </tr>
                   <tr>
                     <td>
@@ -209,7 +209,7 @@ const Inbox = () => {
                     <Link to='/reply'>   <button style={{ background: "green" }}>Reply</button></Link>
                       <button style={{ background: "pink" }}>Bump</button>
                     </td>
-                    <td>
+                 <Link to='/memberDetails'>  <td>
                       <p>
                         <IoMdPerson />
                         Santhosh Kumar (Replies:0)
@@ -222,7 +222,7 @@ const Inbox = () => {
                         <RiContactsBook3Line />
                         narendhar Kumar
                       </p>
-                    </td>
+                    </td></Link> 
                   </tr>
                   <tr>
                     <td>
@@ -235,7 +235,7 @@ const Inbox = () => {
                      <Link to='/reply'><button style={{ background: "green" }}>Reply</button></Link> 
                       <button style={{ background: "pink" }}>Bump</button>
                     </td>
-                    <td>
+                  <Link to='/memberDetails'>  <td>
                       <p>
                         <IoMdPerson />
                         Santhosh Kumar (Replies:0)
@@ -248,7 +248,7 @@ const Inbox = () => {
                         <RiContactsBook3Line />
                         narendhar Kumar
                       </p>
-                    </td>
+                    </td></Link>
                   </tr>
                 </tbody>
               </table>

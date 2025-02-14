@@ -1,820 +1,174 @@
-
-html {
-	scroll-behavior: smooth;
+.member-holder{
+width: 90%;
+margin-top: 20px;
+margin-left: 5%;
+margin-right: 5%;
+border-radius: 10px;
+height: fit-content;
+padding: 20px;
+margin-bottom: 20px;
+background-color: white;
 }
-
-body {
-	font-size: .9rem;
-	color: #11242C;
-	font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.container{
+  background-color: rgb(195, 199, 202);
 }
-
-a {
-	color: #11242C;
-}
-
-img {
-	max-width: 100%;
-	height: auto;
-}
-
-.schedule{
-  position: absolute;
-  margin-left:370px;
-  margin-top: 40px;
-  background-color: #b8babe;
-  padding-left:20px ;
-  padding-right: 20px;
-  height: 50px;
-  text-align: center;
-  border-radius: 20px;
-  font-size: 14px;
-  height: fit-content;
-
-}
-.schedule:hover{
- color: #666;
- cursor: pointer;
- background-color:white;
- 
-}
-.container {
-  /* other styles */
-  transition: filter 0.3s ease;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 600;
-  color: #0f1991;
-}
-h1{
-  font-family:  "Ubuntu", sans-serif;
-}
-
-p {
-  color: #666;
-  font-family: "Merriweather", serif;
-}
-
-a {
-  text-decoration: none;
-  color: #0f1991;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #d3722c;
-}
-li{
-  font-family: "Afacad Flux", sans-serif;
-  font-size: 18px;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  border-radius: 20px;
-
-
-}
-
-button:hover {
-  box-shadow: 5px 5px 5px 5px rgb(0, 0, 0, 0.15);
-  color: rgb(118, 100, 100);
-}
-
-.details-container {
-
-  margin-left: 15%;
-  margin-right: 15%;
-  height: fit-content;
-
-}
-
-.pic1-container {
-  align-items: center;
-  justify-content: center;
-  background: #f0efef;
-
-
-  height: 400px;
+.ProfilePic-holder{
   width: 100%;
-  display: flex;
-}
+  height:300px;
+  background-color: rgb(214, 222, 219);
 
-.pic1-container img {
-  opacity: 1;
 }
-.blur {
-  filter: blur(5px); /* Adjust blur strength as needed */
-}
-.member-image {
-  width: fit-content;
+.backgroundPic{
+  width: 100%;
+  background-color: aliceblue;
   height: 100%;
+  
 }
-
-.cards-container {
-
-  margin-top: 10px;
-}
-
-.a-holder {
-  height: fit-content;
-  width: 65%;
-
-}
-
-.ab-holder {
-  display: flex;
-  justify-content: space-between;
-}
-
-.b-holder {
-  height: fit-content;
-  width: 30%;
-
-  align-items: flex-end;
-}
-
-.details {
-  height: fit-content;
+.backgroundPic img{
+  height: 100%;
   width: 100%;
-
-  border: transparent;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-  margin-top: 10px;
-  border-radius: 15px;
-
-}
-
-.about-us {
-
-  height: fit-content;
-  width: 100%;
-
-  border: transparent;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-  margin-top: 10px;
-  border-radius: 15px;
-
-}
-
-.tagline-card {
-  width: 100%;
-
-  padding: 20px;
-
-
-  border-radius: 8px;
-  /* Optional: add rounded corners */
-
-  overflow: hidden;
-  /* Ensure content doesn't overflow */
-  box-sizing: border-box;
-  /* Ensure padding and border are included in the width and height */
-  word-wrap: break-word;
-  /* Ensure long words break correctly */
-}
-.name-holder{
-  margin-bottom: 30px;
-}
-.about-us-card {
-  width: 100%;
-
-  padding: 20px;
-
-
-  border-radius: 8px;
-  /* Optional: add rounded corners */
-
-  overflow: hidden;
-  /* Ensure content doesn't overflow */
-  box-sizing: border-box;
-  /* Ensure padding and border are included in the width and height */
-  word-wrap: break-word;
-  /* Ensure long words break correctly */
-}
-
-.tagline {
-  height: fit-content;
-  width: 100%;
-  border-radius: 15px;
-
-  margin-top: 10px;
-  border: transparent;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-
-}
-
-.contacts {
-  height: fit-content;
-  align-items: flex-end;
-  width: 100%;
-  margin-top: 10px;
-
-  border-radius: 15px;
-
-  border: transparent;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-
-}
-
-.location-card {
-  overflow: hidden;
-  /* Ensure content doesn't overflow */
-  box-sizing: border-box;
-  /* Ensure padding and border are included in the width and height */
-  word-wrap: break-word;
-  /* Ensure long words break correctly */
-}
-
-.socilaMediaStore-container1 {
-  display: flex;
-  margin-left: 10px;
-}
-
-.play {
-  justify-content: center;
-  align-items: center;
-  margin-left: 45%;
-  margin-top: 40%;
-}
-
-.socilaMediaStore-container1 button {
-  height: 30px;
-  width: 30px;
-  margin-left: 14px;
-  font-size: 18px;
-  margin-top: 2px;
-  background-color: orange;
-  color: white;
-  border: transparent;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
-
-.categories {
-  height: fit-content;
-  width: 100%;
-
-  margin-top: 10px;
-  border: transparent;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-  border-radius: 15px;
-
+.userPic{
+  width: 12%;
+  margin-left: 44%;
+  margin-right: 38%;
+  height: 50%;
+  margin-top: -80px;
+  border-radius: 50%;
+  
+  
 }
-
-.location {
-  height: fit-content;
-  width: 100%;
-
-
-
-  border: transparent;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-  border-radius: 15px;
-
-}
-
-.products {
-  height: fit-content;
-  width: 100%;
-  border-radius: 15px;
-
-
-  border: transparent;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-
-}
-
-.services {
-  height: fit-content;
-  width: 100%;
-  border-radius: 15px;
-
-  margin-top: 10px;
-  border: transparent;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-
-}
-
-.photos {
-  height: fit-content;
-  width: 100%;
-  border-radius: 15px;
-  margin-top: 10px;
-
-  border: transparent;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-
-}
-
-.photos h1 {
-  padding: 15px;
-  margin-left: 10px;
-}
-
-.photos-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-.cardpic-holder {
-  width: 90%;
-  height: 400px;
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 10px;
-
-}
-
-.photos-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.cardpic-holder {
-  width: 80%;
-  height: 400px;
-  border: 1px solid rgb(238, 233, 233);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.cardpic {
-  overflow: hidden;
-  height: 100%;
-  width:100%;
-}
-
-.smallPic {
-  height: 70px;
-  width: 70px;
-  margin-left: 15px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  padding: 10px;
-}
-
-.smallPic1 {
+.userPic img{
   height: 100%;
   width: 100%;
-
+  border-radius: 50%;
 }
-
-
-.videos {
-  height: fit-content;
-  width: 100%;
-
-  border-radius: 15px;
+.userNAME{
+  margin-top: 7%;
+  text-align: center;
+}
+.informaion{
   margin-top: 10px;
-  border: transparent;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-
-margin-bottom: 40px;
-}
-
-.vid-holder {
-  height: 230px;
-  width: 300px;
   border: 1px solid black;
-  margin-top: 15px;
+  border-radius: 20px;
+  padding: 20px;
+  width: 50%;
+  background: linear-gradient(to right, black, rgb(54, 53, 53));
 
-  margin-bottom: 20px;
+color: white;
+margin-bottom: 10px;
 }
-
-.name-holder2 {
-  display: flex;
-}
-
-.name-holder2 button {
-  background-color: #4DFFFF;
-  border-radius: 10px;
-  border: transparent;
-  padding: 5px;
+.informaion h3{
   color: white;
-}
-
-.name-holder2 button:hover {
-  color: none;
-  box-shadow: none;
-}
-
-.shareDetails {
-  position: fixed;
-  top: 10%;
-  right: 20%;
-  bottom: 10%;
-  left: 20%;
-  width: 60%;
-  background-color: white;
- 
-  height: 600px;
-}
-
-.sd1 {
-  padding: 0px 10px;
-
-}
-
-.sd1a {
-
-  padding: 16px 9px;
-
-}
-
-.pr {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid black;
-}
-
-.link-share-container {
-  display: flex;
-  padding: 10px;
-  justify-content: space-between;
-
-}
-
-.link-share-container input {
-  width: 70%;
-  height: 26px;
-}
-
-.link-share-container button {
-  width: 25%;
-  border-radius: 14px;
-  border: transparent;
-  background-color: green;
-  color: white;
-}
-
-.row {
-  height: fit-content;
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
-  position: relative;
-  border: 1px solid green;
-  padding-left: 15px;
-  padding-right: 12px;
-  text-align: left;
-}
-
-.row-m1 {
-  display: flex;
-  justify-content: space-between;
-}
-
-.row-mt2 {
-  margin-top: 20px;
-}
-
-.eye {
-  margin-left: 20px;
-}
-
-.k6 {
-  text-align: right;
-}
-
-.m1 {
-  text-align: center;
-}
-
-.so1 {
-  display: flex;
-  text-align: center;
-  background-color: aqua;
-  justify-content: center;
-  gap: 20px
-}
-
-.refferal {
-  height: fit-content;
-  width: 100%;
-  border-radius: 15px;
-
-  margin-top: 10px;
-  border: transparent;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-
-}
-
-.rate {
-  height: fit-content;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  border-radius: 15px;
-  margin-top: 10px;
-
-  border: transparent;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-
-}
-
-.rate-card {
-  display: flex;
-  justify-content: center;
-
-  flex-direction: column;
-}
-
-.submit-button {
-  width: 300px;
-  height: 40px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: rgb(250, 90, 15);
-  font-weight: 800;
   font-size: larger;
-  color: white;
-  border: transparent;
 }
-.blurred {
-  filter: blur(5px);
-  pointer-events: none; /* Disable interactions with the blurred content */
-}
+.infoDiv{
+  display: flex;
+  justify-content: space-between;
+margin-top: 20px;
 
-.comment-box {
-  height: 180px;
-  width: 90%;
-  margin-top: 40px;
+text-align: center;
 }
+.infoDiv1{
+text-align: center;
+justify-content: center;
 
-.rating-dropdown {
-  width: 90%;
+}
+.infoDiv2{
+width: 50%;
+}
+.informationHolder{
+  display: flex;
+  justify-content: space-between;
+}
+.linksContainer{
+  padding: 20px;
+  background-color: orange;
+  width: 40%;
   height: 50px;
-}
-
-.c-holder {
-  align-items: start;
-
-  width: 65%;
-
-}
-
-.details-card {
+  
+  margin-top: 20px;
   display: flex;
-  height: fit-content;
+justify-content: space-between;
+  border-radius: 30px;
 }
-
-.pic1-holder {
-  height: 150px;
-  width: 150px;
-  margin-top: 25px;
-  margin-left: 15px;
-  border: 1px solid black;
+.About-Container{
+  padding: 20px;
 }
-
-.name-holder {
-  height: fit-content;
-  width: fit-content;
-  margin-top: 10px;
-  margin-left: 15px;
-
-}
-
-.button-holder {
-  display: flex;
-  border-bottom: 1px solid wheat;
-  padding: 30px;
-
-}
-
-.button-holder button {
-  padding: 10px;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-  background-color: #1589FF;
-  color: white;
-  margin-left: 25px;
-
-  font-size: 15px;
-  border-radius: 15px;
-  border: transparent;
-}
-
-.button-holder button:hover {
-  box-shadow: 5px 5px 5px 5px rgb(0, 0, 0, 0.15);
-  color: rgb(118, 100, 100);
-}
-
-.button-holder2 {
-  display: flex;
-  margin-top: -25px;
-  padding: 30px;
-
-}
-
-.button-holder2 button {
-  padding: 10px;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.15);
-  background-color: #FF5F1F;
-  color: white;
-  margin-left: 25px;
-  width: 200px;
-  font-size: 20px;
-  border-radius: 20px;
-  border: transparent;
-}
-
-.button-holder2 button span:hover {
-  color: rgb(118, 100, 100);
-
-}
-
-.button-holder2 button:hover {
-  box-shadow: 5px 5px 5px 5px rgb(0, 0, 0, 0.15);
-  color: rgb(118, 100, 100);
-}
-
-.products-card {
-  padding: 10px;
-  overflow: hidden;
-  /* Ensure content doesn't overflow */
-  box-sizing: border-box;
-  /* Ensure padding and border are included in the width and height */
-  word-wrap: break-word;
-  /* Ensure long words break correctly */
-}
-
-.services-card {
-  padding: 10px;
-  overflow: hidden;
-  /* Ensure content doesn't overflow */
-  box-sizing: border-box;
-  /* Ensure padding and border are included in the width and height */
-  word-wrap: break-word;
-  /* Ensure long words break correctly */
-}
-
-.refferal-card {
-  padding: 10px;
-  overflow: hidden;
-  /* Ensure content doesn't overflow */
-  box-sizing: border-box;
-  /* Ensure padding and border are included in the width and height */
-  word-wrap: break-word;
-  /* Ensure long words break correctly */
-}
-
-.contacts-card {
-  padding: 10px;
-  overflow: hidden;
-  /* Ensure content doesn't overflow */
-  box-sizing: border-box;
-  /* Ensure padding and border are included in the width and height */
-  word-wrap: break-word;
-  /* Ensure long words break correctly */
-}
-
-.name-holder {
-  overflow: hidden;
-  /* Ensure content doesn't overflow */
-  box-sizing: border-box;
-  /* Ensure padding and border are included in the width and height */
-  word-wrap: break-word;
-}
-
-.pic1-container:hover,
-.details:hover,
-.tagline:hover,
-.about-us:hover,
-.contacts:hover,
-.location:hover,
-.photos:hover,
-.videos:hover,
-.comment-box:hover,
-.rate:hover,
-.refferal:hover,
-.products:hover,
-.services:hover,
-.categories:hover {
-  box-shadow: 12px 12px 19px 12px rgba(0, 0, 0, 0.15);
-}
-
-@media (max-width: 1200px) {
-
-  /* For large desktops - wider than 1440px */
-  .details-container {
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-
-  .a-holder {
-    width: 60%;
-  }
-
-  .b-holder {
-    width: 35%;
-  }
-
-  .c-holder {
-    width: 60%;
-  }
-}
-
-@media (max-width: 992px) {
-  .details-container {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-
-  .a-holder,
-  .b-holder,
-  .c-holder {
-    width: 100%;
-    height: auto;
-  }
-
-  .ab-holder {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 768px) {
-  .pic1-container {
-    height: 300px;
-  }
-  .row-m1{
-    display: flex;
-    flex-direction: column;
-  }
-  .shareDetails{
-    margin-left: -8%;
-    margin-right: 2%;
-    width: 75%;
-    
+@media(max-width:480px){
+  .member-holder{
+    width: 90%;
+    margin-top: 20px;
+margin-left: -0%;
+    border-radius: 10px;
     height: fit-content;
+    
+    margin-bottom: 20px;
+    background-color: white;
+    }
+    .container{
+      background-color: rgb(195, 199, 202);
+    }
+    .ProfilePic-holder{
+      width: 100%;
+      height:300px;
+      background-color:white;
+    
+    }
+    .backgroundPic{
+      width: 100%;
+  margin-left: 0%;
+      background-color: aliceblue;
+      height: 75%;
+      border-radius: 10px;
+    }
+   .backgroundPic img{
+    border-radius: 10px;
+   }
+    .userPic{
+      width: 30%;
+      margin-left: 34%;
+      margin-right: 35%;
+      height: 38%;
+      margin-top: -65px;
+      border-radius: 50%;
+      background-color: aqua;
+      
+    }
+    .userNAME{
+      margin-top: -5%;
+      text-align: center;
+    }
+    .informationHolder{
+      flex-direction: column;
+    }
+    .linksContainer{
+      padding: 20px;
+      background-color: orange;
+      width: 90%;
+      height: fit-content;
+      flex-direction: column;
+      margin-top: 20px;
+      display: flex;
+    justify-content: space-between;
+      border-radius: 30px;
+    }
+    .informaion{
+      margin-top: 10px;
+      border: 1px solid black;
+      border-radius: 20px;
+      padding: 20px;
+      width: 90%;
+      background: linear-gradient(to right, black, rgb(54, 53, 53));
+    
+    color: white;
+    margin-bottom: 10px;
+    }
+    .infoDiv{
+flex-direction: column;
+    }
+    .infoDiv2{
 
-  }
-  
-.row-mt2{
-  height: 100px;
-  width: 100px;
-  
-  justify-content: center;
-  display: flex;
-}
-  .details,
-  .about-us,
-  .tagline,
-  .contacts,
-  .categories,
-  .location,
-  .services,
-  .photos,
-  .videos,
-  .refferal,
-  .rate,
-  .products {
-    height: auto;
-    margin-top: 5px;
-  }
-}
-
-@media (max-width: 576px) {
-  .details-container {
-    margin-left: 2%;
-    margin-right: 2%;
-  }
-
-  .pic1-container {
-    height: 200px;
-  }
-.row-m1{
-  display: flex;
-  flex-direction: column;
-}
-  .details,
-  .about-us,
-  .tagline,
-  .contacts,
-  .categories,
-  .location,
-  .services,
-  .photos,
-  .videos,
-  .refferal,
-  .rate,
-  .products {
-    height: auto;
-    margin-top: 5px;
-  }
+    }
 }
