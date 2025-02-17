@@ -1,8 +1,8 @@
 .member-holder{
-width: 90%;
+width: 80%;
 margin-top: 20px;
-margin-left: 5%;
-margin-right: 5%;
+margin-left: 10%;
+margin-right: 10%;
 border-radius: 10px;
 height: fit-content;
 padding: 20px;
@@ -18,57 +18,78 @@ background-color: rgb(255, 255, 255);
   background-color: rgb(214, 222, 219);
 
 }
-.backgroundPic{
-  width: 100%;
-  background-color: aliceblue;
-  height: 100%;
-  
-}
-.backgroundPic img{
-  height: 100%;
-  width: 100%;
-  border-radius: 10px;
-}
+
+
 .userPic{
-  width: 12%;
-  margin-left: 12%;
+  width: 150px;
+  margin-left: 43.5%;
   margin-right: 38%;
-  height: 50%;
-  margin-top: -80px;
+  height:150px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
   border-radius: 50%;
   
   
 }
 .section2{
-margin-left: 7%;
+
 color: rgb(0, 0, 0);
 }
 .section2 h3{
   color: rgb(0, 0, 0);
+
+}
+.floatgg h3{
+
+justify-content: end;
+text-align: center;
+}
+.floatgg{
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
 }
 .section3{
   display: flex;
-  margin-top: 20px;
-  width: 30%;
+  margin-top: 10px;
+  width: 60%;
+margin-left: 23%;
+ margin-bottom: 40px;
   margin-top: 40px;
   justify-content: space-between;
+
+  padding: 10px;
 }
 .EmailLink{
 text-align: center;
+display: flex;
 color: rgb(0, 0, 0);
 }
 .PhoneLink{
   text-align: center;
-  margin-top: 20px;
+  display: flex;
+  margin-top: 30px;
   color: rgb(0, 0, 0);
+}
+.infoheading{
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.infoheading h3{
+font-size: larger;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .WebsiteLink{
   text-align: center;
   color: rgb(0, 0, 0);
+  display: flex;
 }
 .AffiliationLink{
   text-align: center;
-  margin-top: 20px;
+  display: flex;
+  margin-top: 30px;
   color: rgb(0, 0, 0);
 }
 .divider2{
@@ -80,9 +101,8 @@ color: rgb(0, 0, 0);
   border-radius: 50%;
 }
 .userNAME{
-  margin-top: 7%;
-
-  margin-left: 14%;
+  margin-top: 3%;
+text-align: center;
 }
 .userNAME h2{
   color: rgb(0, 0, 0);
@@ -108,6 +128,10 @@ margin-bottom: 10px;
 margin-top: 20px;
 
 text-align: center;
+}
+.divider{
+ margin-top: 20px;
+ 
 }
 .infoDiv1{
 text-align: center;
@@ -135,12 +159,57 @@ justify-content: space-between;
 }
 .About-Container{
   padding: 20px;
-  width: 70%;
+  width: 97%;
 background-color: aliceblue;
 }
 .divider{
   display: flex;
+  flex-direction: column;
+
+}
+.mailIcon{
+        
+  margin-right: 30px;
+}
+.PhoneIcon{
+  margin-right: 30px;
+}
+.randomIcon{
+  margin-right: 30px;
+
+}
+.webIcon{
+  margin-right: 30px;
+
+}
+.imagesAdd{
+width: 100%;
+padding: 20px;
+display: flex;
+height: fit-content;
+justify-content: space-between;
+}
+.imageAdd1 {
+width: 35%;
+display: flex;
+justify-content: space-between;
+
+}
+.imageAdd1 img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+.imageAdd2{
+  display: flex;
   justify-content: space-between;
+  width: 35%;
+  margin-right: 10%;
+}
+.imageAdd2 img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
 }
 @media(max-width:480px){
   .member-holder{
@@ -153,6 +222,19 @@ margin-left: -0%;
     margin-bottom: 20px;
     background-color: white;
     }
+    .section2{
+      flex-direction: column;
+    }
+    .floatgg{
+      width: 90%;
+      text-align: center;
+      margin-left: 33px;
+    }
+.flot{
+  margin-left: 50px;
+  width: 90%;
+  text-align: center;
+}
     .container{
       background-color: rgb(195, 199, 202);
     }
@@ -161,6 +243,11 @@ margin-left: -0%;
       height:300px;
       background-color:white;
     
+    }
+    .section3{
+      flex-direction: column;
+      width: 50%;
+      margin-left: 10px;
     }
     .backgroundPic{
       width: 100%;
@@ -173,13 +260,13 @@ margin-left: -0%;
     border-radius: 10px;
    }
     .userPic{
-      width: 30%;
-      margin-left: 34%;
-      margin-right: 35%;
-      height: 38%;
-      margin-top: -65px;
+      width: 100px;
+      margin-left: 36%;
+      margin-right: 38%;
+      height:100px;
+      margin-top: 5px;
       border-radius: 50%;
-      background-color: aqua;
+      
       
     }
     .userNAME{
@@ -246,4 +333,55 @@ margin-left: -0%;
         margin-top: 20px;
         color: rgb(0, 0, 0);
       }
+      .mailIcon{
+        
+        margin-right: 30px;
+      }
+      .PhoneIcon{
+        margin-right: 30px;
+      }
+      .randomIcon{
+        margin-right: 30px;
+
+      }
+      .webIcon{
+        margin-right: 30px;
+
+      }
+      .imagesAdd{
+        width: 90%;
+        padding: 20px;
+        display: flex;
+        height: fit-content;
+        justify-content: space-between;
+        }
+        .imageAdd1 {
+        width: 35%;
+        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
+        
+        }
+        .imageAdd1 img{
+          height: 100px;
+          width: 100px;
+        }
+        .imageAdd2{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 35%;
+          
+        }
+        .imageAdd2 img{
+          height: 100px;
+          width: 100px;
+        }
+        .WebsiteLink{
+          margin-top: -40px;
+      
+        }
+        .section2{
+          
+        }
 }
