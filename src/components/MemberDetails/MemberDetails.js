@@ -94,7 +94,7 @@ const MemberDetails = () => {
               </div>{" "}
               <div className="WebsiteLink">
                 <div className="randomIcon">
-                  <TbArrowsRandom size={30} />
+                <img width="30" height="30" src="https://img.icons8.com/external-nawicon-glyph-nawicon/64/external-affiliate-seo-and-marketing-nawicon-glyph-nawicon.png" alt="external-affiliate-seo-and-marketing-nawicon-glyph-nawicon"/>      
                 </div>
                 <div>
                   <h4 style={{ textAlign: "left" }}>Affiliation</h4>
