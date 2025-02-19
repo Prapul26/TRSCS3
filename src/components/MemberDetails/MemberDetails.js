@@ -87,6 +87,7 @@ const MemberDetails = () => {
                   <h3>987080979867</h3>
                 </div>
               </div>
+              
             </div>
             <div className="divider2">
               <div className="infoheading">
@@ -94,20 +95,20 @@ const MemberDetails = () => {
               </div>{" "}
               <div className="WebsiteLink">
                 <div className="randomIcon">
-                <img width="30" height="30" src="https://img.icons8.com/external-nawicon-glyph-nawicon/64/external-affiliate-seo-and-marketing-nawicon-glyph-nawicon.png" alt="external-affiliate-seo-and-marketing-nawicon-glyph-nawicon"/>      
-                </div>
+                  <TbWorldWww size={30} /> </div>
                 <div>
-                  <h4 style={{ textAlign: "left" }}>Affiliation</h4>
-                  <h3>http/wdad/wsampke</h3>
+                  <h4 style={{ textAlign: "left" }}>WebsiteLink</h4>
+                  <h3>www.sampleWeblink.com</h3>
                 </div>{" "}
               </div>
               <div className="AffiliationLink">
                 <div className="webIcon">
-                  <TbWorldWww size={30} />
+                <img width="30" height="30" src="https://img.icons8.com/external-nawicon-glyph-nawicon/64/external-affiliate-seo-and-marketing-nawicon-glyph-nawicon.png" alt="external-affiliate-seo-and-marketing-nawicon-glyph-nawicon"/>      
+
                 </div>
                 <div style={{ textAlign: "center" }}>
-                  <h4 style={{ textAlign: "left" }}> WebsiteLink</h4>
-                  <h3>www.sampleWeblink.com</h3>
+                  <h4 style={{ textAlign: "left" }}> Affiliation</h4>
+                   <h3>http/wdad/wsampke</h3>
                 </div>
               </div>
               <div className="AffiliationLink">
