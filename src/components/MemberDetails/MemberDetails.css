@@ -16,10 +16,10 @@ background-color: rgb(255, 255, 255);
 
 
 .userPic{
-  width: 150px;
+  width: 200px;
 
   
-  height:150px;
+  height:200px;
   justify-content: center;
   align-items: center;
   margin-top: 0px;
@@ -153,6 +153,9 @@ width: 50%;
   justify-content: space-between;
   width: 30%;
 }
+.About-Container h2{
+  color: white;
+}
 .linksContainer{
   padding: 20px;
   background-color: orange;
@@ -168,6 +171,7 @@ justify-content: space-between;
   padding: 20px;
   width: 97%;
 background-color: rgb(57, 153, 237);
+border-radius: 10px;
 }
 .divider{
   display: flex;
@@ -197,26 +201,26 @@ height: fit-content;
 justify-content: space-between;
 }
 .imageAdd1 {
-width: 35%;
+width: 42%;
 display: flex;
 justify-content: space-between;
 
 }
 .imageAdd1 img{
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
 }
 .imageAdd2{
   display: flex;
   justify-content: space-between;
-  width: 35%;
+  width: 42%;
   margin-right: 10%;
 }
 .imageAdd2 img{
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
 }
 .userNAME2{
 
@@ -229,8 +233,19 @@ justify-content: space-between;
 
       }
       .pe-holder{
-        padding: 20px;
+      height: fit-content;
         margin-left: 60px;
+        border: 1px soild black;
+background-color: rgb(255, 255, 255);
+box-sizing: border-box;
+border-radius: 10px;
+box-shadow: 5px 5px 10px 0px rgb(206, 206, 206);
+padding-right: 40px;
+padding-left: 40px;
+padding-top: 20px;
+padding-bottom: 20px;
+margin-bottom: 20px;
+
       }
       .Links-Holder{
 border: 1px soild black;
@@ -242,8 +257,8 @@ padding-right: 40px;
 padding-left: 40px;
 padding-top: 20px;
 padding-bottom: 20px;
-
-margin-right: 40px;
+height: fit-content;
+margin-right: 20%;
 margin-bottom: 20px;
       }
       .pe-holder p{
@@ -362,7 +377,7 @@ margin-left: -40px;
     .About-Container{
       padding: 20px;
       width: 90%;
-    background-color: aliceblue;
+      background-color: rgb(57, 153, 237);
     }
     .divider{
       display: flex;

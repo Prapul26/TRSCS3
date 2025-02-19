@@ -4,7 +4,9 @@
    background-color: white;
 
     justify-items: center;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
 }
 .navbar-holder{
     display: flex;
