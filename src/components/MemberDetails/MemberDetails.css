@@ -30,6 +30,7 @@ background-color: rgb(255, 255, 255);
 .About-Container p{
 
 word-break: break-all;
+color: white;
 }
 .section2{
 
@@ -166,7 +167,7 @@ justify-content: space-between;
 .About-Container{
   padding: 20px;
   width: 97%;
-background-color: aliceblue;
+background-color: rgb(57, 153, 237);
 }
 .divider{
   display: flex;
