@@ -39,18 +39,21 @@ const MemberDetails = () => {
       <Header />
       <Navbar />
       <div className="member-holder">
+        <div className="pic-Holder" >
+
+      <div>
         <div className="userPic">
           <img src="https://img.freepik.com/free-photo/indoor-shot-beautiful-happy-african-american-woman-smiling-cheerfully-keeping-her-arms-folded-relaxing-indoors-after-morning-lectures-university_273609-1270.jpg" />
-        </div>
-
+        </div></div>
+<div className="dataName">
         <div className="userNAME">
           <h2 style={{ justifyContent: "center" }}>Santhosh</h2>
         </div>
         <div className="userNAME">
           <h4 style={{ justifyContent: "center",marginTop:"-10px" }}>Agent</h4>
-        </div><div className="userNAME" >
+        </div><div className="userNAME2" >
           <h4 style={{ justifyContent: "center",marginTop:"-10px" }}>Insurance Company</h4>
-        </div>
+        </div>  </div></div>
 
         <div className="divider">
           <div className="section3">
@@ -109,6 +112,20 @@ const MemberDetails = () => {
                   <h3>www.LinkedInSample.com</h3>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="section4">
+            <div className="pe-holder">
+              <div style={{marginTop:"20px"}}><h3 style={{fontSize:"22px"}}>Information :</h3></div>
+             <div style={{marginTop:"25px"}}> <div style={{display:"flex",marginTop:"15px"}}><div style={{marginRight:"10px"}}><IoMail size={20}/></div><div><h3>Mail</h3></div></div><p>Sample@mail.com</p></div>
+             <div style={{marginTop:"25px"}}> <div style={{display:"flex",marginTop:"15px"}}><div style={{marginRight:"10px"}}><IoCall size={20}/></div><div><h3>Phone</h3></div></div><p>8272927190</p></div>
+
+            </div>
+            <div className="Links-Holder">
+            <div> <div style={{display:"flex",marginTop:"15px"}}><div style={{marginRight:"10px"}}><TbArrowsRandom size={20}/></div><div><h3>Affiliation</h3></div></div><p>http/wdad/wsample</p></div>
+            <div style={{marginTop:"25px"}}> <div style={{display:"flex",marginTop:"15px"}}><div style={{marginRight:"10px"}}><TbWorldWww size={20}/></div><div><h3>WebsiteLink</h3></div></div><p>www.sampleWeblink.com</p></div>
+            <div  style={{marginTop:"25px"}}> <div style={{display:"flex",marginTop:"15px"}}><div style={{marginRight:"10px"}}><IoLogoLinkedin size={20}/></div><div><h3> Linked In</h3></div></div><p>www.LinkedInSample.com</p></div>
+                                                            
             </div>
           </div>
           <div className="About-Container">
