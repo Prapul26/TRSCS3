@@ -55,7 +55,7 @@ const Pricing = () => {
             {Basic.map((item, index) => (
               <div key={index} className="pd2">
                 <button>Basic</button>
-                <h1>$80
+                <h1>${item.price}
                 </h1>
                 <h2>{item.days} Days Trail</h2>
                 <ul>
@@ -66,14 +66,14 @@ const Pricing = () => {
                   ))}
                 </ul>
                 <div className="getb">
-                  <button onClick={popUp}>GetStarted</button>
+                <Link to='/payment'><button>GetStarted</button></Link> 
                 </div>
               </div>
             ))}
             {Standard.map((item, index) => (
               <div key={index} className="pd3">
                 <button>Standard</button>
-                <h1>$150</h1>
+                <h1>${item.price}</h1>
                 <h2>{item.days} Days Trail</h2>
                 <ul>
                   {item.details.map((detail, i) => (
@@ -83,7 +83,7 @@ const Pricing = () => {
                   ))}
                 </ul>
                 <div className="getb">
-                  <button onClick={popUp}>GetStarted</button>
+                 <Link to='/payment'><button>GetStarted</button></Link> 
                 </div>
               </div>
             ))}
@@ -109,14 +109,7 @@ const Pricing = () => {
         </div>
         <Footer />
       </div>
-      {popup && (
-        <div className="popup">
-          <p>
-            Your popup content goes here. Make sure this element is styled
-            correctly.
-          </p>
-        </div>
-      )}{" "}
+     
     </div>
   );
 };

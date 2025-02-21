@@ -8,6 +8,7 @@ import { IoSettingsSharp } from "react-icons/io5";
 import { ImProfile } from "react-icons/im";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
+import { RiLockPasswordFill } from "react-icons/ri";
 import { RiContactsFill } from "react-icons/ri";
 import { TbArrowsRandom } from "react-icons/tb";
 import { HiInboxArrowDown } from "react-icons/hi2";
@@ -46,6 +47,8 @@ const SideNav = () => {
                                               <Link to='/accountSettings'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><IoPerson size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Profile</h3> </div></Link>
                                               <Link to='/affiliation'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><TbArrowsRandom size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>Affiliation</h3> </div></Link>
                                               <Link to='/myAffiliation'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><BsGraphUp size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Affiliation</h3> </div></Link>
+                                              <Link to='/passwordChange'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><RiLockPasswordFill  size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3> My Password </h3> </div></Link>
+
 
                                   </div>
                                 }
