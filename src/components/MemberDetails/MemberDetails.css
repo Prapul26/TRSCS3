@@ -216,7 +216,8 @@ justify-content: space-between;
 .imageAdd1 {
 width: 42%;
 display: flex;
-justify-content: space-between;
+justify-content: space-between;;
+
 
 }
 .imageAdd1 img{
