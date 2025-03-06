@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./MemberDetails.css";
 import { FaRegBuilding } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
-import axios from "axios";
+import axios from 'axios';
 
 import { IoLogoLinkedin, IoMail, IoPersonSharp } from "react-icons/io5";
 import { BsGlobe } from "react-icons/bs";
@@ -16,6 +16,7 @@ import { MdOutlineBusiness } from "react-icons/md";
 import { FaHeart } from "react-icons/fa6";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import './PopUp.css'
 import { FaCertificate } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
@@ -34,6 +35,19 @@ import { IoIosStarOutline } from "react-icons/io";
 import { TbArrowsRandom, TbWorld, TbWorldWww } from "react-icons/tb";
 
 const MemberDetails = () => {
+  const[picView,setPicView]=useState(false);
+  const [currentImage, setCurrentImage] = useState("");
+ 
+  const picViewHandler = (src) => {
+    setPicView(true);
+    setCurrentImage(src);
+  };
+  
+  const closeImagePopup = () => {
+    setPicView(false);
+    setCurrentImage("");
+  };
+  
   return (
     <div className="container">
       <Header />
@@ -49,11 +63,7 @@ const MemberDetails = () => {
             <div className="userNAME">
               <h2 style={{ justifyContent: "center" }}>Santhosh</h2>
             </div>
-            <div className="userNAME">
-              <h4 style={{ justifyContent: "center", marginTop: "-10px" }}>
-                Agent
-              </h4>
-            </div>
+           
             <div className="userNAME2">
               <h4 style={{ justifyContent: "center", marginTop: "-10px" }}>
                 Insurance Company
@@ -74,8 +84,8 @@ const MemberDetails = () => {
                   <IoMdMail size={30} />
                 </div>
                 <div>
-                  <h4 style={{ textAlign: "left" }}>Email</h4>
-                  <h3>sample@mail.com</h3>
+                  <h4 style={{ textAlign: "left" ,color:"black" }}>Email</h4>
+                  <h3 style={{color:'brown',fontWeight:"normal"}}>sample@mail.com</h3>
                 </div>
               </div>
               <div className="PhoneLink">
@@ -83,8 +93,17 @@ const MemberDetails = () => {
                   <IoCall size={30} />
                 </div>
                 <div>
-                  <h4 style={{ textAlign: "left" }}>Phone</h4>
-                  <h3>987080979867</h3>
+                  <h4 style={{ textAlign: "left" ,color:"black"}}>Phone</h4>
+                  <h3 style={{color:'brown',fontWeight:"normal"}}>8272927190</h3>
+                </div>
+              </div>
+              <div className="PhoneLink">
+                <div className="PhoneIcon">
+                  <TbWorldWww size={30} />
+                </div>
+                <div>
+                  <h4 style={{ textAlign: "left" ,color:"black",fontWeight:"bolder"}}>Website Link</h4>
+                  <h3 style={{color:"blue",fontWeight:"normal"}}>www.sampleWeblink.com</h3>
                 </div>
               </div>
               
@@ -93,22 +112,15 @@ const MemberDetails = () => {
               <div className="infoheading">
                 <h3 style={{ color: "white" }}>.</h3>
               </div>{" "}
-              <div className="WebsiteLink">
-                <div className="randomIcon">
-                  <TbWorldWww size={30} /> </div>
-                <div>
-                  <h4 style={{ textAlign: "left" }}>WebsiteLink</h4>
-                  <h3>www.sampleWeblink.com</h3>
-                </div>{" "}
-              </div>
+              
               <div className="AffiliationLink">
                 <div className="webIcon">
                 <img width="30" height="30" src="https://img.icons8.com/external-nawicon-glyph-nawicon/64/external-affiliate-seo-and-marketing-nawicon-glyph-nawicon.png" alt="external-affiliate-seo-and-marketing-nawicon-glyph-nawicon"/>      
 
                 </div>
                 <div style={{ textAlign: "center" }}>
-                  <h4 style={{ textAlign: "left" }}> Affiliation</h4>
-                   <h3>http/wdad/wsampke</h3>
+                  <h4 style={{ textAlign: "left" ,color:"black" }}> Affiliation</h4>
+                   <h3 style={{color:"blue",fontWeight:"normal"}}>http/wdad/wsampke</h3>
                 </div>
               </div>
               <div className="AffiliationLink">
@@ -116,8 +128,8 @@ const MemberDetails = () => {
                   <IoLogoLinkedin size={30} />
                 </div>
                 <div style={{ textAlign: "center" }}>
-                  <h4 style={{ textAlign: "left" }}> Linked In</h4>
-                  <h3>www.LinkedInSample.com</h3>
+                  <h4 style={{ textAlign: "left"  ,color:"black"}}> Linked In</h4>
+                  <h3 style={{color:"blue",fontWeight:"normal"}}>www.LinkedInSample.com</h3>
                 </div>
               </div>
             </div>
@@ -194,7 +206,7 @@ const MemberDetails = () => {
           </div>
           <div className="About-Container">
             <div>
-              <h2>About Me:</h2>
+              <h2>About Me</h2>
             </div>
             <div>
               <p>
@@ -212,24 +224,26 @@ const MemberDetails = () => {
           <h2>Images</h2>
         </div>
         <div className="imagesAdd">
-          <div className="imageAdd1">
-            <div>
+          <div className="imageAdd1" >
+            <div onClick={(e)=>picViewHandler("https://static.vecteezy.com/system/resources/thumbnails/007/209/020/small_2x/close-up-shot-of-happy-dark-skinned-afro-american-woman-laughs-positively-being-in-good-mood-dressed-in-black-casual-clothes-isolated-on-grey-background-human-emotions-and-feeligs-concept-photo.jpg")} >
               <img src="https://static.vecteezy.com/system/resources/thumbnails/007/209/020/small_2x/close-up-shot-of-happy-dark-skinned-afro-american-woman-laughs-positively-being-in-good-mood-dressed-in-black-casual-clothes-isolated-on-grey-background-human-emotions-and-feeligs-concept-photo.jpg" />
             </div>
-            <div>
+            <div onClick={(e)=>picViewHandler("https://wallpapercave.com/wp/wp2656149.jpg")}>
               <img src="https://wallpapercave.com/wp/wp2656149.jpg" />
             </div>
           </div>
           <div className="imageAdd2">
-            <div>
+            <div onClick={(e)=>picViewHandler("https://pbs.twimg.com/profile_images/1442802623338397702/xcIJg8PN_400x400.jpg")}>
               <img src="https://pbs.twimg.com/profile_images/1442802623338397702/xcIJg8PN_400x400.jpg" />
             </div>
-            <div>
-              <img src="https://th.bing.com/th/id/OIP.z9lqZb1IAWlS5YPDLMHd4QDMEy?w=400&h=600&rs=1&pid=ImgDetMain" />
+            <div onClick={(e)=>picViewHandler("https://th.bing.com/th/id/OIP.z9lqZb1IAWlS5YPDLMHd4QDMEy?w=400&h=600&rs=1&pid=ImgDetMain")}>
+              <img src="https://th.bing.com/th/id/OIP.z9lqZb1IAWlS5YPDLMHd4QDMEy?w=400&h=600&rs=1&pid=ImgDetMain"  />
             </div>
-          </div>
-        </div>
+          </div>    
       </div>
+        </div>
+  {picView && <div className="wada"><button onClick={closeImagePopup}><RxCross2/></button>
+  <img src={currentImage}/></div>}
       <Footer />
     </div>
   );

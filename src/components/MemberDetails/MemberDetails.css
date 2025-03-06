@@ -59,7 +59,7 @@ margin-left: 23%;
  margin-bottom: 40px;
   margin-top: 40px;
   justify-content: space-between;
-display: none;
+
   padding: 10px;
 }
 .EmailLink{
@@ -75,6 +75,10 @@ color: rgb(0, 0, 0);
 }
 .pic-Holder{
   display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+margin-bottom: 30px;
 }
 .infoheading{
   margin-top: 10px;
@@ -102,6 +106,15 @@ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100%;
   width: 100%;
   border-radius: 50%;
+}
+.userPic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17%;
+  margin-left: 43%;
+  margin-right: 32%;
+
 }
 .dataName{
   margin-left: 40px;
@@ -230,7 +243,7 @@ justify-content: space-between;
       .section4{
 display: flex;
 justify-content: space-between;
-
+display: none;
       }
       .pe-holder{
       height: fit-content;
