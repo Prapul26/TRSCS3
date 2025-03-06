@@ -85,7 +85,7 @@ const MemberDetails = () => {
                 </div>
                 <div>
                   <h4 style={{ textAlign: "left" ,color:"black" }}>Email</h4>
-                  <h3 style={{color:'brown',fontWeight:"normal"}}>sample@mail.com</h3>
+                  <h3 style={{color:'brown',fontWeight:"normal"}}>Sample@mail.com</h3>
                 </div>
               </div>
               <div className="PhoneLink">
