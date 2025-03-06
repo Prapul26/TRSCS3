@@ -40,7 +40,7 @@ const Register = ({ switchToLogin }) => {
         if (password !== confirmPassword) {
             setMessage('Passwords do not match.');
             return;
-s        }
+        }
 
         const payload = {
             first_name: firstName,
