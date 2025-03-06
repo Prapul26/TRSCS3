@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./MemberDetails.css";
 import { FaRegBuilding } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
-import axios from 'axios';
+import axios from "axios";
 
 import { IoLogoLinkedin, IoMail, IoPersonSharp } from "react-icons/io5";
 import { BsGlobe } from "react-icons/bs";
@@ -16,7 +16,7 @@ import { MdOutlineBusiness } from "react-icons/md";
 import { FaHeart } from "react-icons/fa6";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import './PopUp.css'
+import "./PopUp.css";
 import { FaCertificate } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
@@ -25,29 +25,44 @@ import { FaXTwitter } from "react-icons/fa6";
 import { LuRectangleVertical } from "react-icons/lu";
 import { FaShare } from "react-icons/fa";
 import { CgNotes } from "react-icons/cg";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { MdArrowDropDown } from "react-icons/md";
 import Logo from "../assets/M-D1.jpg";
 import { Link } from "react-router-dom";
 import { TiArrowBackOutline } from "react-icons/ti";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { IoIosStarOutline } from "react-icons/io";
 import { TbArrowsRandom, TbWorld, TbWorldWww } from "react-icons/tb";
-
+import Images from "../Data/Images";
+import Slider from "react-slick";
 const MemberDetails = () => {
-  const[picView,setPicView]=useState(false);
-  const [currentImage, setCurrentImage] = useState("");
- 
-  const picViewHandler = (src) => {
+  const [picView, setPicView] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const picViewHandler = (index) => {
     setPicView(true);
-    setCurrentImage(src);
+    setCurrentIndex(index);
   };
-  
+
   const closeImagePopup = () => {
     setPicView(false);
-    setCurrentImage("");
   };
-  
+
+  const sliderSettings = {
+    initialSlide: currentIndex,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+   
+    cursor:"pointer",
+    arrows: true,
+  };
+
   return (
     <div className="container">
       <Header />
@@ -63,7 +78,6 @@ const MemberDetails = () => {
             <div className="userNAME">
               <h2 style={{ justifyContent: "center" }}>Santhosh</h2>
             </div>
-           
             <div className="userNAME2">
               <h4 style={{ justifyContent: "center", marginTop: "-10px" }}>
                 Insurance Company
@@ -84,8 +98,10 @@ const MemberDetails = () => {
                   <IoMdMail size={30} />
                 </div>
                 <div>
-                  <h4 style={{ textAlign: "left" ,color:"black" }}>Email</h4>
-                  <h3 style={{color:'blue',fontWeight:"normal"}}>Sample@mail.com</h3>
+                  <h4 style={{ textAlign: "left", color: "black" }}>Email</h4>
+                  <h3 style={{ color: "blue", fontWeight: "normal" }}>
+                    Sample@mail.com
+                  </h3>
                 </div>
               </div>
               <div className="PhoneLink">
@@ -93,8 +109,10 @@ const MemberDetails = () => {
                   <IoCall size={30} />
                 </div>
                 <div>
-                  <h4 style={{ textAlign: "left" ,color:"black"}}>Phone</h4>
-                  <h3 style={{color:'blue',fontWeight:"normal"}}>8272927190</h3>
+                  <h4 style={{ textAlign: "left", color: "black" }}>Phone</h4>
+                  <h3 style={{ color: "blue", fontWeight: "normal" }}>
+                    8272927190
+                  </h3>
                 </div>
               </div>
               <div className="PhoneLink">
@@ -102,25 +120,42 @@ const MemberDetails = () => {
                   <TbWorldWww size={30} />
                 </div>
                 <div>
-                  <h4 style={{ textAlign: "left" ,color:"black",fontWeight:"bolder"}}>Website Link</h4>
-                  <h3 style={{color:"blue",fontWeight:"normal"}}>www.sampleWeblink.com</h3>
+                  <h4
+                    style={{
+                      textAlign: "left",
+                      color: "black",
+                      fontWeight: "bolder",
+                    }}
+                  >
+                    Website Link
+                  </h4>
+                  <h3 style={{ color: "blue", fontWeight: "normal" }}>
+                    www.sampleWeblink.com
+                  </h3>
                 </div>
               </div>
-              
             </div>
             <div className="divider2">
               <div className="infoheading">
                 <h3 style={{ color: "white" }}>.</h3>
               </div>{" "}
-              
               <div className="AffiliationLink">
                 <div className="webIcon">
-                <img width="30" height="30" src="https://img.icons8.com/external-nawicon-glyph-nawicon/64/external-affiliate-seo-and-marketing-nawicon-glyph-nawicon.png" alt="external-affiliate-seo-and-marketing-nawicon-glyph-nawicon"/>      
-
+                  <img
+                    width="30"
+                    height="30"
+                    src="https://img.icons8.com/external-nawicon-glyph-nawicon/64/external-affiliate-seo-and-marketing-nawicon-glyph-nawicon.png"
+                    alt="external-affiliate-seo-and-marketing-nawicon-glyph-nawicon"
+                  />
                 </div>
                 <div style={{ textAlign: "center" }}>
-                  <h4 style={{ textAlign: "left" ,color:"black" }}> Affiliation</h4>
-                   <h3 style={{color:"blue",fontWeight:"normal"}}>http/wdad/wsampke</h3>
+                  <h4 style={{ textAlign: "left", color: "black" }}>
+                    {" "}
+                    Affiliation
+                  </h4>
+                  <h3 style={{ color: "blue", fontWeight: "normal" }}>
+                    http/wdad/wsampke
+                  </h3>
                 </div>
               </div>
               <div className="AffiliationLink">
@@ -128,8 +163,13 @@ const MemberDetails = () => {
                   <IoLogoLinkedin size={30} />
                 </div>
                 <div style={{ textAlign: "center" }}>
-                  <h4 style={{ textAlign: "left"  ,color:"black"}}> Linked In</h4>
-                  <h3 style={{color:"blue",fontWeight:"normal"}}>www.LinkedInSample.com</h3>
+                  <h4 style={{ textAlign: "left", color: "black" }}>
+                    {" "}
+                    Linked In
+                  </h4>
+                  <h3 style={{ color: "blue", fontWeight: "normal" }}>
+                    www.LinkedInSample.com
+                  </h3>
                 </div>
               </div>
             </div>
@@ -183,7 +223,13 @@ const MemberDetails = () => {
                 {" "}
                 <div style={{ display: "flex", marginTop: "15px" }}>
                   <div style={{ marginRight: "10px" }}>
-                  <img width="23" height="23" src="https://img.icons8.com/external-nawicon-glyph-nawicon/64/external-affiliate-seo-and-marketing-nawicon-glyph-nawicon.png" alt="external-affiliate-seo-and-marketing-nawicon-glyph-nawicon"/>                  </div>
+                    <img
+                      width="23"
+                      height="23"
+                      src="https://img.icons8.com/external-nawicon-glyph-nawicon/64/external-affiliate-seo-and-marketing-nawicon-glyph-nawicon.png"
+                      alt="external-affiliate-seo-and-marketing-nawicon-glyph-nawicon"
+                    />{" "}
+                  </div>
                   <div>
                     <h3>Affiliation</h3>
                   </div>
@@ -223,27 +269,30 @@ const MemberDetails = () => {
         <div style={{ marginTop: "20px", marginLeft: "20px" }}>
           <h2>Images</h2>
         </div>
-        <div className="imagesAdd">
-          <div className="imageAdd1" >
-            <div onClick={(e)=>picViewHandler("https://static.vecteezy.com/system/resources/thumbnails/007/209/020/small_2x/close-up-shot-of-happy-dark-skinned-afro-american-woman-laughs-positively-being-in-good-mood-dressed-in-black-casual-clothes-isolated-on-grey-background-human-emotions-and-feeligs-concept-photo.jpg")} >
-              <img src="https://static.vecteezy.com/system/resources/thumbnails/007/209/020/small_2x/close-up-shot-of-happy-dark-skinned-afro-american-woman-laughs-positively-being-in-good-mood-dressed-in-black-casual-clothes-isolated-on-grey-background-human-emotions-and-feeligs-concept-photo.jpg" />
-            </div>
-            <div onClick={(e)=>picViewHandler("https://wallpapercave.com/wp/wp2656149.jpg")}>
-              <img src="https://wallpapercave.com/wp/wp2656149.jpg" />
-            </div>
-          </div>
-          <div className="imageAdd2">
-            <div onClick={(e)=>picViewHandler("https://pbs.twimg.com/profile_images/1442802623338397702/xcIJg8PN_400x400.jpg")}>
-              <img src="https://pbs.twimg.com/profile_images/1442802623338397702/xcIJg8PN_400x400.jpg" />
-            </div>
-            <div onClick={(e)=>picViewHandler("https://th.bing.com/th/id/OIP.z9lqZb1IAWlS5YPDLMHd4QDMEy?w=400&h=600&rs=1&pid=ImgDetMain")}>
-              <img src="https://th.bing.com/th/id/OIP.z9lqZb1IAWlS5YPDLMHd4QDMEy?w=400&h=600&rs=1&pid=ImgDetMain"  />
-            </div>
-          </div>    
+        <div className="carlo" style={{display:"flex"}}>{Images.map((img, index) => (
+  <div className="AddImages" key={index}>
+    <div className="images" onClick={()=>picViewHandler(index)}>
+      <img src={Object.values(img)[0]} alt={`image-${index}`} />
+    </div>
+  </div>
+))}</div>
       </div>
+     <div > {picView && (
+      <div className="overlay">
+        <div className="popup-overlay">
+          <button className="close-btn" onClick={closeImagePopup} style={{background:"red"}}>
+            <RxCross2 size={30} />
+          </button>
+          <Slider {...sliderSettings} initialSlide={currentIndex}>
+            {Images.map((img, index) => (
+              <div key={index} className="popup-slide">
+                <img src={Object.values(img)[0]} alt={`popup-image-${index}`} />
+              </div>
+            ))}
+          </Slider>
         </div>
-  {picView && <div className="wada"><button onClick={closeImagePopup}><RxCross2/></button>
-  <img src={currentImage}/></div>}
+</div>
+      )}</div>
       <Footer />
     </div>
   );

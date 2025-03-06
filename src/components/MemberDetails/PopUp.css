@@ -1,31 +1,87 @@
-.wada{
-    position: fixed; 
-    flex-direction: column;/* Ensures the popup is on top */
-    top: 0;
-    left: 0;
-     right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999; /* Ensure it's above other content */
+.popup-overlay{
+    height: 600px;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+
+flex-direction: column;
+margin-top: 30px;
+left: 0;
+ right: 0;
+bottom: 0;
+   z-index: 999;
+   z-index: 999;
+   justify-content: center;
+   align-items: center;
+   position: fixed;
 }
-.wada img{
+.popup-slide{
     height: 500px;
     width: 500px;
 }
-.wada button{
-    background-color: red;
-    margin-left: 500px;
+.popup-slide img{
+    width: 100%;
+    height: 100%;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: rgb(174, 223, 15) !important;
+  font-size: 35px !important;
+  align-items: center;
+  margin-left: -10px;
+
+  
+}
+.overlay{
+    width: 100%;
+    height: 100vh;
+    top:0;
+    bottom: 0;
+    left:0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay background */
+position: fixed;
 }
 @media(max-width:480px){
-    .wada img{
-        height: 250px;
-        width: 250px;
+    .popup-overlay{
+        height: 400px;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+      
+     
+    
+       top: 0;
+       left: 0;
+       z-index: 999;
+
+       background-color: rgba(0, 0, 0, 0.8); /* Dark overlay background */
+
     }
-    .wada button{
-        background-color: red;
-        margin-left: 250px;
+    .popup-slide{
+        height: 300px;
+        width: 300px;
     }
+    .slick-prev:before,
+.slick-next:before {
+    color: rgb(174, 223, 15) !important;
+    font-size: 35px !important;
+  align-items: center;
+  margin-left: -7px;
+  
+}
+.overlay{
+    width: 100%;
+    height: 100vh;
+    top:0;
+    bottom: 0;
+    left:0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay background */
+position: fixed;
+}
+.images img{
+    height: 100px;
+    width: 100px;
+}
 }
