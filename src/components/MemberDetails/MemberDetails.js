@@ -280,7 +280,7 @@ const MemberDetails = () => {
      <div > {picView && (
       <div className="overlay">
         <div className="popup-overlay">
-          <button className="close-btn" onClick={closeImagePopup} style={{background:"red"}}>
+          <button className="close-btn" onClick={closeImagePopup} >
             <RxCross2 size={30} />
           </button>
           <Slider {...sliderSettings} initialSlide={currentIndex}>
