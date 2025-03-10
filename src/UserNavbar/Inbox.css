@@ -155,6 +155,11 @@ width: 30%;
     background-color: rgb(218, 217, 216);
     
   }
+  
+  .mailInbox-Mobile{
+    background-color: #003c6d;
+    display: none;
+  }
   @media (max-width: 480px){
     table {
       font-size: 0.8rem; /* Further reduce font size on smaller screens */
@@ -213,6 +218,7 @@ width: 30%;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         
         font-family: Arial, sans-serif;
+        display: none;
       }
       .messageInbox{
         flex-direction: column;
@@ -221,6 +227,58 @@ width: 30%;
         margin-top: 15px;
         width: 250%;
         background-color: orange;
+      }
+      .mailInbox-Mobile{
+        background-color: #fdf2f2;
+        display: block;
+        padding: 5px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
+      .mobileInboxData{
+        display: flex;
+        justify-content: space-between;
+       
+      }
+      .mobileInbox-Holder{
+        background-color: #ffffff;
+        border-bottom: 1px solid rgb(0, 0, 0);
+       
+      }
+      .expanded-view{
+        background-color: #ffffff;
+        margin-left: 5px;
+      }
+      .messageTo{
+        display: flex;
+      }
+      .messageAction{
+        display: flex;
+      }
+      .DandN{
+        width: 90%;
+        word-wrap: break-word;
+        margin-left: 5px;
+      }
+      .messageTo{
+        display: flex;
+        flex-direction: column;
+        color: blue;
+      }
+      .date{
+margin-top: 5px;
+color: rgb(13, 109, 28);
+      }
+      .name{
+        margin-top: 5px;
+      }
+      .expand {
+        margin-top: 25px;
+
+      }
+      .name h2{
+        font-size: 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       }
   }
   
