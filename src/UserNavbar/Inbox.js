@@ -112,8 +112,8 @@ const Inbox = () => {
                         <h2>Introduction : {data.introduction}</h2>
                       </div>
                       <div className="date">{data.date}</div>
-                      <div className="name">
-                        <h2 >{data.recipient}</h2>
+                      <div className="name" style={{display:"flex"}}>
+                      <div style={{height:"50px",width:"50px",marginRight:"15px"}}><img style={{height:"100%",borderRadius:"50%"}} src={data.recipientImg}/> </div><div> <h2 >{data.recipient}</h2></div>
                       </div>
                     </div>
                     <div
@@ -128,14 +128,13 @@ const Inbox = () => {
                     <div className="expanded-view">
                       <Link to="/memberDetails" style={{ color: "inherit" }}>
                         <div className="messageTo">
-                          <div style={{ display: "flex", flexDirection: "row" }}>
+                          <div style={{ display: "flex", flexDirection: "row" ,marginTop:"30px"}}>
                             <div
                               style={{
-                                marginTop: "17px",
-                                marginRight: "5px",
+                               height:"30px",width:"30px",marginRight:"15px",marginTop:"8px"
                               }}
                             >
-                              <IoMdPerson />
+                              <img style={{height:"100%",borderRadius:"50%"}} src={data.sender.namePic}/>
                             </div>
                             <p>
                               {data.sender.name} (Replies:{" "}
@@ -143,13 +142,12 @@ const Inbox = () => {
                             </p>
                           </div>
                           <div style={{ display: "flex", flexDirection: "row" }}>
-                            <div
+                          <div
                               style={{
-                                marginTop: "17px",
-                                marginRight: "5px",
+                               height:"30px",width:"30px",marginRight:"15px",marginTop:"8px"
                               }}
                             >
-                              <RiContactsBook3Line />
+                              <img style={{height:"100%",borderRadius:"50%"}} src={data.sender.name2Pic}/>
                             </div>
                             <p>{data.sender.name2}</p>
                           </div>

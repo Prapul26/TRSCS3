@@ -271,6 +271,8 @@ color: rgb(13, 109, 28);
       }
       .name{
         margin-top: 5px;
+        display: flex;
+        flex-direction: row;
       }
       .expand {
         margin-top: 25px;
