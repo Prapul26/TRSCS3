@@ -5,7 +5,7 @@ import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
 import { Link } from "react-router-dom";
 import { IoCopy } from "react-icons/io5";
-import { width } from "@fortawesome/free-brands-svg-icons/fa42Group";
+import { height, width } from "@fortawesome/free-brands-svg-icons/fa42Group";
 const Affiliation = () => {
   const [basic,showBasic]=useState(false);
   const [standard,showStandard]=useState(false);
@@ -53,84 +53,43 @@ showBasic(!basic)
               </Link>
             </div>
           </div>
+          
           <div className="myAffiliation-holder">
-<h1>Affiliation commision for H7 Members is 20%</h1>
-<div className="basicPack">
-  <div className="bpackage">
-    <div><h3>Basic Package : <span style={{color:"green"}}>80$</span></h3></div>
-    <div><button  onClick={handelBasic}>Generate Link</button></div>
-  </div>
-  {
-    basic && <div className='bpack'>
-       <div style={{width:"60%"}}><input placeholder="basic/packae/Id"/></div>
-       <div style={{marginLeft:'20px'}}><IoCopy  size={25} /></div>
-      </div>
-  }
+<h3>Commission : 20%</h3><br/>
+<h3>Affiliation <span style={{color:"red"}}> *</span></h3>
+<div className="affdiv" >
+  <div className="affdiv1"><input  placeholder="https://tracsdev.apttechsol.com/user/pricing-plan/A-I22k4"/></div>
+  <div className="affdiv2"><button style={{backgroundColor:"green"}}>Copy text</button></div>
 </div>
-<div className="standardPack">
-<div className="spackage">
-    <div><h3>Standard Package : <span style={{color:"green"}}>150$</span></h3></div>
-    <div ><button onClick={handelStandard}>Generate Link</button></div>
-  </div>
-  { standard && <div className='spack'>
-   <div style={{width:"60%"}}> <input  placeholder="Stanard/packae/Id"/></div>
-    <div style={{marginLeft:'20px'}}><IoCopy size={25}/>
-    </div>
-    </div>}
-</div>
-<div className="activeStatus">
-        <div className="activeStatus-holder">
-          <div
-            className={`active ${activeTab === "active" ? "selected" : ""}`}
-            onClick={() => setActiveTab("active")}
-          >
-            <h3>Active</h3>
-            <span
-              style={{
-                height: "26px",
-                borderRadius: "50%",
-                background: "green",
-                width: "26px",
-                marginLeft: "6px",
-                textAlign: "center",
-                color: "white",
-                lineHeight: "26px",
-              }}
-            >
-              0
-            </span>
           </div>
-          <div
-            className={`inactive ${activeTab === "inactive" ? "selected" : ""}`}
-            onClick={() => setActiveTab("inactive")}
-          >
-            <h3>Inactive</h3>
-            <span
-              style={{
-                height: "26px",
-                borderRadius: "50%",
-                background: "red",
-                width: "26px",
-                marginLeft: "6px",
-                textAlign: "center",
-                color: "white",
-                lineHeight: "26px",
-              }}
-            >
-              0
-            </span>
-          </div>
-        </div>
-        {activeTab === "active" ? (
-          <div className="result">
-            <h1>No Active Results Found</h1>
-          </div>
-        ) : (
-          <div className="result">
-            <h1>No Inactive Results Found</h1>
-          </div>
-        )}
-      </div>
+          <div className="affTable">
+           <table>
+            <thead >
+              <tr>
+                <td style={{color:"black"}}>Package name</td>
+                <td style={{color:"black"}}>Package Price</td>
+                <td style={{color:"black"}}>Commission Amount</td>
+                <td style={{color:"black"}}>Purchased By</td>
+                <td style={{color:"black"}}>Pusrchased On</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Basic</td>
+                <td>$80</td>
+                <td>$16</td>
+                <td>Santhosh Kumar</td>
+                <td>2025-02-27 06:58:02</td>
+              </tr>
+              <tr>
+                <td>Standard</td>
+                <td>$150</td>
+                <td>$30</td>
+                <td>Swaran Jeeth</td>
+                <td>2025-02-27 07:40:14</td>
+              </tr>
+            </tbody>
+           </table>
           </div>
         </div>
       </div>

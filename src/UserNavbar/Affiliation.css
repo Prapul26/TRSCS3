@@ -4,6 +4,20 @@
     padding: 20px;
 
 }
+.affTable{
+    
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+}
+.affTable table thead {
+    background-color: black;
+}
+
+.affTable table thead th {
+    color: white; /* Ensures text is visible */
+    padding: 10px;
+}
 .spackage{
     display: flex;
     justify-content: space-between;
@@ -17,6 +31,24 @@
     background-color: rgb(28, 222, 28);
     border-radius: 5px;
 }
+.affdiv{
+    display: flex;
+    margin-top: 15px;
+    width: 100%;
+}
+.affdiv1{
+width: 50%;
+}
+.affdiv2{
+    width: 50%;
+    margin-top: -3px;
+}
+.affdiv1 input{
+    width: 88%;
+    height: 30px;
+
+}
+
 .bpack{
 margin-left: 20px;
 margin-bottom: 30px;
@@ -42,4 +74,24 @@ width: 100%;
 }
 .myAffiliationCOntainer{
     width: 85%;
+}
+@media(max-width:480px){
+    .affTable{
+        overflow-x: auto;
+        width: 100%;
+        margin-left: -15%;
+    }
+    .affdiv{
+      flex-direction: column;
+    }
+    .affdiv1{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .affdiv2{
+        justify-content: center;
+    }
+    .affdiv1 input{
+        width: 100%;
+    }
 }

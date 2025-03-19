@@ -49,23 +49,37 @@ const MyMembership = () => {
       <div className='myMembership-button'>
        <Link to='/orderHistory'style={{color:"inherit",textDecoration:"none"}}><button>Order History</button></Link> 
       </div>
-      <div className='myMembership-container' >
-<div className='membershipH1'><h1>Current Active Package</h1></div>
-<div className='memtable' >
-   <div className='t1'>
-    <div className='m1t1'><p>Package Name</p></div>
-    <div className='m1t2'><p>Price</p></div>
-    <div className='m1t3'><p>Purchase Date</p></div>
-    <div className='m1t4'><p>Extire Date</p></div>
-   </div>
-   <div className='t2'>
-    <div className='m2t1'><p>Standard</p></div>
-    <div className='m2t2'><p>$120</p></div>
-    <div className='m2t3'><p>07 july,2024</p></div>
-    <div className='m2t4'><p>07 july,2025</p></div>
-   </div>
-</div>
-      </div>
+     <div className='table-container'>
+     <table >
+          <thead>
+<td>Package</td>
+<td>Purchase Date</td>
+<td>Expired Date</td>
+<td>Price</td>
+<td>Payment Date</td>
+<td>Status</td>
+          </thead>
+          <tbody>
+<tr>
+  <td>Basic</td>
+  <td>2025-02-27</td>
+  <td>2025-03013</td>
+  <td>$80</td>
+  <td>Stripe</td>
+  <td><button>Invoice</button><button>History Details</button></td>
+</tr>
+<tr>
+  <td>Standard</td>
+  <td>2024-07-07</td>
+  <td>2025-07-07</td>
+  <td>$100</td>
+  <td></td>
+  <td><button>Invoice</button><button>History Details</button></td>
+</tr>
+          </tbody>
+          </table> 
+
+     </div>
     </div> </div>
     </div>
   )

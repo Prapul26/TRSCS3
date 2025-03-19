@@ -187,14 +187,17 @@ const UserHeader = () => {
          <Link to='/home' style={{ color: "inherit", textDecoration: "none" }}><h3>Home</h3></Link> 
         </div>
         <div className="userProfile-container">
+          <div className='userHome' style={{marginRight:"30px"}}>
+          <Link to='/home' style={{ color: "inherit", textDecoration: "none" }}><FaHome size={30} color="white"/></Link> 
+          </div>
           <div className="profile-pic">
             <img
               src="https://tracsdev.apttechsol.com/public/uploads/custom-images/user-2024-07-09-02-52-30-9248.png"
-              style={{ height: "100%", width: "100%" }}
+              style={{ height: "100%", width: "100%"}}
             />
           </div>
           <div className="profile-name">
-            <h3>Santhosh</h3>
+            <h3 style={{color:"black"}}>Santhosh</h3>
           </div>
         </div>
       </div>

@@ -61,10 +61,7 @@ const MobileNavbar = () => {
           <div style={{marginTop:"13px",marginRight:"12px"}}><TbArrowsRandom size={20} color="white"/> </div>
           <div> <h2>Affiliation</h2></div>
           </div></Link>
-         <Link to='/myAffiliation'><div className="myaffiliation4">
-          <div style={{marginTop:"13px",marginRight:"12px"}}><BsGraphUp size={20} color="white"/> </div>
-          <div> <h2>My Affiliation</h2></div>
-          </div></Link> 
+          
           <div className="introduction4" onClick={handelIntro}>
             <div style={{display:"flex"}}><div style={{marginTop:"13px",marginRight:"12px"}}><FaBriefcase size={20} color="white"/> </div>
           <div> <h2>Introduction</h2></div></div>

@@ -34,9 +34,7 @@ const SideNav = () => {
       };
   return (
     <div>
-           <Link to='/home' style={{color:"inherit",textDecoration:"none"}}><div className="home-container">
-                                <FaHome size={25} style={{marginRight:'6px'}}/> <h2>Home</h2>
-                                </div></Link> 
+         
                                 <div className="navs">
                                 <div onClick={handelSettings} style={{display:"flex",justifyContent:"space-between",borderBottom:"1px solid black"}} ><div style={{display:"flex"}}><div style={{marginTop:'19px',marginRight:"5px",marginLeft:"5px"}}><IoSettingsSharp size={20}/></div><h3>Account Settings</h3></div> <div style={{marginTop:"15px",marginLeft:'30px'}}>{settings ?< IoIosArrowDropup size={22} style={{marginTop:"0px"}}/>:<IoIosArrowDropdown size={22} style={{marginTop:"0px"}} />}</div>
                                
@@ -46,7 +44,7 @@ const SideNav = () => {
                                               <Link to='/myMembership'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><MdOutlineCardMembership size={18} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Membership</h3> </div></Link>
                                               <Link to='/accountSettings'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><IoPerson size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Profile</h3> </div></Link>
                                               <Link to='/affiliation'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><TbArrowsRandom size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>Affiliation</h3> </div></Link>
-                                              <Link to='/myAffiliation'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><BsGraphUp size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Affiliation</h3> </div></Link>
+                                      
                                               <Link to='/passwordChange'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><RiLockPasswordFill  size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3> My Password </h3> </div></Link>
 
 
