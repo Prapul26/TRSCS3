@@ -168,6 +168,9 @@ background-color: white;
     display: flex;
     flex-direction: column;
 }
+.contacts-container{
+
+}
 .pc11{
     width: 100%;
     
@@ -181,7 +184,11 @@ background-color: white;
         height:100%;
         margin: 0px;
         width: 100%;
-   
+        display: flex;
+   flex-direction: column;
+    }
+    .alfa{
+        
     }
     .pc111{
         display: flex;

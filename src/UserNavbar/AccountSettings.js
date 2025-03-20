@@ -41,9 +41,10 @@ const AccountSettings = () => {
     <div className="usernav">
             <SideNav/>
             </div>
-       
+      
     <div className="fz1">
-     <MobileNavbar/>
+     <div><MobileNavbar/></div> 
+      <div className="alfa">
       <div className="contacts-container">
         <div className="c-header">
           <div className="c-h1">
@@ -225,8 +226,9 @@ const AccountSettings = () => {
         <div className="update2">
           <button style={{background:"orange"}}>Update</button>
         </div>
-      </div>
-    </div></div>
+      </div></div>
+    </div>
+    </div>
     
     </div>
   );

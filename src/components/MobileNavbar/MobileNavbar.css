@@ -4,8 +4,35 @@
 @media(max-width:480px){
     .mobnav{
         display: block;
-    
-
+    background-color: rgb(55, 49, 210);
+    width:100%;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    height: fit-content;
+display: flex;
+justify-content: space-between;
+    }
+    .mobMenu.open {
+        left: 0; /* Slide in */
+    }
+    .mobnavPic.hidden {
+        display: none;
+    }
+    .mobnav.move{
+        margin-left: 69.5%;
+    }
+    .mobnavPic{
+        margin-right: 20px;
+        height: 50px;
+        width: 50px;
+        background-color: aliceblue;
+        border-radius: 50%;
+        margin-top: 5px;
+    }
+    .mobnavPic img{
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
     }
     .mobnav h2{
  color: white;
@@ -16,10 +43,10 @@
     }
     .mobMenu{
         height: fit-content;
-        width: 60%;
+        width: 70%;
         background-color: rgb(40, 108, 225);
-        position: absolute;
-        margin-top: -74px;
+   position: absolute;
+        margin-top: -5px;
     }
     .proPic2{
         display: flex;
@@ -74,6 +101,12 @@ padding: 10px;
         display: flex;
         padding: 10px;
         margin-top: -10px;
+        justify-content: space-between;
+    }
+    .introduction41{
+        display: flex;
+        padding: 10px;
+        margin-top: 60px;
         justify-content: space-between;
     }
     .affiliation4{
