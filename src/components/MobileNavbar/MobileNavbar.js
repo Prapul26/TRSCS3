@@ -45,7 +45,7 @@ const MobileNavbar = () => {
           
           <div className="introduction41" onClick={handelIntro2}>
             <div style={{display:"flex"}}><div style={{marginTop:"13px",marginRight:"12px"}}><IoSettingsSharp size={20} color="black"/> </div>
-          <div style={{marginTop:"-9px"}}> <h2>Application Setting</h2></div></div>
+          <div style={{marginTop:"-4px"}}> <h2 style={{fontSize:"20px"}}>Application Setting</h2></div></div>
           <div style={{marginTop:"14px"}}><IoArrowDownCircle color="black" size={20}/></div>
             </div>
                 {
@@ -63,7 +63,7 @@ const MobileNavbar = () => {
 
           <div className="introduction4" onClick={handelIntro}>
             <div style={{display:"flex"}}><div style={{marginTop:"13px",marginRight:"12px"}}><FaBriefcase size={20} color="black"/> </div>
-          <div style={{marginTop:"-9px"}}> <h2>Introduction</h2></div></div>
+          <div style={{marginTop:"-4px"}}> <h2 style={{fontSize:"20px"}}>Introduction</h2></div></div>
           <div style={{marginTop:"14px"}}><IoArrowDownCircle color="black" size={20}/></div>
             </div>
                 {

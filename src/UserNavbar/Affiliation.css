@@ -75,11 +75,27 @@ width: 100%;
 .myAffiliationCOntainer{
     width: 85%;
 }
+.dd-holder{
+    background-color: white;
+    width: 96%;
+    padding: 1px;
+ 
+    margin-left: 2%;
+    margin-top: 20px;
+}
 @media(max-width:480px){
     .affTable{
         overflow-x: auto;
         width: 100%;
         margin-left: -15%;
+    }
+    .dd-holder{
+        background-color: white;
+        width: 100%;
+        padding: 1px;
+        text-align: center;
+        margin-left: -13%;
+        margin-top: 20px;
     }
     .affdiv{
       flex-direction: column;

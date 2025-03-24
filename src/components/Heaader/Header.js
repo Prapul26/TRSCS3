@@ -141,7 +141,7 @@ showDrop1(false)
              {drop2 ?<IoMdArrowDropup size={20}/> :<IoMdArrowDropdown size={20} />} 
              {
                 drop2 && <div className="dropDown2">
-                   <Link to='/myMembership' style={{textDecoration:"none",color:"inherit"}}><div className="profileDrop"><h3>My Profile</h3></div></Link> 
+                   <Link to='/accountSettings' style={{textDecoration:"none",color:"inherit"}}><div className="profileDrop"><h3>My Profile</h3></div></Link> 
                     <div className="dropLogout" ><h3>Logout</h3></div>
                 </div>
              }

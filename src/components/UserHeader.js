@@ -199,7 +199,7 @@ setMenuDrop(!menuDrop)
           </div>
           <div className="profile-pic">
             <img
-              src="https://tracsdev.apttechsol.com/public/uploads/custom-images/user-2024-07-09-02-52-30-9248.png"
+              src="https://cdn.motiondesign.school/uploads/2021/05/radik.jpg"
               style={{ height: "100%", width: "100%"}}
             />
           </div>

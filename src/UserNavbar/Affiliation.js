@@ -33,10 +33,9 @@ showBasic(!basic)
           <SideNav />
         </div>
         <div className="myAffiliationCOntainer"> <div style={{marginLeft:"-79px"}}><MobileNavbar /></div>
-        <div className="d-header"  style={{marginLeft:"-20px"}}>
-            <h2>Affiliate Marketing</h2>
-            
-          </div>
+    <div className="dd-holder">
+<h2>Affiliation</h2>
+    </div>
           
           <div className="myAffiliation-holder">
 <h3>Commission : 20%</h3><br/>
