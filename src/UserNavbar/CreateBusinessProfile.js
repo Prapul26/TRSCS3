@@ -53,7 +53,7 @@ const CreateBusinessProfile = () => {
                    </div>
         
         <div className="cbpbc">
-          <div className="c-header">
+          <div className="d-header">
             <div className="c-h1">
               <h3>Business Information</h3>
             </div>

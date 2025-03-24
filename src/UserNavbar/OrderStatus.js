@@ -43,7 +43,7 @@ const OrderStatus = () => {
                     </div>
     <div className="Ordersp">
       <MobileNavbar/>
-      <div className="c-header">
+      <div className="d-header">
         <div className="c-h1">
           <h3>Order History</h3>
         </div>

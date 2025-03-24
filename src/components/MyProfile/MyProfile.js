@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./MemberDetails.css";
+import "./MyProfile.css";
 import { FaRegBuilding } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import axios from "axios";
@@ -39,7 +39,7 @@ import { IoIosStarOutline } from "react-icons/io";
 import { TbArrowsRandom, TbWorld, TbWorldWww } from "react-icons/tb";
 import Images from "../Data/Images";
 import Slider from "react-slick";
-const MemberDetails = () => {
+const MyProfile = () => {
   const [picView, setPicView] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -67,7 +67,7 @@ const MemberDetails = () => {
     <div className="container">
       <Header />
       <Navbar />
-      <div style={{marginLeft:"20px"}}> <button style={{ borderRadius: "30px", border: "transparent" }}><span><Link to='/inbox'><TiArrowBackOutline color='white' size={35} /></Link></span> </button></div>
+      <div style={{marginLeft:"20px"}}> <button style={{ borderRadius: "30px", border: "transparent" }}><span><Link to='/accountSettings'><TiArrowBackOutline color='white' size={35} /></Link></span> </button></div>
       <div className="member-holder">
         <div className="pic-Holder">
           <div>
@@ -298,4 +298,4 @@ const MemberDetails = () => {
     </div>
   );
 };
-export default MemberDetails;
+export default MyProfile;

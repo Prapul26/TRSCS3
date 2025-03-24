@@ -4,7 +4,7 @@
 @media(max-width:480px){
     .mobnav{
         display: block;
-    background-color: rgb(55, 49, 210);
+    background-color: rgb(28, 41, 181);
     width:100%;
     padding-top: 5px;
     padding-bottom: 0px;
@@ -16,6 +16,9 @@ justify-content: space-between;
         left: 0; /* Slide in */
     }
     .mobnavPic.hidden {
+        display: none;
+    }
+    .profile-name.hidden{
         display: none;
     }
     .mobnav.move{
@@ -44,7 +47,7 @@ justify-content: space-between;
     .mobMenu{
         height: fit-content;
         width: 70%;
-        background-color: rgb(40, 108, 225);
+        background-color: rgb(236, 232, 232);
    position: absolute;
         margin-top: -5px;
     }
@@ -106,7 +109,7 @@ padding: 10px;
     .introduction41{
         display: flex;
         padding: 10px;
-        margin-top: 60px;
+        margin-top: 10px;
         justify-content: space-between;
     }
     .affiliation4{

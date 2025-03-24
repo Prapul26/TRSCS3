@@ -1,6 +1,6 @@
 .headerContainer{
     height: 70px;
-    background-color: rgb(42, 24, 205);
+    background-color: rgb(13, 54, 116);
     
 
     display: flex;
@@ -27,9 +27,26 @@ float: right;
 height: 50px;
 width: 50px;
 background-color: white;
-border-radius: 5px;
+border-radius: 50%;
 
 
+}
+.menuDrop{
+    margin-top: 27px;
+    position: absolute;
+    margin-left: -90px;
+    padding: 10px;
+    
+    background-color: rgb(248, 248, 248);
+}
+.menuDrop h4{
+    color: #000000;
+    margin-left: 10px;
+}
+.profile-pic img{
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
 }
 .profile-name{
 margin-left: 10px;
@@ -77,7 +94,7 @@ height: 100vh;
 
 
 .usernav{
-    width: 16%;
+    width: 19%;
 color: #000000;
 position: absolute;
 height: 100vh;

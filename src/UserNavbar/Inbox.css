@@ -11,7 +11,15 @@
 display: flex;
 justify-content: space-around;
 width: 100%;
+background-color: white;
 
+}
+.collapseButton{
+  width: 100%;
+  background-color: white;
+}
+.collapseButton button{
+  margin-left: 20px;
 }
 .mI1{
 width: 30%;
@@ -21,19 +29,93 @@ width: 30%;
 }
 .mI3{
   width: 30%;
+  margin-bottom: 15px;
 }
 .messageInbox select{
   width: 100%;
 }
 .inbox-holder {
-    margin: 20px auto;
+    margin-left: 0px ;
     padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+   
+   
+   
     
     font-family: Arial, sans-serif;
+  }
+  .pictime{
+display: flex;
+  }
+  .pic55{
+    display: flex;
+  }
+  .time55{
+display: flex;
+margin-left: 20px;
+  }
+  .time55Clock{
+margin-top: 17px;
+
+  }
+  .time55days{
+margin-left: 5px;
+  }
+  .time55days p{
+    font-size: 13px;
+    margin-top: 18px;
+  }
+  .pic55img{
+    height: 25px;
+    width: 25px;
+    background-color: #005a9e;
+    margin-top: 13px;
+  }
+  .pic55name{
+    margin-left: 5px;
+  }
+  .pic55name p{
+    font-size: 13px;
+    margin-top: 18px;
+  }
+  .pic55img img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+  .pic66{
+    display: flex;
+  }
+  .pic66img{
+    height: 25px;
+    width: 25px;
+    background-color: #005a9e;
+    margin-top: 13px;
+  }
+  .pic66name{
+    margin-left: 5px;
+  }
+  .pic66name p{
+    font-size: 13px;
+    margin-top: 18px;
+  }
+  .pic66img img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+  .replyBump{
+    display: flex;
+    margin-right: 5px;
+  }
+  .replyBump button{
+    margin-right: 5px;
+  }
+  .inbox{
+    padding: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin-bottom: 20px;
   }
   
   table {
@@ -151,7 +233,7 @@ width: 30%;
   }
   .IBPP{
     width: 85%;
-    margin-left: 15%;
+    margin-left: 19%;
     background-color: rgb(218, 217, 216);
     
   }
@@ -160,127 +242,32 @@ width: 30%;
     background-color: #003c6d;
     display: none;
   }
-  @media (max-width: 480px){
-    table {
-      font-size: 0.8rem; /* Further reduce font size on smaller screens */
-    }
-  .inbox-holder table{
-    overflow-x:auto ;
-    width: 100%;
- 
+  .mI3 button{
+    background-color:  #eeba2b;
   }
-    td, th {
-      padding: 10px; /* Adjust padding for better fit on smaller screens */
-    }
-  
-    button {
-      font-size: 0.8rem; /* Adjust button size for mobile view */
-      padding: 6px 10px;
-    }
-    .IBPP{
-      width: 100%;
-      margin: 0px;
-      
-    }
-    h3, h4 {
-      font-size: 0.9rem; /* Reduce header sizes for mobile */
-    }
-  
-    td p {
-      font-size: 0.8rem; /* Adjust paragraph size */
-    }
-    .inbox-container select{
-        height: 40px;
-        width: 250px;
-    }
-    thead td {
-        font-weight: bold;
-        padding: 5px 5px;
-        text-align: left;
-      }
-      
-      tbody tr {
-        border-bottom: 1px solid #ddd;
-      }
-      
-      tbody td {
-        padding: 5px;
-        vertical-align: top;
-      }
-    .inbox-holder {
-        margin-top: 10px ;
-        margin-bottom: 10px;
-       overflow-x: auto;
-        background-color: #f9f9f9;
-        border: 1px solid #ddd;
-      
-       white-space: nowrap;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        
-        font-family: Arial, sans-serif;
-        display: none;
-      }
-      .messageInbox{
-        flex-direction: column;
-      }
-      .messageInbox button{
-        margin-top: 15px;
-        width: 250%;
-        background-color: orange;
-      }
-      .mailInbox-Mobile{
-        background-color: #fdf2f2;
-        display: block;
-        padding: 5px;
-        margin-top: 20px;
-        margin-bottom: 40px;
-      }
-      .mobileInboxData{
-        display: flex;
-        justify-content: space-between;
-       
-      }
-      .mobileInbox-Holder{
-        background-color: #ffffff;
-        border-bottom: 1px solid rgb(0, 0, 0);
-       
-      }
-      .expanded-view{
-        background-color: #ffffff;
-        margin-left: 5px;
-      }
-      .messageTo{
-        display: flex;
-      }
-      .messageAction{
-        display: flex;
-      }
-      .DandN{
-        width: 90%;
-        word-wrap: break-word;
-        margin-left: 5px;
-      }
-      .messageTo{
-        display: flex;
-        flex-direction: column;
-        color: blue;
-      }
-      .date{
-margin-top: 5px;
-color: rgb(13, 109, 28);
-      }
-      .name{
-        margin-top: 5px;
-        display: flex;
-        flex-direction: row;
-      }
-      .expand {
-        margin-top: 25px;
-
-      }
-      .name h2{
-        font-size: 20px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      }
+  @media (max-width: 480px){
+   .IBPP{
+    margin-left: 0%;
+    width: 100%;
+   }
+     .messageInbox{
+      display: flex;
+      flex-direction: column;
+     }
+     .mI1{
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+     }
+     .mI2{
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+     }
+     .mI3{
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+     }
   }
   

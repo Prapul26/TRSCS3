@@ -46,9 +46,11 @@ const MyMembership = () => {
    
     <div className='fz2'>
     <MobileNavbar/>
-      <div className='myMembership-button'>
-       <Link to='/orderHistory'style={{color:"inherit",textDecoration:"none"}}><button>Order History</button></Link> 
-      </div>
+    <div className="d-header" >
+            <h2>Order History</h2>
+            
+          </div>
+     
      <div className='table-container'>
      <table >
           <thead>
@@ -66,7 +68,7 @@ const MyMembership = () => {
   <td>2025-03013</td>
   <td>$80</td>
   <td>Stripe</td>
-  <td><button>Invoice</button><button>History Details</button></td>
+  <td><button>Invoice</button><Link to="/orderHistory"><button>History Details</button></Link></td>
 </tr>
 <tr>
   <td>Standard</td>
@@ -74,7 +76,7 @@ const MyMembership = () => {
   <td>2025-07-07</td>
   <td>$100</td>
   <td></td>
-  <td><button>Invoice</button><button>History Details</button></td>
+  <td><button>Invoice</button><Link to="/orderHistory"><button>History Details</button></Link></td>
 </tr>
           </tbody>
           </table> 

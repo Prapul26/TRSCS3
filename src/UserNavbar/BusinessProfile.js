@@ -43,7 +43,7 @@ const BusinessProfile = () => {
                  </div>
     <div className="BPP">
      
-      <div className="c-header">
+      <div className="d-header">
         <div className="c-h1">
           <h3>Business Profile</h3>
         </div>

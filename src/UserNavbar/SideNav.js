@@ -62,7 +62,6 @@ const SideNav = () => {
                       
                                     </div>
                                   }</div>
-                                  <div className="logout" style={{display:"flex"}}><div className="a4"><SlLogout style={{marginTop:'23px',paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>Logout</h3> </div>
                                 </div>
     </div>
   )

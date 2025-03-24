@@ -29,18 +29,9 @@ const Contacts = () => {
         </div>
         <div className="CPP"><MobileNavbar />
           <div className="contacts-container">
-            <div className="c-header">
-              <div className="c-h1">
-                <h3>Contacts Management Template</h3>
-              </div>
-              <div className="c-h2">
-                <Link to='/home'><p>Home</p></Link>
-                <span>.</span>
-                <Link to='/myMembership'><p>Dashboard</p></Link>
-                <span>.</span>
-                <Link to='/contact'><p>Contacts Management</p></Link>
-              </div>
-            </div>
+          <div className="d-header">
+<h2>Contacts</h2>
+          </div>
             <div className="contacts-buttons">
               <div className="import">
                 <div>

@@ -4,7 +4,7 @@ import "./NewInbox.css";
 import { RiContactsBook3Line } from "react-icons/ri";
 import { IoMdPerson } from "react-icons/io";
 import UserHeader from "../components/UserHeader";
-import { FaFileSignature } from "react-icons/fa";
+import { FaClock, FaFileSignature } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
 import { MdArrowCircleDown, MdOutlineCardMembership } from "react-icons/md";
@@ -34,6 +34,7 @@ const Inbox = () => {
   const [intro, showIntro] = useState(false);
   const [settings, showSettings] = useState(false);
   const [data2, setData] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const handelExpand = () => {
     setData(!data2);
   };
@@ -60,26 +61,11 @@ const Inbox = () => {
         <div className="IBPP">
           {" "}
           <MobileNavbar />
-          <div className="c-header">
-            <div className="c-h1">
-              <h3>Inbox</h3>
-            </div>
-            <div className="c-h2">
-              <Link to="/home">
-                <p>Home</p>
-              </Link>
-              <span>.</span>
-              <Link to="/myMembership">
-                {" "}
-                <p>Dashboard</p>
-              </Link>
-              <span>.</span>
-              <Link to="/inbox">
-                {" "}
-                <p>inbox</p>
-              </Link>
-            </div>
+          <div className="d-header" >
+            <h2>Messages</h2>
+            
           </div>
+          
           <div className="inbox-container">
             <div className="messageInbox">
               <div className="mI1">
@@ -103,272 +89,60 @@ const Inbox = () => {
                   <button>Make Introduction</button>
                 </Link>{" "}
               </div>
-            </div>   <div className="mailInbox-Mobile">
-              {inboxData.map((data, index) => (
-                <div className="mobileInbox-Holder" key={index}>
-                  <div className="mobileInboxData">
-                    <div className="DandN">
-                    <div className="name">
-                        <h2>Introduction : {data.introduction}</h2>
-                      </div>
-                      <div className="date">{data.date}</div>
-                      <div className="name" style={{display:"flex"}}>
-                      <div style={{height:"50px",width:"50px",marginRight:"15px"}}><img style={{height:"100%",borderRadius:"50%"}} src={data.recipientImg}/> </div><div> <h2 >{data.recipient}</h2></div>
-                      </div>
-                    </div>
-                    <div
-                      className="expand"
-                      onClick={() => handleExpand(index)}
-                    >
-                      <IoExpandSharp  size={20} />
-                    </div>
-                  </div>
-
-                  {expandedIndex === index && (
-                    <div className="expanded-view">
-                      <Link to="/memberDetails" style={{ color: "inherit" }}>
-                        <div className="messageTo">
-                          <div style={{ display: "flex", flexDirection: "row" ,marginTop:"30px"}}>
-                            <div
-                              style={{
-                               height:"30px",width:"30px",marginRight:"15px",marginTop:"8px"
-                              }}
-                            >
-                              <img style={{height:"100%",borderRadius:"50%"}} src={data.sender.namePic}/>
-                            </div>
-                            <p>
-                              {data.sender.name} (Replies:{" "}
-                              {data.sender.replies})
-                            </p>
-                          </div>
-                          <div style={{ display: "flex", flexDirection: "row" }}>
-                          <div
-                              style={{
-                               height:"30px",width:"30px",marginRight:"15px",marginTop:"8px"
-                              }}
-                            >
-                              <img style={{height:"100%",borderRadius:"50%"}} src={data.sender.name2Pic}/>
-                            </div>
-                            <p>{data.sender.name2}</p>
-                          </div>
-                        </div>
-                      </Link>
-                      <div className="messageAction">
-                        <div>
-                          <Link to="/reply">
-                            <button style={{background:"green"}}> Reply</button>
-                          </Link>
-                        </div>
-                        <div>
-                          <button style={{ marginLeft: "10px" ,background:"red"}}>Bump</button>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
+             
             </div>
+            <div className="collapseButton">  <button onClick={() => setIsExpanded(!isExpanded)}>
+        {isExpanded ? "Collapse all" : "Expand all"}
+      </button></div>
+
             <div className="inbox-holder">
-              <table>
-                <thead>
-                  <tr>
-                    <td>Subject</td>
-                    <td>Action</td>
-                    <td>To</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <h3>Introduction</h3>
-                      <p>januray,03 2023 09:18 am</p>
-                      <h4>Mahesh kumar</h4>
-                    </td>
+             {inboxData.map((item,index)=>(<div key={index} className="inbox">
+              <div classname="headingIntro">
+                <h3>{item.introduction}</h3>
+              </div>
+              <div className="pictime">
+                <div className="pic55">
+                  <div className="pic55img"><img src={item.recipientImg}/></div>
+                  <div className="pic55name"><p>{item.recipient}</p></div>
+                </div>
+                <div className="time55">
+                  <div className="time55Clock"><FaClock /></div>
+                  <div className="time55days"><p>{item.date} days ago</p></div>
+                </div>
+              </div>
+              {isExpanded && (
+        <div>
+          <h3>To</h3>
 
-                    <td>
-                      <Link to="/reply">
-                        <button style={{ background: "green" }}>Reply</button>
-                      </Link>
-                      <button style={{ background: "pink" }}>Bump</button>
-                    </td>
-                    <Link to="/memberDetails">
-                      {" "}
-                      <td>
-                        <p>
-                          <IoMdPerson />
-                          Santhosh Kumar (Replies:0)
-                        </p>
-                        <p>
-                          <IoMdPerson />
-                          Skumar nelli(Replies:0)
-                        </p>
-                        <p>
-                          <RiContactsBook3Line />
-                          narendhar Kumar
-                        </p>
-                      </td>
-                    </Link>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h3>Introduction</h3>
-                      <p>januray,03 2023 09:18 am</p>
-                      <h4>Mahesh kumar</h4>
-                    </td>
+          {/* Sender(s) */}
+          {item.sender.name.map((senderName, senderIndex) => (
+            <Link to='/memberDetails'><div key={senderIndex} className="pic66">
+              <div className="pic66img">
+                <img src={item.sender.namePic[senderIndex]} alt={senderName} />
+              </div>
+              <div className="pic66name">
+                <p>{senderName}</p>
+              </div>
+              <div className="pic66name">
+                <p>( Replies : {item.sender.replies[senderIndex]} )</p>
+              </div>
+            </div></Link>
+          ))}
 
-                    <td>
-                      <Link to="/reply">
-                        {" "}
-                        <button style={{ background: "green" }}>Reply</button>
-                      </Link>
-                      <button style={{ background: "pink" }}>Bump</button>
-                    </td>
-                    <Link to="/memberDetails">
-                      {" "}
-                      <td>
-                        <p>
-                          <IoMdPerson />
-                          Santhosh Kumar (Replies:0)
-                        </p>
-                        <p>
-                          <IoMdPerson />
-                          Skumar nelli(Replies:0)
-                        </p>
-                        <p>
-                          <RiContactsBook3Line />
-                          narendhar Kumar
-                        </p>
-                      </td>
-                    </Link>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h3>Introduction</h3>
-                      <p>januray,03 2023 09:18 am</p>
-                      <h4>Mahesh kumar</h4>
-                    </td>
+          {/* Message */}
+          <div className="message">
+            <h4>{item.message}</h4>
+          </div>
 
-                    <td>
-                      <Link to="/reply">
-                        <button style={{ background: "green" }}>Reply</button>
-                      </Link>
-                      <button style={{ background: "pink" }}>Bump</button>
-                    </td>
-                    <Link to="/memberDetails">
-                      {" "}
-                      <td>
-                        <p>
-                          <IoMdPerson />
-                          Santhosh Kumar (Replies:0)
-                        </p>
-                        <p>
-                          <IoMdPerson />
-                          Skumar nelli(Replies:0)
-                        </p>
-                        <p>
-                          <RiContactsBook3Line />
-                          narendhar Kumar
-                        </p>
-                      </td>
-                    </Link>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h3>Introduction</h3>
-                      <p>januray,03 2023 09:18 am</p>
-                      <h4>Mahesh kumar</h4>
-                    </td>
-
-                    <td>
-                      <Link to="/reply">
-                        {" "}
-                        <button style={{ background: "green" }}>Reply</button>
-                      </Link>
-                      <button style={{ background: "pink" }}>Bump</button>
-                    </td>
-                    <Link to="/memberDetails">
-                      {" "}
-                      <td>
-                        <p>
-                          <IoMdPerson />
-                          Santhosh Kumar (Replies:0)
-                        </p>
-                        <p>
-                          <IoMdPerson />
-                          Skumar nelli(Replies:0)
-                        </p>
-                        <p>
-                          <RiContactsBook3Line />
-                          narendhar Kumar
-                        </p>
-                      </td>
-                    </Link>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h3>Introduction</h3>
-                      <p>januray,03 2023 09:18 am</p>
-                      <h4>Mahesh kumar</h4>
-                    </td>
-
-                    <td>
-                      <Link to="/reply">
-                        {" "}
-                        <button style={{ background: "green" }}>Reply</button>
-                      </Link>
-                      <button style={{ background: "pink" }}>Bump</button>
-                    </td>
-                    <Link to="/memberDetails">
-                      {" "}
-                      <td>
-                        <p>
-                          <IoMdPerson />
-                          Santhosh Kumar (Replies:0)
-                        </p>
-                        <p>
-                          <IoMdPerson />
-                          Skumar nelli(Replies:0)
-                        </p>
-                        <p>
-                          <RiContactsBook3Line />
-                          narendhar Kumar
-                        </p>
-                      </td>
-                    </Link>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h3>Introduction</h3>
-                      <p>januray,03 2023 09:18 am</p>
-                      <h4>Mahesh kumar</h4>
-                    </td>
-
-                    <td>
-                      <Link to="/reply">
-                        <button style={{ background: "green" }}>Reply</button>
-                      </Link>
-                      <button style={{ background: "pink" }}>Bump</button>
-                    </td>
-                    <Link to="/memberDetails">
-                      {" "}
-                      <td>
-                        <p>
-                          <IoMdPerson />
-                          Santhosh Kumar (Replies:0)
-                        </p>
-                        <p>
-                          <IoMdPerson />
-                          Skumar nelli(Replies:0)
-                        </p>
-                        <p>
-                          <RiContactsBook3Line />
-                          narendhar Kumar
-                        </p>
-                      </td>
-                    </Link>
-                  </tr>
-                </tbody>
-              </table>
+          {/* Reply & Bump Buttons */}
+          <div className="replyBump">
+            {item.sender.button.map((btn, btnIndex) => (
+              <button key={btnIndex}>{btn}</button>
+            ))}
+          </div>
+        </div>
+      )}
+              </div>))}
             </div>
           </div>
         </div>

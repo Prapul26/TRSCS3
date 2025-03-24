@@ -1,9 +1,9 @@
 .c-header{
 display: flex;
 margin: 20px;
-background-color: #0078d4;
-padding: 20px;
-justify-content: space-between;
+background-color: #ffffff;
+padding: 5px;
+
 border-radius: 5px;
 }
 .c-h2{
@@ -125,11 +125,20 @@ background-color: rgb(5, 172, 243);
 .CPP{
     width: 85%;
     height: 100vh;
-   margin-left: 15%;
+   margin-left: 19%;
 background-color: #f5f2f2;
 
 }
-
+.d-header{
+    width: 95%;
+    margin-left: 0%;
+    margin: 20px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
 @media (max-width: 768px) {
    
 }
@@ -144,10 +153,17 @@ background-color: #f5f2f2;
         min-width: 600px; /* Ensures the table does not shrink */
         white-space: nowrap; /* Prevents text wrapping */
     }
-    .c-header{
-        flex-direction: column;
-        padding: 10px;
-        text-align: center;
+    .d-header{
+    
+background-color: white;
+padding: 1px;
+text-align: center;
+margin-left: 5%;
+margin-right: 5%;
+width: 90%;
+margin-top: 10px;
+border-radius: 10px;
+      
     }
     .contacts-buttons{
         flex-direction: column;

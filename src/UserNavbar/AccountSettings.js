@@ -46,18 +46,10 @@ const AccountSettings = () => {
      <div><MobileNavbar/></div> 
       <div className="alfa">
       <div className="contacts-container">
-        <div className="c-header">
-          <div className="c-h1">
-            <h3>My Profile</h3>
+      <div className="d-header" style={{background:"white",paddingTop:"0px",paddingBottom:"0px",display:"flex"}}>
+            <h2>My Profile</h2><Link to='/myProfile'><button style={{background:"gold",paddingLeft:"30px",paddingRight:"30px",marginLeft:"25px",marginTop:"15px"}}>My Profile View</button></Link>
+            
           </div>
-          <div className="c-h2">
-           <Link to='/home'><p>Home</p></Link> 
-                    <span>.</span>
-                  <Link to='/myMembership'> <p>Dashboard</p></Link> 
-                    <span>.</span>
-                  <Link to='/accountSettings'> <p>my profile</p></Link> 
-          </div>
-        </div>
       </div>
       <div className="prc1">
         <div className="profileContainer1">

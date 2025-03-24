@@ -21,7 +21,7 @@ const Reply = () => {
         </div>
         <div className="reply-container">
             <MobileNavbar/>
-          <div className="c-header">
+          <div className="d-header">
             <div className="c-h1">
               <h3>Reply</h3>
             </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./MakeIntroduction.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { IoMail } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { IoMdPerson } from "react-icons/io";
@@ -9,6 +10,8 @@ import Header from "../components/Heaader/Header";
 import Navbar from "../components/Navbar/Navbar";
 import { ImCross } from "react-icons/im";
 import Footer from "../components/Footer/Footer";
+import { TiArrowBackOutline } from "react-icons/ti";
+
 
 const MakeIntroduction = () => {
   const [users] = useState([
@@ -97,6 +100,8 @@ const MakeIntroduction = () => {
       <div className="crub">
         <h1 style={{ color: "white" }}>Make Introduction</h1>
       </div>
+      <div style={{marginLeft:"20px"}}> <button style={{ borderRadius: "30px", border: "transparent" }}><span><Link to='/inbox'><TiArrowBackOutline color='white' size={35} /></Link></span> </button></div>
+
       <div className="info-holder">
         <div className="form-group">
           <label>To</label>

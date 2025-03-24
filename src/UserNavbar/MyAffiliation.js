@@ -17,18 +17,10 @@ const MyAffiliation = () => {
           <SideNav />
         </div>
         <div className="myAffiliationCOntainer"><div style={{marginLeft:"-79px"}}><MobileNavbar /></div>
-         <div className="e1-header">
-                 <div className="c-h1">
-                   <h3>My Affiliation</h3>
-                 </div>
-                 <div className="c-h2">
-                  <Link to='/home'><p>Home</p></Link> 
-                   <span>.</span>
-                 <Link to='/myMembership'> <p>Dashboard</p></Link> 
-                   <span>.</span>
-                 <Link to='/myAffiliation'> <p>my affiliation</p></Link> 
-                 </div>
-               </div>
+        <div className="c-header" style={{background:"white",paddingTop:"0px",paddingBottom:"0px"}}>
+            <h2>Messages</h2>
+            
+          </div>
           <div className="myAffiliation-holder">
 <h2>My Affiliation</h2>
 <div className="affliliationTable-holder">

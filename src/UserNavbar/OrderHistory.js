@@ -46,41 +46,39 @@ const OrderHistory = () => {
                      </div>
     <div className="orderHistoryPage">
       <MobileNavbar/>
-      <div className="c-header">
-        <div className="c-h1">
-          <h3>Order History</h3>
-        </div>
-        <div className="c-h2">
-          <p>Home</p>
-          <span>.</span>
-          <p>Dashboard</p>
-          <span>.</span>
-          <p>Orders</p>
-        </div>
-      </div>
-      <div className="orderBackButton"><Link to='/' style={{textDecoration:"none",color:"inherit"}}><button>Back</button></Link></div>
+      <div style={{marginLeft:"20px",marginTop:"20px"}}><h2>History Details</h2></div>
+      <div className="orderBackButton"><Link to='/myMembership' style={{textDecoration:"none",color:"inherit"}}><button>Back</button></Link></div>
       <div className="orderHistoryTable">
         <table>
-            <thead>
-                <tr>
-                    <td>Package</td>
-                    <td>Purchase Date</td>
-                    <td>Expired Date</td>
-                    <td>Price</td>
-                    <td>Payment Method</td>
-                    <td>Transaction Id</td>
-                    <td>Status</td>
-                </tr>
-            </thead>
+           
             <tbody>
                 <tr>
-                    <td>Standard<span style={{background:"green",color:"white",paddingLeft:"8px",paddingRight:"8px",borderRadius:"5px",paddingBottom:'3px',marginLeft:"2px"}}>Currently Active</span></td>
-                    <td>2024-07-07</td>
-                    <td>2025-07-07</td>
-                    <td>$100</td>
-                    <td></td>
-                    <td></td>
-                    <td className="rgb" style={{justifyContent:"center",alignItems:"center"}}><Link to='/orderStatus'style={{textDecoration:"none",color:"inherit"}}><button className="rgb" style={{backgroundColor:"green"}}><IoMdEye /></button></Link></td>
+                    <td>Package Name</td>
+                    <td>BaSIC</td>
+                </tr>
+                <tr>
+                  <td>Transition Id</td>
+                  <td>txn_3Qx49xF56Pb8BOOX1vXc6r3o</td>
+                </tr>
+                <tr>
+                  <td>Package Price</td>
+                  <td>$80</td>
+                </tr>
+                <tr>
+                  <td>Payment Method</td>
+                  <td>Stripe</td>
+                </tr>
+                <tr>
+                  <td>Payment Status</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>Package Start Date</td>
+                  <td>27 February, 2025</td>
+                </tr>
+                <tr>
+                  <td>Package End Date</td>
+                  <td>13 March, 2025</td>
                 </tr>
             </tbody>
         </table>

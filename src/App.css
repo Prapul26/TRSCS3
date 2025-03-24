@@ -7,6 +7,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+button{
+  background-color: #163b6d;
+}
 .body{
   font-family: "Poppins", "Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
 }

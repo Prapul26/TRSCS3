@@ -11,19 +11,28 @@ const Password = () => {
         <div className="usernav">
           <SideNav />
         </div>
-        <div className='passwordHolder'><div style={{marginLeft:"0px"}}><MobileNavbar /></div>
+        <div className='passwordHolder'><div style={{marginLeft:"0px"}}><MobileNavbar />
+        </div>
+        
 <div className='passChange'>
+<div className="d-header" >
+            <h2>Change Password</h2>
+            
+          </div>
 <div><label>Current Password:</label><br/>
     <input /></div>
     <div>
     <label>New Password:</label><br/>
-    <input />
+    <input /><br/>
+    <p>Note: Password must be at least 8 characters long (12+ recommended) and</p>
+    <p>include at least one uppercase letter, one lowercase letter, one number, and one</p>
+    <p>special character (!”#$%&'()*+,-./:;?@[]^_`{}~).</p>
     </div>
-    <div>
+    <div style={{marginTop:"50px"}}>
     <label>Conform Password:</label><br/>
     <input />
     </div>
-    <div className='passButton'> <button>SAVE</button></div>
+    <div className='passButton'> <button style={{background:"gold"}}>Update</button></div>
 </div>
         </div>
         </div>

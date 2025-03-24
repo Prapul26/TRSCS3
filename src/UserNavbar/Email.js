@@ -42,17 +42,8 @@ const Email = () => {
                    </div>
     <div  className="EMPP">
      <MobileNavbar/>
-      <div className="c-header">
-        <div className="c-h1">
-          <h3>Template</h3>
-        </div>
-        <div className="c-h2">
-         <Link to='/home'><p>Home</p></Link> 
-          <span>.</span>
-        <Link to='/myMembership'> <p>Dashboard</p></Link> 
-          <span>.</span>
-        <Link to='/email'> <p>template</p></Link> 
-        </div>
+      <div className="d-header">
+      <h2>Email Template</h2>
       </div>
       <div className="addTemplateButton">
         <button style={{ background: "green" }}> Add Template</button>

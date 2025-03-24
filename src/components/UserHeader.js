@@ -1,24 +1,31 @@
 import React, { useState } from "react";
 import "./UserHeader.css";
-import { FaArrowCircleRight } from "react-icons/fa";
+import { FaArrowAltCircleUp, FaArrowCircleDown, FaArrowCircleRight } from "react-icons/fa";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { FaFileSignature } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
 import { MdOutlineCardMembership } from "react-icons/md";
 import { FaBriefcase } from "react-icons/fa6";
+import { MdAccountCircle } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
 import { ImProfile } from "react-icons/im";
 import { IoIosArrowDropdown } from "react-icons/io";
+import { RiLogoutBoxLine } from "react-icons/ri";
 import { IoIosArrowDropup } from "react-icons/io";
 import { RiContactsFill } from "react-icons/ri";
 import { HiInboxArrowDown } from "react-icons/hi2";
 import { IoBookOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { FaArrowAltCircleDown } from "react-icons/fa";
 const UserHeader = () => {
   const [userNav, showUserNav] = useState(false);
   const [intro, showIntro] = useState(false);
+  const [menuDrop, setMenuDrop]=useState(false);
+  const handelMenuDrop=()=>{
+setMenuDrop(!menuDrop)
+  }
   const handelIntro = () => {
     showIntro(!intro);
   };
@@ -196,11 +203,15 @@ const UserHeader = () => {
               style={{ height: "100%", width: "100%"}}
             />
           </div>
-          <div className="profile-name">
-            <h3 style={{color:"black"}}>Santhosh</h3>
+          <div className="profile-name" onClick={handelMenuDrop}>
+          {menuDrop ?(  <FaArrowAltCircleUp color="white" />):(<FaArrowCircleDown color="white" /> )}
+          {menuDrop && <div className="menuDrop">
+        <div style={{display:"flex",borderBottom:"1px solid black",marginBottom:"5px"}}> <div style={{marginBottom:"5px"}}><RiLogoutBoxLine /></div><h4>Logout</h4></div>
+     <Link to="/myMembership" style={{textDecoration:"none",color:"inherit"}}>  <div style={{display:"flex"}}><div><MdAccountCircle /></div><h4>My Account</h4></div></Link></div>}
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

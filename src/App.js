@@ -34,6 +34,7 @@ import Payment from "./components/Payment/Payment";
 import Reply from "./UserNavbar/Reply";
 import New from "./components/New";
 import Password from "./UserNavbar/Password";
+import MyProfile from "./components/MyProfile/MyProfile";
 const App = () => {
   const [isLogin, setIsLogin] = useState(true);
   return (
@@ -73,6 +74,7 @@ const App = () => {
           <Route path="/payment" element={<Payment/>}/>
           <Route path="/reply" element={<Reply/>}/>
           <Route path="/new" element={<New/>}/>
+          <Route path="/myProfile" element={<MyProfile/>}/>
           <Route path='/passwordChange' element={<Password/>}/>
         </Routes>
       </div>
