@@ -130,8 +130,8 @@ const Inbox = () => {
           ))}
 
           {/* Message */}
-          <div className="message">
-            <h4>{item.message}</h4>
+          <div className="message" style={{display:"flex"}}>
+            <h4>{item.message}</h4><Link to='/messageDetails'><h4 style={{marginLeft:"40px"}}>See More...</h4></Link>
           </div>
 
           {/* Reply & Bump Buttons */}

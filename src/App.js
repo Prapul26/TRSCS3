@@ -35,6 +35,7 @@ import Reply from "./UserNavbar/Reply";
 import New from "./components/New";
 import Password from "./UserNavbar/Password";
 import MyProfile from "./components/MyProfile/MyProfile";
+import MessageDetails from "./UserNavbar/MessageDetails";
 const App = () => {
   const [isLogin, setIsLogin] = useState(true);
   return (
@@ -76,6 +77,7 @@ const App = () => {
           <Route path="/new" element={<New/>}/>
           <Route path="/myProfile" element={<MyProfile/>}/>
           <Route path='/passwordChange' element={<Password/>}/>
+          <Route path="/messageDetails" element={<MessageDetails/>}/>
         </Routes>
       </div>
     </Router>
