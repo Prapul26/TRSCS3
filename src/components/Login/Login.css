@@ -78,7 +78,7 @@
     border: 1px solid #e7e7e7;
     width: 30%;
     margin-top: 20px;
-    border-top: 5px solid  #4219bc;
+
     background-color: #fff;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -99,7 +99,7 @@
 .LoginContainer button {
     padding: 10px;
     margin-top: 20px;
-    background-color: #4219bc;
+    background-color: #eeba2b;
     color: #fff;
     border: none;
     border-radius: 4px;

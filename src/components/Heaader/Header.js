@@ -133,8 +133,8 @@ showDrop1(false)
           <div className="header-profile">
             <div className="picPro">
               <img
-                src="https://tracsdev.apttechsol.com/public/uploads/custom-images/user-2024-07-09-02-52-30-9248.png"
-                style={{ height: "100%", width: "100%" }}
+                src="https://cdn.motiondesign.school/uploads/2021/05/radik.jpg"
+                style={{ height: "100%", width: "100%" ,borderRadius:"50%"}}
               />
             </div>
             <div className="drop2" onClick={handelDrop2}>
