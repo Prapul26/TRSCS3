@@ -21,9 +21,7 @@ const About_us = () => {
                     <h1>WELCOME TO TRACS</h1>
                     <p >At TRACS, we believe in the power of connections. Our platform is designed to be the heartbeat of professional networking, where members come together to forge meaningful relationships, exchange ideas, and unlock new opportunities. Our platform is designed for individuals and businesses seeking meaningful networking experiences.</p>
                 </div>
-                <div className='a_2'>
-                    <img src={happy} />
-                </div>
+            
                 <div className='a_3' >
                     <h1>Who We Are:</h1>
                     <p>We are more than just a networking app; we are a dynamic community of professionals, entrepreneurs, and thought leaders. TRACS is the go-to destination for those who understand the importance of building strong, authentic connections in the business world.</p>

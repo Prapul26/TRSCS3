@@ -11,6 +11,25 @@
 .navbar-holder{
     display: flex;
 }
+.dropdown-menu23{
+    margin-top: 40px;
+    background-color:white;
+    position: absolute;
+    list-style-type: none;
+    width:120px;
+    border-radius: 5px;
+    padding: 15px;
+   
+}
+
+.dropdown-menu23 li{
+
+    color:black;
+    margin-bottom: 5px;
+    
+
+    text-decoration: none;
+}
 .navbar-holder img{
     margin-top: 4px;
 }

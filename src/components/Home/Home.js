@@ -37,7 +37,7 @@ const Home = () => {
           <Link to="/makeIntro">
             <button style={{background:"#eeba2b"}}>Make Introduction Instantly</button>
           </Link>
-          <Link to="/myMembership">
+          <Link to="/inbox">
             <button style={{background:"#eeba2b"}}>
               <span>My Dashboard</span>
             </button>

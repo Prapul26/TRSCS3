@@ -3,6 +3,7 @@ import "./Header.css";
 import { FaFacebook } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
+import { FiMenu } from "react-icons/fi";
 import { FcGlobe } from "react-icons/fc";
 import { IoMenu } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -90,9 +91,9 @@ showDrop1(false)
           <Link to='/register'style={{textDecoration:"none",color:"inherit"}}><button>Register</button></Link>  
           </div>
           <div className="social-Media">
-          <a href="https://www.facebook.com/h7network"> <div className="fff"><FaFacebook size={30}  color="white" /></div></a> 
-           <a href="https://twitter.com"><div className="ffx"><FaSquareXTwitter size={30}  color="white"/></div></a> 
-           <a href="https://www.linkedin.com/company/h7network/"><div className="ffn"> <FaLinkedin size={30}  color="white"/></div></a> 
+          <a href="https://www.facebook.com/h7network"> <div className="fff"><FaFacebook size={30}  color="black" /></div></a> 
+           <a href="https://twitter.com"><div className="ffx"><FaSquareXTwitter size={30}  color="black"/></div></a> 
+           <a href="https://www.linkedin.com/company/h7network/"><div className="ffn"> <FaLinkedin size={30}  color="black"/></div></a> 
           </div>
         </div>
       )}
@@ -116,6 +117,21 @@ showDrop1(false)
             style={{ height: "27px" }}
           />
         </div>
+        <div className="mobPicPro">
+<div className="mobPic1"><img
+                src="https://cdn.motiondesign.school/uploads/2021/05/radik.jpg"
+                style={{ height: "100%", width: "100%" ,borderRadius:"50%"}}
+              /></div>
+<div className="drop2" onClick={handelDrop2}>
+             {drop2 ?<IoMdArrowDropup size={20}/> :<IoMdArrowDropdown size={20} />} 
+             {
+                drop2 && <div className="dropDown2">
+                   <Link to='/accountSettings' style={{textDecoration:"none",color:"inherit"}}><div className="profileDrop"><h3>My Profile</h3></div></Link> 
+                    <div className="dropLogout" ><h3>Logout</h3></div>
+                </div>
+             }
+            </div>
+       </div>
         <div className="dropdowns">
           <div className="globe">
             <div className="globee">
@@ -149,7 +165,7 @@ showDrop1(false)
           </div>
         </div>
         <div className="menu" onClick={handelMenu}>
-          <CiMenuKebab size={25} />
+          <FiMenu  size={25} />
         </div>
       </div>
     </div>

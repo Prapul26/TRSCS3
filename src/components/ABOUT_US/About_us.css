@@ -114,6 +114,9 @@ padding: 10px;
     margin-bottom: 40px;
     color: rgb(3, 3, 152);
 }
+.a_42 h1{
+    color: rgb(3, 3, 152);
+}
 .a_7{
     
     margin-top: 60px;
@@ -126,6 +129,9 @@ padding: 10px;
 .a_7 p{
     color: black;
 }
+.a_41 img{
+    width: 100%;
+ }
 @media (max-width: 480px){
     .a_5{
         display: flex;
@@ -151,7 +157,9 @@ width: 100%;
         width: 100%;
      
      }
-     
+     .a_41 img{
+        width: 100%;
+     }
      .a_42{
          width: 100%;
      }
