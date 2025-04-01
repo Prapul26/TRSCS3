@@ -166,7 +166,7 @@ const AccountSettings = () => {
           <div className="pc12">
             <div className="proPic">
               <img
-                src="https://tracsdev.apttechsol.com/public/uploads/custom-images/user-2024-07-09-02-52-30-9248.png"
+                src="https://img.freepik.com/premium-photo/portrait-smile-man-with-positive-confidence-carefree-against-grey-studio-background-face-male-person-human-with-cheerful-attitude-freedom-model-with-joy-canada-relax_590464-177008.jpg"
                 style={{ height: "100%", width: "100%" }}
               />
               <div>
