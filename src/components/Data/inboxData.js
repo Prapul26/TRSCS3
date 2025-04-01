@@ -7,7 +7,8 @@ const inboxData = [
         name: ["Trevor-1 Agre ","Swaran Jeeth"],
         namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
         replies: ["0","0"],
-        button:["Reply","Bump"]
+        button:["Reply"],
+        button2:["Bump"]
       },
       recipient: "S Kumar Nelli",
       message:"Hi everyone",
@@ -22,7 +23,8 @@ const inboxData = [
         name: ["Trevor-1 Agre ","Swaran Jeeth"],
         namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
         replies: ["0","0"],
-        button:["Reply","Bump"]
+        button:["Reply"],
+        button2:["Send"]
       },
       recipient: "S Kumar Nelli",
       message:"Hi everyone",
@@ -37,7 +39,8 @@ const inboxData = [
         name: ["Trevor-1 Agre ","Swaran Jeeth"],
         namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
         replies: ["0","0"],
-        button:["Reply","Bump"]
+        button:["Reply"],
+        button2:["Bump"]
       },
       recipient: "S Kumar Nelli",
       message:"Hi everyone",
@@ -51,7 +54,8 @@ const inboxData = [
         name: ["Trevor-1 Agre ","Swaran Jeeth"],
         namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
         replies: ["0","0"],
-        button:["Reply","Bump"]
+        button:["Reply"],
+        button2:["send"]
       },
       recipient: "S Kumar Nelli",
       message:"Hi everyone",
@@ -65,7 +69,8 @@ const inboxData = [
           name: ["Trevor-1 Agre ","Swaran Jeeth"],
           namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
           replies: ["0","0"],
-          button:["Reply","Bump"]
+          button:["Reply"],
+          button2:["send"]
         },
         recipient: "S Kumar Nelli",
         message:"Hi everyone",
@@ -80,7 +85,8 @@ const inboxData = [
           name: ["Trevor-1 Agre ","Swaran Jeeth"],
           namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
           replies: ["0","0"],
-          button:["Reply","Bump"]
+          button:["Reply"],
+          button2:["send"]
         },
         recipient: "S Kumar Nelli",
         message:"Hi everyone",
@@ -94,7 +100,8 @@ const inboxData = [
           name: ["Trevor-1 Agre ","Swaran Jeeth"],
           namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
           replies: ["0","0"],
-          button:["Reply","Bump"]
+          button:["Reply"],
+          button2:["send"]
         },
         recipient: "S Kumar Nelli",
         message:"Hi everyone",
@@ -108,7 +115,8 @@ const inboxData = [
         name: ["Trevor-1 Agre ","Swaran Jeeth"],
         namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
         replies: ["0","0"],
-        button:["Reply","Bump"]
+        button:["Reply"],
+        button2:["send"]
       },
       recipient: "S Kumar Nelli",
       message:"Hi everyone",
@@ -122,7 +130,8 @@ const inboxData = [
           name: ["Trevor-1 Agre ","Swaran Jeeth"],
           namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
           replies: ["0","0"],
-          button:["Reply","Bump"]
+          button:["Reply"],
+          button2:["send"]
         },
         recipient: "S Kumar Nelli",
         message:"Hi everyone",

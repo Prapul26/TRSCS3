@@ -80,8 +80,8 @@ showDrop1(false)
             </div>
           </div>
           <div className="pricing">
-          <Link to='/myMembership' style={{textDecoration:"none",color:"inherit"}}> <div className="Pricing">
-                <h2>Profile</h2>
+          <Link to='/network' style={{textDecoration:"none",color:"inherit"}}> <div className="Pricing">
+                <h2>Network 101</h2>
             </div></Link> 
           </div>
           <div className="login">
@@ -91,9 +91,8 @@ showDrop1(false)
           <Link to='/register'style={{textDecoration:"none",color:"inherit"}}><button>Register</button></Link>  
           </div>
           <div className="social-Media">
-          <a href="https://www.facebook.com/h7network"> <div className="fff"><FaFacebook size={30}  color="black" /></div></a> 
-           <a href="https://twitter.com"><div className="ffx"><FaSquareXTwitter size={30}  color="black"/></div></a> 
-           <a href="https://www.linkedin.com/company/h7network/"><div className="ffn"> <FaLinkedin size={30}  color="black"/></div></a> 
+          <a href="https://www.facebook.com/h7network"> <div className="fff"><FaFacebook size={30}  color="blue" /></div></a> 
+           <a href="https://www.linkedin.com/company/h7network/"><div className="ffn"> <FaLinkedin size={30}  color="blue"/></div></a> 
           </div>
         </div>
       )}
@@ -103,10 +102,7 @@ showDrop1(false)
             {" "}
             <FaFacebook size={28} color="white" />
           </div></a> 
-         <a href="https://twitter.com"><div className="x">
-            {" "}
-            <FaSquareXTwitter size={28}  color="white"/>
-          </div></a> 
+        
          <a href="https://www.linkedin.com/company/h7network/"><div className="LinkedIn">
             <FaLinkedin size={28}  color="white"/>
           </div></a> 
@@ -157,7 +153,7 @@ showDrop1(false)
              {drop2 ?<IoMdArrowDropup size={20}/> :<IoMdArrowDropdown size={20} />} 
              {
                 drop2 && <div className="dropDown2">
-                   <Link to='/accountSettings' style={{textDecoration:"none",color:"inherit"}}><div className="profileDrop"><h3>My Profile</h3></div></Link> 
+                   <Link to='/accountSettings' style={{textDecoration:"none",color:"inherit"}}><div className="profileDrop"><h3>My Account</h3></div></Link> 
                     <div className="dropLogout" ><h3>Logout</h3></div>
                 </div>
              }

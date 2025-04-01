@@ -251,9 +251,9 @@ const MemberDetails = () => {
               </div>
             </div>
           </div>
-          <div className="About-Container">
+          <div className="About-Container" style={{}}>
             <div>
-              <h2>About Me</h2>
+              <h2 style={{color:"black"}}>About Me</h2>
             </div>
             <div>
               <p>

@@ -100,7 +100,10 @@ const MakeIntroduction = () => {
       <div className="crub">
         <h1 style={{ color: "white" }}>Make Introduction</h1>
       </div>
+      <div style={{display:"flex",justifyContent:"space-between",marginRight:"20px"}}>
       <div style={{marginLeft:"20px"}}> <button style={{ borderRadius: "30px", border: "transparent" }}><span><Link to='/inbox'><TiArrowBackOutline color='white' size={35} /></Link></span> </button></div>
+      <div className="prevIntro"><Link to='/inbox'> <button>Previous Introduction</button></Link></div>
+        </div>
 
       <div className="info-holder">
         <div className="form-group">
@@ -163,13 +166,17 @@ const MakeIntroduction = () => {
                 <input style={{ width: "100%", marginTop: "10px" }} />
               </div>
               <div style={{ padding: "20px" }}>
-                <h3>email </h3>
+                <h3>Email </h3>
+                <input style={{ width: "100%", marginTop: "10px" }} />
+              </div>
+              <div style={{ padding: "20px" }}>
+                <h3>Group Name </h3>
                 <input style={{ width: "100%", marginTop: "10px" }} />
               </div>
               <div style={{ display: "flex", padding: "20px" }}>
                 <button style={{ background: "grey" }}>cancel</button>
                 <button style={{ background: "orange", marginLeft: "20px" }}>
-                  SAVE
+                  SAVE CONTACT
                 </button>
               </div>
             </div>

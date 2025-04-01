@@ -6,8 +6,7 @@
     margin-right: 5%;
    margin-bottom: 80px;
     margin-top: 100px;
-    background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);
-    padding: 40px;
+background-color: white;    padding: 40px;
     box-shadow: 10px 10px 15px 10px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
 }
@@ -19,16 +18,18 @@
 }
 .a_u h1{
     margin-top: 20px;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     padding-top: 80px;
 
 }
 .ch{
 width: 70%;
+display: none;
  }
 .ci{
 width: 30%;
+
 
 }
 .ch1{
@@ -65,7 +66,7 @@ margin-left: 35px;
 
 }
 .contatContainer h1{
-    color: rgb(9, 229, 211);
+    color: rgb(0, 0, 0);
 }
 .contatContainer input{
     height: 40px;
@@ -78,16 +79,16 @@ margin-left: 35px;
 .ci1{
     width: 100%;
   height: fit-content;
-  border-radius: 20px;
+  background-image:url(https://tracs.app/public/user/images/background/dot-left-t-dark.png) ;
     margin-top: 100px;
-
+background-color: rgb(15, 18, 33);
     background-size: cover;
     padding: 10px;
  
 }
 .ci2{
     display: flex;
-    text-align: center;
+   
     margin-left: 0px;
 }
 .ci3{
@@ -120,6 +121,7 @@ margin-top: 17px;
     }
     .ci{
         width: 100%;
+        background-image: "https://tracs.app/public/user/images/background/dot-left-t-dark.png";
     }
     .ch1{
         display: flex;
@@ -135,6 +137,9 @@ margin-top: 17px;
     .ch2{
         display: flex;
         flex-direction: column;
+    }
+    .ph1{
+        margin-top: 5px;
     }
     .ch3{
         width: 90%;

@@ -30,7 +30,7 @@ background-color: rgb(255, 255, 255);
 .About-Container p{
 
 word-break: break-all;
-color: white;
+color: rgb(0, 0, 0);
 }
 .section2{
 
@@ -138,6 +138,12 @@ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 color: rgb(0, 0, 0);
 margin-bottom: 10px;
 }
+.About-Container p{
+  color: black;
+}
+.About-Container h2{
+  color: black;
+}
 .informaion h3{
   color: rgb(0, 0, 0);
   font-size: larger;
@@ -166,9 +172,7 @@ width: 50%;
   justify-content: space-between;
   width: 30%;
 }
-.About-Container h2{
-  color: white;
-}
+
 .linksContainer{
   padding: 20px;
   background-color: orange;
@@ -183,7 +187,7 @@ justify-content: space-between;
 .About-Container{
   padding: 20px;
   width: 97%;
-background-color: rgb(57, 153, 237);
+  background-color: rgb(226, 230, 232);
 border-radius: 10px;
 }
 .divider{
@@ -296,9 +300,9 @@ margin-bottom: 20px;
       }
       
       .images img {
-        height: 220px;
-        width: 220px;
-        border-radius: 50%;
+        height: 180px;
+        width: 230px;
+        border-radius: 0%;
         object-fit: cover; /* Ensure images are scaled correctly */
       }
       .carlo{
@@ -434,7 +438,7 @@ margin-left: -40px;
     .About-Container{
       padding: 20px;
       width: 90%;
-      background-color: rgb(57, 153, 237);
+      background-color: rgb(184, 186, 187);
     }
     .divider{
       display: flex;

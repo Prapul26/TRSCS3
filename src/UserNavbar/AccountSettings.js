@@ -47,7 +47,7 @@ const AccountSettings = () => {
       <div className="alfa">
       <div className="contacts-container">
       <div className="d-header" style={{background:"white",paddingTop:"0px",paddingBottom:"0px",display:"flex"}}>
-            <h2>My Profile</h2><Link to='/myProfile'><button style={{background:"gold",paddingLeft:"30px",paddingRight:"30px",marginLeft:"25px",marginTop:"15px"}}>My Profile View</button></Link>
+            <h2>My Profile</h2><Link to='/myProfile'><button style={{background:"#eeba2b",paddingLeft:"30px",paddingRight:"30px",marginLeft:"25px",marginTop:"15px"}}>My Profile View</button></Link>
             
           </div>
       </div>
@@ -170,13 +170,13 @@ const AccountSettings = () => {
                 style={{ height: "100%", width: "100%" }}
               />
               <div>
-                <button style={{ background: "orange" }}>Upload Image</button>
+                <button style={{ background: "#eeba2b" }}>Upload Image</button>
               </div>
             </div>
           </div>
         </div>
         <div className="update1">
-          <button  style={{background:"orange"}}>Update</button>
+          <button  style={{background:"#eeba2b"}}>Update</button>
         </div>{" "}
       </div>
       <div className="profileContainer2">
@@ -216,7 +216,7 @@ const AccountSettings = () => {
           </div>
         </div>
         <div className="update2">
-          <button style={{background:"orange"}}>Update</button>
+          <button style={{background:"#eeba2b"}}>Update</button>
         </div>
       </div></div>
     </div>

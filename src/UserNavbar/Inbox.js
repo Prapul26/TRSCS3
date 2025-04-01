@@ -136,10 +136,9 @@ const Inbox = () => {
 
           {/* Reply & Bump Buttons */}
           <div className="replyBump">
-            {item.sender.button.map((btn, btnIndex) => (
-              <button key={btnIndex}>{btn}</button>
-            ))}
-          </div>
+                       <Link to="/messageDetails"> <button>{item.sender.button}</button></Link>
+                        <button className="colorButton">{item.sender.button2}</button>
+                      </div>
         </div>
       )}
               </div>))}

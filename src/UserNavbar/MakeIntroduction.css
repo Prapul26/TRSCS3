@@ -13,13 +13,17 @@
     padding: 20px;
     margin-bottom: 30px;
     width: 90%;
-    margin-right: 10%;
+    margin-right: 5%;
     border-radius: 5px;
    
     margin-left: 5%;
   
 height: fit-content;
 
+}
+.prevIntro{
+    margin-right: 100px;
+    margin-top: 10px;
 }
 .toSelect{
     width: 80.7%;
@@ -139,7 +143,7 @@ word-wrap: break-word;
         height: fit-content;
      
         width: 40%;
-        margin-top: -400px;
+        margin-top: -440px;
         margin-right: 20%;
         margin-left: 20%;
         background-color: #d2daf9;
@@ -170,6 +174,10 @@ word-wrap: break-word;
        
     height: fit-content;
     } 
+    .prevIntro{
+        margin-right: 0px;
+        margin-top: 15px;
+    }
     .checkbox-list{
         background-color: rgb(212, 223, 220);
         height: 200px;

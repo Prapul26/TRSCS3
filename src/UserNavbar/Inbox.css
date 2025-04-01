@@ -3,6 +3,9 @@
     
 
 }
+.colorButton{
+  background-color: rgb(247, 138, 156);
+}
 .inbox-container select{
     height: 40px;
     width: 400px;
