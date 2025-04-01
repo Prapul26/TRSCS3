@@ -15,7 +15,7 @@ import Footer from '../../components/Footer/Footer';
     <div>
      <Header/>
      <Navbar/>
-      <div className='ph1'><div className='p1h1'><h1> CONTACT</h1></div></div>
+      <div className='ph1'><div className='p1h1'><h1 style={{fontSize:'35px'}}> CONTACT</h1></div></div>
     <div className='contatContainer'>
 <div className='ch'>
   <h1>Contact Here</h1>

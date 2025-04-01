@@ -37,7 +37,7 @@ const Pricing = () => {
         <Navbar />
         <div className="ph1">
           <div className="p1h1">
-            <h1>Pricing</h1>
+            <h1 style={{fontSize:'35px'}}>Pricing</h1>
           </div>
         </div>
         <div className="pricing-holder">

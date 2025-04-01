@@ -16,7 +16,7 @@ const Payment = () => {
         <div className='paymentContainer'>
        <Header/>
        <Navbar/>
-            <div className='payh'> <div className='ph41'></div><h1 style={{ color: 'white' }}> Payment Page</h1></div>
+            <div className='payh'> <div className='ph41'></div><h1 style={{ color: 'white' ,fontSize:'35px'}}> Payment Page</h1></div>
             <div className='payment-holder'>
                 <div className='sh'><h1>Stripe</h1></div>
                 <div className='payn'>
