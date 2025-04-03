@@ -48,51 +48,52 @@ showDrop1(false)
         <div className="Menu">
           <div className="cross">
             <div className="crossPosition" onClick={handleCross}>
-              <ImCross size={24} />
+              <ImCross size={18} />
             </div>
           </div>
           <div className="home">
             <div className="Home">
-               <Link to='/home' style={{textDecoration:"none",color:"inherit"}}><h2>Home</h2></Link> 
+               <Link to='/home' style={{textDecoration:"none",color:"inherit"}}><h2 style={{fontSize:"18px"}}>HOME</h2></Link> 
             </div>
           </div>
           <div className="aboutUs">
-            <div><h2>About US</h2></div>
+            <div><h2 style={{fontSize:"18px"}}>ABOUT US</h2></div>
             <div onClick={handelAbout} style={{marginTop:"18px",marginRight:"5pxw"}}> {about ?  <IoMdArrowDropup  size={35} /> :<IoMdArrowDropdown size={35} />}</div>
         
           </div> {
             about && <div className="dropAbout">
 <div className="dropAboutUs">
-  <Link to='/about_us' style={{textDecoration:"none",color:"inherit"}}> <h2>About Us</h2></Link> 
+  <Link to='/about_us' style={{textDecoration:"none",color:"inherit"}}> <h2 style={{fontSize:"18px"}}>ABOUT US</h2></Link> 
 
 </div>
 <div className="dropContact">
-   <Link to='/contact' style={{textDecoration:"none",color:"inherit"}}> <h2>Contact</h2></Link>
+   <Link to='/contact' style={{textDecoration:"none",color:"inherit"}}> <h2 style={{fontSize:"18px"}}>CONTACT</h2></Link>
 </div>
 <div className="dropPartner">
- <Link to='/partner'style={{textDecoration:"none",color:"inherit"}} > <h2>Partners</h2></Link>  
+ <Link to='/partner'style={{textDecoration:"none",color:"inherit"}} > <h2 style={{fontSize:"18px"}}>PARTNERS</h2></Link>  
 </div>
             </div>
          }
           <div className="pricing">
             <div className="Pricing">
-               <Link to='/pricing' style={{textDecoration:"none",color:"inherit"}}><h2>Pricing</h2></Link> 
+               <Link to='/pricing' style={{textDecoration:"none",color:"inherit"}}><h2 style={{fontSize:"18px"}}>PRICING</h2></Link> 
             </div>
           </div>
           <div className="pricing">
           <Link to='/network' style={{textDecoration:"none",color:"inherit"}}> <div className="Pricing">
-                <h2>Network 101</h2>
+                <h2 style={{fontSize:"18px"}}>NETWORK 101</h2>
             </div></Link> 
           </div>
+          <div className="button-H" style={{display:"flex",display:'none'}}>
           <div className="login">
            <Link to='/login'style={{textDecoration:"none",color:"inherit"}}><button>Login</button></Link> 
           </div>
           <div className="register">
           <Link to='/register'style={{textDecoration:"none",color:"inherit"}}><button>Register</button></Link>  
-          </div>
+          </div></div>
           <div className="social-Media">
-          <a href="https://www.facebook.com/h7network"> <div className="fff"><FaFacebook size={30}  color="blue" /></div></a> 
-           <a href="https://www.linkedin.com/company/h7network/"><div className="ffn"> <FaLinkedin size={30}  color="blue"/></div></a> 
+          <a href="https://www.facebook.com/h7network"> <div className="fff"><FaFacebook size={30}  color="darkblue" /></div></a> 
+           <a href="https://www.linkedin.com/company/h7network/"><div className="ffn"> <FaLinkedin size={30}  color="darkblue"/></div></a> 
           </div>
         </div>
       )}
