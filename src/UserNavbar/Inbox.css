@@ -17,6 +17,19 @@ width: 100%;
 background-color: white;
 
 }
+.contactInfo{
+  display: flex;
+}
+
+.contact-icon{
+  margin-top: 13px;
+  margin-right: 10px;
+}
+.contactInfo p{
+  font-size: 14px;
+
+}
+
 .collapseButton{
   width: 100%;
   background-color: white;

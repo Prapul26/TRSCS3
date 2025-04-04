@@ -21,6 +21,8 @@ const inboxData = [
       introduction:"Introduction - Trevor-1 Agre <> Swaran Jeeth",
       sender: {
         name: ["Trevor-1 Agre ","Swaran Jeeth"],
+        contact:["Chetan V"],
+        contactReply:["4"],
         namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
         replies: ["0","0"],
         button:["Reply"],
@@ -70,6 +72,8 @@ const inboxData = [
           namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
           replies: ["0","0"],
           button:["Reply"],
+          contact:["Chetan V"],
+          contactReply:["4"],
           button2:["send"]
         },
         recipient: "S Kumar Nelli",
@@ -131,6 +135,8 @@ const inboxData = [
           namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
           replies: ["0","0"],
           button:["Reply"],
+          contact:["Chetan V"],
+          contactReply:["4"],
           button2:["send"]
         },
         recipient: "S Kumar Nelli",

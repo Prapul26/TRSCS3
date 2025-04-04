@@ -36,6 +36,7 @@ import New from "./components/New";
 import Password from "./UserNavbar/Password";
 import MyProfile from "./components/MyProfile/MyProfile";
 import MessageDetails from "./UserNavbar/MessageDetails";
+import ContactDetails from "./components/ContactDetails/ContactDetails";
 const App = () => {
   const [isLogin, setIsLogin] = useState(true);
   return (
@@ -78,6 +79,7 @@ const App = () => {
           <Route path="/myProfile" element={<MyProfile/>}/>
           <Route path='/passwordChange' element={<Password/>}/>
           <Route path="/messageDetails" element={<MessageDetails/>}/>
+          <Route path="/contactDetails" element={<ContactDetails />}/>
         </Routes>
       </div>
     </Router>

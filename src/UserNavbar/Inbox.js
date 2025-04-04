@@ -128,7 +128,14 @@ const Inbox = () => {
               </div>
             </div></Link>
           ))}
-
+ {item.sender.contact && (
+                    <Link to='/contactDetails' style={{color:"inherit"}}>    <div className="contactInfo">
+                          
+                         <div className="contact-icon"> <RiContactsBook3Line size={20}/></div>
+                         <div><p>{item.sender.contact.join(", ")}</p></div> 
+                         <div style={{marginLeft:"10px"}}><p> (Replies :  {item.sender.contactReply && ` ${item.sender.contactReply.join(", ")}`})</p></div>
+                        </div></Link>
+                      )}
           {/* Message */}
           <div className="message" style={{display:"flex"}}>
             <h4>{item.message}</h4><Link to='/messageDetails'><h4 style={{marginLeft:"40px"}}>See More...</h4></Link>
