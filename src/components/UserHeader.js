@@ -204,7 +204,7 @@ setMenuDrop(!menuDrop)
             />
           </div>
           <div className="profile-name" onClick={handelMenuDrop}>
-          {menuDrop ?(  <MdOutlineArrowDropUp size={25} color="white" />):(< aw color="white" size={25}/> )}
+          {menuDrop ?(  <MdOutlineArrowDropUp size={25} color="white" />):(< MdOutlineArrowDropDown color="white" size={25}/> )}
           {menuDrop && <div className="menuDrop">
         <div style={{display:"flex",borderBottom:"1px solid black",marginBottom:"5px"}}> <div style={{marginBottom:"5px"}}><RiLogoutBoxLine /></div><h4>Logout</h4></div>
      <Link to="/myMembership" style={{textDecoration:"none",color:"inherit"}}>  <div style={{display:"flex"}}><div><MdAccountCircle /></div><h4>My Account</h4></div></Link></div>}
