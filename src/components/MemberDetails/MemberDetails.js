@@ -81,6 +81,11 @@ const MemberDetails = () => {
             </div>
             <div className="userNAME2">
               <h4 style={{ justifyContent: "center", marginTop: "-10px" }}>
+        <span style={{background:"green" ,color:"white",borderRadius:"3px"}}><span style={{color:"green"}}>.</span> TRACS<span style={{color:"green"}}>..</span></span> <span style={{color:"black"}}>Member</span>
+              </h4>
+            </div>
+            <div className="userNAME2">
+              <h4 style={{ justifyContent: "center", marginTop: "-10px" }}>
                 Insurance Company
               </h4>
             </div>{" "}

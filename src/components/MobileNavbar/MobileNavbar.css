@@ -45,7 +45,7 @@ justify-content: space-between;
         margin: 20px;
     }
     .mobMenu{
-        height: fit-content;
+        height: 100%;
         width: 70%;
         background-color: rgb(236, 232, 232);
    position: absolute;

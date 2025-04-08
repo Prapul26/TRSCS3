@@ -43,9 +43,9 @@ const MyMembership = () => {
   <div className="usernav">
          <SideNav/>
         </div>
-   
+     <MobileNavbar/>
     <div className='fz2'>
-    <MobileNavbar/>
+  
     <div className="d-header" >
             <h2>Order History</h2>
             

@@ -6,11 +6,16 @@ import { AiTwotoneQuestionCircle } from "react-icons/ai";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import { Link } from "react-router-dom";
 import { FaSortDown } from "react-icons/fa";
+import { TiArrowBackOutline } from "react-icons/ti";
 const MessageDetails = () => {
-  const [template, setTemplate] = useState(false);
+  const [template, setTemplate] = useState(false);;
+  const [showReply,setReply]=useState(false);
   const handelTemplate = () => {
     setTemplate(!template);
   };
+  const handelShowReply=()=>{
+    setReply(!showReply);
+  }
   return (
     <div>
       <UserHeader />
@@ -23,12 +28,15 @@ const MessageDetails = () => {
           <div className="d-header">
             <h2>Messages</h2>
           </div>
-          <div style={{ margin: "20px" }}>
-            <Link to="/inbox">
-              <button>Back</button>
-            </Link>
+          <div style={{display:"flex",justifyContent:"space-between"}}>
+               <div style={{marginLeft:"20px"}}> <button style={{ borderRadius: "30px", border: "transparent" }}><span><Link to='/inbox'><TiArrowBackOutline color='white' size={35} /></Link></span> </button></div>
+         
+          <div style={{marginRight:"20px",marginTop:"10px"}}>
+            <button onClick={handelShowReply}>Reply</button>
+          </div>
           </div>
           <div className="messageDetails-container">
+            { showReply && <div>
             <div className="select-holder">
               <div className="toHolder">
                 <h3>To</h3>
@@ -96,7 +104,8 @@ SKN IT Solutions"
               <div class="button-container">
                 <button>Send</button>
               </div>
-            </div>
+            </div></div>}
+           
             <div className="messageHeader">
 <div className="headerHeading">
     <h3>Introduction - Mahesh Kumar and Naresh Kumar</h3>

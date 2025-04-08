@@ -5,13 +5,13 @@ import { FaArrowCircleLeft } from "react-icons/fa";
 import { FaFileSignature } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
-import { MdOutlineCardMembership } from "react-icons/md";
+import { MdOutlineArrowDropDown, MdOutlineArrowDropUp, MdOutlineCardMembership } from "react-icons/md";
 import { FaBriefcase } from "react-icons/fa6";
 import { MdAccountCircle } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
 import { ImProfile } from "react-icons/im";
 import { IoIosArrowDropdown } from "react-icons/io";
-import { RiLogoutBoxLine } from "react-icons/ri";
+import { RiArrowDropDownLine, RiLogoutBoxLine } from "react-icons/ri";
 import { IoIosArrowDropup } from "react-icons/io";
 import { RiContactsFill } from "react-icons/ri";
 import { HiInboxArrowDown } from "react-icons/hi2";
@@ -204,7 +204,7 @@ setMenuDrop(!menuDrop)
             />
           </div>
           <div className="profile-name" onClick={handelMenuDrop}>
-          {menuDrop ?(  <FaArrowAltCircleUp color="white" />):(<FaArrowCircleDown color="white" /> )}
+          {menuDrop ?(  <MdOutlineArrowDropUp size={25} color="white" />):(< aw color="white" size={25}/> )}
           {menuDrop && <div className="menuDrop">
         <div style={{display:"flex",borderBottom:"1px solid black",marginBottom:"5px"}}> <div style={{marginBottom:"5px"}}><RiLogoutBoxLine /></div><h4>Logout</h4></div>
      <Link to="/myMembership" style={{textDecoration:"none",color:"inherit"}}>  <div style={{display:"flex"}}><div><MdAccountCircle /></div><h4>My Account</h4></div></Link></div>}

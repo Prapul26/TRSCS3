@@ -1,6 +1,7 @@
 .OMH{
     width: 100%;
     display: flex;
+   
 }
 .myMembership-button{
     margin-left: 20px;
@@ -81,6 +82,7 @@
     width: 100%;
     height: 100vh;
     margin-left: 20%;
+    
 }
 .OMH {
     background-color: rgb(236, 235, 234);
@@ -147,6 +149,11 @@ td button {
         width: 100%;
         height: 100vh;
         margin: 0px;
+    }
+    .OMH{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
     }
 }
 @media (max-width: 1000px) {

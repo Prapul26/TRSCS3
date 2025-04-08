@@ -2,13 +2,13 @@ import React from 'react'
 import { FaFileSignature } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
-import { MdOutlineCardMembership } from "react-icons/md";
+import { MdOutlineArrowDropDown, MdOutlineArrowDropUp, MdOutlineCardMembership } from "react-icons/md";
 import { FaBriefcase } from "react-icons/fa6";
 import { IoSettingsSharp } from "react-icons/io5";
 import { ImProfile } from "react-icons/im";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
-import { RiLockPasswordFill } from "react-icons/ri";
+import { RiArrowDropDownLine, RiArrowDropUpLine, RiLockPasswordFill } from "react-icons/ri";
 import { RiContactsFill } from "react-icons/ri";
 import { TbArrowsRandom } from "react-icons/tb";
 import { HiInboxArrowDown } from "react-icons/hi2";
@@ -36,7 +36,7 @@ const SideNav = () => {
     <div>
          
                                 <div className="navs">
-                                <div onClick={handelSettings} style={{display:"flex",justifyContent:"space-between",borderBottom:"1px solid black"}} ><div style={{display:"flex"}}><div style={{marginTop:'19px',marginRight:"5px",marginLeft:"5px"}}><IoSettingsSharp size={20}/></div><h3>Account Settings</h3></div> <div style={{marginTop:"15px",marginLeft:'30px'}}>{settings ?< IoIosArrowDropup size={22} style={{marginTop:"0px"}}/>:<IoIosArrowDropdown size={22} style={{marginTop:"0px"}} />}</div>
+                                <div onClick={handelSettings} style={{display:"flex",justifyContent:"space-between",borderBottom:"1px solid black"}} ><div style={{display:"flex"}}><div style={{marginTop:'19px',marginRight:"5px",marginLeft:"5px"}}><IoSettingsSharp size={20}/></div><h3>Account Settings</h3></div> <div style={{marginTop:"15px",marginLeft:'30px'}}>{settings ?< RiArrowDropUpLine size={25} style={{marginTop:"0px"}}/>:<RiArrowDropDownLine size={25} style={{marginTop:"0px"}} />}</div>
                                
                                 </div>
                                 {
@@ -51,7 +51,7 @@ const SideNav = () => {
                                   </div>
                                 }
                                  <div className="intro1">
-                                 <div onClick={handelIntro} style={{display:"flex",justifyContent:"space-between"}} ><div style={{display:"flex"}}><div style={{marginTop:'19px',marginRight:"5px",marginLeft:"5px"}}><FaBriefcase size={20}/></div><h3>Introduction</h3></div> <div style={{marginTop:"15px"}}>{settings ?< IoIosArrowDropup size={22} style={{marginTop:"0px"}}/>:<IoIosArrowDropdown size={22} style={{marginTop:"0px"}} />}</div>
+                                 <div onClick={handelIntro} style={{display:"flex",justifyContent:"space-between"}} ><div style={{display:"flex"}}><div style={{marginTop:'19px',marginRight:"5px",marginLeft:"5px"}}><FaBriefcase size={20}/></div><h3>Introduction</h3></div> <div style={{marginTop:"15px"}}>{settings ?< RiArrowDropUpLine size={22} style={{marginTop:"0px"}}/>:<RiArrowDropDownLine size={25} style={{marginTop:"0px"}} />}</div>
                                
                                </div>                                  {
                                     intro && <div className="intoNav" style={{marginLeft:"7px"}}>

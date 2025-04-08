@@ -51,7 +51,7 @@ const Inbox = () => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
   return (
-    <div>
+    <div >
       {" "}
       <UserHeader />
       <div className="IBPPP">
