@@ -143,7 +143,7 @@ const Inbox = () => {
 
           {/* Reply & Bump Buttons */}
           <div className="replyBump">
-                       <Link to="/messageDetails"> <button>{item.sender.button}</button></Link>
+                       <Link to="/messageDetails" > <button style={{background:" #005a9e"}}>{item.sender.button}</button></Link>
                         <button className="colorButton">{item.sender.button2}</button>
                       </div>
         </div>

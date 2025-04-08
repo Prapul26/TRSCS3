@@ -4,7 +4,7 @@
 
 }
 .colorButton{
-  background-color: rgb(247, 138, 156);
+  background-color:  #005a9e;
 }
 .inbox-container select{
     height: 40px;
@@ -183,7 +183,7 @@ margin-left: 5px;
   button {
     padding: 8px 12px;
     margin: 5px 0;
-    background-color: #0078d4;
+    background-color: #005a9e;
     color: #fff;
     border: none;
     border-radius: 5px;
