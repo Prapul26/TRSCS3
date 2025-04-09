@@ -26,9 +26,16 @@ import { useState } from "react";
 import MobileNavbar from '../components/MobileNavbar/MobileNavbar';
 import { faL } from '@fortawesome/free-solid-svg-icons';
 import SideNav from './SideNav';
+import MobileMenu from '../components/MobileMenu/MobileMenu';
 const MyMembership = () => {
    const[intro,showIntro]=useState(false)
    const [settings,showSettings]=useState(false);
+   const [showSidebar, setShowSidebar] = useState(false);
+
+   const showMobnav = () => {
+     setShowSidebar(prev => !prev);
+ 
+   };
    const handelSettings=()=>{
     showSettings(!settings);
    }
@@ -36,14 +43,18 @@ const MyMembership = () => {
       showIntro(!intro)
     }
   return (
-    <div><UserHeader/>
+    <div className='mobMenuaa'>
+<div className='mobMenu33'>
+{showSidebar && (<MobileMenu />)}
+</div>
+    <div style={{width:"100%"}}><UserHeader/>
   
     <div className='OMH'>
 
   <div className="usernav">
          <SideNav/>
         </div>
-     <MobileNavbar/>
+     <MobileNavbar showMobnav={showMobnav}/>
     <div className='fz2'>
   
     <div className="d-header" >
@@ -83,7 +94,7 @@ const MyMembership = () => {
 
      </div>
     </div> </div>
-    </div>
+    </div></div>
   )
 }
 

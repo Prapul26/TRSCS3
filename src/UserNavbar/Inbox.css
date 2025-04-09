@@ -261,11 +261,18 @@ margin-left: 5px;
   .mI3 button{
     background-color:  #eeba2b;
   }
+  .mobMenu331{
+    display: none;
+   }
   @media (max-width: 480px){
    .IBPP{
     margin-left: 0%;
     width: 100%;
   
+   }
+   .mobMenu331{
+    display: block;
+    
    }
      .messageInbox{
       display: flex;

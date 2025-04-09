@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import { FaArrowAltCircleUp, FaArrowCircleDown, FaArrowCircleRight } from "react-icons/fa";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
-const MobileNavbar = () => {
+const MobileNavbar = ({showMobnav}) => {
   const [mobnav, setMobnav] = useState(false);
    const [intro, showIntro] = useState(false);
    const [intro2, showIntro2] = useState(false);
@@ -25,9 +25,7 @@ const MobileNavbar = () => {
      const handelMenuDrop=()=>{
    setMenuDrop(!menuDrop)
      }
-  const showMobnav = () => {
-    setMobnav(!mobnav);
-  };
+
   const cancelMenu = () => [setMobnav(false)];
   const handelIntro = () => {
     showIntro(!intro);
@@ -38,54 +36,14 @@ const MobileNavbar = () => {
   return (
     <div style={{display:"flex"}}>
       <div>
-      {mobnav && (
-        <div className={`mobMenu ${mobnav ? "open" : ""}`}>
-          
-          <div style={{height:"85px",background:"rgb(28, 41, 181)",width:"100%"}}></div>
-
-          
-          <div className="introduction41" onClick={handelIntro2}>
-            <div style={{display:"flex"}}><div style={{marginTop:"13px",marginRight:"12px"}}><IoSettingsSharp size={20} color="black"/> </div>
-          <div style={{marginTop:"-4px"}}> <h2 style={{fontSize:"20px"}}>Application Setting</h2></div></div>
-          <div style={{marginTop:"14px"}}><RiArrowDropDownLine  color="black" size={25}/></div>
-            </div>
-                {
-                                                intro2 && <div className="intoNav" style={{marginLeft:"7px"}}>
-                                                  <Link to='/myMembership' style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex" ,marginBottom:"8px"}}><div>< MdOutlineCardMembership size={20}color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>My Membership</h3></div></Link>
-                                                 <Link to='/accountSettings'  style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex",marginBottom:"8px"}}><div><IoPerson  size={20}color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>My Profile</h3></div></Link> 
-                                                 <Link to='/passwordChange'style={{color:"inherit",textDecoration:"none"}} ><div style={{display:"flex",marginBottom:"8px"}}> <div><IoPerson size={20} color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>My Password</h3></div></Link> 
-                                                 <Link to='/affiliation'style={{color:"inherit",textDecoration:"none"}} > <div style={{display:"flex",marginBottom:"8px"}}><div><TbArrowsRandom  size={20}color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Affiliation</h3></div></Link> 
-                                  
-                                                </div>
-                                              }
-
-
-
-
-          <div className="introduction4" onClick={handelIntro}>
-            <div style={{display:"flex"}}><div style={{marginTop:"13px",marginRight:"12px"}}><FaBriefcase size={20} color="black"/> </div>
-          <div style={{marginTop:"-4px"}}> <h2 style={{fontSize:"20px"}}>Introduction</h2></div></div>
-          <div style={{marginTop:"14px"}}><RiArrowDropDownLine color="black" size={25}/></div>
-            </div>
-                {
-                                                intro && <div className="intoNav" style={{marginLeft:"7px"}}>
-                                                  <Link to='/contacts' style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex" ,marginBottom:"8px"}}><div>< RiContactsFill size={20}color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Contacts</h3></div></Link>
-                                                 <Link to='/inbox'  style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex",marginBottom:"8px"}}><div><HiInboxArrowDown  size={20}color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Messages</h3></div></Link> 
-                                                 <Link to='/email'style={{color:"inherit",textDecoration:"none"}} ><div style={{display:"flex",marginBottom:"8px"}}> <div><MdOutlineEmail size={20} color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Template</h3></div></Link> 
-                                                 <Link to='/signature'style={{color:"inherit",textDecoration:"none"}} > <div style={{display:"flex",marginBottom:"8px"}}><div><FaFileSignature  size={20}color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Signature</h3></div></Link> 
-                                  
-                                                </div>
-                                              }
-         
-        </div>
-      )}
+     
       </div>
-    <div className={`mobnav ${mobnav ?"move":""}`}>
+    <div className={`mobnav ${showMobnav ?"move":""}`}>
       <div style={{display:"flex"}}><div className="menuButton" onClick={showMobnav}>
         {" "}
         <LuMenu size={30} />
       </div>
-      <Link to="/home" style={{color:"inherit"}}><div style={{marginTop:"17px"}}>
+      <Link to="/home" style={{color:"inherit"}}><div style={{marginTop:"17px",marginRight:"70px"}}>
         <FaHouse size={30 }/></div></Link>
         </div>
       <div style={{display:"flex"}}>

@@ -26,10 +26,17 @@ import { IoLocationSharp } from "react-icons/io5";
 import { useState } from "react";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
+import MobileMenu from "../components/MobileMenu/MobileMenu";
 const OrderHistory = () => {
   
      const[intro,showIntro]=useState(false)
      const [settings,showSettings]=useState(false);
+     const [showSidebar, setShowSidebar] = useState(false);
+     
+        const showMobnav = () => {
+          setShowSidebar(prev => !prev);
+      
+        };
         const handelSettings=()=>{
          showSettings(!settings);
         }
@@ -37,6 +44,10 @@ const OrderHistory = () => {
         showIntro(!intro)
       }
   return (
+    <div className='mobMenuaa'>
+<div className='mobMenu33'>
+{showSidebar && (<MobileMenu />)}
+</div>
     <div> <UserHeader />
    
     <div className="OHP">
@@ -45,7 +56,7 @@ const OrderHistory = () => {
                       <SideNav/>
                      </div>
     <div className="orderHistoryPage">
-      <MobileNavbar/>
+      <MobileNavbar showMobnav={showMobnav}/>
       <div style={{marginLeft:"20px",marginTop:"20px"}}><h2>History Details</h2></div>
       <div className="orderBackButton"><Link to='/myMembership' style={{textDecoration:"none",color:"inherit"}}><button>Back</button></Link></div>
       <div className="orderHistoryTable">
@@ -85,7 +96,7 @@ const OrderHistory = () => {
       </div>
     </div>
     </div>
-    </div>
+    </div></div>
   );
 };
 

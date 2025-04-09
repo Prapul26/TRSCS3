@@ -146,7 +146,7 @@ background-color: #f5f2f2;
 @media (max-width: 480px) {
     .contacts-table {
         width: 100%;
-        overflow-x: auto;
+        overflow-x: auto; 
     }
 
     .contacts-table table {
@@ -204,7 +204,7 @@ width: 240px;
 height: 40px;
     }
     .CPP{
-        width: 100%;
+        width: 60%;
         height: 100vh;
         margin: 0px;
     }

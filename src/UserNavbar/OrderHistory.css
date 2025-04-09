@@ -54,7 +54,7 @@ background-color: white;
   }
   @media (max-width: 480px){
     .orderHistoryPage{
-      width: 100%;
+      width: 70%;
     margin-left: -0%;
     }
   }

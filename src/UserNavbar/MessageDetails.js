@@ -7,9 +7,17 @@ import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import { Link } from "react-router-dom";
 import { FaSortDown } from "react-icons/fa";
 import { TiArrowBackOutline } from "react-icons/ti";
+import MobileMenu from "../components/MobileMenu/MobileMenu";
 const MessageDetails = () => {
   const [template, setTemplate] = useState(false);;
   const [showReply,setReply]=useState(false);
+   const [showSidebar, setShowSidebar] = useState(false);
+  
+     const showMobnav = () => {
+       setShowSidebar(prev => !prev);
+   
+     };
+  
   const handelTemplate = () => {
     setTemplate(!template);
   };
@@ -17,6 +25,10 @@ const MessageDetails = () => {
     setReply(!showReply);
   }
   return (
+    <div className='mobMenuaa'>
+    <div className='mobMenu33'>
+    {showSidebar && (<MobileMenu />)}
+    </div>
     <div>
       <UserHeader />
       <div className="mdppp">
@@ -24,7 +36,7 @@ const MessageDetails = () => {
           <SideNav />
         </div>
         <div className="mdpp">
-          <MobileNavbar />
+          <MobileNavbar showMobnav={showMobnav}/>
           <div className="d-header">
             <h2>Messages</h2>
           </div>
@@ -153,7 +165,7 @@ SKN IT Solutions"
           </div>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 

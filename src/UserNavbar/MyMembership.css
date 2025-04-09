@@ -129,12 +129,26 @@ td button {
     padding: 5px 10px;
     cursor: pointer;
 }
-
+.mobMenu33{
+    display: none;
+}
 @media(max-width:480px){
     .myMembership-container{
         width: 90%;
         margin-left: 5%;
         margin-right: 5%;
+    }
+    .mobMenu33{
+        display:block;
+    
+    }
+
+    
+    .mobMenuaa{
+        display: flex;
+        width: 100vw;
+        overflow: hidden;
+      
     }
     .c-header{
         margin-left: 10%;

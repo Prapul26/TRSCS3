@@ -24,9 +24,16 @@ import { useState } from "react";
 import { IoPerson } from "react-icons/io5";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
+import MobileMenu from "../components/MobileMenu/MobileMenu";
 const Email = () => {
     const[intro,showIntro]=useState(false)
     const [settings,showSettings]=useState(false);
+     const [showSidebar, setShowSidebar] = useState(false);
+    
+       const showMobnav = () => {
+         setShowSidebar(prev => !prev);
+     
+       };
        const handelSettings=()=>{
         showSettings(!settings);
        }
@@ -34,6 +41,10 @@ const Email = () => {
       showIntro(!intro)
     }
   return (
+    <div className='mobMenuaa'>
+<div className='mobMenu33'>
+{showSidebar && (<MobileMenu />)}
+</div>
     <div> <UserHeader />
     
 <div className="EMPPP">
@@ -41,7 +52,7 @@ const Email = () => {
                    <SideNav/>
                    </div>
     <div  className="EMPP">
-     <MobileNavbar/>
+     <MobileNavbar showMobnav={showMobnav}/>
       <div className="d-header">
       <h2>Email Template</h2>
       </div>
@@ -131,7 +142,7 @@ const Email = () => {
           </tbody>
         </table>
       </div>
-    </div></div></div>
+    </div></div></div></div>
   );
 };
 

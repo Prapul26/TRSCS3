@@ -30,11 +30,18 @@ import { useState } from "react";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
 import inboxData from "../components/Data/inboxData";
+import MobileMenu from "../components/MobileMenu/MobileMenu";
 const Inbox = () => {
   const [intro, showIntro] = useState(false);
   const [settings, showSettings] = useState(false);
   const [data2, setData] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+   const [showSidebar, setShowSidebar] = useState(false);
+  
+     const showMobnav = () => {
+       setShowSidebar(prev => !prev);
+   
+     };
   const handelExpand = () => {
     setData(!data2);
   };
@@ -51,6 +58,10 @@ const Inbox = () => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
   return (
+    <div className='mobMenuaa'>
+<div className='mobMenu33'>
+{showSidebar && (<div style={{marginRight:"0px"}}><MobileMenu /></div>)}
+</div>
     <div >
       {" "}
       <UserHeader />
@@ -58,9 +69,9 @@ const Inbox = () => {
         <div className="usernav">
           <SideNav />
         </div>
-        <div className="IBPP">
+        <div className="IBPP" >
           {" "}
-          <MobileNavbar />
+          <MobileNavbar showMobnav={showMobnav}/>
           <div className="d-header" >
             <h2>Messages</h2>
             
@@ -153,7 +164,7 @@ const Inbox = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 

@@ -4,7 +4,6 @@ import UserHeader from "../components/UserHeader";
 import SideNav from "./SideNav";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
-import { Link } from "react-router-dom";
 const Password = () => {
   const [showSidebar, setShowSidebar] = useState(false);
 
@@ -14,22 +13,21 @@ const Password = () => {
   return (
     <div className="mobMenuaa">
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
-      <div style={{ width: "100%" }}>
+      <div>
         <UserHeader />
-
-        <div className="OMH">
+        <div className="passwordContainer">
           <div className="usernav">
             <SideNav />
           </div>
-          <MobileNavbar showMobnav={showMobnav} />
-          <div className="fz2">
-           
-          <div className="d-header" >
-            <h2>Change Password</h2>
-            
-          </div>
-          <div className="passChange" style={{ whiteSpace: "nowrap" }}>
-              
+          <div className="passwordHolder">
+            <div style={{ marginLeft: "0px" }}>
+              <MobileNavbar showMobnav={showMobnav} />
+            </div>
+
+            <div className="passChange">
+              <div className="d-header">
+                <h2>Change Password</h2>
+              </div>
               <div>
                 <label>Current Password:</label>
                 <br />
@@ -60,7 +58,7 @@ const Password = () => {
                 <button style={{ background: "gold" }}>Update</button>
               </div>
             </div>
-          </div>{" "}
+          </div>
         </div>
       </div>
     </div>

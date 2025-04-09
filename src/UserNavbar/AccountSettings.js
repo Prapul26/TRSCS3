@@ -26,16 +26,29 @@ import { IoPerson } from "react-icons/io5";
 import { useState } from "react";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
+import MobileMenu from "../components/MobileMenu/MobileMenu";
 const AccountSettings = () => {
     const[intro,showIntro]=useState(false);
      const [settings,showSettings]=useState(false);
+     const [showSidebar, setShowSidebar] = useState(false);
+     
+        const showMobnav = () => {
+          setShowSidebar(prev => !prev);
+      
+        };
         const handelSettings=()=>{
          showSettings(!settings);
         }
   const handelIntro=()=>{
     showIntro(!intro)
   }
-  return (  <div> <UserHeader />
+  return ( 
+    
+    <div className='mobMenuaa'>
+    <div className='mobMenu33'>
+    {showSidebar && (<MobileMenu />)}
+    </div>
+    <div> <UserHeader />
 
     <div className="overH">
     <div className="usernav">
@@ -43,7 +56,7 @@ const AccountSettings = () => {
             </div>
       
     <div className="fz1">
-     <div><MobileNavbar/></div> 
+     <div><MobileNavbar showMobnav={showMobnav}/></div> 
       <div className="alfa">
       <div className="contacts-container">
       <div className="d-header" style={{background:"white",paddingTop:"0px",paddingBottom:"0px",display:"flex"}}>
@@ -222,7 +235,7 @@ const AccountSettings = () => {
     </div>
     </div>
     
-    </div>
+    </div></div>
   );
 };
 

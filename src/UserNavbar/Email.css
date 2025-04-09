@@ -59,7 +59,7 @@ background-color: #f5f2f2;
         min-width: 600px; /* Ensure the table retains its structure on small screens */
     }
     .EMPP{
-        width: 100%;
+        width: 50%;
         height: 100vh;
         margin: 0px;
         }

@@ -4,6 +4,7 @@ import UserHeader from "../components/UserHeader";
 import { Link } from "react-router-dom";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
+import MobileMenu from "../components/MobileMenu/MobileMenu";
 
 const Contacts = () => {
   const [contacts, setContacts] = useState([
@@ -12,6 +13,12 @@ const Contacts = () => {
     { id: 3, firstName: "Alice", lastName: "Johnson", group: "H7 member", email: "alice@example.com", createdOn: "2024-01-26" },
     { id: 4, firstName: "Bob", lastName: "Brown", group: "TRACS member", email: "bob@example.com", createdOn: "2024-01-25" }
   ]);
+   const [showSidebar, setShowSidebar] = useState(false);
+  
+     const showMobnav = () => {
+       setShowSidebar(prev => !prev);
+   
+     };
 
   // Function to delete a contact
   const handleDelete = (id) => {
@@ -20,6 +27,10 @@ const Contacts = () => {
   };
 
   return (
+    <div className='mobMenuaa'>
+<div className='mobMenu33'>
+{showSidebar && (<MobileMenu />)}
+</div>
     <div>
       <UserHeader />
       
@@ -27,7 +38,7 @@ const Contacts = () => {
         <div className="usernav">
           <SideNav />
         </div>
-        <div className="CPP"><MobileNavbar />
+        <div className="CPP"><MobileNavbar showMobnav={showMobnav} />
           <div className="contacts-container">
           <div className="d-header">
 <h2>Contacts</h2>
@@ -89,7 +100,7 @@ const Contacts = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 

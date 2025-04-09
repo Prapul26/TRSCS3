@@ -6,9 +6,16 @@ import SideNav from "./SideNav";
 import { Link } from "react-router-dom";
 import { IoCopy } from "react-icons/io5";
 import { height, width } from "@fortawesome/free-brands-svg-icons/fa42Group";
+import MobileMenu from "../components/MobileMenu/MobileMenu";
 const Affiliation = () => {
   const [basic,showBasic]=useState(false);
   const [standard,showStandard]=useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
+  
+     const showMobnav = () => {
+       setShowSidebar(prev => !prev);
+   
+     };
   const handelStandard=()=>{
 showStandard(!standard)
   }
@@ -25,14 +32,18 @@ showBasic(!basic)
      showIntro(!intro)
    }
   return (
-    <div>
+    <div className='mobMenuaa'>
+<div className='mobMenu33'>
+{showSidebar && (<MobileMenu />)}
+</div>
+    <div className="affili">
       <UserHeader />
      
       <div className="myAfflilationPage">
         <div className="usernav">
           <SideNav />
         </div>
-        <div className="myAffiliationCOntainer"> <div style={{marginLeft:"-79px"}}><MobileNavbar /></div>
+        <div className="myAffiliationCOntainer"> <div style={{marginLeft:"-82px"}}><MobileNavbar  showMobnav={showMobnav} /></div>
     <div className="dd-holder">
 <h2>Affiliation</h2>
     </div>
@@ -76,7 +87,7 @@ showBasic(!basic)
           </div>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 
