@@ -14,6 +14,21 @@ import { TiArrowBackOutline } from "react-icons/ti";
 
 
 const MakeIntroduction = () => {
+  const templates = {
+    "Admin Intoduction Template 02 Apr": `Hi [[member_first_name]]
+  
+  I'd like to introduce you to [[contact_first_name]], a friend of mine who I think you'd enjoy connecting with. [[contact_first_name]] is expertise in graphic designer, works in marketing.
+  
+  I've cc'd [[contact_first_name]] on this email so you can connect directly.
+  
+  Thanks
+  
+  Santhosh Nelli
+  
+  8374818142
+  
+  SKN IT Solutions`
+  };
   const [users] = useState([
     {
       network: "H7 Media Network",
@@ -69,7 +84,9 @@ const MakeIntroduction = () => {
   const [selectedEmails, setSelectedEmails] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [addContacts, showAdd] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("H7 Members"); // New state
+  const [selectedOption, setSelectedOption] = useState("H7 Members"); 
+  const [selectedTemplate, setSelectedTemplate] = useState("");
+const [message, setMessage] = useState("");// New state
   const handleToggle = (user) => {
     setSelectedEmails((prevSelected) =>
       prevSelected.find((item) => item.email === user.email)
@@ -246,14 +263,30 @@ const MakeIntroduction = () => {
           ))}
         </div>
 
-        <label>Select Template</label>
+       <div className="manageHeadingTEmplate" style={{display:'flex',justifyContent:"space-between"}}>
+       <div style={{display:"flex",marginBottom:"-29px"}}><div><label>Select Template </label></div>
+       <div style={{marginTop:"-7px",marginLeft:"7px"}}><p style={{fontSize:"12px",fontWeight:"bold"}}>Best Practices ?</p></div> </div>
+       <div><label>Manage Template</label></div>
+       </div>
         <br />
-        <select className="templateSelect">
-          <option>Select Template</option>
-          <option>Introduce Emial Template Testing</option>
-          <option>Introduce to COI</option>
-          <option>Tesing Admin Template</option>
-        </select>
+        <select
+  className="templateSelect"
+  value={selectedTemplate}
+  onChange={(e) => {
+    const selected = e.target.value;
+    setSelectedTemplate(selected);
+    if (templates[selected]) {
+      setMessage(templates[selected]);
+    } else {
+      setMessage(""); // Clear if not a valid template
+    }
+  }}
+>
+  <option value="">Select Template</option>
+  <option value="Admin Intoduction Template 02 Apr">
+    Admin Intoduction Template 02 Apr
+  </option>
+</select>
         <br />
         <label>Subject</label>
         <br />
@@ -261,7 +294,11 @@ const MakeIntroduction = () => {
         <br />
         <label>Message</label>
         <br />
-        <textarea className="messageText" />
+        <textarea
+  className="messageText"
+  value={message}
+  onChange={(e) => setMessage(e.target.value)}
+/>
         <br />
         <div className="lastbutton" style={{ display: "flex" }}>
           <div style={{ display: "flex" }}>

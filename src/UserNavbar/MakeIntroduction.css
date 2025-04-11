@@ -160,6 +160,9 @@ word-wrap: break-word;
     .lastbutton{
         justify-content: space-between;
     }
+    .manageHeadingTEmplate{
+        width: 80%;
+    }
 @media(max-width:480px){
     .info-holder{
         margin-top: 30px;
@@ -174,6 +177,15 @@ word-wrap: break-word;
        
     height: fit-content;
     } 
+    .searchInput{
+        width: 100%;
+    }
+    .templateSelect{
+        width: 100%;
+    }
+    .manageHeadingTEmplate{
+        width: 100%;
+    }
     .prevIntro{
         margin-right: 0px;
         margin-top: 15px;
@@ -238,5 +250,14 @@ width: 30%;
                 }
             .formButtons{
                 margin-top: 20px;
+            }
+            .toSelect{
+                width: 100%;
+            }
+            .subjectInput{
+                width: 100%;
+            }
+            .messageText{
+                width: 100%;
             }
 }

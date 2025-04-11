@@ -2,7 +2,7 @@ import React from "react";
 import "./Inbox.css";
 import "./NewInbox.css";
 import { RiContactsBook3Line } from "react-icons/ri";
-import { IoMdPerson } from "react-icons/io";
+import { IoIosStar, IoMdPerson } from "react-icons/io";
 import UserHeader from "../components/UserHeader";
 import { FaClock, FaFileSignature } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
@@ -102,9 +102,11 @@ const Inbox = () => {
               </div>
              
             </div>
-            <div className="collapseButton">  <button onClick={() => setIsExpanded(!isExpanded)}>
+            
+            <div className="collapseButton"><div>  <button onClick={() => setIsExpanded(!isExpanded)}>
         {isExpanded ? "Collapse all" : "Expand all"}
       </button></div>
+      <div style={{marginTop:"12px",marginLeft:"10px"}}><IoIosStar color=" #eeba2b"/>= Take Action</div></div>
 
             <div className="inbox-holder">
              {inboxData.map((item,index)=>(<div key={index} className="inbox">
@@ -119,6 +121,7 @@ const Inbox = () => {
                 <div className="time55">
                   <div className="time55Clock"><FaClock /></div>
                   <div className="time55days"><p>{item.date} days ago</p></div>
+                  <div className="timeStar">{item.star}</div>
                 </div>
               </div>
               {isExpanded && (

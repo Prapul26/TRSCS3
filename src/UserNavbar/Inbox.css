@@ -33,6 +33,7 @@ background-color: white;
 .collapseButton{
   width: 100%;
   background-color: white;
+  display: flex;
 }
 .collapseButton button{
   margin-left: 20px;
@@ -263,6 +264,11 @@ margin-left: 5px;
   }
   .mobMenu331{
     display: none;
+   }
+   .timeStar{
+    margin-top: 18px;
+    margin-left: 10px;
+    color:  #eeba2b;
    }
   @media (max-width: 480px){
    .IBPP{

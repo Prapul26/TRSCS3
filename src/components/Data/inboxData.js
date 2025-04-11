@@ -1,7 +1,10 @@
+import { IoIosStar } from "react-icons/io";
+
 const inboxData = [
     {
       id: 1,
       date: "2",
+      star:[<IoIosStar />],
       introduction:"Introduction - Trevor-1 Agre <> Swaran Jeeth",
       sender: {
         name: ["Trevor-1 Agre ","Swaran Jeeth"],
@@ -9,6 +12,7 @@ const inboxData = [
         replies: ["0","0"],
         button:["Reply"],
         button2:["Bump"]
+      
       },
       recipient: "S Kumar Nelli",
       message:"Hi everyone",
@@ -36,6 +40,7 @@ const inboxData = [
     {
       id: 3,
       date: "2",
+      star:[<IoIosStar />],
       introduction:"Introduction - Trevor-1 Agre <> Swaran Jeeth",
       sender: {
         name: ["Trevor-1 Agre ","Swaran Jeeth"],
@@ -43,6 +48,7 @@ const inboxData = [
         replies: ["0","0"],
         button:["Reply"],
         button2:["Bump"]
+     
       },
       recipient: "S Kumar Nelli",
       message:"Hi everyone",
@@ -51,13 +57,14 @@ const inboxData = [
     {
         id: 1,
         date: "2",
+        star:[<IoIosStar />],
       introduction:"Introduction - Trevor-1 Agre <> Swaran Jeeth",
       sender: {
         name: ["Trevor-1 Agre ","Swaran Jeeth"],
         namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
         replies: ["0","0"],
         button:["Reply"],
-        button2:["send"]
+        button2:["Bump"]
       },
       recipient: "S Kumar Nelli",
       message:"Hi everyone",
@@ -84,13 +91,14 @@ const inboxData = [
       {
         id: 3,
         date: "2",
+        star:[<IoIosStar />],
         introduction:"Introduction - Trevor-1 Agre <> Swaran Jeeth",
         sender: {
           name: ["Trevor-1 Agre ","Swaran Jeeth"],
           namePic:["https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain","https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain"],
           replies: ["0","0"],
           button:["Reply"],
-          button2:["send"]
+          button2:["Bump"]
         },
         recipient: "S Kumar Nelli",
         message:"Hi everyone",
