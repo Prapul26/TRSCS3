@@ -42,6 +42,20 @@ const AccountSettings = () => {
   const handelIntro=()=>{
     showIntro(!intro)
   }
+  const [firstName, setFirstName] = useState('');
+const [lastName, setLastName] = useState('');
+const [email, setEmail] = useState('');
+const [phone, setPhone] = useState('');
+const[about,setAbout]=useState('');
+const[city,setCity]=useState('');
+const[state,setState]=useState("");
+const[image,setImage]=useState("");
+const[website,setWebsite]=useState('');
+const [password, setPassword] = useState('');
+const [confirmPassword, setConfirmPassword] = useState('');
+const [businessName, setBusinessName] = useState('');
+const [message, setMessage] = useState('');
+
   return ( 
     
     <div className='mobMenuaa'>
@@ -73,7 +87,7 @@ const AccountSettings = () => {
               <div style={{ marginTop: "0px", marginLeft: "9px" }}>
                 <MdPerson size={30} />
               </div>
-              <input type="text" />
+              <input type="text" value={firstName} onChange={(e)=> setFirstName(e.target.value)} />
             </div>
             <label>Last Name</label> <span  style={{color:"red",fontWeight:'600'}}>*</span>
             <br />
@@ -81,7 +95,7 @@ const AccountSettings = () => {
               <div style={{ marginTop: "0px", marginLeft: "9px" }}>
                 <MdPerson size={30} />
               </div>
-              <input type="text" />
+              <input type="text" value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
             </div>
             
             <div className="pc111">
@@ -92,7 +106,7 @@ const AccountSettings = () => {
                   <div style={{ marginTop: "6px", marginLeft: "10px" }}>
                     <FaPhoneAlt size={22} />
                   </div>
-                  <input type="text" />
+                  <input type="text" value={phone} onChange={(e)=>setPhone(e.target.value)}/>
                 </div>
               </div>
               
@@ -104,13 +118,13 @@ const AccountSettings = () => {
                   <div style={{ marginTop: "3.5px", marginLeft: "10px" }}>
                     <MdOutlineMailOutline size={26} />
                   </div>
-                  <input type="text" />
+                  <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} />
                 </div>
               </div>
             </div>
             <label>About Me</label>
             <br />
-            <textarea className="textArea" />
+            <textarea className="textArea" value={about} onChange={(e)=>setAbout(e.target.value)}/>
             <br />
             <div className="pc111">
               <div className="phone">
@@ -120,7 +134,7 @@ const AccountSettings = () => {
                   <div style={{ marginTop: "6px", marginLeft: "10px" }}>
                     <IoLocationSharp size={26} />
                   </div>
-                  <input type="text" />
+                  <input type="text" value={state} onChange={(e)=>setState(e.target.value)}/>
                 </div>
               </div>
               
@@ -132,7 +146,7 @@ const AccountSettings = () => {
                   <div style={{ marginTop: "3.5px", marginLeft: "10px" }}>
                     <MdLocationCity size={26} />
                   </div>
-                  <input type="text" />
+                  <input type="text" value={city} onChange={(e)=>setCity(e.target.value)} />
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Slider from "react-slick";
 
@@ -21,6 +21,15 @@ const Home = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+
+ useEffect(() => {
+   // Check if user is logged in by checking for token in localStorage
+   const token = localStorage.getItem('authToken');
+   if (token) {
+     setIsLoggedIn(true);
+   }
+ }, []);
   return (
     <div className="homeHolder">
       <Header />
@@ -52,7 +61,7 @@ const Home = () => {
               Strengthening your reputation, while strengthening your
               Trusted-Relationships.
             </h1>
-            
+           {!isLoggedIn &&(<Link to='/register'><button>Join now</button></Link>)} 
           </div>
           <div className="hd1-pic">
             <img src="https://tracs.app/public/uploads/website-images/home-img3.jpeg" style={{ width: "100%", height: "100%" }} />

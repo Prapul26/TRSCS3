@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./UserHeader.css";
 import { FaArrowAltCircleUp, FaArrowCircleDown, FaArrowCircleRight } from "react-icons/fa";
 import { FaArrowCircleLeft } from "react-icons/fa";
@@ -17,7 +17,7 @@ import { RiContactsFill } from "react-icons/ri";
 import { HiInboxArrowDown } from "react-icons/hi2";
 import { IoBookOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 const UserHeader = () => {
   const [userNav, showUserNav] = useState(false);
@@ -31,6 +31,20 @@ setMenuDrop(!menuDrop)
   };
   const handelUserNav = () => {
     showUserNav(!userNav);
+  };
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+  useEffect(() => {
+    // Check if user is logged in by checking for token in localStorage
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    setIsLoggedIn(false);
+    navigate("/login"); // Redirect to login page
   };
   return (
     <div className="header" style={{ display: "flex" }}>
@@ -206,8 +220,8 @@ setMenuDrop(!menuDrop)
           <div className="profile-name" onClick={handelMenuDrop}>
           {menuDrop ?(  <MdOutlineArrowDropUp size={25} color="white" />):(< MdOutlineArrowDropDown color="white" size={25}/> )}
           {menuDrop && <div className="menuDrop">
-        <div style={{display:"flex",borderBottom:"1px solid black",marginBottom:"5px"}}> <div style={{marginBottom:"5px"}}><RiLogoutBoxLine /></div><h4>Logout</h4></div>
-     <Link to="/myMembership" style={{textDecoration:"none",color:"inherit"}}>  <div style={{display:"flex"}}><div><MdAccountCircle /></div><h4>My Account</h4></div></Link></div>}
+        <div style={{display:"flex",borderBottom:"1px solid black",marginBottom:"5px",cursor:"pointer"}} onClick={handleLogout}> <div style={{marginBottom:"5px"}}><RiLogoutBoxLine /></div><h4>Logout</h4></div>
+     <Link to="/myMembership" style={{textDecoration:"none",color:"inherit",cursor:"pointer"}}>  <div style={{display:"flex"}}><div><MdAccountCircle /></div><h4>My Account</h4></div></Link></div>}
           </div>
         </div>
       </div>

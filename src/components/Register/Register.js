@@ -18,19 +18,7 @@ const Register = ({ switchToLogin }) => {
     const [csrfToken, setCsrfToken] = useState('');
 
     // 🟢 Fetch CSRF Token on Component Mount
-    useEffect(() => {
-        const fetchCsrfToken = async () => {
-            try {
-                const response = await axios.get('https://tracsdev.apttechsol.com/sanctum/csrf-cookie', {
-                    withCredentials: true, // Ensure cookies are sent
-                });
-                console.log('CSRF token set');
-            } catch (error) {
-                console.error('Error fetching CSRF token:', error);
-            }
-        };
-        fetchCsrfToken();
-    }, []);
+
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -54,11 +42,16 @@ const Register = ({ switchToLogin }) => {
         };
 
         try {
-            const response = await axios.post('https://tracsdev.apttechsol.com/api/storeRegister', payload, {
-                withCredentials: true, // Send cookies (including CSRF token)
-            });
+            const response = await axios.post(' https://tracsdev.apttechsol.com/api/storeRegister', payload,{
+                headers: {
+                    // Replace YOUR_TOKEN_HERE with the actual token
+                    Authorization: 'XSRF-TOKEN=eyJpdiI6Iit2dGdoUFJsNktvcnBEY2lCV0FFYUE9PSIsInZhbHVlIjoicjZ1c2RZbmNnVmc2RUlVNExQd3dIRFI3UkdIc2srNnlXcFdYeGUxVVdNT3F1REY2NllyZ0MrTXY2bWVROXZHZ1haeStLZ2tOVE5FSEltK1dVUVNwOVdVQTY1dE1tWXh6NWFqZE9oNjFXNFNkclZxZmdXSU40aEllTTBPci9VRFEiLCJtYWMiOiI1OGMyNmNkZjcyZmYxY2ZiYWM2ZDBmMjZiNWFkMmNmMjc4YzFkYjRhM2UyNGE2ZjkwMDM3NjEyYjM4NjY5OGI1IiwidGFnIjoiIn0%3D; _session=eyJpdiI6ImpQbWpRNDhDQWJmaFJHK0sydUxUSEE9PSIsInZhbHVlIjoiVWluVjVmM3d1RlIxVThxcFJRMEVCY2pVWll1dlMvZlhXMmdtR1d3UE1NVG8vNW5DTWtWT2l4MjYwelJDZERQS2M0TE00WXRaYitEQ0lQdjEwYzMyQWJyNDdwOVRDS2p4V3lNcnExYUNSaUxxbjZLaWhjVU43WTRVdS9uN2V4SXAiLCJtYWMiOiI0MDA5ZGU1OTdjZWJlYTk2MDAxNDEwYTljZGYxNThjYzFlYzQyZTY5Njg1Yzc2MTI0MTdjYzU4ZjkwZmYwYjJjIiwidGFnIjoiIn0%3D',
+                    Accept: 'application/json',
+                },
+            }
+);
 
-            if (response.status === 200) {
+            if (response.status === 201) {
                 setMessage(response.data.message || 'Registration successful. Please verify your email.');
                 console.log('User registered:', response.data.user);
             }
