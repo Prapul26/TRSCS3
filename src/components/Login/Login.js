@@ -32,8 +32,10 @@ const Login = ({ switchToRegister }) => {
                 setMessage('Login successful!');
                 // Store token in localStorage or sessionStorage
                 localStorage.setItem('authToken', data.token);
+                
                 navigate('/home'); // Redirect after successful login
-            } else {
+            }
+             else {
                 setMessage(data.message || 'Login failed. Please check your credentials.');
             }
         } catch (error) {

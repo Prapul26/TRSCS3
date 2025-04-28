@@ -1,255 +1,503 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import UserHeader from "../components/UserHeader";
 import "./AccountSettings.css";
-import { FaArrowCircleRight } from "react-icons/fa";
-import { FaArrowCircleLeft } from "react-icons/fa";
-import { FaFileSignature } from "react-icons/fa";
-import { FaHome } from "react-icons/fa";
+import {
+  FaArrowCircleRight,
+  FaArrowCircleLeft,
+  FaFileSignature,
+  FaHome,
+  FaPhoneAlt,
+} from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
-import { MdBusiness, MdLink, MdLocationCity, MdOutlineCardMembership, MdOutlineFormatTextdirectionRToL } from "react-icons/md";
-import { FaBriefcase } from "react-icons/fa6";
-import { IoSettingsSharp } from "react-icons/io5";
+import {
+  MdBusiness,
+  MdLink,
+  MdLocationCity,
+  MdOutlineCardMembership,
+  MdOutlineFormatTextdirectionRToL,
+  MdOutlineMailOutline,
+  MdPerson,
+} from "react-icons/md";
+import { FaBriefcase, FaLock } from "react-icons/fa6";
+import {
+  IoSettingsSharp,
+  IoLocationSharp,
+  IoBookOutline,
+  IoPerson,
+} from "react-icons/io5";
 import { ImProfile } from "react-icons/im";
-import { IoIosArrowDropdown } from "react-icons/io";
-import { IoIosArrowDropup } from "react-icons/io";
+import { IoIosArrowDropdown, IoIosArrowDropup } from "react-icons/io";
 import { RiContactsFill } from "react-icons/ri";
 import { HiInboxArrowDown } from "react-icons/hi2";
-import { IoBookOutline } from "react-icons/io5";
-import { MdOutlineEmail } from "react-icons/md";
-import { MdPerson } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaLock } from "react-icons/fa6";
-import { MdOutlineMailOutline } from "react-icons/md";
-import { IoLocationSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { IoPerson } from "react-icons/io5";
-import { useState } from "react";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
+import axios from "axios";
+import axiosRetry from "axios-retry";
+
 const AccountSettings = () => {
-    const[intro,showIntro]=useState(false);
-     const [settings,showSettings]=useState(false);
-     const [showSidebar, setShowSidebar] = useState(false);
-     
-        const showMobnav = () => {
-          setShowSidebar(prev => !prev);
-      
-        };
-        const handelSettings=()=>{
-         showSettings(!settings);
+  const [intro, showIntro] = useState(false);
+  const [settings, showSettings] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [imagePreview, setImagePreview] = useState("");
+  const [states, setStates] = useState([]);
+  const [message, setMessage] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [about, setAbout] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [country, setCountry] = useState("");
+  const [address, setAddress] = useState("");
+  const [linkedIn, setLinkedIn] = useState("");
+  const [businessName, setBusinessName] = useState("");
+  const [businessDiscription, setBusinessDescription] = useState("");
+  const [website, setWebsite] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [isUpdating, setIsUpdating] = useState(false);
+
+  axiosRetry(axios, {
+    retries: 3,
+    retryDelay: (retryCount) => {
+      console.log(`Retrying request... (${retryCount})`);
+      return retryCount * 1000;
+    },
+    retryCondition: (error) => error.response?.status === 429,
+  });
+
+  const showMobnav = () => {
+    setShowSidebar((prev) => !prev);
+  };
+  const handleImageChange = (e) => {
+    const file = e.target?.files?.[0];
+    if (!file || !file.type.startsWith("image/")) {
+      alert("Please select a valid image file.");
+      return;
+    }
+
+    setSelectedFile(file); // Store file for upload
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImagePreview(reader.result); // Show preview
+    };
+    reader.onerror = () => {
+      console.error("Failed to read file", reader.error);
+      alert("Failed to preview image.");
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const triggerFileInput = () => {
+    document.getElementById("fileInput").click();
+  };
+  const handelSettings = () => {
+    showSettings(!settings);
+  };
+
+  const handelIntro = () => {
+    showIntro(!intro);
+  };
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      const fetchProfile = async () => {
+        try {
+          const token = localStorage.getItem("authToken");
+          const response = await axios.get(
+            "https://tracsdev.apttechsol.com/api/my-profile",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          const data = response.data;
+          const newImage = response.data.user?.image;
+          if (newImage) {
+            setImagePreview(`https://tracsdev.apttechsol.com/${newImage}`);
+          }
+
+          setFirstName(data.user.first_name || "");
+          setLastName(data.user.last_name || "");
+          setEmail(data.user.email || "");
+          setPhone(data.user.phone || "");
+          setAbout(data.user.about || "");
+          setCity(data.user.city || "");
+          setState(data.user.state || "");
+          setCountry(data.user.country || "");
+          setAddress(data.user.address || "");
+          setBusinessName(data.user.business_name || "");
+          setBusinessDescription(data.user.business_description || "");
+          setWebsite(data.user.website || "");
+          setLinkedIn(data.user.linkedIn || "");
+          setStates(data.states || []);
+        } catch (error) {
+          console.error("Error fetching profile data:", error);
         }
-  const handelIntro=()=>{
-    showIntro(!intro)
-  }
-  const [firstName, setFirstName] = useState('');
-const [lastName, setLastName] = useState('');
-const [email, setEmail] = useState('');
-const [phone, setPhone] = useState('');
-const[about,setAbout]=useState('');
-const[city,setCity]=useState('');
-const[state,setState]=useState("");
-const[image,setImage]=useState("");
-const[website,setWebsite]=useState('');
-const [password, setPassword] = useState('');
-const [confirmPassword, setConfirmPassword] = useState('');
-const [businessName, setBusinessName] = useState('');
-const [message, setMessage] = useState('');
+      };
 
-  return ( 
-    
-    <div className='mobMenuaa'>
-    <div className='mobMenu33'>
-    {showSidebar && (<MobileMenu />)}
-    </div>
-    <div> <UserHeader />
+      fetchProfile();
+    }, 300);
 
-    <div className="overH">
-    <div className="usernav">
-            <SideNav/>
-            </div>
-      
-    <div className="fz1">
-     <div><MobileNavbar showMobnav={showMobnav}/></div> 
-      <div className="alfa">
-      <div className="contacts-container">
-      <div className="d-header" style={{background:"white",paddingTop:"0px",paddingBottom:"0px",display:"flex"}}>
-            <h2>My Profile</h2><Link to='/myProfile'><button style={{background:"#eeba2b",paddingLeft:"30px",paddingRight:"30px",marginLeft:"25px",marginTop:"15px"}}>My Profile View</button></Link>
-            
+    return () => clearTimeout(timeoutId);
+  }, []);
+
+  const handleProfileUpdate = async () => {
+    if (isUpdating) return;
+    setIsUpdating(true);
+
+    try {
+      const token = localStorage.getItem("authToken");
+      const formData = new FormData();
+
+      formData.append("first_name", firstName);
+      formData.append("last_name", lastName);
+      formData.append("email", email);
+      formData.append("phone", phone);
+      formData.append("about", about);
+      formData.append("city", city);
+      formData.append("state", state);
+      formData.append("country", country);
+      formData.append("address", address);
+      formData.append("linkedIn", linkedIn);
+      formData.append("business_name", businessName);
+      formData.append("business_description", businessDiscription);
+      formData.append("website", website);
+
+      if (selectedFile) {
+        formData.append("image", selectedFile);
+      }
+
+      const response = await axios.post(
+        "https://tracsdev.apttechsol.com/api/update-profile",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      setMessage("Profile updated successfully!");
+    } catch (error) {
+      console.error("Update failed:", error);
+      setMessage("Failed to update profile. Please try again.");
+    } finally {
+      setIsUpdating(false);
+    }
+  };
+
+  return (
+    <div className="mobMenuaa">
+      <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
+      <div>
+        <UserHeader />
+        <div className="overH">
+          <div className="usernav">
+            <SideNav />
           </div>
+          <div className="fz1">
+            <div>
+              <MobileNavbar showMobnav={showMobnav} />
+            </div>
+            <div className="alfa">
+              <div className="contacts-container">
+                <div
+                  className="d-header"
+                  style={{
+                    background: "white",
+                    paddingTop: "0px",
+                    paddingBottom: "0px",
+                    display: "flex",
+                  }}
+                >
+                  <h2>My Profile</h2>
+                  <Link to="/myProfile">
+                    <button
+                      style={{
+                        background: "#eeba2b",
+                        paddingLeft: "30px",
+                        paddingRight: "30px",
+                        marginLeft: "25px",
+                        marginTop: "15px",
+                      }}
+                    >
+                      My Profile View
+                    </button>
+                  </Link>
+                </div>
+              </div>
+              <div className="prc1">
+                <div className="profileContainer1">
+                  <div className="pc11">
+                    <label>
+                      First Name
+                      <span style={{ color: "red", fontWeight: "600" }}>*</span>
+                    </label>
+                    <div className="nameInput">
+                      <div style={{ marginTop: "0px", marginLeft: "9px" }}>
+                        <MdPerson size={30} />
+                      </div>
+                      <input
+                        type="text"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                      />
+                    </div>
+                    <label>
+                      Last Name
+                      <span style={{ color: "red", fontWeight: "600" }}>*</span>
+                    </label>
+                    <div className="nameInput">
+                      <div style={{ marginTop: "0px", marginLeft: "9px" }}>
+                        <MdPerson size={30} />
+                      </div>
+                      <input
+                        type="text"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                      />
+                    </div>
+                    <label>
+                      Email
+                      <span style={{ color: "red", fontWeight: "600" }}>*</span>
+                    </label>
+                    <div className="nameInput">
+                      <div style={{ marginTop: "0px", marginLeft: "9px" }}>
+                        <MdOutlineMailOutline size={30} />
+                      </div>
+                      <input
+                        type="text"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />{" "}
+                    </div>
+                    <div className="pc111">
+                      <div className="phone">
+                        <label>
+                          Phone
+                          <span style={{ color: "red", fontWeight: "600" }}>
+                            *
+                          </span>
+                        </label>
+                        <div className="phoneInput">
+                          <div style={{ marginTop: "6px", marginLeft: "10px" }}>
+                            <FaPhoneAlt size={22} />
+                          </div>
+                          <input
+                            type="text"
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                          />
+                        </div>
+                      </div>
+                      <div className="email">
+                        <label>
+                          Country
+                          <span style={{ color: "red", fontWeight: "600" }}>
+                            *
+                          </span>
+                        </label>
+                        <div className="emailInput">
+                          <select
+                            value={country}
+                            style={{ height: "32px", width: "100%" }}
+                            onChange={(e) => setCountry(e.target.value)}
+                          >
+                            <option value="">Select Country</option>
+                            <option value="USA">USA</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <label>About Me</label>
+                    <textarea
+                      className="textArea"
+                      value={about}
+                      onChange={(e) => setAbout(e.target.value)}
+                    />
+                    <div className="pc111">
+                      <div className="phone">
+                        <label>State</label>
+                        <div className="phoneInput">
+                          <div style={{ marginTop: "6px", marginLeft: "10px" }}>
+                            <IoLocationSharp size={26} />
+                          </div>
+                          <select
+                            value={state}
+                            style={{ height: "34px", width: "100%" }}
+                            onChange={(e) => setState(e.target.value)}
+                          >
+                            <option value="">Select State</option>
+                            {states.map((s) => (
+                              <option key={s.id} value={s.code}>
+                                {s.name}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                      <div className="email">
+                        <label>City</label>
+                        <div className="emailInput">
+                          <div
+                            style={{ marginTop: "3.5px", marginLeft: "10px" }}
+                          >
+                            <MdLocationCity size={26} />
+                          </div>
+                          <input
+                            type="text"
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <label>Address</label>
+                    <div className="addressInput">
+                      <div style={{ marginTop: "3.5px", marginLeft: "10px" }}>
+                        <IoLocationSharp size={26} />
+                      </div>
+                      <input
+                        type="text"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                      />
+                    </div>
+                    <label>Linked In Profile (URL)</label>
+                    <div className="nameInput">
+                      <div style={{ marginTop: "0px", marginLeft: "9px" }}>
+                        <MdLink size={30} />
+                      </div>
+                      <input
+                        type="text"
+                        value={linkedIn}
+                        onChange={(e) => setLinkedIn(e.target.value)}
+                      />
+                    </div>
+                    <label>Business Name</label>
+                    <div className="nameInput">
+                      <div style={{ marginTop: "0px", marginLeft: "9px" }}>
+                        <MdBusiness size={30} />
+                      </div>
+                      <input
+                        type="text"
+                        value={businessName}
+                        onChange={(e) => setBusinessName(e.target.value)}
+                      />
+                    </div>
+                    <label>Business Description</label>
+                    <textarea
+                      className="textArea"
+                      value={businessDiscription}
+                      onChange={(e) => setBusinessDescription(e.target.value)}
+                    />
+                    <label>Website</label>
+                    <div className="nameInput">
+                      <div style={{ marginTop: "0px", marginLeft: "9px" }}>
+                        <MdLink size={30} />
+                      </div>
+                      <input
+                        type="text"
+                        value={website}
+                        onChange={(e) => setWebsite(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="proPic">
+                    <img
+                      src={imagePreview}
+                      alt="Profile Preview"
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                    <div>
+                      <button
+                        style={{ background: "#eeba2b" }}
+                        onClick={triggerFileInput}
+                      >
+                        Upload Image
+                      </button>
+                      <input
+                        type="file"
+                        id="fileInput"
+                        accept="image/*"
+                        style={{ display: "none" }}
+                        onChange={handleImageChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="update1">
+                  <button
+                    style={{ background: "#eeba2b" }}
+                    onClick={handleProfileUpdate}
+                    disabled={isUpdating}
+                  >
+                    {isUpdating ? "Updating..." : "Update"}
+                  </button>{" "}
+                  {message && (
+                    <p
+                      style={{
+                        marginTop: "10px",
+                        color: "green",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {message}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className="profileContainer2">
+                <div className="changeph1">
+                  <h2>Change Password</h2>
+                </div>
+                <div className="currentnewp">
+                  <div className="current">
+                    <label>Current Password</label>
+                    <div className="currentInput">
+                      <div style={{ marginTop: "3px" }}>
+                        <FaLock size={24} />
+                      </div>
+                      <input type="text" />
+                    </div>
+                  </div>
+                  <div className="new">
+                    <label>New Password</label>
+                    <div className="newInput">
+                      <div style={{ marginTop: "3px" }}>
+                        <FaLock size={24} />
+                      </div>
+                      <input type="text" />
+                    </div>
+                  </div>
+                </div>
+                <div className="confirm">
+                  <label>Confirm Password</label>
+                  <div className="confirmInput">
+                    <div style={{ marginTop: "3px" }}>
+                      <FaLock size={24} />
+                    </div>
+                    <input type="text" />
+                  </div>
+                </div>
+                <div className="update2">
+                  <button style={{ background: "#eeba2b" }}>Update</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="prc1">
-        <div className="profileContainer1">
-          <div className="pc11">
-            <label>First Name</label> <span style={{color:"red",fontWeight:'600'}}>*</span>
-            <br />
-            <div className="nameInput">
-              <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                <MdPerson size={30} />
-              </div>
-              <input type="text" value={firstName} onChange={(e)=> setFirstName(e.target.value)} />
-            </div>
-            <label>Last Name</label> <span  style={{color:"red",fontWeight:'600'}}>*</span>
-            <br />
-            <div className="nameInput">
-              <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                <MdPerson size={30} />
-              </div>
-              <input type="text" value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
-            </div>
-            
-            <div className="pc111">
-              <div className="phone">
-                <label>Phone</label> <span  style={{color:"red",fontWeight:'600'}}>*</span>
-                <br />
-                <div className="phoneInput">
-                  <div style={{ marginTop: "6px", marginLeft: "10px" }}>
-                    <FaPhoneAlt size={22} />
-                  </div>
-                  <input type="text" value={phone} onChange={(e)=>setPhone(e.target.value)}/>
-                </div>
-              </div>
-              
-              <div className="email">
-                <label>Email</label> <span  style={{color:"red",fontWeight:'600'}}>*</span>
-                <br />
-                <div className="emailInput">
-                  {" "}
-                  <div style={{ marginTop: "3.5px", marginLeft: "10px" }}>
-                    <MdOutlineMailOutline size={26} />
-                  </div>
-                  <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} />
-                </div>
-              </div>
-            </div>
-            <label>About Me</label>
-            <br />
-            <textarea className="textArea" value={about} onChange={(e)=>setAbout(e.target.value)}/>
-            <br />
-            <div className="pc111">
-              <div className="phone">
-                <label>State</label>
-                <br />
-                <div className="phoneInput">
-                  <div style={{ marginTop: "6px", marginLeft: "10px" }}>
-                    <IoLocationSharp size={26} />
-                  </div>
-                  <input type="text" value={state} onChange={(e)=>setState(e.target.value)}/>
-                </div>
-              </div>
-              
-              <div className="email">
-                <label>City</label>
-                <br />
-                <div className="emailInput">
-                  {" "}
-                  <div style={{ marginTop: "3.5px", marginLeft: "10px" }}>
-                    <MdLocationCity size={26} />
-                  </div>
-                  <input type="text" value={city} onChange={(e)=>setCity(e.target.value)} />
-                </div>
-              </div>
-            </div>
-            <label>Address</label>
-            <br />
-            <div className="addressInput">
-              <div style={{ marginTop: "3.5px", marginLeft: "10px" }}>
-                <IoLocationSharp size={26} />
-              </div>
-              <input type="text" />
-            </div>
-            <label>Linked In Profile (URL)</label>
-            <br />
-            <div className="nameInput">
-              <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                <MdLink size={30} />
-              </div>
-              <input type="text" />
-            </div>
-            <label>Business Name</label>
-            <br />
-            <div className="nameInput">
-              <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                <MdBusiness size={30} />
-              </div>
-              <input type="text" />
-            </div>
-            <label>Business Description</label>
-            <br />
-           
-            
-            <textarea className="textArea" />
-          
-            <label>Website</label>
-            <br />
-            <div className="nameInput">
-              <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                <MdLink size={30} />
-              </div>
-              <input type="text" />
-            </div>
-          </div>
-
-          <div className="pc12">
-            <div className="proPic">
-              <img
-                src="https://img.freepik.com/premium-photo/portrait-smile-man-with-positive-confidence-carefree-against-grey-studio-background-face-male-person-human-with-cheerful-attitude-freedom-model-with-joy-canada-relax_590464-177008.jpg"
-                style={{ height: "100%", width: "100%" }}
-              />
-              <div>
-                <button style={{ background: "#eeba2b" }}>Upload Image</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="update1">
-          <button  style={{background:"#eeba2b"}}>Update</button>
-        </div>{" "}
-      </div>
-      <div className="profileContainer2">
-        <div className="changeph1">
-          <h2>Change Password</h2>
-        </div>
-        <div className="currentnewp">
-          <div className="current">
-            <label>Current Password</label>
-            <br />
-            <div className="currentInput">
-              <div  style={{marginTop:"3px"}}>
-                <FaLock size={24}/>
-              </div>{" "}
-              <input type="text" />
-            </div>
-          </div>
-          <div className="new">
-            <label>New Password</label>
-            <br />
-            <div className="newInput">
-              <div style={{marginTop:"3px"}}>
-                <FaLock size={24}/>
-              </div>{" "}
-              <input type="text" />
-            </div>
-          </div>
-        </div>
-        <div className="confirm">
-          <label>Confirm Password</label>
-          <br />
-          <div className="confirmInput">
-            <div style={{marginTop:"3px"}}>
-              <FaLock size={24} />
-            </div>{" "}
-            <input type="text" />
-          </div>
-        </div>
-        <div className="update2">
-          <button style={{background:"#eeba2b"}}>Update</button>
-        </div>
-      </div></div>
     </div>
-    </div>
-    
-    </div></div>
   );
 };
 

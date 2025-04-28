@@ -38,6 +38,9 @@ import MyProfile from "./components/MyProfile/MyProfile";
 import MessageDetails from "./UserNavbar/MessageDetails";
 import ContactDetails from "./components/ContactDetails/ContactDetails";
 import MobileMenu from "./components/MobileMenu/MobileMenu";
+import ProfileData from "./components/API/ProfileData";
+
+
 const App = () => {
   const [isLogin, setIsLogin] = useState(true);
   return (
@@ -82,6 +85,7 @@ const App = () => {
           <Route path="/messageDetails" element={<MessageDetails/>}/>
           <Route path="/contactDetails" element={<ContactDetails />}/>
           <Route path="/mobileMenu" element={<MobileMenu />}/>
+          <Route path='/profileData' element={<ProfileData />}/>
         </Routes>
       </div>
     </Router>
