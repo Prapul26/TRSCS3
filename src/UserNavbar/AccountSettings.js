@@ -78,17 +78,18 @@ const AccountSettings = () => {
       return;
     }
 
-    setSelectedFile(file); // Store file for upload
+    setSelectedFile(file); 
 
     const reader = new FileReader();
     reader.onloadend = () => {
-      setImagePreview(reader.result); // Show preview
+      setImagePreview(reader.result);        // For preview
+      setSelectedFile(reader.result);        // Base64 string
     };
     reader.onerror = () => {
       console.error("Failed to read file", reader.error);
       alert("Failed to preview image.");
     };
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(file);              // Convert to Base64
   };
 
   const triggerFileInput = () => {
@@ -148,40 +149,38 @@ const AccountSettings = () => {
   const handleProfileUpdate = async () => {
     if (isUpdating) return;
     setIsUpdating(true);
-
+  
     try {
       const token = localStorage.getItem("authToken");
-      const formData = new FormData();
-
-      formData.append("first_name", firstName);
-      formData.append("last_name", lastName);
-      formData.append("email", email);
-      formData.append("phone", phone);
-      formData.append("about", about);
-      formData.append("city", city);
-      formData.append("state", state);
-      formData.append("country", country);
-      formData.append("address", address);
-      formData.append("linkedIn", linkedIn);
-      formData.append("business_name", businessName);
-      formData.append("business_description", businessDiscription);
-      formData.append("website", website);
-
-      if (selectedFile) {
-        formData.append("image", selectedFile);
-      }
-
+  
+      const payload = {
+        first_name: firstName,
+        last_name: lastName,
+        email: email,
+        phone: phone,
+        about: about,
+        city: city,
+        state: state,
+        country: country,
+        address: address,
+        linkedIn: linkedIn,
+        business_name: businessName,
+        business_description: businessDiscription,
+        website: website,
+        image: selectedFile, // base64 string
+      };
+  
       const response = await axios.post(
         "https://tracsdev.apttechsol.com/api/update-profile",
-        formData,
+        payload,
         {
           headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json",
           },
         }
       );
-
+  
       setMessage("Profile updated successfully!");
     } catch (error) {
       console.error("Update failed:", error);
@@ -190,6 +189,7 @@ const AccountSettings = () => {
       setIsUpdating(false);
     }
   };
+  
 
   return (
     <div className="mobMenuaa">

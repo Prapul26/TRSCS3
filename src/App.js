@@ -39,6 +39,7 @@ import MessageDetails from "./UserNavbar/MessageDetails";
 import ContactDetails from "./components/ContactDetails/ContactDetails";
 import MobileMenu from "./components/MobileMenu/MobileMenu";
 import ProfileData from "./components/API/ProfileData";
+import AddTemplate from "./UserNavbar/AddTemplate";
 
 
 const App = () => {
@@ -86,6 +87,7 @@ const App = () => {
           <Route path="/contactDetails" element={<ContactDetails />}/>
           <Route path="/mobileMenu" element={<MobileMenu />}/>
           <Route path='/profileData' element={<ProfileData />}/>
+          <Route path="/addTemplate" element={<AddTemplate />}/>
         </Routes>
       </div>
     </Router>

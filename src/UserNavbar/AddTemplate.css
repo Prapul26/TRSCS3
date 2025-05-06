@@ -1,0 +1,76 @@
+.templateContainer{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    
+}
+.templateContainer input{
+    height: 35px;
+    font-size: larger;
+    width: 90%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.templateContainer select{
+    width: 90%;
+    height: 35px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.templateContainer textarea{
+    height:160px;
+    width: 90%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.saveTempButton{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+.saveTempButton button{
+    background-color: orange;
+}
+.templateTokensContainer{
+    width: 100%;
+    height: 100vh;
+    top:0;
+    bottom: 0;
+    left:0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay background */
+position: fixed;
+}
+.templateTokenHolder{
+    height: 650px;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+margin-top: 40px;
+    padding: 10px;
+    background-color: white;
+}
+.tokenXross{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    
+}
+.tokenP p{
+    font-size:14.5px;
+}
+@media(max-width:480px){
+    .templateTokenHolder{
+        height: 700px;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    margin-top: 80px;
+        padding: 10px;
+        background-color: white;
+    }
+}

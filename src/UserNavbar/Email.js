@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Email.css";
 import UserHeader from "../components/UserHeader";
 import { FaFileSignature } from "react-icons/fa";
@@ -25,11 +25,13 @@ import { IoPerson } from "react-icons/io5";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
+import axios from "axios";
 const Email = () => {
     const[intro,showIntro]=useState(false)
     const [settings,showSettings]=useState(false);
      const [showSidebar, setShowSidebar] = useState(false);
-    
+     const [templates, setTemplates] = useState([]);
+     const [error, setError] = useState("");
        const showMobnav = () => {
          setShowSidebar(prev => !prev);
      
@@ -40,6 +42,33 @@ const Email = () => {
     const handelIntro=()=>{
       showIntro(!intro)
     }
+
+    useEffect(() => {
+      let isCalled = false;
+      const fetchTemplates = async () => {
+        if (isCalled) return;
+        isCalled = true;
+    
+        const token = localStorage.getItem("authToken");
+        try {
+          const response = await axios.get("https://tracsdev.apttechsol.com/api/view-template-list", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          setTemplates(response.data.templates.data);
+        } catch (err) {
+          setError(err.response?.data?.message || "Failed to fetch templates.");
+        }
+      };
+      fetchTemplates();
+    }, []);
+    
+    const handleDelete = (id) => {
+      const updatedTemplates = templates.filter((template) => template.id !== id);
+      setTemplates(updatedTemplates);
+    };
+
   return (
     <div className='mobMenuaa'>
 <div className='mobMenu33'>
@@ -57,88 +86,44 @@ const Email = () => {
       <h2>Email Template</h2>
       </div>
       <div className="addTemplateButton">
-        <button style={{ background: "green" }}> Add Template</button>
+      <Link to="/addTemplate"><button style={{ background: "green" }}> Add Template</button></Link>  
       </div>
       <div className="Email-container">
         <table>
           <thead>
             <tr>
-              <td>Name</td>
-              <td>Subject</td>
-              <td>Body</td>
-              <td>Created On</td>
-              <td>Action</td>
-              <td>Status</td>
+              <td style={{color:"black"}}>Name</td>
+              <td style={{color:"black"}}>Category</td>
+              <td style={{color:"black"}}>Subject</td>
+              <td style={{color:"black"}} >Body</td>
+              <td style={{color:"black"}}>Created On</td>
+              <td style={{color:"black"}}>Action</td>
+              <td style={{color:"black"}}>Status</td>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <p>Inroduction email template testing</p>
-              </td>
-              <td>
-                <p>New Email template testing</p>
-              </td>
-              <td>
-                <p>hi Hello</p>
-                <p>........</p>
-              </td>
-              <td>
-                <p>2024-11-28</p>
-              </td>
-              <td>
-                <button style={{ backgroundColor: "green" }}>Edit</button>
-                <button style={{ backgroundColor: "red" }}>Delete</button>
-              </td>
-              <td>
-                <button>Active</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Inroduction email template testing</p>
-              </td>
-              <td>
-                <p>New Email template testing</p>
-              </td>
-              <td>
-                <p>hi Hello</p>
-                <p>........</p>
-              </td>
-              <td>
-                <p>2024-11-28</p>
-              </td>
-              <td>
-                <button style={{ backgroundColor: "green" }}>Edit</button>
-                <button style={{ backgroundColor: "red" }}>Delete</button>
-              </td>
-              
-              <td>
-                <button>Active</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Inroduction email template testing</p>
-              </td>
-              <td>
-                <p>New Email template testing</p>
-              </td>
-              <td>
-                <p>hi Hello</p>
-                <p>........</p>
-              </td>
-              <td>
-                <p>2024-11-28</p>
-              </td>
-              <td>
-                <button style={{ backgroundColor: "green" }}>Edit</button>
-                <button style={{ backgroundColor: "red" }}>Delete</button>
-              </td>
-              <td>
-                <button>Active</button>
-              </td>
-            </tr>
+          {templates.map((template) => (
+                    <tr key={template.id}>
+                      <td><p>{template.template_name}</p></td>
+                      <td><p>{template.category_id}</p></td>
+                      <td><p>{template.subject || "N/A"}</p></td>
+                      <td dangerouslySetInnerHTML={{ __html: template.email_body }}></td>
+                      <td><p>{new Date(template.created_at).toLocaleDateString()}</p></td>
+                      <td>
+                        <button style={{ backgroundColor: "green" }}>Edit</button>
+                        <button style={{ backgroundColor: "red" }}  onClick={() => handleDelete(template.id)} >Delete</button>
+                      </td>
+                      <td>
+                        <button>{template.status === "1" ? "Active" : "Inactive"}</button>
+                      </td>
+                    </tr>
+                  ))}
+                  {templates.length === 0 && (
+                    <tr>
+                      <td colSpan="6"><p>No templates available.</p></td>
+                    </tr>
+                  )}
+            
           </tbody>
         </table>
       </div>
