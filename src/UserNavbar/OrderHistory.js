@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./OrderHistory.css";
 import UserHeader from "../components/UserHeader";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { IoMdEye } from "react-icons/io";
 
 import { FaFileSignature } from "react-icons/fa";
@@ -27,76 +27,102 @@ import { useState } from "react";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
+import axios from "axios";
 const OrderHistory = () => {
-  
-     const[intro,showIntro]=useState(false)
-     const [settings,showSettings]=useState(false);
-     const [showSidebar, setShowSidebar] = useState(false);
-     
-        const showMobnav = () => {
-          setShowSidebar(prev => !prev);
-      
-        };
-        const handelSettings=()=>{
-         showSettings(!settings);
-        }
-      const handelIntro=()=>{
-        showIntro(!intro)
+  const [intro, showIntro] = useState(false);
+  const [settings, showSettings] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
+  const { orderId } = useParams();
+  const [order, setOrder] = useState(null);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+
+    const fetchOrderDetails = async () => {
+      try {
+        const response = await axios.get(
+          `https://tracsdev.apttechsol.com/api/order-details/${orderId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setOrder(response.data?.order || null);
+      } catch (err) {
+        setError("Failed to fetch order details.");
       }
+    };
+
+    fetchOrderDetails();
+  }, [orderId]);
+  const showMobnav = () => {
+    setShowSidebar((prev) => !prev);
+  };
+  const handelSettings = () => {
+    showSettings(!settings);
+  };
+  const handelIntro = () => {
+    showIntro(!intro);
+  };
   return (
-    <div className='mobMenuaa'>
-<div className='mobMenu33'>
-{showSidebar && (<MobileMenu />)}
-</div>
-    <div> <UserHeader />
-   
-    <div className="OHP">
-      
-   <div className="usernav">
-                      <SideNav/>
-                     </div>
-    <div className="orderHistoryPage">
-      <MobileNavbar showMobnav={showMobnav}/>
-      <div style={{marginLeft:"20px",marginTop:"20px"}}><h2>History Details</h2></div>
-      <div className="orderBackButton"><Link to='/myMembership' style={{textDecoration:"none",color:"inherit"}}><button>Back</button></Link></div>
-      <div className="orderHistoryTable">
-        <table>
-           
-            <tbody>
-                <tr>
-                    <td>Package Name</td>
-                    <td>BaSIC</td>
-                </tr>
-                <tr>
-                  <td>Transition Id</td>
-                  <td>txn_3Qx49xF56Pb8BOOX1vXc6r3o</td>
-                </tr>
-                <tr>
-                  <td>Package Price</td>
-                  <td>$80</td>
-                </tr>
-                <tr>
-                  <td>Payment Method</td>
-                  <td>Stripe</td>
-                </tr>
-                <tr>
-                  <td>Payment Status</td>
-                  <td>Completed</td>
-                </tr>
-                <tr>
-                  <td>Package Start Date</td>
-                  <td>27 February, 2025</td>
-                </tr>
-                <tr>
-                  <td>Package End Date</td>
-                  <td>13 March, 2025</td>
-                </tr>
-            </tbody>
-        </table>
+    <div className="mobMenuaa">
+      <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
+      <div style={{ width: "100%" }}>
+        <UserHeader />
+
+        <div className="OMH">
+          <div className="usernav">
+            <SideNav />
+          </div>
+          <MobileNavbar showMobnav={showMobnav} />
+          <div className="fz2">
+            <div className="d-header">
+              <h2>Order History</h2>
+            </div>
+
+            {order ? (
+  <div className="orderHistoryTable">
+    <table>
+      <tbody>
+        <tr>
+          <td >Package Name</td>
+          <td>{order.listing_package_id}</td>
+        </tr>
+        <tr>
+          <td>Transition Id</td>
+          <td>{order.transaction_id}</td>
+        </tr>
+        <tr>
+          <td>Package Price</td>
+          <td>{order.currency_icon}{order.amount_usd}</td>
+        </tr>
+        <tr>
+          <td>Payment Method</td>
+          <td>{order.payment_method}</td>
+        </tr>
+        <tr>
+          <td>Payment Status</td>
+          <td>{order.payment_status}</td>
+        </tr>
+        <tr>
+          <td>Package Start Date</td>
+          <td>{order.purchase_date}</td>
+        </tr>
+        <tr>
+          <td>Package End Date</td>
+          <td>{order.expired_date}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+) : (
+  <p style={{ padding: "20px" }}>{error || "Loading order details..."}</p>
+)}
+          </div>{" "}
+        </div>
       </div>
     </div>
-    </div>
-    </div></div>
   );
 };
 

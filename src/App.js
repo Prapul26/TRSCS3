@@ -40,6 +40,8 @@ import ContactDetails from "./components/ContactDetails/ContactDetails";
 import MobileMenu from "./components/MobileMenu/MobileMenu";
 import ProfileData from "./components/API/ProfileData";
 import AddTemplate from "./UserNavbar/AddTemplate";
+import EditTemplate from "./UserNavbar/EditTemplate";
+import EditContact from "./UserNavbar/EditContact";
 
 
 const App = () => {
@@ -63,7 +65,7 @@ const App = () => {
           <Route path="/intro" element={<Intro/>}/>
           <Route path="/addContacts" element={<AddContacts/>}/>
           <Route path="/myMembership" element={<MyMembership/>} />
-          <Route path="/orderHistory" element={<OrderHistory/>}/>
+          <Route path="/orderHistory/:orderId" element={<OrderHistory/>}/>
           < Route path="/orderStatus" element={<OrderStatus/>}/>
           <Route path="/accountSettings" element={<AccountSettings/>}/>
           <Route path="/header" element={<Header/>}/>
@@ -88,6 +90,8 @@ const App = () => {
           <Route path="/mobileMenu" element={<MobileMenu />}/>
           <Route path='/profileData' element={<ProfileData />}/>
           <Route path="/addTemplate" element={<AddTemplate />}/>
+          <Route path="/editTemplate/:id" element={<EditTemplate/>}/>
+          <Route path="/editContact/:id" element={<EditContact/>}/>
         </Routes>
       </div>
     </Router>

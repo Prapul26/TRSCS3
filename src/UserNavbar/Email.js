@@ -19,14 +19,19 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa6";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { IoPerson } from "react-icons/io5";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import axios from "axios";
-const Email = () => {
+const Email = ( ) => {
+  const navigate=useNavigate();
+  const handleEdit = (id) => {
+    const base64Id = btoa(id.toString()); // Encode ID to Base64
+    navigate(`/editTemplate/${base64Id}`);
+  };
     const[intro,showIntro]=useState(false)
     const [settings,showSettings]=useState(false);
      const [showSidebar, setShowSidebar] = useState(false);
@@ -105,12 +110,12 @@ const Email = () => {
           {templates.map((template) => (
                     <tr key={template.id}>
                       <td><p>{template.template_name}</p></td>
-                      <td><p>{template.category_id}</p></td>
+                      <td><p>{template.category_id?.toString()}</p></td>
                       <td><p>{template.subject || "N/A"}</p></td>
                       <td dangerouslySetInnerHTML={{ __html: template.email_body }}></td>
                       <td><p>{new Date(template.created_at).toLocaleDateString()}</p></td>
                       <td>
-                        <button style={{ backgroundColor: "green" }}>Edit</button>
+                        <button style={{ backgroundColor: "green" }}  onClick={() => handleEdit(template.id)}>Edit</button>
                         <button style={{ backgroundColor: "red" }}  onClick={() => handleDelete(template.id)} >Delete</button>
                       </td>
                       <td>

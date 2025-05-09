@@ -36,6 +36,7 @@ import MobileMenu from "../components/MobileMenu/MobileMenu";
 import axios from "axios";
 import axiosRetry from "axios-retry";
 
+
 const AccountSettings = () => {
   const [intro, showIntro] = useState(false);
   const [settings, showSettings] = useState(false);
@@ -59,14 +60,14 @@ const AccountSettings = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isUpdating, setIsUpdating] = useState(false);
 
-  axiosRetry(axios, {
+ /* axiosRetry(axios, {
     retries: 3,
     retryDelay: (retryCount) => {
       console.log(`Retrying request... (${retryCount})`);
       return retryCount * 1000;
     },
     retryCondition: (error) => error.response?.status === 429,
-  });
+  }); */
 
   const showMobnav = () => {
     setShowSidebar((prev) => !prev);
@@ -77,19 +78,19 @@ const AccountSettings = () => {
       alert("Please select a valid image file.");
       return;
     }
-
-    setSelectedFile(file); 
-
+  
     const reader = new FileReader();
     reader.onloadend = () => {
-      setImagePreview(reader.result);        // For preview
-      setSelectedFile(reader.result);        // Base64 string
+      const base64String = reader.result;
+      setImagePreview(base64String);       // For preview
+      setSelectedFile(file);       // For submission
+      console.log("Base64 Image:", file); // Debugging
     };
     reader.onerror = () => {
       console.error("Failed to read file", reader.error);
       alert("Failed to preview image.");
     };
-    reader.readAsDataURL(file);              // Convert to Base64
+    reader.readAsDataURL(file); // This converts image to base64
   };
 
   const triggerFileInput = () => {
@@ -118,11 +119,16 @@ const AccountSettings = () => {
           const data = response.data;
           const newImage = response.data.user?.image;
           if (newImage) {
-            setImagePreview(`https://tracsdev.apttechsol.com/${newImage}`);
+            setImagePreview(`https://tracsdev.apttechsol.com/public/${newImage}`);
+           
           }
 
-          setFirstName(data.user.first_name || "");
-          setLastName(data.user.last_name || "");
+          const fullName = data.user.name || "";
+          const [first, ...rest] = fullName.trim().split(" ");
+          const last = rest.join(" "); // Handle multi-word last names
+          
+          setFirstName(first || "");
+          setLastName(last || "");
           setEmail(data.user.email || "");
           setPhone(data.user.phone || "");
           setAbout(data.user.about || "");
@@ -135,6 +141,7 @@ const AccountSettings = () => {
           setWebsite(data.user.website || "");
           setLinkedIn(data.user.linkedIn || "");
           setStates(data.states || []);
+          setImagePreview(`https://tracsdev.apttechsol.com/public/${data.user.image}` )
         } catch (error) {
           console.error("Error fetching profile data:", error);
         }
@@ -167,7 +174,7 @@ const AccountSettings = () => {
         business_name: businessName,
         business_description: businessDiscription,
         website: website,
-        image: selectedFile, // base64 string
+        image: selectedFile, 
       };
   
       const response = await axios.post(
@@ -431,6 +438,7 @@ const AccountSettings = () => {
                         accept="image/*"
                         style={{ display: "none" }}
                         onChange={handleImageChange}
+                       // onChange={console.log("file")}
                       />
                     </div>
                   </div>
@@ -456,43 +464,7 @@ const AccountSettings = () => {
                   )}
                 </div>
               </div>
-              <div className="profileContainer2">
-                <div className="changeph1">
-                  <h2>Change Password</h2>
-                </div>
-                <div className="currentnewp">
-                  <div className="current">
-                    <label>Current Password</label>
-                    <div className="currentInput">
-                      <div style={{ marginTop: "3px" }}>
-                        <FaLock size={24} />
-                      </div>
-                      <input type="text" />
-                    </div>
-                  </div>
-                  <div className="new">
-                    <label>New Password</label>
-                    <div className="newInput">
-                      <div style={{ marginTop: "3px" }}>
-                        <FaLock size={24} />
-                      </div>
-                      <input type="text" />
-                    </div>
-                  </div>
-                </div>
-                <div className="confirm">
-                  <label>Confirm Password</label>
-                  <div className="confirmInput">
-                    <div style={{ marginTop: "3px" }}>
-                      <FaLock size={24} />
-                    </div>
-                    <input type="text" />
-                  </div>
-                </div>
-                <div className="update2">
-                  <button style={{ background: "#eeba2b" }}>Update</button>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>

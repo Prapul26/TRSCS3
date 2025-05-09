@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Contacts.css";
 import UserHeader from "../components/UserHeader";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
@@ -44,7 +44,11 @@ const Contacts = () => {
     const updatedContacts = contacts.filter((contact) => contact.id !== id);
     setContacts(updatedContacts);
   };
-
+  const navigate= useNavigate();
+const handleEdit=(id)=>{
+  
+navigate(`/editContact/${id}`)
+}
   return (
     <div className="mobMenuaa">
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
@@ -106,9 +110,9 @@ const Contacts = () => {
                         <td>{contact.email}</td>
                         <td>{contact.created_at}</td>
                         <td>
-                          <Link to="/addContacts">
-                            <button style={{ background: "green" }}>Edit</button>
-                          </Link>
+                      
+                            <button style={{ background: "green" }} onClick={()=>handleEdit(contact.id)}>Edit</button>
+                       
                           <button
                             style={{ background: "red", marginLeft: "5px" }}
                             onClick={() => handleDelete(contact.id)}

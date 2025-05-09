@@ -1,37 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './MyMembership.css'
 import UserHeader from '../components/UserHeader'
 
-import { FaFileSignature } from "react-icons/fa";
-import { FaHome } from "react-icons/fa";
-import { SlLogout } from "react-icons/sl";
-import { MdOutlineCardMembership } from "react-icons/md";
-import { FaBriefcase } from "react-icons/fa6";
-import { IoPerson, IoSettingsSharp } from "react-icons/io5";
-import { ImProfile } from "react-icons/im";
-import { IoIosArrowDropdown } from "react-icons/io";
-import { IoIosArrowDropup } from "react-icons/io";
-import { RiContactsFill } from "react-icons/ri";
-import { HiInboxArrowDown } from "react-icons/hi2";
-import { IoBookOutline } from "react-icons/io5";
-import { MdOutlineEmail } from "react-icons/md";
-import { MdPerson } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaLock } from "react-icons/fa6";
-import { MdOutlineMailOutline } from "react-icons/md";
-import { IoLocationSharp } from "react-icons/io5";
+
 
 import { useState } from "react";
 import MobileNavbar from '../components/MobileNavbar/MobileNavbar';
 import { faL } from '@fortawesome/free-solid-svg-icons';
 import SideNav from './SideNav';
 import MobileMenu from '../components/MobileMenu/MobileMenu';
+import axios from 'axios';
 const MyMembership = () => {
    const[intro,showIntro]=useState(false)
    const [settings,showSettings]=useState(false);
    const [showSidebar, setShowSidebar] = useState(false);
-
+const[data,setData]=useState([]);
+const [msg,setMsg]=useState("")
    const showMobnav = () => {
      setShowSidebar(prev => !prev);
  
@@ -42,6 +27,22 @@ const MyMembership = () => {
     const handelIntro=()=>{
       showIntro(!intro)
     }
+    useEffect(() => {
+      const token = localStorage.getItem("authToken");
+    
+      const fetchData = async () => {
+        try {
+          const response = await axios.get("https://tracsdev.apttechsol.com/api/dashboard", {
+            headers: { Authorization: `Bearer ${token}` }
+          });
+          setData(response.data.orders.data);
+        } catch (error) {
+          setMsg("Failed to fetch data.");
+        }
+      };
+    
+      fetchData();
+    }, []);
   return (
     <div className='mobMenuaa'>
 <div className='mobMenu33'>
@@ -58,7 +59,7 @@ const MyMembership = () => {
     <div className='fz2'>
   
     <div className="d-header" >
-            <h2>Order History</h2>
+            <h2>My Membership</h2>
             
           </div>
      
@@ -73,22 +74,21 @@ const MyMembership = () => {
 <td>Status</td>
           </thead>
           <tbody>
-<tr>
-  <td>Basic</td>
-  <td>2025-02-27</td>
-  <td>2025-03013</td>
-  <td>$80</td>
-  <td>Stripe</td>
-  <td><button>Invoice</button><Link to="/orderHistory"><button>History Details</button></Link></td>
-</tr>
-<tr>
-  <td>Standard</td>
-  <td>2024-07-07</td>
-  <td>2025-07-07</td>
-  <td>$100</td>
-  <td></td>
-  <td><button>Invoice</button><Link to="/orderHistory"><button>History Details</button></Link></td>
-</tr>
+{
+  data.map((order,index)=>(
+    <tr key={order.id || index}>
+ <td>{order.listing_package_id}</td>
+        <td>{order.purchase_date}</td>
+        <td>{order.expired_date}</td>
+        <td>${order.amount_usd}</td>
+        <td>{order.payment_method}</td>
+        <td>
+          <button>Invoice</button>
+          <Link to={`/orderHistory/${order.id}`}><button>History Details</button></Link>
+        </td>
+    </tr>
+  ))
+}
           </tbody>
           </table> 
 
