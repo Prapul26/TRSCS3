@@ -159,6 +159,13 @@ background-color: white;
     height: 30px;
     border: transparent;
 }
+.additionalImages-container{
+    display: flex;
+    justify-content: space-between;
+}
+.additionalImages-holder{
+    margin-left: 20px;
+}
 
 @media (max-width:480px) {
 

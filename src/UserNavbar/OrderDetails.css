@@ -1,0 +1,35 @@
+.orderDetails-container{
+
+background-color: white;
+width: 100%;
+}
+.details1{
+display: flex;
+justify-content: space-between;
+padding: 15px;
+}
+.details2{
+margin-top: 20px;
+padding: 15px;
+}
+.division1 p{
+font-size: medium;
+}
+.division2 p{
+font-size: medium;
+}
+.division1 img{
+    width: 100px;
+}
+.details2 {
+    overflow-x: auto;
+}
+
+@media(max-width:480px){
+ .details1{
+display: flex;
+flex-direction: column;
+
+padding: 15px;
+}   
+}

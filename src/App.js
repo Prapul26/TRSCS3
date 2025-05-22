@@ -42,6 +42,7 @@ import ProfileData from "./components/API/ProfileData";
 import AddTemplate from "./UserNavbar/AddTemplate";
 import EditTemplate from "./UserNavbar/EditTemplate";
 import EditContact from "./UserNavbar/EditContact";
+import OrderDetails from "./UserNavbar/OrderDetails";
 
 
 const App = () => {
@@ -92,6 +93,7 @@ const App = () => {
           <Route path="/addTemplate" element={<AddTemplate />}/>
           <Route path="/editTemplate/:id" element={<EditTemplate/>}/>
           <Route path="/editContact/:id" element={<EditContact/>}/>
+          <Route path="/orderDetails/:orderId" element={<OrderDetails/>}/>
         </Routes>
       </div>
     </Router>

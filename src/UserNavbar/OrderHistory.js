@@ -41,7 +41,7 @@ const OrderHistory = () => {
     const fetchOrderDetails = async () => {
       try {
         const response = await axios.get(
-          `https://tracsdev.apttechsol.com/api/order-details/${orderId}`,
+          `https://tracsdev.apttechsol.com/api/order-history-details/${orderId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

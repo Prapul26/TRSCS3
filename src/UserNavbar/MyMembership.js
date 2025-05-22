@@ -83,7 +83,7 @@ const [msg,setMsg]=useState("")
         <td>${order.amount_usd}</td>
         <td>{order.payment_method}</td>
         <td>
-          <button>Invoice</button>
+         <Link to={`/orderDetails/${order.id}`}> <button>Invoice</button></Link>
           <Link to={`/orderHistory/${order.id}`}><button>History Details</button></Link>
         </td>
     </tr>

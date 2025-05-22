@@ -25,21 +25,42 @@ import { IoPerson } from "react-icons/io5";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
+import axios from "axios";
 const Signature = () => {
   const [intro, showIntro] = useState(false);
   const [settings,showSettings]=useState(false);
    const [showSidebar, setShowSidebar] = useState(false);
-  
+  const [data,setData]=useState("")
+  const [msg,setMsg]=useState("")
      const showMobnav = () => {
        setShowSidebar(prev => !prev);
    
      };
+     const [text,setText]=useState("")
      const handelSettings=()=>{
       showSettings(!settings);
      }
   const handelIntro = () => {
     showIntro(!intro);
   };
+const handleSave=async(e)=>{
+  e.preventDefault();
+    const token = localStorage.getItem("authToken");
+    try{
+      const response=await axios.post("https://tracsdev.apttechsol.com/api/signature_store_form",{
+        name : text
+      },{
+        headers:{
+          Authorization:`Bearer ${token}`
+        }
+      }); setMsg(response.data.message || "Signature saved successfully");
+    
+    }  catch (err) {
+  const errorMessage =
+    err.response?.data?.message || "Data not saved. Please try again.";
+  setMsg(errorMessage);
+}
+}
   return (
     <div className='mobMenuaa'>
     <div className='mobMenu33'>
@@ -57,7 +78,7 @@ const Signature = () => {
       <h2>Signature</h2>
       </div>
           <div className="signature-holder">
-            <form>
+            <form onSubmit={handleSave}>
               <label>
                 <h2>Signature</h2>
               </label>
@@ -67,11 +88,12 @@ const Signature = () => {
         Identity Name:
         Email:
         Calender:"
-              />
+              value={text} onChange={(e)=>setText(e.target.value)} />
               <br />
-              <button>SAVE</button>
-            </form>
+              <button type="submit">SAVE</button>
+            </form><div style={{textAlign:"center"}}>{msg}</div>
           </div>
+          
         </div>
       </div>
     </div></div>

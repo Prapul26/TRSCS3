@@ -68,6 +68,47 @@ const AccountSettings = () => {
     },
     retryCondition: (error) => error.response?.status === 429,
   }); */
+const [files, setFiles] = useState([null]); // start with one file input
+  const [previews, setPreviews] = useState([null]); // previews for selected files
+  const [images, setImages] = useState([
+   ""
+  ]);
+
+  const maxPhotos = 5;
+
+  const handleAddField = () => {
+    if (files.length + images.length < maxPhotos) {
+      setFiles([...files, null]);
+      setPreviews([...previews, null]);
+    }
+  };
+
+  const handleRemoveField = (index) => {
+    const updatedFiles = [...files];
+    const updatedPreviews = [...previews];
+    updatedFiles.splice(index, 1);
+    updatedPreviews.splice(index, 1);
+    setFiles(updatedFiles);
+    setPreviews(updatedPreviews);
+  };
+
+  const handleFileChange = (e, index) => {
+    const file = e.target.files[0];
+    const updatedFiles = [...files];
+    const updatedPreviews = [...previews];
+
+    updatedFiles[index] = file;
+    updatedPreviews[index] = file ? URL.createObjectURL(file) : null;
+
+    setFiles(updatedFiles);
+    setPreviews(updatedPreviews);
+  };
+
+  const handleDeleteImage = (index) => {
+    const updatedImages = [...images];
+    updatedImages.splice(index, 1);
+    setImages(updatedImages);
+  };
 
   const showMobnav = () => {
     setShowSidebar((prev) => !prev);
@@ -154,48 +195,60 @@ const AccountSettings = () => {
   }, []);
 
   const handleProfileUpdate = async () => {
-    if (isUpdating) return;
-    setIsUpdating(true);
-  
-    try {
-      const token = localStorage.getItem("authToken");
-  
-      const payload = {
-        first_name: firstName,
-        last_name: lastName,
-        email: email,
-        phone: phone,
-        about: about,
-        city: city,
-        state: state,
-        country: country,
-        address: address,
-        linkedIn: linkedIn,
-        business_name: businessName,
-        business_description: businessDiscription,
-        website: website,
-        image: selectedFile, 
-      };
-  
-      const response = await axios.post(
-        "https://tracsdev.apttechsol.com/api/update-profile",
-        payload,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-  
-      setMessage("Profile updated successfully!");
-    } catch (error) {
-      console.error("Update failed:", error);
-      setMessage("Failed to update profile. Please try again.");
-    } finally {
-      setIsUpdating(false);
+  if (isUpdating) return;
+  setIsUpdating(true);
+
+  try {
+    const token = localStorage.getItem("authToken");
+
+    // Prepare FormData for file uploads
+    const formData = new FormData();
+    formData.append("first_name", firstName);
+    formData.append("last_name", lastName);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("about", about);
+    formData.append("city", city);
+    formData.append("state", state);
+    formData.append("country", country);
+    formData.append("address", address);
+    formData.append("linkedIn", linkedIn);
+    formData.append("business_name", businessName);
+    formData.append("business_description", businessDiscription);
+    formData.append("website", website);
+
+    // Main profile image
+    if (selectedFile) {
+      formData.append("image", selectedFile);
     }
-  };
+
+    // Append additional images
+    files.forEach((file, index) => {
+      if (file) {
+        formData.append(`photo_list[]`, file);
+      }
+    });
+
+    const response = await axios.post(
+      "https://tracsdev.apttechsol.com/api/update-profile",
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
+    setMessage("Profile updated successfully!");
+  } catch (error) {
+    console.error("Update failed:", error);
+    setMessage("Failed to update profile. Please try again.");
+  } finally {
+    setIsUpdating(false);
+  }
+};
+
   
 
   return (
@@ -443,6 +496,72 @@ const AccountSettings = () => {
                     </div>
                   </div>
                 </div>
+                  <div className="additionalImages-holder">
+                   <div style={{ padding: '20px' }}>
+      <h3>Additional Images</h3>
+      <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+        {images.map((img, index) => (
+          <div key={index}>
+            <img src={img} alt="uploaded" width={150} height={100} />
+            <div>
+              <button
+                style={{ backgroundColor: 'crimson', color: 'white', marginTop: '5px' }}
+                onClick={() => handleDeleteImage(index)}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        ))}
+
+        {/* Previews of new selected files only if a file is selected */}
+        {previews.map((preview, index) => (
+          preview && (
+            <div key={index}>
+              <img
+                src={preview}
+                alt={`preview-${index}`}
+                width={150}
+                height={100}
+              />
+            </div>
+          )
+        ))}
+      </div>
+
+      <h4 style={{ marginTop: '20px' }}>Photos (Allowed = {maxPhotos})</h4>
+      {files.map((file, index) => (
+        <div key={index} style={{ marginBottom: '10px' }}>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => handleFileChange(e, index)}
+          />
+        </div>
+      ))}
+
+      <div style={{ marginTop: '10px', display: 'flex', gap: '10px' }}>
+        {images.length + files.length < maxPhotos && (
+          <button
+            style={{ backgroundColor: 'green', color: 'white', padding: '5px 10px' }}
+            onClick={handleAddField}
+          >
+            ➕
+          </button>
+        )}
+        {files.length > 1 && (
+          <button
+            style={{ backgroundColor: 'red', color: 'white', padding: '5px 10px' }}
+            onClick={() => handleRemoveField(files.length - 1)}
+          >
+            🗑️
+          </button>
+        )}
+      </div>
+
+      
+    </div>
+                  </div>
                 <div className="update1">
                   <button
                     style={{ background: "#eeba2b" }}
@@ -462,6 +581,7 @@ const AccountSettings = () => {
                       {message}
                     </p>
                   )}
+                
                 </div>
               </div>
               
