@@ -225,7 +225,7 @@ const [files, setFiles] = useState([null]); // start with one file input
     // Append additional images
     files.forEach((file, index) => {
       if (file) {
-        formData.append(`photo_list[]`, file);
+        formData.append("photo_list[]", file);
       }
     });
 
@@ -500,7 +500,7 @@ const [files, setFiles] = useState([null]); // start with one file input
                    <div style={{ padding: '20px' }}>
       <h3>Additional Images</h3>
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-        {images.map((img, index) => (
+        {images.map(( img, index) => (
           <div key={index}>
             <img src={img} alt="uploaded" width={150} height={100} />
             <div>

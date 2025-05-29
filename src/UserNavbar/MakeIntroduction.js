@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./MakeIntroduction.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { IoMail } from "react-icons/io5";
+import { IoMail, IoPerson } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { IoMdPerson } from "react-icons/io";
 import { FaPlus } from "react-icons/fa";
@@ -12,6 +12,7 @@ import { ImCross } from "react-icons/im";
 import Footer from "../components/Footer/Footer";
 import { TiArrowBackOutline } from "react-icons/ti";
 import axios from "axios";
+import { PiMouseScrollFill } from "react-icons/pi";
 
 const MakeIntroduction = () => {
   const templates = {
@@ -97,20 +98,35 @@ const MakeIntroduction = () => {
   const [selectedTemplate, setSelectedTemplate] = useState("");
   const [message, setMessage] = useState(""); // New state
   const [data, setData] = useState("");
-  const[signature,setSignature]=useState("")
-  const handleToggle = (user, image) => {
-    const selected = selectedEmails.find((item) => item.email === user.email);
-    if (selected) {
-      setSelectedEmails((prevSelected) =>
-        prevSelected.filter((item) => item.email !== user.email)
-      );
-    } else {
-      setSelectedEmails((prevSelected) => [
-        ...prevSelected,
-        { ...user, photo: image },
-      ]);
-    }
-  };
+  const [signature, setSignature] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [groupName, setGroupName] = useState("");
+
+  const handleToggle = (user) => {
+  const selected = selectedEmails.find((item) => item.email === user.email);
+  if (selected) {
+    setSelectedEmails((prevSelected) =>
+      prevSelected.filter((item) => item.email !== user.email)
+    );
+  } else {
+    const imageUrl = user.image
+      ? `https://tracsdev.apttechsol.com/public/${user.image}`
+      : user.photo || ""; // Fallback to local photo
+
+    setSelectedEmails((prevSelected) => [
+      ...prevSelected,
+      {
+        ...user,
+        image: imageUrl, // Ensure image is always available
+      },
+    ]);
+  }
+};
+
 
   const handleRemove = (email) => {
     setSelectedEmails((prevSelected) =>
@@ -127,57 +143,59 @@ const MakeIntroduction = () => {
   const handelcross = () => {
     showAdd(false);
   };
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const token = localStorage.getItem("authToken");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem("authToken");
 
-  const validEmails = selectedEmails.filter((user) => {
-    const domain = user.email.split("@")[1];
-    return user.email.includes("@") && !blockedDomains.includes(domain);
-  });
-
-  if (validEmails.length < 2) {
-    setMsg("Select at least two emails.");
-    return;
-  }
-
-  // Extract first two selected users
-  const [member, contact] = validEmails;
-
-  // Replace placeholders
-  const finalMessage = message
-    .replace(/\[\[member_first_name\]\]/gi, member.name.split(" ")[0])
-    .replace(/\[\[contact_first_name\]\]/gi, contact.name.split(" ")[0]);
-
-  try {
-    const formData = new FormData();
-    formData.append("message", finalMessage);
-    formData.append("recipient_type", recepientType);
-    formData.append("subject", subject);
-    formData.append("template_id", selectedTemplate);
-    formData.append("signature", signature);
-    validEmails.forEach((user) => {
-      formData.append("mail_id[]", user.email);
+    const validEmails = selectedEmails.filter((user) => {
+      const domain = user.email.split("@")[1];
+      return user.email.includes("@") && !blockedDomains.includes(domain);
     });
 
-    const response = await axios.post(
-      "https://tracsdev.apttechsol.com/api/sendmailintrotointromem",
-      formData,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+    if (validEmails.length < 2) {
+      setMsg("Select at least two emails.");
+      return;
+    }
 
-    setMsg(response.data?.message || "Introduction sent successfully.");
-    console.log("Success:", response.data);
-  } catch (err) {
-    setMsg(err.response?.data?.message || "An error occurred.");
-  }
-};
+    // Extract first two selected users
+    const [member, contact] = validEmails;
 
+    // Replace placeholders
+    const finalMessage = message
+      .replace(/\[\[member_first_name\]\]/gi, member.name.split(" ")[0])
+      .replace(/\[\[contact_first_name\]\]/gi, contact.name.split(" ")[0]);
+
+    try {
+      const formData = new FormData();
+      formData.append("message", finalMessage);
+      formData.append("recipient_type", recepientType);
+      formData.append("subject", subject);
+      formData.append("template_id", selectedTemplate);
+      formData.append("signature", signature);
+      validEmails.forEach((user) => {
+        formData.append("mail_id[]", user.email);
+      });
+
+      const response = await axios.post(
+        "https://tracsdev.apttechsol.com/api/sendmailintrotointromem",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      setMsg(response.data?.message || "Introduction sent successfully.");
+      console.log("Success:", response.data);
+    } catch (err) {
+      setMsg(err.response?.data?.message || "An error occurred.");
+    }
+  };
+  const handleChangeSequence = () => {
+    setSelectedEmails((prev) => [...prev].reverse()); // or shuffle logic
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -190,6 +208,7 @@ const handleSubmit = async (e) => {
             },
           }
         );
+        console.log("Image URL:", data.partners?.image);
         setData(response.data);
         console.log(response.data);
       } catch (err) {
@@ -200,6 +219,32 @@ const handleSubmit = async (e) => {
     fetchData();
   }, []);
 
+  const handleAddContact = async (e) => {
+    const token = localStorage.getItem("authToken");
+    if (!firstName || !lastName || !email || !groupName) {
+      setMessage("Please fill in all required fields.");
+      return;
+    }
+    try {
+      const res = await axios.post(
+        "https://tracsdev.apttechsol.com/api/contact_store_form",
+        {
+          first_name: firstName,
+          last_name: lastName,
+          email: email,
+          group_name: groupName,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setMessage("Contact added successfully!");
+    } catch (error) {
+      setMessage(error.response?.data?.message || "Error adding the Contact");
+    }
+  };
   return (
     <div className="make">
       <Header />
@@ -258,7 +303,7 @@ const handleSubmit = async (e) => {
                 onChange={(e) => setSearchText(e.target.value)}
                 className="searchInput"
               />{" "}
-              {recepientType === "myContact" && (
+              {recepientType === "contacts" && (
                 <div
                   className="addbuttoncontacts"
                   style={{ marginTop: "18px", marginLeft: "25px" }}
@@ -269,45 +314,66 @@ const handleSubmit = async (e) => {
               )}
             </div>
             {addContacts && (
-              <div className="addContacts">
-                <div
-                  style={{
-                    padding: "20px",
-                    borderBottom: "1px solid black",
-                    display: "flex",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <div>
-                    <h3>Add New Contact</h3>
+              <form onSubmit={handleAddContact}>
+                <div className="addContacts">
+                  <div
+                    style={{
+                      padding: "20px",
+                      borderBottom: "1px solid black",
+                      display: "flex",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div>
+                      <h3>Add New Contact</h3>
+                    </div>
+                    <div onClick={handelcross}>
+                      <RxCross2 size={20} />
+                    </div>
                   </div>
-                  <div onClick={handelcross}>
-                    <RxCross2 size={20} />
+                  <div style={{ padding: "20px" }}>
+                    <h3>First Name</h3>
+                    <input
+                      style={{ width: "100%", marginTop: "10px" }}
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                    />
+                  </div>
+                  <div style={{ padding: "20px" }}>
+                    <h3>last Name</h3>
+                    <input
+                      style={{ width: "100%", marginTop: "10px" }}
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                    />
+                  </div>
+                  <div style={{ padding: "20px" }}>
+                    <h3>Email </h3>
+                    <input
+                      style={{ width: "100%", marginTop: "10px" }}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div style={{ padding: "20px" }}>
+                    <h3>Group Name </h3>
+                    <input
+                      style={{ width: "100%", marginTop: "10px" }}
+                      value={groupName}
+                      onChange={(e) => setGroupName(e.target.value)}
+                    />
+                  </div>
+                  <div style={{ display: "flex", padding: "20px" }}>
+                    <button style={{ background: "grey" }}>cancel</button>
+                    <button
+                      style={{ background: "orange", marginLeft: "20px" }}
+                      type="submit"
+                    >
+                      SAVE CONTACT
+                    </button>
                   </div>
                 </div>
-                <div style={{ padding: "20px" }}>
-                  <h3>First Name</h3>
-                  <input style={{ width: "100%", marginTop: "10px" }} />
-                </div>
-                <div style={{ padding: "20px" }}>
-                  <h3>last Name</h3>
-                  <input style={{ width: "100%", marginTop: "10px" }} />
-                </div>
-                <div style={{ padding: "20px" }}>
-                  <h3>Email </h3>
-                  <input style={{ width: "100%", marginTop: "10px" }} />
-                </div>
-                <div style={{ padding: "20px" }}>
-                  <h3>Group Name </h3>
-                  <input style={{ width: "100%", marginTop: "10px" }} />
-                </div>
-                <div style={{ display: "flex", padding: "20px" }}>
-                  <button style={{ background: "grey" }}>cancel</button>
-                  <button style={{ background: "orange", marginLeft: "20px" }}>
-                    SAVE CONTACT
-                  </button>
-                </div>
-              </div>
+              </form>
             )}
             <div className="checkbox-list">
               {data.userslist?.map((user, index) => (
@@ -316,12 +382,15 @@ const handleSubmit = async (e) => {
                     type="checkbox"
                     checked={selectedEmails.some((u) => u.email === user.email)}
                     onChange={() =>
-                      handleToggle(user, data.partners[index]?.image)
+                      handleToggle(user)
                     }
                   />
                   <span className="spandiv">
                     <div className="spanImg">
-                      <img src={data.partners[index]?.image} alt="User" />
+                      <img
+                        src={`https://tracsdev.apttechsol.com/public/${data.userslist[index]?.image}`}
+                        alt="User"
+                      />
                     </div>
                     <div style={{ marginTop: "-8px" }} className="spamData">
                       <h3>{user.business_name || "No Network"}</h3>
@@ -352,33 +421,71 @@ const handleSubmit = async (e) => {
 
           <div className="selected-emails">
             <h4>Selected Emails</h4>
-            {selectedEmails.map((user) => (
-              <div key={user.email} className="email-item">
-                <div className="selected-user-photo">
-                  <img
-                    src={user.photo}
-                    alt={user.name}
-                    style={{
-                      width: "40px",
-                      height: "40px",
-                      borderRadius: "50%",
-                    }}
-                  />
-                </div>
-                <div className="selected-user-info">
-                  <span>
-                    {user.name} ({user.email})
-                  </span>
-                </div>
-                <ImCross
-                  size={20}
-                  color="red"
-                  onClick={() => handleRemove(user.email)}
-                />
-              </div>
-            ))}
-          </div>
+          
+              {selectedEmails.map((user, index) => (
+                 <div className="colorCOrner"> <div className="movecorner">
+                  <div key={index} className="email-item">
+                    <div className="selected-user-photo">
+                      <img
+                        src={user.image}
+                        alt="User"
+                        style={{
+                          width: "40px",
+                          height: "40px",
+                          borderRadius: "50%",
+                        }}
+                      />
+                    </div>
 
+                    <div className="selected-user-info">
+                      <div>
+                        <h4>{user.business_name || "No Network"}</h4>
+                      </div>
+
+                      <div style={{ display: "flex", marginTop: "-0px" }}>
+                        <div style={{ marginTop: "3px", marginRight: "5px" }}>
+                          <IoPerson />
+                        </div>
+                        <div
+                          className="emailSpan"
+                          style={{ marginTop: "-19px", marginRight: "5px" }}
+                        >
+                          <h5>{user.name || "No name"}</h5>
+                        </div>
+                      </div>
+                      <div style={{ display: "flex", marginTop: "-20px" }}>
+                        <div style={{ marginTop: "3px", marginRight: "5px" }}>
+                          <IoMail />
+                        </div>
+                        <div
+                          className="emailSpan"
+                          style={{ marginTop: "-19px", marginRight: "5px" }}
+                        >
+                          <h5>{user.email || "No Email"}</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="omove">
+                    {" "}
+                    <ImCross
+                      size={20}
+                      color="red"
+                      onClick={() => handleRemove(user.email)}
+                    />{" "}
+                  </div>
+                </div>  </div>
+              ))}
+          
+          </div>
+          <div
+            className="scroll"
+            onClick={handleChangeSequence}
+            style={{ cursor: "pointer" }}
+          >
+            <IoPerson size={18} />
+            <PiMouseScrollFill size={20} />
+          </div>
           <div
             className="manageHeadingTEmplate"
             style={{ display: "flex", justifyContent: "space-between" }}
@@ -442,11 +549,13 @@ const handleSubmit = async (e) => {
           <br />
           <div className="lastbutton" style={{ display: "flex" }}>
             <div style={{ display: "flex" }}>
-             <input
-  type="checkbox"
-  checked={signature}
-  onChange={(e) => setSignature(e.target.checked ? data.signature : "")}
-/>
+              <input
+                type="checkbox"
+                checked={signature}
+                onChange={(e) =>
+                  setSignature(e.target.checked ? data.signature : "")
+                }
+              />
               <h3>Include Signature</h3>
             </div>
             <div className="formButtons">
