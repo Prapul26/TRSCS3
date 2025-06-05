@@ -31,62 +31,7 @@ const MakeIntroduction = () => {
   SKN IT Solutions`,
   };
   const [users] = useState([
-    {
-      id: 1,
-      network: "H7 Media Network",
-      name: "Dan Beckman",
-      email: "dan@vibrantfloorsbydan.com",
-      photo:
-        "https://plus.unsplash.com/premium_photo-1664536392896-cd1743f9c02c?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW4lMjBiZWluZ3xlbnwwfHwwfHx8MA%3D%3D",
-    },
-    {
-      id: 12,
-      network: "H7 Media Network",
-      name: "Youssef Tawfik",
-      email: "youssef@revi.agency",
-      photo:
-        "https://img.freepik.com/free-photo/happy-man-student-with-afro-hairdo-shows-white-teeth-being-good-mood-after-classes_273609-16608.jpg",
-    },
-    {
-      id: 11,
-      network: "H7 Media Network",
-      name: "Daniel Earl",
-      email: "danielearl93@gmail.com",
-      photo:
-        "https://static.vecteezy.com/system/resources/previews/007/209/020/non_2x/close-up-shot-of-happy-dark-skinned-afro-american-woman-laughs-positively-being-in-good-mood-dressed-in-black-casual-clothes-isolated-on-grey-background-human-emotions-and-feeligs-concept-photo.jpg",
-    },
-    {
-      id: 2,
-      network: "H7 Media Network",
-      name: "Daniel Curry",
-      email: "daniel@indysitedepartment.com",
-      photo:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aHVtYW4lMjBmYWNlfGVufDB8fDB8fHww",
-    },
-    {
-      id: 3,
-      network: "H7 Media Network",
-      name: "Daniel Rubenstein",
-      email: "daniel@allinentry.com",
-      photo:
-        "https://static.vecteezy.com/system/resources/previews/010/359/290/non_2x/headshot-of-young-lovely-woman-keeps-hands-on-neck-has-european-appearance-happy-to-hear-pleasant-words-wears-casual-sweater-isolated-over-blue-background-human-face-expressions-concept-free-photo.JPG",
-    },
-    {
-      id: 6,
-      network: "H7 Media Network",
-      name: "Dan O'Malia",
-      email: "daniel.omalia@northwest.com",
-      photo:
-        "https://thumbs.dreamstime.com/b/beautiful-young-woman-clean-fresh-skin-look-camera-girl-beauty-face-care-facial-treatment-cosmetology-beauty-spa-118355246.jpg",
-    },
-    {
-      id: 17,
-      network: "H7 Media Network",
-      name: "Dan Hackett",
-      email: "dan@theprofitarchitect.com",
-      photo:
-        "https://www.shutterstock.com/image-photo/happy-young-man-portrait-handsome-260nw-262734242.jpg",
-    },
+   
   ]);
   const blockedDomains = ["gmail.com", "yahoo.com", "hotmail.com"];
   const [msg, setMsg] = useState("");
@@ -245,6 +190,17 @@ const MakeIntroduction = () => {
       setMessage(error.response?.data?.message || "Error adding the Contact");
     }
   };
+  useEffect(() => {
+  if (selectedEmails.length > 0) {
+    const businessNames = selectedEmails
+      .map((user) => user.business_name)
+      .filter(Boolean) // Remove undefined/null
+      .join("  &  ");
+    setSubject(`Introduction : <>${businessNames}`);
+  } else {
+    setSubject("");
+  }
+}, [selectedEmails]);
   return (
     <div className="make">
       <Header />
@@ -376,7 +332,9 @@ const MakeIntroduction = () => {
               </form>
             )}
             <div className="checkbox-list">
-              {data.userslist?.map((user, index) => (
+              {data.userslist?.filter((user) =>
+      user.business_name?.toLowerCase().includes(searchText.toLowerCase())
+    ).map((user, index) => (
                 <div key={user.id} className="checkbox-item">
                   <input
                     type="checkbox"

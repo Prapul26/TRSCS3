@@ -85,7 +85,7 @@ margin-left: 5px;
   .pic55img{
     height: 25px;
     width: 25px;
-    background-color: #005a9e;
+ 
     margin-top: 13px;
   }
   .pic55name{
@@ -106,7 +106,7 @@ margin-left: 5px;
   .pic66img{
     height: 25px;
     width: 25px;
-    background-color: #005a9e;
+  
     margin-top: 13px;
   }
   .pic66name{
@@ -269,6 +269,18 @@ margin-left: 5px;
     margin-top: 18px;
     margin-left: 10px;
     color:  #eeba2b;
+   }
+   .messh4{
+width: 230px;
+height: 20px;
+color: #000000;
+ white-space: nowrap;
+ overflow: hidden;
+
+   }
+   .message{
+    justify-content: space-between;
+    width: 390px;
    }
   @media (max-width: 480px){
    .IBPP{
