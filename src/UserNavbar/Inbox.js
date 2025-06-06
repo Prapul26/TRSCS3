@@ -24,7 +24,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa6";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { IoPerson } from "react-icons/io5";
 import { useState } from "react";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
@@ -32,13 +32,17 @@ import SideNav from "./SideNav";
 import inboxData from "../components/Data/inboxData";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import axios from "axios";
+
 const Inbox = () => {
   const [intro, showIntro] = useState(false);
+  const[serchParams,setSearchParams]=useSearchParams();
   const [settings, showSettings] = useState(false);
   const [data2, setData] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [sentMessages, setSentMessages] = useState([]);
+  const [replyFilter, setReplyFilter] = useState("");
+const [messageFilter, setMessageFilter] = useState("");
   const showMobnav = () => {
     setShowSidebar((prev) => !prev);
   };
@@ -61,6 +65,12 @@ const Inbox = () => {
     };
     fetchMessages();
   }, []);
+useEffect(() => {
+  const params = {};
+  if (replyFilter !== "") params.bump = replyFilter;
+  if (messageFilter !== "") params.all_filter = messageFilter;
+  setSearchParams(params);
+}, [replyFilter, messageFilter]);
   const handelExpand = () => {
     setData(!data2);
   };
@@ -103,18 +113,20 @@ const Inbox = () => {
               <div className="messageInbox">
                 <div className="mI1">
                   <p>Filter for Replies</p>
-                  <select>
-                    <option value="allReplies">All Replies</option>
-                    <option value="noReplies">No Replies(Bump)</option>
-                    <option value="closed">Closed</option>
+                  <select  value={replyFilter}
+  onChange={(e) => setReplyFilter(e.target.value)}>
+                    <option value="">All Replies</option>
+                    <option value="1">No Replies(Bump)</option>
+                    <option value="2">Closed</option>
                   </select>
                 </div>
                 <div className="mI2">
                   <p>Filter for Messages</p>
-                  <select>
-                    <option value="allReplies">All </option>
-                    <option value="noReplies">Intros Recived</option>
-                    <option value="noReplies">Intros Sent</option>
+                  <select  value={messageFilter}
+  onChange={(e) => setMessageFilter(e.target.value)}>
+                    <option value="">All </option>
+                    <option value="1">Intros Recived</option>
+                    <option value="2">Intros Sent</option>
                   </select>
                 </div>
 
@@ -138,7 +150,26 @@ const Inbox = () => {
               </div>
 
               <div className="inbox-holder">
-                {sentMessages.map((item, index) => (
+                {sentMessages.filter((item) => {
+   
+    if (replyFilter === "1") {
+       return item.is_bump !== 1;
+    }
+    
+    if (replyFilter === "2") {
+ return item.is_bump === 2;    }
+    return true; 
+  })
+  .filter((item) => {
+    // Message filter logic
+    if (messageFilter === "received") {
+      return item.type === "received"; // Assuming 'type' exists
+    }
+    if (messageFilter === "sent") {
+      return item.type === "sent";
+    }
+    return true;
+  }).map((item, index) => (
                   <div key={item.id} className="inbox">
                     <div classname="headingIntro">
                       <h3>{item.subject}</h3>
@@ -233,10 +264,12 @@ const Inbox = () => {
 
                         {/* Reply & Bump Buttons */}
                         <div className="replyBump">
-                             <Link to="/messageDetails">
-            <button style={{ background: "#005a9e" }}>Reply</button>
-          </Link>
-                             {item.can_bump && <button className="colorButton">Bump</button>}
+                          <Link to={`/replyMessage/${item.subject}/${item.user_id}/${item.replies_code}`}>
+  <button style={{ background: "#163b6d" }}>Reply</button>
+</Link>
+
+
+                          <Link to={`/bumpMessage/${item.subject}/${item.user_id}/${item.replies_code}/bump=${item.is_bump}`}>   {item.can_bump && <button className="colorButton" style={{ background: "#dc3545" }}>Bump</button>} </Link>
       
                         </div>
                       </div>

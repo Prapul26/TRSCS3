@@ -43,6 +43,8 @@ import AddTemplate from "./UserNavbar/AddTemplate";
 import EditTemplate from "./UserNavbar/EditTemplate";
 import EditContact from "./UserNavbar/EditContact";
 import OrderDetails from "./UserNavbar/OrderDetails";
+import ReplyMessage from "./UserNavbar/ReplyMessage";
+import BumpMessage from "./UserNavbar/BumpMessage";
 
 
 const App = () => {
@@ -94,6 +96,8 @@ const App = () => {
           <Route path="/editTemplate/:id" element={<EditTemplate/>}/>
           <Route path="/editContact/:id" element={<EditContact/>}/>
           <Route path="/orderDetails/:orderId" element={<OrderDetails/>}/>
+        <Route path="/replyMessage/:subject/:user_id/:replies_code" element={<ReplyMessage />} />
+<Route path="/bumpMessage/:subject/:user_id/:replies_code/:is_bump" element={<BumpMessage/>}/>
         </Routes>
       </div>
     </Router>
