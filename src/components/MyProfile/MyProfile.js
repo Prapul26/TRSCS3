@@ -62,6 +62,12 @@ const MyProfile = () => {
     cursor:"pointer",
     arrows: true,
   };
+  useEffect(()=>{
+    const fetchData=async()=>{
+const token=`Bearer${"authToken"}`;
+
+    }
+  })
 
   return (
     <div className="container">

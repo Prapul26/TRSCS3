@@ -16,9 +16,9 @@ const ReplyMessage = () => {
   const { subject, user_id, replies_code } = useParams();
   const [selectedMails, setSelectedMails] = useState(false);
   const [data, setData] = useState("");
-   const [selectedTemplate, setSelectedTemplate] = useState("Select Template");
-   const [templateBody, setTemplateBody] = useState(""); // <-- new state
-
+  const [selectedTemplate, setSelectedTemplate] = useState("Select Template");
+  const [templateBody, setTemplateBody] = useState(""); // <-- new state
+  const [selectedData, setSelectedData] = useState([]);
   const showMobnav = () => {
     setShowSidebar((prev) => !prev);
   };
@@ -32,6 +32,16 @@ const ReplyMessage = () => {
   const handleSelectedMails = () => {
     setSelectedMails(!selectedMails);
   };
+  const handelSelectedData = (id) => {
+    if (selectedData.includes(id)) {
+      setSelectedData(selectedData.filter((item) => item !== id));
+    } else {
+      setSelectedData([...selectedData, id]);
+    }
+  };
+  const emailPreview = data.email_templates?.filter((template) =>
+    selectedData?.includes(template.id)
+  );
   useEffect(() => {
     const fetchData = async () => {
       const token = localStorage.getItem("authToken");
@@ -101,29 +111,25 @@ const ReplyMessage = () => {
                           <FaSortDown />
                         </div>
                       </div>
-                      {selectedMails && (
-                        <div className="Nmails">
-                          <div
-                            style={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                            }}
-                          >
-                            <div>
-                              <input type="checkbox" />
-                            </div>
-                            <div>
-                              <p></p>
-                            </div>
-                          </div>
-                          <div
-                            style={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                            }}
-                          ></div>
-                        </div>
-                      )}
+                    {selectedMails && data.usersData?.map((user, index) => (
+  <div className="Nmails" key={index}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
+      <div>
+        <input type="checkbox" />
+      </div>
+      <div><h4>{user.name}({user.email})</h4></div>
+      <div>
+        <p></p>
+      </div>
+    </div>
+  </div>
+))}
+
                     </div>
                   </div>
                   <div className="templateHolder">
@@ -141,31 +147,45 @@ const ReplyMessage = () => {
                     </div>
                     {template && (
                       <div className="templateSetHolder">
-                        <div>
-                          {" "}
-                          <input />
-                        </div>
-                        <div>
-                          <p>Select Template</p>
-                        </div>
-                        {data.email_templates.map((temp) => (
-      <div key={temp.id} onClick={() => {setSelectedTemplate(temp.template_name);
-        setTemplateBody(temp.email)
-      }}>
-        <p style={{ cursor: "pointer" }}>{temp.template_name}</p>
-      </div>
-    ))}
+                        <div> </div>
+                        <div></div>
+                        {data.email_templates?.map((temp) => (
+                          <div
+                            key={temp.id}
+                            onClick={() => {
+                              setSelectedTemplate(temp.template_name);
+                              handelSelectedData(temp.id);
+                              setTemplate(false);
+                            }}
+                          >
+                            <p style={{ cursor: "pointer" }}>
+                              {temp.template_name}
+                            </p>
+                          </div>
+                        ))}
                       </div>
                     )}
                   </div>
                 </div>
                 <div className="messageRead">
                   <h3>Message:</h3>
-                  <textarea
-                   value={templateBody}
-  onChange={(e) => setTemplateBody(e.target.value)} 
-
-                  ></textarea>
+                  <div className="text-Area">
+                    <div className="tempBody">
+                      {emailPreview?.map((template) => (
+                        <div
+                          key={template.id}
+                          dangerouslySetInnerHTML={{
+                            __html: template.email_body,
+                          }}
+                        />
+                      ))}
+                    </div>
+                    <div style={{ marginTop: "180px" }}>
+                      <p>ww</p>
+                    </div>
+                    <div>{data.userInfo?.name}</div>
+                    <div>{data.userInfo?.phone}</div>
+                  </div>
                 </div>
                 <div className="signature">
                   <div class="checkbox-container">

@@ -57,7 +57,7 @@ const App = () => {
         <Routes><Route path='/login' element={isLogin ? <Login switchToRegister={() => setIsLogin(false)} /> : <Register switchToLogin={() => setIsLogin(true)} />} />
           <Route path="/register" element={<Register/>}/>
          <Route path="/about_us" element={<About_us/>}/>
-         <Route path="/memberDetails" element={<MemberDetails/>}/>
+         <Route path="/memberDetails/:user_id/:member_type" element={<MemberDetails/>}/>
          <Route path="/network" element={<Network/>}/>
          <Route path="/" element={<Home/>}/>
          <Route path='/home' element={<Home/>}/>

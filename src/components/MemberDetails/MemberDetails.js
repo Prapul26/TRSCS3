@@ -29,7 +29,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdArrowDropDown } from "react-icons/md";
 import Logo from "../assets/M-D1.jpg";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { TiArrowBackOutline } from "react-icons/ti";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
@@ -42,7 +42,8 @@ import Slider from "react-slick";
 const MemberDetails = () => {
   const [picView, setPicView] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-
+const { user_id, member_type } = useParams();
+const[data,setData]=useState([])
   const picViewHandler = (index) => {
     setPicView(true);
     setCurrentIndex(index);
@@ -62,7 +63,26 @@ const MemberDetails = () => {
     cursor:"pointer",
     arrows: true,
   };
-
+useEffect(()=>{
+  const fetchData=async()=>{
+    const token=localStorage.getItem("authToken");
+    try{
+      const response=await axios.get(`https://tracsdev.apttechsol.com/api/profile_details/${user_id}/${member_type}`, { headers: {
+              Authorization: `Bearer ${token}`,
+            },
+      });
+      if(parseInt(member_type) === 1){
+setData(response.data.listing.user)
+      }else if(parseInt(member_type) === 2){
+        setData(response.data.user_profile)
+      }
+      console.log(data.image)
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+fetchData()},[])
   return (
     <div className="container">
       <Header />
@@ -72,12 +92,12 @@ const MemberDetails = () => {
         <div className="pic-Holder">
           <div>
             <div className="userPic">
-              <img src="https://img.freepik.com/free-photo/indoor-shot-beautiful-happy-african-american-woman-smiling-cheerfully-keeping-her-arms-folded-relaxing-indoors-after-morning-lectures-university_273609-1270.jpg" />
+              <img src={`https://tracsdev.apttechsol.com/public/${data.image} `} />
             </div>
           </div>
           <div className="dataName">
             <div className="userNAME">
-              <h2 style={{ justifyContent: "center" }}>Santhosh</h2>
+              <h2 style={{ justifyContent: "center" }}>{data.name}</h2>
             </div>
             <div className="userNAME2">
               <h4 style={{ justifyContent: "center", marginTop: "-10px" }}>
@@ -86,7 +106,7 @@ const MemberDetails = () => {
             </div>
             <div className="userNAME2">
               <h4 style={{ justifyContent: "center", marginTop: "-10px" }}>
-                Insurance Company
+                {data.business_name}
               </h4>
             </div>{" "}
           </div>
@@ -106,7 +126,7 @@ const MemberDetails = () => {
                 <div>
                   <h4 style={{ textAlign: "left", color: "black" }}>Email</h4>
                   <h3 style={{ color: "blue", fontWeight: "normal" }}>
-                    Sample@mail.com
+                   {data.email}
                   </h3>
                 </div>
               </div>
@@ -117,7 +137,7 @@ const MemberDetails = () => {
                 <div>
                   <h4 style={{ textAlign: "left", color: "black" }}>Phone</h4>
                   <h3 style={{ color: "blue", fontWeight: "normal" }}>
-                    8272927190
+                    {data.phone}
                   </h3>
                 </div>
               </div>
@@ -136,7 +156,7 @@ const MemberDetails = () => {
                     Website Link
                   </h4>
                   <h3 style={{ color: "blue", fontWeight: "normal" }}>
-                    www.sampleWeblink.com
+                    {data.website}
                   </h3>
                 </div>
               </div>
@@ -160,7 +180,7 @@ const MemberDetails = () => {
                     Affiliation
                   </h4>
                   <h3 style={{ color: "blue", fontWeight: "normal" }}>
-                    http/wdad/wsampke
+                 {data.affiliation}
                   </h3>
                 </div>
               </div>
@@ -174,7 +194,7 @@ const MemberDetails = () => {
                     Linked In
                   </h4>
                   <h3 style={{ color: "blue", fontWeight: "normal" }}>
-                    www.LinkedInSample.com
+                   {data.linkedin}
                   </h3>
                 </div>
               </div>
@@ -262,12 +282,7 @@ const MemberDetails = () => {
             </div>
             <div>
               <p>
-                At TRACS, we believe in the power of connections. Our platform
-                is designed to be the heartbeat of professional networking,
-                where members come together to forge meaningful relationships,
-                exchange ideas, and unlock new opportunities. Our platform is
-                designed for individuals and businesses seeking meaningful
-                networking experiences.
+              {data.about}
               </p>
             </div>
           </div>

@@ -132,9 +132,16 @@ margin-right: 5%;
 display: flex;
 border: 1px solid black;
 justify-content: space-between;
-    width: 200px;}
+    width: 300px;}
     .Nmails{
         
+    }
+    .text-Area{
+      height: 300px;
+      width: 80%;
+      overflow-x: auto;
+      overflow-y: auto;
+      background-color: rgb(236, 236, 236);
     }
   @media (max-width: 480px){
     .mdpp{

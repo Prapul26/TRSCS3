@@ -198,7 +198,7 @@ useEffect(() => {
 
                         {/* Sender(s) */}
                         {item.recipients_info.map((recipient, idx) => (
-                          <Link to="/memberDetails">
+                          <Link to={`/memberDetails/${recipient.user_id}/${recipient.member_type}`}>
                             <div key={idx} className="pic66">
                               <div className="pic66img">
                                 <img
