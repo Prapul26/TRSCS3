@@ -88,7 +88,7 @@ const App = () => {
           <Route path="/new" element={<New/>}/>
           <Route path="/myProfile" element={<MyProfile/>}/>
           <Route path='/passwordChange' element={<Password/>}/>
-          <Route path="/messageDetails" element={<MessageDetails/>}/>
+          <Route path="/messageDetails/:subject/:user_id/:replies_code/:is_bump" element={<MessageDetails/>}/>
           <Route path="/contactDetails" element={<ContactDetails />}/>
           <Route path="/mobileMenu" element={<MobileMenu />}/>
           <Route path='/profileData' element={<ProfileData />}/>

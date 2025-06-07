@@ -257,7 +257,7 @@ useEffect(() => {
                         <div className="message" style={{ display: "flex" }}>
                           
                           <div><h4 className="messh4">{item.body}</h4></div>
-                          <div><Link to="/messageDetails">
+                          <div><Link to={`/messageDetails/${item.subject}/${item.user_id}/${item.replies_code}/bump=${item.is_bump}`}>
                             <h4 style={{ marginLeft: "80px" }}>See More...</h4>
                           </Link></div>
                         </div>

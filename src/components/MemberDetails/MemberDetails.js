@@ -42,8 +42,9 @@ import Slider from "react-slick";
 const MemberDetails = () => {
   const [picView, setPicView] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-const { user_id, member_type } = useParams();
-const[data,setData]=useState([])
+  const { user_id, member_type } = useParams();
+  const [data, setData] = useState([]);
+  const [affdata,setAffdata]=useState("")
   const picViewHandler = (index) => {
     setPicView(true);
     setCurrentIndex(index);
@@ -59,40 +60,61 @@ const[data,setData]=useState([])
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-   
-    cursor:"pointer",
+
+    cursor: "pointer",
     arrows: true,
   };
-useEffect(()=>{
-  const fetchData=async()=>{
-    const token=localStorage.getItem("authToken");
-    try{
-      const response=await axios.get(`https://tracsdev.apttechsol.com/api/profile_details/${user_id}/${member_type}`, { headers: {
+  useEffect(() => {
+    const fetchData = async () => {
+      const token = localStorage.getItem("authToken");
+      try {
+        const response = await axios.get(
+          `https://tracsdev.apttechsol.com/api/profile_details/${user_id}/${member_type}`,
+          {
+            headers: {
               Authorization: `Bearer ${token}`,
             },
-      });
-      if(parseInt(member_type) === 1){
-setData(response.data.listing.user)
-      }else if(parseInt(member_type) === 2){
-        setData(response.data.user_profile)
+          }
+        );
+        if (parseInt(member_type) === 1) {
+          setData(response.data.listing.user);
+         
+        } else if (parseInt(member_type) === 2) {
+          setData(response.data.user_profile);
+        }
+         setAffdata(response.data?.affiliation_link)
+        console.log(affdata)
+        console.log(data.image);
+      } catch (err) {
+        console.log(err);
       }
-      console.log(data.image)
-    }
-    catch(err){
-      console.log(err)
-    }
-  }
-fetchData()},[])
+    };
+    fetchData();
+  }, []);
+  useEffect(() => {
+  console.log("affdata changed:", affdata);
+}, [affdata]);
   return (
     <div className="container">
       <Header />
       <Navbar />
-      <div style={{marginLeft:"20px"}}> <button style={{ borderRadius: "30px", border: "transparent" }}><span><Link to='/inbox'><TiArrowBackOutline color='white' size={35} /></Link></span> </button></div>
+      <div style={{ marginLeft: "20px" }}>
+        {" "}
+        <button style={{ borderRadius: "30px", border: "transparent" }}>
+          <span>
+            <Link to="/inbox">
+              <TiArrowBackOutline color="white" size={35} />
+            </Link>
+          </span>{" "}
+        </button>
+      </div>
       <div className="member-holder">
         <div className="pic-Holder">
           <div>
             <div className="userPic">
-              <img src={`https://tracsdev.apttechsol.com/public/${data.image} `} />
+              <img
+                src={`https://tracsdev.apttechsol.com/public/${data.image} `}
+              />
             </div>
           </div>
           <div className="dataName">
@@ -101,7 +123,17 @@ fetchData()},[])
             </div>
             <div className="userNAME2">
               <h4 style={{ justifyContent: "center", marginTop: "-10px" }}>
-        <span style={{background:"green" ,color:"white",borderRadius:"3px"}}><span style={{color:"green"}}>.</span> TRACS<span style={{color:"green"}}>..</span></span> <span style={{color:"black"}}>Member</span>
+                <span
+                  style={{
+                    background: "green",
+                    color: "white",
+                    borderRadius: "3px",
+                  }}
+                >
+                  <span style={{ color: "green" }}>.</span> TRACS
+                  <span style={{ color: "green" }}>..</span>
+                </span>{" "}
+                <span style={{ color: "black" }}>Member</span>
               </h4>
             </div>
             <div className="userNAME2">
@@ -126,7 +158,7 @@ fetchData()},[])
                 <div>
                   <h4 style={{ textAlign: "left", color: "black" }}>Email</h4>
                   <h3 style={{ color: "blue", fontWeight: "normal" }}>
-                   {data.email}
+                    {data.email}
                   </h3>
                 </div>
               </div>
@@ -179,9 +211,10 @@ fetchData()},[])
                     {" "}
                     Affiliation
                   </h4>
-                  <h3 style={{ color: "blue", fontWeight: "normal" }}>
-                 {data.affiliation}
-                  </h3>
+                {affdata?.affiliate_link && (
+  <h3 style={{ color: "blue", fontWeight: "normal" }}>
+    {affdata.affiliate_link}
+  </h3>)}
                 </div>
               </div>
               <div className="AffiliationLink">
@@ -194,7 +227,7 @@ fetchData()},[])
                     Linked In
                   </h4>
                   <h3 style={{ color: "blue", fontWeight: "normal" }}>
-                   {data.linkedin}
+                    {data.linkedin}
                   </h3>
                 </div>
               </div>
@@ -260,7 +293,9 @@ fetchData()},[])
                     <h3>Affiliation</h3>
                   </div>
                 </div>
-                <p style={{ marginLeft: "28px" }}>http/wdad/wsample</p>
+                <p style={{ marginLeft: "28px" }}>
+              
+                </p>
               </div>
               <div style={{ marginTop: "25px" }}>
                 {" "}
@@ -278,42 +313,48 @@ fetchData()},[])
           </div>
           <div className="About-Container" style={{}}>
             <div>
-              <h2 style={{color:"black"}}>About Me</h2>
+              <h2 style={{ color: "black" }}>About Me</h2>
             </div>
             <div>
-              <p>
-              {data.about}
-              </p>
+              <p>{data.about}</p>
             </div>
           </div>
         </div>
         <div style={{ marginTop: "20px", marginLeft: "20px" }}>
           <h2>Images</h2>
         </div>
-        <div className="carlo" style={{display:"flex"}}>{Images.map((img, index) => (
-  <div className="AddImages" key={index}>
-    <div className="images" onClick={()=>picViewHandler(index)}>
-      <img src={Object.values(img)[0]} alt={`image-${index}`} />
-    </div>
-  </div>
-))}</div>
-      </div>
-     <div > {picView && (
-      <div className="overlay">
-        <div className="popup-overlay">
-          <button className="close-btn" onClick={closeImagePopup} >
-            <RxCross2 size={30} />
-          </button>
-          <Slider {...sliderSettings} initialSlide={currentIndex}>
-            {Images.map((img, index) => (
-              <div key={index} className="popup-slide">
-                <img src={Object.values(img)[0]} alt={`popup-image-${index}`} />
+        <div className="carlo" style={{ display: "flex" }}>
+          {Images.map((img, index) => (
+            <div className="AddImages" key={index}>
+              <div className="images" onClick={() => picViewHandler(index)}>
+                <img src={Object.values(img)[0]} alt={`image-${index}`} />
               </div>
-            ))}
-          </Slider>
+            </div>
+          ))}
         </div>
-</div>
-      )}</div>
+      </div>
+      <div>
+        {" "}
+        {picView && (
+          <div className="overlay">
+            <div className="popup-overlay">
+              <button className="close-btn" onClick={closeImagePopup}>
+                <RxCross2 size={30} />
+              </button>
+              <Slider {...sliderSettings} initialSlide={currentIndex}>
+                {Images.map((img, index) => (
+                  <div key={index} className="popup-slide">
+                    <img
+                      src={Object.values(img)[0]}
+                      alt={`popup-image-${index}`}
+                    />
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          </div>
+        )}
+      </div>
       <Footer />
     </div>
   );

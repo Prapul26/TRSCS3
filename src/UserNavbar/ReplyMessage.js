@@ -22,12 +22,27 @@ const ReplyMessage = () => {
   const showMobnav = () => {
     setShowSidebar((prev) => !prev);
   };
+  const timestamp = data.userInfo?.created_at; // example
+const date = new Date(timestamp);
 
+const formatted = date.toLocaleString('en-US', {
+  month: 'long',   // "May"
+  day: 'numeric',  // 29
+  year: 'numeric', // 2025
+  hour: 'numeric', // 11
+  minute: '2-digit', // 13
+  hour12: true     // AM/PM
+});
   const handelTemplate = () => {
     setTemplate(!template);
   };
   const handelShowReply = () => {
     setReply(!showReply);
+  };
+    const [showSignature, setShowSignature] = useState(true);
+
+  const handleCheckboxChange = (e) => {
+    setShowSignature(e.target.checked);
   };
   const handleSelectedMails = () => {
     setSelectedMails(!selectedMails);
@@ -39,6 +54,7 @@ const ReplyMessage = () => {
       setSelectedData([...selectedData, id]);
     }
   };
+  const message = data.data?.[0];
   const emailPreview = data.email_templates?.filter((template) =>
     selectedData?.includes(template.id)
   );
@@ -181,17 +197,22 @@ const ReplyMessage = () => {
                       ))}
                     </div>
                     <div style={{ marginTop: "180px" }}>
-                      <p>ww</p>
+                      <p></p>
                     </div>
-                    <div>{data.userInfo?.name}</div>
-                    <div>{data.userInfo?.phone}</div>
+                      {showSignature && (
+        <div className="signature" style={{ display: "flex", flexDirection: "column" }}>
+          <div>{data.userInfo?.name}</div>
+          <div>{data.userInfo?.phone}</div>
+        </div>
+      )}
                   </div>
                 </div>
                 <div className="signature">
                   <div class="checkbox-container">
                     <div>
                       {" "}
-                      <input type="checkbox" id="include-signature" />
+                      <input type="checkbox" id="include-signature"   checked={showSignature}
+            onChange={handleCheckboxChange} />
                     </div>
                     <div>
                       {" "}
@@ -209,76 +230,34 @@ const ReplyMessage = () => {
 
               <div className="messageHeader">
                 <div className="headerHeading">
-                  <h3>Introduction - Mahesh Kumar and Naresh Kumar</h3>
+                 <h3>Introduction - {data.usersData?.map((user) => user.name).join("& ")}</h3>
+            
                 </div>
                 <div className="hoverall">
                   <div className="MessageInDetail">
                     <div className="messageDetails">
                       <div className="mpicmname">
                         <div className="mPic">
-                          <img src="https://tse1.mm.bing.net/th/id/OET.7252da000e8341b2ba1fb61c275c1f30?w=594&h=594&c=7&rs=1&o=5&pid=1.9" />
+                          <img src={`https://tracsdev.apttechsol.com/public/${data.userInfo?.image}`} />
                         </div>
                         <div className="mName">
-                          <h2>Mahesh Kumar</h2>
+                          <h2>{data.userInfo?.name}</h2>
                         </div>
                       </div>
                       <div className="mdate">
-                        <h3>January, 22 2025 11:13 am</h3>
+                        <h3>{formatted} </h3>
                       </div>
                     </div>
                     <div className="messageData">
-                      <p> Hi Santhosh</p>
-                      <br />
-                      <p>Thanks for referring Naresh to me </p>
-                      <br />
-                      <p>This is a great opportunity for both</p>
-                      <br />
-                      <p>
-                        Thanks
-                        <br />
-                        Mahesh Kumar
-                      </p>
+                      <p>{data?.sentMailsfirst?.body}</p>
+                      <div className="signature2" style={{display:"flex",flexDirection:"column"}}>
+                    <div>{data.userInfo?.name}</div>
+                    <div>{data.userInfo?.phone}</div>
+                    </div>
                     </div>
                   </div>
                 </div>
-                <div className="hoverall">
-                  <div className="MessageInDetail">
-                    <div className="messageDetails">
-                      <div className="mpicmname">
-                        <div className="mPic">
-                          <img src="https://imgv3.fotor.com/images/slider-image/A-clear-image-of-a-woman-wearing-red-sharpened-by-Fotors-image-sharpener.jpg" />
-                        </div>
-                        <div className="mName">
-                          <h2> S Kumar Nelli</h2>
-                        </div>
-                      </div>
-                      <div className="mdate">
-                        <h3>January, 22 2025 10:47 am</h3>
-                      </div>
-                    </div>
-                    <div className="messageData">
-                      <p> Hi [[member_first_name]] [[member_last_name]]</p>
-                      <br />
-                      <p>
-                        I want to introduce you to [[contact_first_name]]
-                        [[contact_last_name]]{" "}
-                      </p>
-                      <br />
-                      <p>
-                        [[contact_first_name]] [[contact_last_name]] is a Friend
-                        of mine and he needs a{" "}
-                      </p>
-                      <br />
-                      <p>Can one of you reply to schedule that 1:1? </p>
-                      <br />
-                      <p>
-                        S Kumar Nelli
-                        <br />
-                        santhosh.nelli640@gmail.com
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>
