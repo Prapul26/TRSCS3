@@ -83,6 +83,29 @@ width: 100%;
     margin-left: 2%;
     margin-top: 20px;
 }
+.status-toggle {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.status-label {
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.status-label.active {
+  background-color: #28a745; /* Green */
+}
+
+.status-label.inactive {
+  background-color: #dc3545; /* Red */
+}
 @media(max-width:480px){
     .affTable{
         overflow-x: auto;

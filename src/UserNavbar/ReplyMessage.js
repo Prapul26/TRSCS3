@@ -81,6 +81,40 @@ const formatted = date.toLocaleString('en-US', {
     fetchData();
   }, [subject, user_id, replies_code]);
 
+const payload = {
+  user_id: data.userInfo?.id, // e.g. 1898
+  sent_mail_history_id: data.sentMailsfirst?.id, // e.g. 802
+  replies_code, // from useParams()
+  temp_id: null, // or use selectedData[0] if one template selected
+  subject:  data.sentMailsfirst?.subject,
+  selected_emails: data.usersData?.map(user => user.email),
+  redirect_to: "https://tracsdev.apttechsol.com/user/view-inbox-list-from-intro",
+  is_bump:  data.sentMailsfirst?.is_bump,
+  cc_mail_id: null,
+  emails: data.usersData?.map(user => user.email),
+  email_template: selectedTemplate,
+  message:  emailPreview?.[0]?.email_body || "testing purpose only",
+  files: null
+};
+const handleSendReply = async () => {
+  const token = localStorage.getItem("authToken");
+  try {
+    const response = await axios.post(
+      "https://tracsdev.apttechsol.com/api/sendReplyMailtomem_Api",
+      payload,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
+      }
+    );
+    console.log("Mail Sent Successfully", response.data);
+    // Optionally navigate or notify user
+  } catch (error) {
+    console.error("Error sending reply mail:", error);
+  }
+};
   return (
     <div className="mobMenuaa">
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
@@ -223,8 +257,7 @@ const formatted = date.toLocaleString('en-US', {
                     </div>
                   </div>
                   <div class="button-container">
-                    <button>Send</button>
-                  </div>
+<button onClick={handleSendReply}>Send</button>                  </div>
                 </div>
               </div>
 

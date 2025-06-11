@@ -43,8 +43,9 @@ const MemberDetails = () => {
   const [picView, setPicView] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const { user_id, member_type } = useParams();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState("");
   const [affdata,setAffdata]=useState("")
+  const[additionalImages,setAddImages]= useState({ images: [] });
   const picViewHandler = (index) => {
     setPicView(true);
     setCurrentIndex(index);
@@ -82,15 +83,21 @@ const MemberDetails = () => {
         } else if (parseInt(member_type) === 2) {
           setData(response.data.user_profile);
         }
-         setAffdata(response.data?.affiliation_link)
+         setAffdata(response.data?.affiliation_link);
+         setAddImages(response.data)
+         console.log(additionalImages.images)
         console.log(affdata)
-        console.log(data.image);
+        console.log("userImages:"+data.user_images);
+        
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
   }, []);
+           console.log(additionalImages.images)
+           console.log("userImages:"+data.user_images);
+
   useEffect(() => {
   console.log("affdata changed:", affdata);
 }, [affdata]);
@@ -233,84 +240,7 @@ const MemberDetails = () => {
               </div>
             </div>
           </div>
-          <div className="section4">
-            <div className="pe-holder">
-              <div style={{ marginTop: "20px" }}>
-                <h3 style={{ fontSize: "22px" }}>Contact Me :</h3>
-              </div>
-              <div style={{ marginTop: "25px" }}>
-                {" "}
-                <div style={{ display: "flex", marginTop: "15px" }}>
-                  <div style={{ marginRight: "10px" }}>
-                    <IoMail size={20} />
-                  </div>
-                  <div>
-                    <h3>Mail</h3>
-                  </div>
-                </div>
-                <p style={{ marginLeft: "28px" }}>Sample@mail.com</p>
-              </div>
-              <div style={{ marginTop: "25px" }}>
-                {" "}
-                <div style={{ display: "flex", marginTop: "15px" }}>
-                  <div style={{ marginRight: "10px" }}>
-                    <IoCall size={20} />
-                  </div>
-                  <div>
-                    <h3>Phone</h3>
-                  </div>
-                </div>
-                <p style={{ marginLeft: "28px" }}>8272927190</p>
-              </div>
-              <div style={{ marginTop: "25px" }}>
-                {" "}
-                <div style={{ display: "flex", marginTop: "15px" }}>
-                  <div style={{ marginRight: "10px" }}>
-                    <TbWorldWww size={20} />
-                  </div>
-                  <div>
-                    <h3>WebsiteLink</h3>
-                  </div>
-                </div>
-                <p style={{ marginLeft: "28px", color: "blue" }}>
-                  www.sampleWeblink.com
-                </p>
-              </div>
-            </div>
-            <div className="Links-Holder">
-              <div>
-                {" "}
-                <div style={{ display: "flex", marginTop: "15px" }}>
-                  <div style={{ marginRight: "10px" }}>
-                    <img
-                      width="23"
-                      height="23"
-                      src="https://img.icons8.com/external-nawicon-glyph-nawicon/64/external-affiliate-seo-and-marketing-nawicon-glyph-nawicon.png"
-                      alt="external-affiliate-seo-and-marketing-nawicon-glyph-nawicon"
-                    />{" "}
-                  </div>
-                  <div>
-                    <h3>Affiliation</h3>
-                  </div>
-                </div>
-                <p style={{ marginLeft: "28px" }}>
-              
-                </p>
-              </div>
-              <div style={{ marginTop: "25px" }}>
-                {" "}
-                <div style={{ display: "flex", marginTop: "15px" }}>
-                  <div style={{ marginRight: "10px" }}>
-                    <IoLogoLinkedin size={20} />
-                  </div>
-                  <div>
-                    <h3> Linked In</h3>
-                  </div>
-                </div>
-                <p style={{ marginLeft: "28px" }}>www.LinkedInSample.com</p>
-              </div>
-            </div>
-          </div>
+         
           <div className="About-Container" style={{}}>
             <div>
               <h2 style={{ color: "black" }}>About Me</h2>
@@ -320,42 +250,49 @@ const MemberDetails = () => {
             </div>
           </div>
         </div>
+        <div>
+
+      <div>
+
+
+
+      </div>
+ 
+        </div>
         <div style={{ marginTop: "20px", marginLeft: "20px" }}>
           <h2>Images</h2>
         </div>
         <div className="carlo" style={{ display: "flex" }}>
-          {Images.map((img, index) => (
-            <div className="AddImages" key={index}>
-              <div className="images" onClick={() => picViewHandler(index)}>
-                <img src={Object.values(img)[0]} alt={`image-${index}`} />
-              </div>
-            </div>
-          ))}
+          {additionalImages.images?.map((img, index) => (
+    <div className="AddImages" key={index}>
+      <div className="images" onClick={() => picViewHandler(index)}>
+        <img src={img} alt={`image-${index}`} />
+      </div>
+    </div>
+  ))}
         </div>
       </div>
       <div>
         {" "}
         {picView && (
-          <div className="overlay">
-            <div className="popup-overlay">
-              <button className="close-btn" onClick={closeImagePopup}>
-                <RxCross2 size={30} />
-              </button>
-              <Slider {...sliderSettings} initialSlide={currentIndex}>
-                {Images.map((img, index) => (
-                  <div key={index} className="popup-slide">
-                    <img
-                      src={Object.values(img)[0]}
-                      alt={`popup-image-${index}`}
-                    />
-                  </div>
-                ))}
-              </Slider>
-            </div>
+  <div className="overlay">
+    <div className="popup-overlay">
+      <button className="close-btn" onClick={closeImagePopup}>
+        <RxCross2 size={30} />
+      </button>
+      <Slider {...sliderSettings}>
+        {additionalImages.images?.map((img, index) => (
+          <div key={index} className="popup-slide">
+            <img src={img} alt={`popup-image-${index}`} />
           </div>
-        )}
+        ))}
+      </Slider>
+    </div>
+  </div>
+)}
       </div>
       <Footer />
+      
     </div>
   );
 };
