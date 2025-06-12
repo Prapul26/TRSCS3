@@ -59,7 +59,7 @@ const AccountSettings = () => {
   const [website, setWebsite] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [isUpdating, setIsUpdating] = useState(false);
-
+const[addImg,setAddImg]=useState([])
  /* axiosRetry(axios, {
     retries: 3,
     retryDelay: (retryCount) => {
@@ -71,7 +71,7 @@ const AccountSettings = () => {
 const [files, setFiles] = useState([null]); // start with one file input
   const [previews, setPreviews] = useState([null]); // previews for selected files
   const [images, setImages] = useState([
-   ""
+   
   ]);
 
   const maxPhotos = 5;
@@ -144,55 +144,64 @@ const [files, setFiles] = useState([null]); // start with one file input
   const handelIntro = () => {
     showIntro(!intro);
   };
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      const fetchProfile = async () => {
-        try {
-          const token = localStorage.getItem("authToken");
-          const response = await axios.get(
-            "https://tracsdev.apttechsol.com/api/my-profile",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
-          const data = response.data;
-          const newImage = response.data.user?.image;
-          if (newImage) {
-            setImagePreview(`https://tracsdev.apttechsol.com/public/${newImage}`);
-           
+ useEffect(() => {
+  const timeoutId = setTimeout(() => {
+    const fetchProfile = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+        const response = await axios.get(
+          "https://tracsdev.apttechsol.com/api/my-profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
-
-          const fullName = data.user.name || "";
-          const [first, ...rest] = fullName.trim().split(" ");
-          const last = rest.join(" "); // Handle multi-word last names
-          
-          setFirstName(first || "");
-          setLastName(last || "");
-          setEmail(data.user.email || "");
-          setPhone(data.user.phone || "");
-          setAbout(data.user.about || "");
-          setCity(data.user.city || "");
-          setState(data.user.state || "");
-          setCountry(data.user.country || "");
-          setAddress(data.user.address || "");
-          setBusinessName(data.user.business_name || "");
-          setBusinessDescription(data.user.business_description || "");
-          setWebsite(data.user.website || "");
-          setLinkedIn(data.user.linkedIn || "");
-          setStates(data.states || []);
-          setImagePreview(`https://tracsdev.apttechsol.com/public/${data.user.image}` )
-        } catch (error) {
-          console.error("Error fetching profile data:", error);
+        );
+        const data = response.data;
+        const newImage = data.user?.image;
+        if (newImage) {
+          setImagePreview(`https://tracsdev.apttechsol.com/public/${newImage}`);
         }
-      };
 
-      fetchProfile();
-    }, 300);
+        const fullName = data.user.name || "";
+        const [first, ...rest] = fullName.trim().split(" ");
+        const last = rest.join(" ");
 
-    return () => clearTimeout(timeoutId);
-  }, []);
+        setFirstName(first || "");
+        setLastName(last || "");
+        setEmail(data.user.email || "");
+        setPhone(data.user.phone || "");
+        setAbout(data.user.about || "");
+        setCity(data.user.city || "");
+        setState(data.user.state || "");
+        setCountry(data.user.country || "");
+        setAddress(data.user.address || "");
+        setBusinessName(data.user.business_name || "");
+        setBusinessDescription(data.user.business_description || "");
+        setWebsite(data.user.website || "");
+        setLinkedIn(data.user.linkedin || "");
+        setStates(data.states || []);
+
+        // 👇 Fix: Set additional image URLs
+const additional = data.additional_images || [];
+const fullImageUrls = additional
+  .slice(0, 5) // limit to first 5 images
+  .map((img) => 
+    `https://tracsdev.apttechsol.com/public/uploads/additional_images/${img.image}`
+  );
+
+        setImages(fullImageUrls); // ✅ set them here
+
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
+      }
+    };
+
+    fetchProfile();
+  }, 300);
+
+  return () => clearTimeout(timeoutId);
+}, []);
 
   const handleProfileUpdate = async () => {
   if (isUpdating) return;
@@ -212,7 +221,7 @@ const [files, setFiles] = useState([null]); // start with one file input
     formData.append("state", state);
     formData.append("country", country);
     formData.append("address", address);
-    formData.append("linkedIn", linkedIn);
+    formData.append("linkedin", linkedIn);
     formData.append("business_name", businessName);
     formData.append("business_description", businessDiscription);
     formData.append("website", website);
@@ -373,6 +382,9 @@ const [files, setFiles] = useState([null]); // start with one file input
                           </select>
                         </div>
                       </div>
+                    </div>
+                    <div>
+     
                     </div>
                     <label>About Me</label>
                     <textarea
@@ -549,7 +561,7 @@ const [files, setFiles] = useState([null]); // start with one file input
             ➕
           </button>
         )}
-        {files.length > 1 && (
+        {files.length >= 1 && (
           <button
             style={{ backgroundColor: 'red', color: 'white', padding: '5px 10px' }}
             onClick={() => handleRemoveField(files.length - 1)}
