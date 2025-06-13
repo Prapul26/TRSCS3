@@ -386,7 +386,7 @@ const fullImageUrls = additional
                     <div>
      
                     </div>
-                    <label>About Me</label>
+                    <label>About Me/Business Description</label>
                     <textarea
                       className="textArea"
                       value={about}
@@ -462,12 +462,7 @@ const fullImageUrls = additional
                         onChange={(e) => setBusinessName(e.target.value)}
                       />
                     </div>
-                    <label>Business Description</label>
-                    <textarea
-                      className="textArea"
-                      value={businessDiscription}
-                      onChange={(e) => setBusinessDescription(e.target.value)}
-                    />
+                   
                     <label>Website</label>
                     <div className="nameInput">
                       <div style={{ marginTop: "0px", marginLeft: "9px" }}>
