@@ -1,0 +1,519 @@
+.member-holder{
+  width: 80%;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 10px;
+  height: fit-content;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: rgb(255, 255, 255);
+  }
+  .container{
+    background-color: rgb(255, 255, 255);
+  }
+  
+  
+  
+  .userPic{
+    width: 200px;
+  
+    
+    height:200px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    border-radius: 50%;
+    
+    
+  }
+  .About-Container p{
+  
+  word-break: break-all;
+  color: rgb(0, 0, 0);
+  }
+  .section2{
+  
+  color: rgb(0, 0, 0);
+  }
+  .section2 h3{
+    color: rgb(0, 0, 0);
+  
+  }
+  .floatgg h3{
+  
+  justify-content: end;
+  text-align: center;
+  }
+  .floatgg{
+    display: flex;
+  
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .section3{
+    display: flex;
+    margin-top: 10px;
+    width: 60%;
+  margin-left: 23%;
+   margin-bottom: 40px;
+    margin-top: 40px;
+    justify-content: space-between;
+  
+    padding: 10px;
+  }
+  .EmailLink{
+  text-align: center;
+  display: flex;
+  color: rgb(0, 0, 0);
+  }
+  .PhoneLink{
+    text-align: center;
+    display: flex;
+    margin-top: 30px;
+    color: rgb(0, 0, 0);
+  }
+  .pic-Holder{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+  margin-bottom: 30px;
+  }
+  .infoheading{
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  .infoheading h3{
+  font-size: larger;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .WebsiteLink{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    display: flex;
+  }
+  .AffiliationLink{
+    text-align: center;
+    display: flex;
+    margin-top: 30px;
+    color: rgb(0, 0, 0);
+  }
+  .divider2{
+    margin-right: 20px;
+  }
+  .userPic img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+  .userPic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 17%;
+    margin-left: 43%;
+    margin-right: 32%;
+  
+  }
+  .dataName{
+    margin-left: 40px;
+  }
+  .userNAME{
+    margin-top: 3%;
+  
+  }
+  .userNAME h2{
+    color: rgb(0, 0, 0);
+    font-size: 33px;
+  }
+  .informaion{
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    width: 50%;
+   
+  
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+  }
+  .About-Container p{
+    color: black;
+  }
+  .About-Container h2{
+    color: black;
+  }
+  .informaion h3{
+    color: rgb(0, 0, 0);
+    font-size: larger;
+  }
+  .infoDiv{
+    display: flex;
+    justify-content: space-between;
+  margin-top: 20px;
+  
+  text-align: center;
+  }
+  .divider{
+   margin-top: 20px;
+   
+  }
+  .infoDiv1{
+  text-align: center;
+  justify-content: center;
+  
+  }
+  .infoDiv2{
+  width: 50%;
+  }
+  .informationHolder{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+  }
+  
+  .linksContainer{
+    padding: 20px;
+    background-color: orange;
+    width: 40%;
+    height: 50px;
+    flex-direction: column;
+    margin-top: 20px;
+    display: flex;
+  justify-content: space-between;
+    border-radius: 30px;
+  }
+  .About-Container{
+    padding: 20px;
+    width: 97%;
+    background-color: rgb(226, 230, 232);
+  border-radius: 10px;
+  }
+  .divider{
+    display: flex;
+    flex-direction: column;
+  
+  }
+  .mailIcon{
+          
+    margin-right: 30px;
+  }
+  .PhoneIcon{
+    margin-right: 30px;
+  }
+  .randomIcon{
+    margin-right: 30px;
+  
+  }
+  .webIcon{
+    margin-right: 30px;
+  
+  }
+  .imagesAdd{
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  height: fit-content;
+  justify-content: space-between;
+  }
+  .imageAdd1 {
+  width: 42%;
+  display: flex;
+  justify-content: space-between;;
+  
+  
+  }
+  .imageAdd1 img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+  }
+  .imageAdd2{
+    display: flex;
+    justify-content: space-between;
+    width: 42%;
+    margin-right: 10%;
+  }
+  .imageAdd2 img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+  }
+  .userNAME2{
+  
+    margin-top: 20px;
+  
+        }
+        .section4{
+  display: flex;
+  justify-content: space-between;
+  display: none;
+        }
+        .pe-holder{
+        height: fit-content;
+          margin-left: 60px;
+          border: 1px soild black;
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0px rgb(206, 206, 206);
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  
+        }
+        .Links-Holder{
+  border: 1px soild black;
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0px rgb(206, 206, 206);
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: fit-content;
+  margin-right: 20%;
+  margin-bottom: 20px;
+        }
+        .pe-holder p{
+          font-size: 15px;
+          margin-top: 4px;
+          color: rgb(91, 87, 82);
+        }
+        .Links-Holder p{
+          font-size: 15px;
+          margin-top: 4px;
+          color: rgb(23, 30, 217);
+        }
+        .AddImages {
+          width: 100%;
+          
+          height: auto; 
+          display: flex;
+          gap: 10px; 
+          padding: 10px; 
+          
+        }
+        
+        .images img {
+          height: 180px;
+          width: 230px;
+          border-radius: 0%;
+          object-fit: cover; /* Ensure images are scaled correctly */
+        }
+        .carlo{
+          overflow-x: auto;
+        }
+        .popup-overlay{
+          height: 100px;
+          width: 50%;
+          margin-left: 25%;
+          margin-right: 25%;
+         top:0px;
+         
+      
+      
+         z-index: 999;
+         
+      }
+      .popup-slide{
+          height: 100px;
+          width: 300px;
+      }
+      .popup-slide img{
+          width: 100%;
+          height: 100%;
+      }
+      
+  @media(max-width:480px){
+    .section4{
+  display: none;
+    }
+    .carlo{
+      overflow-x: auto;
+    }
+    .member-holder{
+      width: 90%;
+      margin-top: 20px;
+  margin-left: -0%;
+      border-radius: 10px;
+      height: fit-content;
+      
+      margin-bottom: 20px;
+      background-color: white;
+      }
+      .pic-Holder{
+        display: flex;
+        flex-direction: column;
+      }
+      .section2{
+        flex-direction: column;
+      }
+      .floatgg{
+        width: 90%;
+        text-align: center;
+        margin-left: 33px;
+      }
+  .flot{
+    margin-left: 50px;
+    width: 90%;
+    text-align: center;
+  }
+      .container{
+        background-color: rgb(195, 199, 202);
+      }
+      .ProfilePic-holder{
+        width: 100%;
+        height:300px;
+        background-color:white;
+      
+      }
+      .section3{
+        flex-direction: column;
+        width: 50%;
+        margin-left: 10px;
+        display: block;
+      }
+      .backgroundPic{
+        width: 100%;
+    margin-left: 0%;
+        background-color: aliceblue;
+        height: 75%;
+        border-radius: 10px;
+      }
+     .backgroundPic img{
+      border-radius: 10px;
+     }
+      .userPic{
+        width: 100px;
+        margin-left: 36%;
+        margin-right: 38%;
+        height:100px;
+        margin-top: 5px;
+        border-radius: 50%;
+        
+        
+      }
+      .userNAME2{
+  text-align: center;
+  margin-top: 20px;
+  margin-left: -40px;
+      }
+      .userNAME{
+        margin-top: 5%;
+        text-align: center;
+        margin-left: -40px;
+      }
+      .section2 h3{
+        color: black;
+      }
+      .section2{
+        color: black;
+        margin-top: -5px;
+        margin-left: 5%;
+        margin-bottom: 10px;
+      }
+      .userNAME h2{
+        color: black;
+      }
+      .informationHolder{
+        flex-direction: column;
+      }
+  
+      .informaion{
+        margin-top: 10px;
+        border: 1px solid black;
+        border-radius: 20px;
+        padding: 20px;
+        width: 90%;
+        background: linear-gradient(to right, black, rgb(54, 53, 53));
+      
+      margin-bottom: 10px;
+      }
+   
+      .About-Container{
+        padding: 20px;
+        width: 90%;
+        background-color: rgb(184, 186, 187);
+      }
+      .divider{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+      .section3{
+        width: 90%;
+        padding: 20px;
+      }
+      .EmailLink{
+        text-align: center;
+        color: rgb(0, 0, 0);
+        }
+        .PhoneLink{
+          text-align: center;
+          color: rgb(3, 3, 3);
+          margin-top: 20px;
+        }
+        .WebsiteLink{
+          text-align: center;
+          color: rgb(0, 0, 0);
+        }
+        .AffiliationLink{
+          text-align: center;
+          margin-top: 20px;
+          color: rgb(0, 0, 0);
+        }
+        .mailIcon{
+          
+          margin-right: 30px;
+        }
+        .PhoneIcon{
+          margin-right: 30px;
+        }
+        .randomIcon{
+          margin-right: 30px;
+  
+        }
+        .webIcon{
+          margin-right: 30px;
+  
+        }
+        .imagesAdd{
+          width: 90%;
+          padding: 20px;
+          display: flex;
+          height: fit-content;
+          justify-content: space-between;
+          }
+          .imageAdd1 {
+          width: 35%;
+          flex-direction: column;
+          display: flex;
+          justify-content: space-between;
+          
+          }
+          .imageAdd1 img{
+            height: 100px;
+            width: 100px;
+          }
+          .imageAdd2{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 35%;
+            
+          }
+          .imageAdd2 img{
+            height: 100px;
+            width: 100px;
+          }
+          .WebsiteLink{
+            margin-top: -40px;
+        
+          }
+          
+  }

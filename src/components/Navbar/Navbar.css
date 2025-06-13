@@ -1,0 +1,51 @@
+.Navbar-Container{
+    height: 60px;
+    width: 100%;
+   background-color: white;
+
+    justify-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+.navbar-holder{
+    display: flex;
+}
+.dropdown-menu23{
+    margin-top: 40px;
+    background-color:white;
+    position: absolute;
+    list-style-type: none;
+    width:120px;
+    border-radius: 5px;
+    padding: 15px;
+   
+}
+
+.dropdown-menu23 li{
+
+    color:black;
+    margin-bottom: 5px;
+    
+
+    text-decoration: none;
+}
+.navbar-holder img{
+    margin-top: 4px;
+}
+.navbar-holder li{
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: medium;
+    font-family:sans-serif;
+}
+.navbar-holder li:hover{
+   
+    color: rgb(226, 16, 16);
+ 
+}
+@media(max-width:480px){
+    .Navbar-Container{
+        display: none;
+    }
+}

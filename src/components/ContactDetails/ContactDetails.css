@@ -1,0 +1,29 @@
+.contactDetails-container{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.pic44HOlder{
+    width: 200px;
+    height: 200px;
+ 
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 20px;
+}
+.pic44Container{
+    justify-content: center;
+    justify-items: center;
+}
+.pic44HOlder img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+@media(max-width:480px){
+    .contactDetails-container{
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+}

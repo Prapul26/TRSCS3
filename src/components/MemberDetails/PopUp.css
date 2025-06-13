@@ -1,0 +1,123 @@
+.popup-overlay{
+    height: 600px;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+
+flex-direction: column;
+margin-top: 30px;
+left: 0;
+ right: 0;
+bottom: 0;
+   z-index: 999;
+   z-index: 999;
+   justify-content: center;
+   align-items: center;
+   position: fixed;
+}
+.popup-slide{
+    height: 500px;
+    width: 500px;
+}
+.popup-slide img{
+    width: 100%;
+    height: 100%;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: rgb(174, 223, 15) !important;
+  font-size: 35px !important;
+  align-items: center;
+  margin-left: -10px;
+
+  
+}
+.overlay{
+    width: 100%;
+    height: 100vh;
+    top:0;
+    bottom: 0;
+    left:0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay background */
+position: fixed;
+}
+.close-btn{
+    background-color:transparent /* Dark overlay background */
+
+}
+@media(max-width:480px){
+    .popup-overlay{
+        height: 600px;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
+      align-items: center;
+      justify-content: center;
+     
+    
+       top: 0;
+       left: 0;
+       z-index: 999;
+
+       background-color: rgba(0, 0, 0, 0.8); /* Dark overlay background */
+
+    }
+    .popup-slide{
+        height: 500px;
+        width: 300px;
+    }
+    .slick-prev:before,
+.slick-next:before {
+    color: rgb(174, 223, 15) !important;
+    font-size: 35px !important;
+  align-items: center;
+  margin-left: -7px;
+
+  
+}
+.overlay{
+    width: 100%;
+    height: 100vh;
+    top:0;
+    bottom: 0;
+    left:0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay background */
+position: fixed;
+}
+.images img{
+    height: 100px;
+    width: 100px;
+}
+.slick-prev,
+.slick-next {
+  z-index: 10; /* Ensure arrows are above images */
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: rgb(0, 0, 0) !important;
+  font-size: 35px !important;
+  align-items: center;
+  margin-left: -7px;
+  opacity: 1; /* Ensure visibility */
+}
+
+.popup-overlay {
+  position: relative; /* Ensure proper stacking context */
+}
+
+.slick-prev {
+  left: 10px;
+  /* Adjust for better positioning */
+}
+
+.slick-next {
+  right: 10px; /* Adjust for better positioning */
+}
+.close-btn{
+    background-color:transparent /* Dark overlay background */
+
+}
+}

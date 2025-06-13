@@ -1,0 +1,223 @@
+.headerContainer{
+    height: 70px;
+    background-color: rgb(13, 54, 116);
+    
+
+    display: flex;
+width: 100%;
+align-items: center;
+
+    justify-content: space-between;
+   
+
+}
+.header {
+    display: flex;
+    position: relative; 
+}
+
+.userProfile-container{
+display: flex;
+align-items: center;
+float: right;
+
+
+}
+.profile-pic{
+height: 50px;
+width: 50px;
+background-color: white;
+border-radius: 50%;
+
+
+}
+.menuDrop{
+    margin-top: 27px;
+    position: absolute;
+    margin-left: -90px;
+    padding: 10px;
+    
+    background-color: rgb(248, 248, 248);
+}
+.menuDrop h4{
+    color: #000000;
+    margin-left: 10px;
+}
+.profile-pic img{
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+}
+.profile-name{
+margin-left: 10px;
+font-size: 16px;
+padding-right: 20px;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.userNav-container{
+    background-color: #000000;
+   
+    width: 300px;
+
+    margin-top: 230px;
+   
+
+}
+
+.arrow{
+    display: flex;
+    cursor: pointer;
+   position: absolute;
+   color: blue;
+   margin-top: -10px;
+   display: none;
+   
+}
+.a1{
+    position: relative;
+}
+.home-container{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: #d4dfed;
+    display: flex;
+    margin-top: 30px;
+}
+.navs{
+    color: rgb(24, 24, 24);
+    padding: 10px;
+    margin-top: 50px;
+    position: absolute;
+height: 100vh;
+}
+
+
+.usernav{
+    width: 19%;
+color: #000000;
+position: absolute;
+height: 100vh;
+word-wrap: break-word;
+margin-top: 0px;
+background-color: white;    cursor: pointer;
+}
+.membership{
+    display: flex;
+   
+}
+.navs h3:hover{
+    color: rgb(25, 232, 18);
+}
+.logout{
+    display: flex;
+}
+.accountSettings{
+    display: flex;
+    justify-content: space-between;
+}
+.introduction{
+    display: flex;
+    justify-content: space-between;
+}
+.businessProfile{
+    display: flex;
+    border-bottom: 1px solid black;
+}
+.accountSettings{
+    display: flex;
+    border-bottom: 1px solid black;
+}
+.intoNav{
+    padding-left: 10px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+.intro1{
+    border-bottom: 1px solid black;
+}
+.navs h3{
+    margin-top: 19px;
+    margin-bottom: 3px;
+    color: rgb(0, 0, 0);
+}
+.home2{
+    display: flex;
+    margin-left: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.home-container{
+    color: #000000;
+}.home-container h2{
+    color: #000000;
+    
+}
+@media (max-width: 480px) {
+    .headerContainer {
+        padding: 5px;
+    }
+.home2{
+    display: block;
+}
+.home3{
+    display: none;
+}
+    .profile-pic {
+        height: 35px;
+        width: 35px;
+    }
+.a2{
+    margin-top: -10px;
+}
+.a3{
+    margin-top: -10px;
+}
+.a4{
+    margin-top: -5px;
+}
+.a5{
+    margin-top: -10px;
+}
+
+    .profile-name {
+        font-size: 12px;
+    }
+
+    .userNav-container {
+        margin-top: 50px;
+        padding: 10px;
+        
+
+
+    }
+
+    .navs {
+        font-size: 12px;
+        padding: 6px;
+       
+    }
+
+    .membership,
+    .businessProfile,
+    .accountSettings {
+        padding: 5px;
+    }
+    .navs h3{
+        margin-top: 14px;
+        margin-bottom: 3px;
+        color: white;
+    }
+    .usernav{
+        display:none;
+    }
+    .arrow{
+        display: none;
+    }
+    .headerContainer{
+        display: none;
+    }
+}

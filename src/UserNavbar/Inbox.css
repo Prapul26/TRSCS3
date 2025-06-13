@@ -1,0 +1,315 @@
+.inbox-container{
+    margin: 20px;
+    
+
+}
+.colorButton{
+  background-color:  #005a9e;
+}
+.inbox-container select{
+    height: 40px;
+    width: 400px;
+}
+.messageInbox{
+display: flex;
+justify-content: space-around;
+width: 100%;
+background-color: white;
+
+}
+.contactInfo{
+  display: flex;
+}
+
+.contact-icon{
+  margin-top: 13px;
+  margin-right: 10px;
+}
+.contactInfo p{
+  font-size: 14px;
+
+}
+
+.collapseButton{
+  width: 100%;
+  background-color: white;
+  display: flex;
+}
+.collapseButton button{
+  margin-left: 20px;
+}
+.mI1{
+width: 30%;
+}
+.mI2{
+  width: 30%;
+}
+.mI3{
+  width: 30%;
+  margin-bottom: 15px;
+}
+.messageInbox select{
+  width: 100%;
+}
+.inbox-holder {
+    margin-left: 0px ;
+    padding: 20px;
+    background-color: white;
+   
+   
+   
+    
+    font-family: Arial, sans-serif;
+  }
+  .pictime{
+display: flex;
+  }
+  .pic55{
+    display: flex;
+  }
+  .time55{
+display: flex;
+margin-left: 20px;
+  }
+  .time55Clock{
+margin-top: 17px;
+
+  }
+  .time55days{
+margin-left: 5px;
+  }
+  .time55days p{
+    font-size: 13px;
+    margin-top: 18px;
+  }
+  .pic55img{
+    height: 25px;
+    width: 25px;
+ 
+    margin-top: 13px;
+  }
+  .pic55name{
+    margin-left: 5px;
+  }
+  .pic55name p{
+    font-size: 13px;
+    margin-top: 18px;
+  }
+  .pic55img img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+  .pic66{
+    display: flex;
+  }
+  .pic66img{
+    height: 25px;
+    width: 25px;
+  
+    margin-top: 13px;
+  }
+  .pic66name{
+    margin-left: 5px;
+  }
+  .pic66name p{
+    font-size: 13px;
+    margin-top: 18px;
+  }
+  .pic66img img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+  .replyBump{
+    display: flex;
+    margin-right: 5px;
+  }
+  .replyBump button{
+    margin-right: 5px;
+  }
+  .inbox{
+    padding: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+
+    overflow-x: auto;
+    text-overflow: inherit;
+  }
+  
+  thead tr {
+    background-color: #0078d4;
+    color: #fff;
+  }
+  
+  thead td {
+    font-weight: bold;
+    padding: 5px 5px;
+    text-align: left;
+  }
+  
+  tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tbody td {
+    padding: 5px;
+    vertical-align: top;
+  }
+  
+  tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  h3, h4 {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  h3 {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  h4 {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  button {
+    padding: 8px 12px;
+    margin: 5px 0;
+    background-color: #005a9e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  button:hover {
+    background-color: #005a9e;
+  }
+  
+  button:active {
+    background-color: #003c6d;
+  }
+  
+  td p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+  .messageInbox button{
+    background-color: orange;
+    margin-top: 50px;
+  }
+  
+  td p svg {
+    vertical-align: middle;
+    margin-right: 5px;
+    color: #0078d4;
+  }
+  
+  td:last-child p {
+    color: #555;
+  }
+  
+  tbody td:last-child {
+    font-size: 0.9rem;
+  }
+  .inbox-holder {
+    overflow-x: auto; /* Enables horizontal scrolling if content overflows */
+  }
+  
+  table {
+    width: 100%;
+    table-layout: auto; /* Allows columns to adjust their width based on content */
+    word-wrap: break-word; /* Break long words to fit within cells */
+  }
+  
+  td, th {
+    word-break: break-word; /* Break long text within cells */
+  }
+  
+  thead td {
+    font-size: 0.9rem; /* Adjust header font size for better readability on small screens */
+  }
+  
+  tbody td {
+    font-size: 0.85rem; /* Adjust body font size for mobile view */
+  }
+  .IBPPP{
+    width: 100%;
+    display: flex;
+    background-color: rgb(218, 217, 216);
+  }
+  .IBPP{
+    width: 85%;
+    margin-left: 19%;
+    background-color: rgb(218, 217, 216);
+    
+  }
+  
+  .mailInbox-Mobile{
+    background-color: #003c6d;
+    display: none;
+  }
+  .mI3 button{
+    background-color:  #eeba2b;
+  }
+  .mobMenu331{
+    display: none;
+   }
+   .timeStar{
+    margin-top: 18px;
+    margin-left: 10px;
+    color:  #eeba2b;
+   }
+   .messh4{
+width: 230px;
+height: 20px;
+color: #000000;
+ white-space: nowrap;
+ overflow: hidden;
+
+   }
+   .message{
+    justify-content: space-between;
+    width: 390px;
+   }
+  @media (max-width: 480px){
+   .IBPP{
+    margin-left: 0%;
+    width: 100%;
+  
+   }
+   .mobMenu331{
+    display: block;
+    
+   }
+     .messageInbox{
+      display: flex;
+      flex-direction: column;
+     }
+     .mI1{
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+     }
+     .mI2{
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+     }
+     .mI3{
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+     }
+  }
+  

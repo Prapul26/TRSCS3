@@ -1,0 +1,308 @@
+.businessProfileButton{
+margin: 20px;
+}
+.createBusinessProfileContainer{
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+}
+.businessInformation {
+margin-bottom: 1px solid black;
+}
+.businessInformation h2{
+    margin-bottom: 20px;
+}
+.businessInformation-holder{
+
+}
+.cp-holder{
+    display: flex;
+    justify-content: space-between;
+}
+.category{
+width: 49%;
+}
+.Phone{
+    width: 50%;
+}
+
+.titleInput{
+
+}
+.profileInput{
+
+}
+.phone-Holder{
+    display: flex;
+    height: 42px;
+    
+    width: 100%;
+}
+.phone-Holder select{
+width: 10%;
+}
+.phone-Holder input{
+    width: 59%;
+    margin-top: -10px;
+}
+.cbpbc{
+    background-color: rgb(218, 217, 216);
+    height: fit-content;
+    width: 75%;
+    margin-left: 20%;
+}
+.EAHolder{
+display: flex;
+justify-content: space-between;
+}
+.eMail{
+width: 49%;
+}
+.aDDress{
+width: 50%;
+}
+
+.scz{
+display: flex;
+justify-content: space-between;
+}
+.StateHolder{
+width: 29%;
+}
+.cityHolder{
+    width: 29%;
+}
+.ZipCodeHolder{
+    width: 29%;
+}
+.overbc{
+    display: flex;
+    background-color: rgb(218, 217, 216);
+    
+}
+.awda{
+margin-top: 20px;
+background-color: aqua;
+height:400px;
+}
+.ListDetails{
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+}
+.ldh{
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+.businessInformation-holder input{
+margin-top: 10px;
+margin-bottom: 10px;
+height: 30px;
+width: 100%;
+}
+.scz select{
+    margin-top: 10px;
+    height: 39px;
+    width: 100%;
+}
+.ListDetails textarea{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 110px;
+}
+.ListDetails input{
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.iav{
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+}
+.iavh2{
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.AVholder{
+display: flex;
+justify-content: space-between;
+}
+.TBholder{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.thubnail{
+width: 50%;
+}
+.banner{
+    width: 50%;
+   
+}
+.businessInformation-holder span{
+    color: red;
+}
+.ListDetails span{
+    color: red;
+}
+.iav span{
+    color: red;
+}
+.iav input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.aiHolder{
+width: 50%;
+}
+.VideoHolder{
+    width: 50%;
+
+}
+.aiHolder button{
+    background-color: orange;
+}
+.VideoHolder button{
+    background-color: orange;
+}
+.slHolder{
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+}
+.slh2{
+    
+    border-bottom: 1px solid black;
+}
+.yy-container{
+display: flex;
+justify-content: space-between;
+}
+.Ft-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.lb-container{
+    display: flex;
+    justify-content: space-between;
+}
+.slHolder input{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 96%;
+    height: 35px;
+}
+.faceHolder{
+    width: 50%;
+
+}
+.twitHolder{
+    width: 50%;
+   
+}
+.AFHolder{
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+}
+.AFHolder input{
+    width: 100%;
+    height: 35px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.AFHolder select{
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.AFHolder textarea{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 150px;
+}
+.SaveForm{
+    text-align: center;
+margin-bottom: 40px;
+}
+.SaveForm button{
+    padding-left: 39px;
+    padding-right: 39px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: orange;
+}
+@media(max-width:480px){
+    .cbpbc{
+        width: 100%;
+        margin: 0px;
+    }
+    .EAHolder{
+        flex-direction: column;
+
+    }
+    .eMail{
+width: 100%;
+    }
+    .aDDress{
+        width: 100%;
+    }
+    .cp-holder{
+        flex-direction: column;
+    }
+    .category{
+        width: 100%;
+    }
+    .Phone{
+        width: 100%;
+    }
+    .scz{
+        flex-direction: column;
+    }
+    .scz select{
+        margin-top: 10px;
+      
+    }
+    .StateHolder{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .cityHolder{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .ZipCodeHolder{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .TBholder{
+        flex-direction: column;
+    }
+    .AVholder{
+        flex-direction: column;
+    }
+    .yy-container{
+flex-direction: column;
+    }
+    .Ft-container{
+        flex-direction: column;
+    }
+    .lb-container{
+        flex-direction: column;
+    }
+    .faceHolder{
+        width: 100%;
+    
+    }
+    .twitHolder{
+        width: 100%;
+       
+    }
+}

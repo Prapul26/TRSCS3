@@ -1,0 +1,227 @@
+.payment-holder{
+    width: 70%;
+    margin-top: 100px;
+    border-radius: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+    height:fit-content;
+    margin-bottom: 70px;
+background-color: white;
+    padding: 20px;
+    box-shadow: 10px 5px 5px rgb(167, 160, 160);
+    
+
+}
+.paymentContainer{
+    background: linear-gradient(to right, rgb(191, 215, 215), rgb(191, 215, 215));
+}
+.payh{
+    background-color: rgb(54, 54, 202);
+    margin-top: -10px;
+    height: 80px;
+    text-align: center;
+
+}
+.ph41{
+    padding-top:3px;
+   
+}
+.ph41 h1{
+     color: white;
+}
+.payn{
+    display: flex;
+   margin-top: 20px;
+}
+.firstn{
+width: 50%;
+margin-top: 20px;
+display: flex;
+flex-direction: column;
+}
+.lastn{
+    width: 50%;
+    margin-top: 20px;
+    display: flex;
+flex-direction: column;
+}
+.address{
+    display: flex;
+    margin-top: 20px;
+}
+.emailn{
+    width: 50%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.street{
+    width: 50%;
+    margin-top: 20px;
+    display: flex;
+flex-direction: column;
+}
+.city{
+    display: flex;
+    margin-top: 20px;
+}
+.cityn{
+    width: 50%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.state{
+    width: 50%;
+    margin-top: 20px;
+    display: flex;
+flex-direction: column;
+}
+.code{
+    display: flex;
+    margin-top: 20px;
+}
+.pin{
+    width: 50%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.Mobile{
+    width: 50%;
+    margin-top: 20px;
+    display: flex;
+flex-direction: column;
+}
+.code input{
+    width: 80%;
+    height: 28px;
+    border-radius: 10px;
+
+}
+.city input{
+    width: 80%;
+    height: 28px;
+    border-radius: 10px;
+
+}
+.address input{
+    width: 80%;
+    height: 28px;
+    border-radius: 10px;
+
+}
+.payn input{
+    width: 80%;
+    height: 28px;
+    border-radius: 10px;
+ 
+}
+.payment-holder label{
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.cardp{
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+}
+.card {
+    display: flex;
+    background-color: rgb(253, 252, 253);
+    border: 1px solid black;
+    width: 80%;
+    border-right: 1px solid black;
+}
+.cardn{
+    width: 70%;
+}
+.cardn input{
+    width: 100%;
+    border: transparent;
+    height: 28px;
+}
+.cardy{
+    width: 10%;
+    border: transparent;
+}
+.cardm{
+    width: 10%;
+    border: transparent;
+}
+.cardd{
+    width: 10%; 
+    border-right: 1px solid black;
+}
+.cardd input{
+    width: 100%;
+    border: transparent;
+    height: 28px;
+}
+.cardy input{
+    width: 100%;
+  border: 1px solid white;
+    height: 28px;
+    outline: none;
+}
+.cardm input{
+    width: 100%;
+    border: transparent;
+    border: 1px solid white;
+    height: 28px;
+    outline: none;
+}
+.cardm input:focus {
+    border: 1px solid white; /* Ensures the border remains the same on focus */
+    outline: none; /* Prevents any additional outline */
+}
+.cardy input:focus {
+    border: 1px solid white; /* Ensures the border remains the same on focus */
+    outline: none; /* Prevents any additional outline */
+}
+.cardd input:focus {
+    border: 1px solid white; /* Ensures the border remains the same on focus */
+    outline: none; /* Prevents any additional outline */
+}
+.cardn input:focus {
+    border: 1px solid white; /* Ensures the border remains the same on focus */
+    outline: none; /* Prevents any additional outline */
+}
+.stripe{
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.stripe button{
+    padding: 15px;
+    border-radius: 10px;
+    width: 200px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 900;
+background-color: orange;
+}
+@media(max-width:480px){
+    .payn{
+        flex-direction: column;
+    }
+    .address{
+        flex-direction: column;
+    }
+    .city{
+        flex-direction: column;
+
+    }
+    .code{
+        flex-direction: column;
+
+    }
+    .firstn ,.lastn,.emailn,.street,.cityn,.state,.pin,.code,.Mobile{
+        width: 100%;
+    }
+    .payment-holder{
+      margin-left: 10%;
+    }
+}

@@ -1,0 +1,225 @@
+.overH{
+    display: flex;
+    background-color: rgb(218, 217, 216);
+}
+.fz1{
+    
+    height:100%;
+    margin: 0px;
+    width: 85%;
+  margin-left: 19%;
+
+}
+.profileContainer1{
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+}
+.pc11{
+width: 70%;
+
+}
+.pc12{
+width: 30%;
+
+}
+.nameInput{
+width: 100%;
+border: 1px solid black;
+background-color: white;
+display: flex;
+margin-top: 10px;margin-bottom: 20px;
+}
+
+.phoneInput{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    border: 1px solid black;
+    margin-top: 10px;margin-bottom: 20px;
+}
+.emailInput{
+    width: 100%;
+    border: 1px solid black;
+    background-color: white;
+    display: flex;
+    margin-top: 10px;margin-bottom: 20px;
+   
+   
+}
+.phone{
+    width: 46%;
+}
+.email{
+    width: 50%;
+    
+}
+.addressInput{
+    width: 100%;
+    border: 1px solid black;
+    background-color: white;
+    display: flex;
+    margin-top: 10px;margin-bottom: 20px;
+}
+.nameInput input,.addressInput input{
+    height: 30px;
+    width: 95%;
+    border: transparent;
+}
+.pc111{
+    display: flex;
+   
+   justify-content: space-between;
+}
+.textArea{
+    height: 120px;
+    width: 100%;
+    margin-top: 10px;margin-bottom: 20px;
+}
+.pc11 label{
+    margin-bottom: 20px;
+}
+.phoneInput input,.emailInput input{
+    width: 100%;
+    border: transparent;
+}
+.proPic{
+background-color: black;
+height: 240px;
+margin-left: 20%;
+margin-right: 20%;
+width: 60%;
+justify-content: center;
+align-items: center;
+margin: 60px;
+}
+
+.update1,.update2{
+    justify-content: center;
+    align-items: center;
+    margin-left: 40%;
+    margin-right: 50%;
+   
+}
+.update1 button .update2 button{
+    background-color: orange;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.prc1{
+    background: white;
+    margin: 20px;
+}
+.profileContainer2{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+background-color: white;
+    margin-bottom: 0px;
+    padding: 20px;
+
+}
+.changeph1{
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+.currentnewp{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+.current{
+    width: 48%;
+   
+    
+}
+.new{
+    width: 48%;
+}
+.confirm{
+    width: 70%;
+}
+.currentInput ,.newInput,.confirmInput {
+    display: flex;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+   background-color: white;
+}
+.currentInput input,.newInput input{
+    width: 90%;
+    height: 30px;
+    border: transparent;
+}
+
+.confirmInput input{
+    width: 90%;
+    height: 30px;
+    border: transparent;
+}
+.additionalImages-container{
+    display: flex;
+    justify-content: space-between;
+}
+.additionalImages-holder{
+    margin-left: 20px;
+}
+
+@media (max-width:480px) {
+
+    .profileContainer1{
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.contacts-container{
+
+}
+.pc11{
+    width: 100%;
+    
+    }
+    .pc12{
+    width: 100%;
+    
+    }
+    .fz1{
+    
+        height:100%;
+        margin: 0px;
+        width: 100%;
+        display: flex;
+   flex-direction: column;
+    }
+    .alfa{
+        
+    }
+    .pc111{
+        display: flex;
+        flex-direction: column;
+    }
+    .phone{
+        width: 100%;
+    }
+    .email{
+        width: 100%;
+    }
+    .currentnewp{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .current{
+        width: 100%;
+        
+    }
+    .new{
+        width: 100%;
+    }
+    .confirm{
+        width: 100%;
+    }
+}

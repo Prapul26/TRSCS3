@@ -1,0 +1,142 @@
+.bpackage{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+.affTable{
+    
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+}
+.affTable table thead {
+    background-color: black;
+}
+
+.affTable table thead th {
+    color: white; /* Ensures text is visible */
+    padding: 10px;
+}
+.spackage{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.bpackage button{
+    background-color: rgb(28, 222, 28);
+    border-radius: 5px;
+}
+.spackage button{
+    background-color: rgb(28, 222, 28);
+    border-radius: 5px;
+}
+.affdiv{
+    display: flex;
+    margin-top: 15px;
+    width: 100%;
+}
+.affdiv1{
+width: 50%;
+}
+.affdiv2{
+    width: 50%;
+    margin-top: -3px;
+}
+.affdiv1 input{
+    width: 88%;
+    height: 30px;
+
+}
+
+.bpack{
+margin-left: 20px;
+margin-bottom: 30px;
+display: flex;
+width: 100%;
+
+}
+.spack{
+    margin-left: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    width: 100%;
+ 
+}
+.bpack input{
+height: 40px;
+width: 100%;
+
+}
+.spack input{
+    height: 40px;
+    width: 100%;
+}
+.myAffiliationCOntainer{
+    width: 85%;
+}
+.dd-holder{
+    background-color: white;
+    width: 96%;
+    padding: 1px;
+ 
+    margin-left: 2%;
+    margin-top: 20px;
+}
+.status-toggle {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.status-label {
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.status-label.active {
+  background-color: #28a745; /* Green */
+}
+
+.status-label.inactive {
+  background-color: #dc3545; /* Red */
+}
+@media(max-width:480px){
+    .affTable{
+        overflow-x: auto;
+        width: 100%;
+        margin-left: -15%;
+    }
+    .dd-holder{
+        background-color: white;
+        width: 100%;
+        padding: 1px;
+        text-align: center;
+        margin-left: -13%;
+        margin-top: 20px;
+    }
+    .affdiv{
+      flex-direction: column;
+    }
+    .affdiv1{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .affdiv2{
+        justify-content: center;
+    }
+    .affdiv1 input{
+        width: 100%;
+    }
+    .myAfflilationPage{
+    width: 100%;
+    }
+    .affili{
+        width: 100%;
+    }
+}

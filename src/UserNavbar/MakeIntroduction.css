@@ -1,0 +1,300 @@
+.crub{
+    background-color: aqua;
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+    padding: 1px;
+    background: #27479e;
+    color: rgb(251, 251, 251);
+}
+
+.info-holder{
+    margin-top: 30px;
+    padding: 20px;
+    margin-bottom: 30px;
+    width: 90%;
+    margin-right: 5%;
+    border-radius: 5px;
+   
+    margin-left: 5%;
+  
+height: fit-content;
+
+}
+.prevIntro{
+    margin-right: 100px;
+    margin-top: 10px;
+}
+.toSelect{
+    width: 80.7%;
+    height: 40px;
+    margin-top: 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.searchInput{
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.checkbox-list{
+
+    height: 200px;
+    overflow-y: auto;
+    width: 80%;
+    overflow-x: auto;
+}
+.info-holder label{
+    font-weight: 700;
+    font-size: larger;
+    font-family:sans-serif;
+}
+.selected-emails{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.selected-emails h4{
+    color: black;
+    font-size: larger;
+}
+.email-item{
+display: flex;
+
+
+
+padding: 5px;
+
+
+}
+.email-item button{
+    height: 5px;
+    padding: 0px;
+    background-color: red;
+}
+.templateSelect{
+    width: 80.7%;
+    height: 40px;
+    margin-top: 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.subjectInput{
+    width: 80%;
+    height: 40px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+.messageText{
+    width: 80%;
+    height: 150px;
+    margin-top: 15px;
+    margin-bottom: 80px;
+}
+.formButtons{
+    display: flex;
+ float: right;
+  margin-right:20%;
+    margin-top: -40px;
+}
+.checkbox-item img{
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+    margin-top: -10px;
+    margin-left: 5px;
+    margin-right: 10px;
+    }
+    .checkbox-item input{
+        margin-top: 30px;
+        
+    }
+    .spandiv{
+        display: flex;
+        margin-left: 20px;
+     
+        margin-top: -30px;
+        margin-bottom: 30px;
+    }
+    .spandiv h4{
+        color: black;
+        
+    }
+    .spandiv h3{
+        color: black;
+    }
+    .spamData{
+margin-left: 20px;
+word-wrap: break-word;
+    }
+    .spamImg{
+        width: 40px;
+    }
+    .spamImg image{
+        width: 100%;
+    }
+    .emailSpan{
+        word-wrap: break-word;
+        line-break: auto;
+    }
+    .addContacts{
+        height: fit-content;
+     
+        width: 40%;
+        margin-top: -440px;
+        margin-right: 20%;
+        margin-left: 20%;
+        background-color: #d2daf9;
+        position: fixed;
+        border-radius: 5px;
+    }
+    .addContacts h3{
+        color: black;
+    }
+    .addContacts input{
+        height: 30px;
+        border-radius: 5px;
+    }
+    .lastbutton{
+        justify-content: space-between;
+    }
+    .manageHeadingTEmplate{
+        width: 80%;
+    }
+    .scroll{
+        cursor: pointer;
+        background-color: #27479e;
+        color: white;
+        width: fit-content;
+        padding: 5px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .selected-user-info{
+   margin-left: 50px;
+        text-align: left;
+        justify-content: left;
+        float: left;
+        align-items: left;
+    }
+   
+    .movecorner{
+        justify-content: space-between;
+        padding-top: 10px;
+        padding-right: 7px;
+        display: flex;
+        width: 80%;
+            background-color: rgb(230, 242, 239);
+            border-bottom: 1px solid rgb(35, 35, 35);
+           
+            margin-top: 3px;
+    }
+    
+    .colorCOrner :hover{
+ background-color: #ffffff;
+ cursor: pointer;
+
+    }
+    .colorCOrner{
+        padding: 5px;
+    }
+@media(max-width:480px){
+    .info-holder{
+        margin-top: 30px;
+        padding: 20px;
+        margin-bottom: 30px;
+        width: 80%;
+       margin-left: 6%;
+       margin-right: 10%;
+        border-radius: 10px;
+       
+        
+       
+    height: fit-content;
+    } 
+    .searchInput{
+        width: 100%;
+    }
+    .templateSelect{
+        width: 100%;
+    }
+    .manageHeadingTEmplate{
+        width: 100%;
+    }
+    .prevIntro{
+        margin-right: 0px;
+        margin-top: 15px;
+    }
+    .checkbox-list{
+        background-color: rgb(212, 223, 220);
+        height: 200px;
+        overflow-y: auto;
+       overflow-x: scroll;
+        width: 100%;
+    }
+    .spandiv{
+        display: flex;
+    }
+    .spamData{
+      
+      width: 70%;
+            }
+            .spamImg{
+                width: 30%;
+               
+            }
+            .spamImg image{
+               
+            }
+            .emailSpan{
+              
+            }
+            .addContacts{
+                height: fit-content;
+             
+                width: 90%;
+                margin-top: -200px;
+                margin-right: 0%;
+                margin-left: -6%;
+                background-color: #d2daf9;
+                position: fixed;
+            }
+            .addContacts input{
+                height: 30px;
+            }
+            .email-item{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                background-color: rgb(255, 255, 255);
+                padding: 5px;
+                
+                
+                }
+                .selected-user-photo{
+width: 30%;
+                }
+                .selected-user-info{
+                    width: 100%;
+                    word-break: normal;
+                    margin-left: -10px;
+                   
+                }
+                .lastbutton{
+                    flex-direction: column;
+                }
+            .formButtons{
+                margin-top: 20px;
+            }
+            .toSelect{
+                width: 100%;
+            }
+            .subjectInput{
+                width: 100%;
+            }
+            .messageText{
+                width: 100%n;
+            }
+}

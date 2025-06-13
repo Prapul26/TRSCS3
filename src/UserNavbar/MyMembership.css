@@ -1,0 +1,184 @@
+.OMH{
+    width: 100%;
+    display: flex;
+   
+}
+.myMembership-button{
+    margin-left: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.myMembership-container{
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+    border: 1px solid rgb(194, 191, 191);
+    border-radius: 9px;
+    background: white;
+}
+
+.membershipH1{
+    
+    border-bottom: 1px solid rgb(194, 191, 191);
+    width: 100%;
+}
+.membershipH1 h1{
+    margin-left: 10px;
+    color: rgb(244, 163, 12);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.memtable{
+    display: flex;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+.t1{
+    width: 50%;
+    border: 1px solid rgb(194, 191, 191);
+    background-color: white;
+    font-weight: 600;
+}
+.t2{
+    width: 50%;
+    background-color: white;
+    font-weight: 600;
+    border: 1px solid rgb(194, 191, 191);
+}
+.m1t1{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+.m1t2{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+.m1t3{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}.m1t4{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+.m2t1{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+.m2t2{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+.m2t3{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+.m2t4{
+    border-bottom: 1px solid rgb(194, 191, 191);
+    padding: 5px;
+}
+.fz2{
+    width: 100%;
+    height: 100vh;
+    margin-left: 20%;
+    
+}
+.OMH {
+    background-color: rgb(236, 235, 234);
+}
+
+.mymembershipTable {
+    width: 100%;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.table-container {
+    width: 80%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    background-color: rgb(255, 255, 255);
+    display: block; /* Ensures it scrolls independently */
+
+}
+
+table {
+    width: 100%;
+    min-width: 600px; /* Ensures table doesn't shrink too much */
+    border-collapse: collapse;
+}
+
+thead td {
+    background: #ddd;
+    font-weight: bold;
+    white-space: nowrap; /* Prevents text from breaking */
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+tbody td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    white-space: nowrap; /* Keeps text in one line */
+}
+
+td button {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.mobMenu33{
+    display: none;
+}
+@media(max-width:480px){
+    .myMembership-container{
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .mobMenu33{
+        display:block;
+    
+    }
+
+    
+    .mobMenuaa{
+        display: flex;
+        width: 100vw;
+        overflow: hidden;
+      
+    }
+    .c-header{
+        margin-left: 10%;
+    }
+    .table-container {
+        width: 100%;
+        overflow-x: auto; 
+        background-color: rgb(255, 255, 255);
+    }
+ 
+    .fz2{
+        width: 100%;
+        height: 100vh;
+        margin: 0px;
+    }
+    .OMH{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (max-width: 1000px) {
+    .myMembership-container{
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .fz2{
+        width: 100%;
+        height: 100vh;
+        margin: 0px;
+    }
+}

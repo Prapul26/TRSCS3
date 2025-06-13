@@ -1,0 +1,126 @@
+.mobnav{
+    display: none;
+}
+@media(max-width:480px){
+    .mobnav{
+        display: block;
+    background-color: rgb(28, 41, 181);
+    width:100%;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    height: fit-content;
+display: flex;
+justify-content: space-between;
+    }
+    .mobMenu.open {
+        left: 0; /* Slide in */
+    }
+    .mobnavPic.hidden {
+        display: none;
+    }
+    .profile-name.hidden{
+        display: none;
+    }
+    .mobnav.move{
+        margin-left:0%;
+    }
+    .mobnavPic{
+        margin-right: 20px;
+        height: 50px;
+        width: 50px;
+        background-color: aliceblue;
+        border-radius: 50%;
+        margin-top: 5px;
+    }
+    .mobnavPic img{
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+    }
+    .mobnav h2{
+ color: white;
+        font-size: large;
+    }
+    .menuButton{
+        margin: 20px;
+    }
+    .mobMenu{
+        height: 100%;
+        width: 70%;
+        background-color: rgb(236, 232, 232);
+   position: absolute;
+        margin-top: -5px;
+    }
+    .proPic2{
+        display: flex;
+        justify-content: space-between;
+    }
+    .picImage{
+        height: 80px;
+        border-radius: 50%;
+         margin-left: 32%;
+    }
+    .picImage img{
+        height: 100%;
+        border-radius: 50%;
+    }
+    .pic4{
+       width: 90%;
+        margin-top: 20px;
+    }
+    .userName{
+        width: 100%;
+        word-wrap: break-word; /* Ensures long words break */
+        overflow-wrap: break-word; /* Additional support for breaking words */
+        white-space: normal; 
+        padding: 10px;/* Allows text to wrap */
+        text-align: center;
+    }
+    .userName h2{
+        color: white;
+        font-size: large;
+        margin-top: 0px;
+    }
+    .home4{
+display: flex;
+padding: 10px;
+    }
+    .myMembership4{
+        display: flex;
+        padding: 10px;
+        margin-top: -10px;
+    }
+    .myProfile4{
+        display: flex;
+        padding: 10px;
+        margin-top: -10px;
+    }
+    .logout4{
+        display: flex;
+        padding: 10px;
+        margin-top: -10px;
+    }
+    .introduction4{
+        display: flex;
+        padding: 10px;
+        margin-top: -10px;
+        justify-content: space-between;
+    }
+    .introduction41{
+        display: flex;
+        padding: 10px;
+        margin-top: 10px;
+        justify-content: space-between;
+    }
+    .affiliation4{
+        display: flex;
+        padding: 10px;
+        margin-top: -10px;
+    }
+    .myaffiliation4{
+        display: flex;
+        padding: 10px;
+        margin-top: -10px;
+    }
+
+}

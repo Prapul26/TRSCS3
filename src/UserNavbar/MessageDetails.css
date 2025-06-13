@@ -1,0 +1,158 @@
+.mdppp{
+    width: 100%;
+    display: flex;
+    background-color: rgb(218, 217, 216);
+  }
+  .mdpp{
+    width: 85%;
+    margin-left: 19%;
+    background-color: rgb(218, 217, 216);
+    
+  }
+  .messageDetails-container{
+    margin:20px;
+    background-color: white;
+  }
+  .select-holder{
+  padding: 10px;
+    display: flex;
+  }
+  .toHolder select{
+height: 30px;
+
+width: 200px;
+  }
+  .templateHolder{
+    margin-left: 40px;
+  }
+  .emailTemplateInput{
+    height: 30px;
+display: flex;
+border: 1px solid black;
+justify-content: space-between;
+    width: 200px;
+  }
+  .templateSetHolder{
+    
+background-color: aliceblue;
+width: 200px;
+  }
+  .templateSetHolder input{
+    margin-top: 10px;
+    height: 23px;
+width: 90%;
+margin-left: 4%;
+margin-right: 5%;
+  }
+  .templateSetHolder button{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .messageRead{
+    padding: 10px;
+  }
+  .messageRead textarea {
+    margin-top: 10px;
+    width: 80%;
+    height: 150px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.signature{
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+}
+.button-container button {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+ 
+    cursor: pointer;
+} 
+.checkbox-container{
+    display: flex;
+}
+.messageHeader{
+   width: 94%;
+   margin-left: 2%;
+   padding-top: 15px;
+   margin-right: 4%;
+}
+.headerHeading{
+    padding: 10px;
+    width: 100%;
+  
+    background-color: #faf7f7;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(103, 102, 102);
+}
+.MessageInDetail{
+    padding: 10px;
+    width: 100%;
+}
+.mpicmname{
+    display: flex;
+}
+.mPic{
+    width: 40px;
+    height: 40px;
+    background-color: #0d6efd;
+    border-radius: 50%;
+}
+.mPic img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+.mName{
+    margin-left: 10px;
+    margin-top: -13px;
+}
+.mdate{
+    margin-top: -12px;
+}
+.messageData{
+    margin-bottom: 3px;
+    border-bottom: 1px solid rgb(103, 102, 102);
+}
+.hoverall :hover{
+    background-color: #ccc;
+}
+.hoverall{
+    margin-bottom: 10px;
+}
+  @media (max-width: 480px){
+    .mdpp{
+     margin-left: 0%;
+     width: 100%;
+    }
+    .select-holder{
+        padding: 10px;
+          display: flex;
+          flex-direction: column;
+        }
+        .templateHolder{
+margin-left: -0%;
+
+margin-top: 20px;
+        }
+        .templateSetHolder button{
+            width: 90%;
+           
+          }
+          .emailTemplateInput{
+            width: 300px;
+          }
+          .toHolder select{
+            width: 300px;
+          }
+          .templateSetHolder{
+            width: 300px;
+          }
+}

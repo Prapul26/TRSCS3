@@ -1,0 +1,12 @@
+.mobnav2e{
+    display: none;
+}
+@media(max-width:480px){
+.mobnav2e{
+    width: 270px;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    display: block;
+   
+}
+}

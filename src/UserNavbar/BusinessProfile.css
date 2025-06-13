@@ -1,0 +1,56 @@
+.businessButton{
+    margin: 20px;
+    float: right;
+    
+}
+.activeStatus{
+    padding: 20px;
+    margin-left: 20px;
+    margin-top: 70px;
+    width: 90%;
+background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.activeStatus-holder{
+    display: flex;
+    
+    border-bottom: 1px solid black;
+    padding: 20px;
+}
+.active, .inactive {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    margin-left: 20px;
+  }
+.result{
+    padding: 20px;
+    color: red;
+    margin-bottom: 20px;
+}
+.selected {
+    border-top: 1px solid black;
+  }
+  .BPP{
+    width: 75%;
+    height: 100vh;
+    margin-left: 20%;
+  }
+  .BPPPPP{
+    width: 100%;
+    display: flex;
+    background-color: rgb(218, 217, 216);
+    
+  }
+  @media (max-width: 480px){
+    .activeStatus{
+   margin-left: 5%;
+   width: 80%;
+    }
+    .BPP{
+      width: 100%;
+      height: 100vh;
+      margin: 0px;
+    }
+  }
