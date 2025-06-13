@@ -295,7 +295,7 @@ const fullImageUrls = additional
                         marginTop: "15px",
                       }}
                     >
-                      My Profile View
+                      My ProfileView
                     </button>
                   </Link>
                 </div>
