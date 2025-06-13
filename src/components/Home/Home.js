@@ -12,7 +12,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import Header from "../Heaader/Header";
-
+import "../"
 const Home = () => {
   const settings = {
     dots: true,
