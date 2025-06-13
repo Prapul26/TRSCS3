@@ -8,6 +8,7 @@ import pic3 from '../assets/abd3.png'
 import happy from '../assets/happy.jpg'
 import Header from '../Heaader/Header';
 import Navbar from '../Navbar/Navbar';
+
 const About_us = () => {
     return (
         <div>

@@ -12,7 +12,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import Header from "../Heaader/Header";
-import "../"
+
 const Home = () => {
   const settings = {
     dots: true,
@@ -38,7 +38,7 @@ const Home = () => {
         <div className="sh2">
           <h2 style={{color:"white"}}>
             TRACS helps you effortlessly connect and make introductions like a
-            champion!
+            champion !
           </h2>
         </div>
 

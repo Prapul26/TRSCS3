@@ -69,10 +69,27 @@ const Email = ( ) => {
       fetchTemplates();
     }, []);
     
-    const handleDelete = (id) => {
-      const updatedTemplates = templates.filter((template) => template.id !== id);
+   const handleDelete = async (id) => {
+  const token = localStorage.getItem("authToken");
+
+  try {
+    await axios.get(
+      `https://tracsdev.apttechsol.com/api/destroy-template/${id}`,
+      
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+  const updatedTemplates = templates.filter((template) => template.id !== id);
       setTemplates(updatedTemplates);
-    };
+  } catch (err) {
+    console.error("Delete failed:", err);
+    setError("Failed to delete the contact.");
+  }
+};
 
   return (
     <div className='mobMenuaa'>

@@ -40,10 +40,28 @@ const Contacts = () => {
     fetchContacts();
   }, []);
 
-  const handleDelete = (id) => {
+const handleDelete = async (id) => {
+  const token = localStorage.getItem("authToken");
+
+  try {
+    await axios.get(
+      `https://tracsdev.apttechsol.com/api/destroy-contact-from-intro/${id}`,
+      
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
     const updatedContacts = contacts.filter((contact) => contact.id !== id);
     setContacts(updatedContacts);
-  };
+  } catch (err) {
+    console.error("Delete failed:", err);
+    setError("Failed to delete the contact.");
+  }
+};
+
   const navigate= useNavigate();
 const handleEdit=(id)=>{
   

@@ -29,14 +29,14 @@ import { ImProfile } from "react-icons/im";
 import { IoIosArrowDropdown, IoIosArrowDropup } from "react-icons/io";
 import { RiContactsFill } from "react-icons/ri";
 import { HiInboxArrowDown } from "react-icons/hi2";
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import axios from "axios";
 import axiosRetry from "axios-retry";
 
-
+import '../GlobalStyles/GlobalStyles.css'
 const AccountSettings = () => {
   const [intro, showIntro] = useState(false);
   const [settings, showSettings] = useState(false);
@@ -183,7 +183,7 @@ const [files, setFiles] = useState([null]); // start with one file input
         setStates(data.states || []);
 
         // 👇 Fix: Set additional image URLs
-const additional = data.additional_images || [];
+const additional = data.total_photos || [];
 const fullImageUrls = additional
   .slice(0, 5) // limit to first 5 images
   .map((img) => 
@@ -191,6 +191,7 @@ const fullImageUrls = additional
   );
 
         setImages(fullImageUrls); // ✅ set them here
+        setTotalPhotos(data.total_photos || []);
 
       } catch (error) {
         console.error("Error fetching profile data:", error);
@@ -259,7 +260,7 @@ const fullImageUrls = additional
 };
 
   
-
+const [totalPhotos, setTotalPhotos] = useState([]);
   return (
     <div className="mobMenuaa">
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
@@ -506,14 +507,15 @@ const fullImageUrls = additional
                   <div className="additionalImages-holder">
                    <div style={{ padding: '20px' }}>
       <h3>Additional Images</h3>
+    
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-        {images.map(( img, index) => (
-          <div key={index}>
+        {images.map(( img) => (
+          <div key={img.id}>
             <img src={img} alt="uploaded" width={150} height={100} />
             <div>
               <button
                 style={{ backgroundColor: 'crimson', color: 'white', marginTop: '5px' }}
-                onClick={() => handleDeleteImage(index)}
+                onClick={() => handleDeleteImage(img.id)}
               >
                 Delete
               </button>
@@ -522,9 +524,9 @@ const fullImageUrls = additional
         ))}
 
         {/* Previews of new selected files only if a file is selected */}
-        {previews.map((preview, index) => (
+        {previews.map((preview,index) => (
           preview && (
-            <div key={index}>
+            <div key={preview.id}>
               <img
                 src={preview}
                 alt={`preview-${index}`}
