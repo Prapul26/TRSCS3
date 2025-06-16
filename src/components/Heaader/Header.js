@@ -293,11 +293,11 @@ const Header = () => {
                       style={{ textDecoration: "none", color: "inherit" }}
                     >
                       <div className="profileDrop">
-                        <h3>My Account</h3>
+                        <p>My Account</p>
                       </div>
                     </Link>
                     <div className="dropLogout" onClick={handleLogout}>
-                      <h3>Logout</h3>
+                      <p>Logout</p>
                     </div>
                   </div>
                 )}

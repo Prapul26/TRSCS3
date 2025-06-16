@@ -172,14 +172,14 @@ useEffect(() => {
   }).map((item, index) => (
                   <div key={item.id} className="inbox">
                     <div classname="headingIntro">
-                      <h3>{item.subject}</h3>
+                      <h5 style={{fontSize:"18px" ,fontWeight:"700"}}>{item.subject}</h5>
                     </div>
                     <div className="pictime">
                       <div className="pic55">
                         <div className="pic55img">< img  src={item.sender_full_image}/>
                         </div>
                         <div className="pic55name">
-                          <p>{item.sender_full_name}</p>
+                          <span style={{fontSize:"14px !important"}}>{item.sender_full_name}</span>
                         </div>
                       </div>
                       <div className="time55">
@@ -187,14 +187,14 @@ useEffect(() => {
                           <FaClock />
                         </div>
                         <div className="time55days">
-                          <p>{Math.floor((Date.now() - new Date(item.created_at)) / (1000 * 60 * 60 * 24))} days ago</p>
+                          <span>{Math.floor((Date.now() - new Date(item.created_at)) / (1000 * 60 * 60 * 24))} days ago</span>
                         </div>
-                       {item.recipients_info.some(recipient=>recipient.replied === false)&&( <div className="timeStar"><IoIosStar color="#eeba2b"/></div>)}
+                       {item.recipients_info.some(recipient=>recipient.replied === false)&&( <div className="timeStar" style={{marginTop:"-0px"}}><IoIosStar color="#eeba2b"/></div>)}
                       </div>
                     </div>
                     {isExpanded && (
                       <div>
-                        <h3>To</h3>
+                        <h5 style={{fontSize:"18px" ,fontWeight:"700"}}>To</h5>
 
                         {/* Sender(s) */}
                         {item.recipients_info.map((recipient, idx) => (
@@ -238,19 +238,19 @@ useEffect(() => {
   </Link>
 )}
                         {/* Message */}
-                        <div><h3>Message</h3></div>
+                        <div><h5 style={{fontSize:"18px" ,fontWeight:"700"}}>Message</h5></div>
                         <div style={{display:"flex"}}>
                           <div className="pic55img">< img src={item.sender_full_image} />
                         </div>
                          <div className="pic55name">
                           <p>{item.sender_full_name}</p>
                         </div></div>
-                       <div className="time55" style={{marginLeft:"1px",marginTop:"-11px"}}>
+                       <div className="time55" style={{marginLeft:"1px",marginTop:"11px"}}>
                         <div className="time55Clock">
                           <FaClock />
                         </div>
                         <div className="time55days">
-                          <p>{Math.floor((Date.now() - new Date(item.created_at)) / (1000 * 60 * 60 * 24))} days ago</p>
+                          <p style={{fontSize:"14px !important"}}>{Math.floor((Date.now() - new Date(item.created_at)) / (1000 * 60 * 60 * 24))} days ago</p>
                         </div>
                       
                       </div>

@@ -8,7 +8,7 @@ font-size: 20px !important;
 }
 h3{
  font-family: "Montserrat", sans-serif  !important;
-font-size: 25px !important;
+font-size: 22px !important;
 }
 h4{
  font-family: "Montserrat", sans-serif  !important;
@@ -17,4 +17,17 @@ h4{
 h1{
      font-family: "Montserrat", sans-serif  !important;
 
+}
+p{
+     font-size: 18px !important;
+}
+label{
+     font-weight: 700;
+     font-size: 18px;
+     font-family: 'Montserrat', sans-serif;
+}
+table thead td {
+    color: #fff !important;
+    padding: 12px 8px !important;
+    background-color: #000 !important; 
 }

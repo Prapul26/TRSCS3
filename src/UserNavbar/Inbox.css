@@ -72,28 +72,31 @@ display: flex;
 margin-left: 20px;
   }
   .time55Clock{
-margin-top: 17px;
+margin-top: 0px;
 
   }
   .time55days{
 margin-left: 5px;
   }
   .time55days p{
-    font-size: 13px;
-    margin-top: 18px;
+    font-size: 14px !important;
+    margin-top: -2px;
+     font-weight: 600;
   }
   .pic55img{
     height: 25px;
     width: 25px;
  
-    margin-top: 13px;
+    margin-top: -5px;
   }
   .pic55name{
     margin-left: 5px;
   }
   .pic55name p{
-    font-size: 13px;
-    margin-top: 18px;
+    font-size: 14px !important;
+    margin-top: 0px;
+    font-weight: 600;
+    margin-bottom: 10px;
   }
   .pic55img img{
     height: 100%;
@@ -102,6 +105,7 @@ margin-left: 5px;
   }
   .pic66{
     display: flex;
+    margin-top: -15px;
   }
   .pic66img{
     height: 25px;
@@ -111,9 +115,10 @@ margin-left: 5px;
   }
   .pic66name{
     margin-left: 5px;
+    
   }
   .pic66name p{
-    font-size: 13px;
+    font-size:14px !important;
     margin-top: 18px;
   }
   .pic66img img{

@@ -19,23 +19,23 @@ const About_us = () => {
             <div className='About_us-container'>
 
                 <div className='a_1'>
-                    <h1>WELCOME TO TRACS</h1>
+                    <ul>WELCOME TO TRACS</ul>
                     <p >At TRACS, we believe in the power of connections. Our platform is designed to be the heartbeat of professional networking, where members come together to forge meaningful relationships, exchange ideas, and unlock new opportunities. Our platform is designed for individuals and businesses seeking meaningful networking experiences.</p>
                 </div>
             
                 <div className='a_3' >
-                    <h1>Who We Are:</h1>
+                    <ul>Who We Are:</ul>
                     <p>We are more than just a networking app; we are a dynamic community of professionals, entrepreneurs, and thought leaders. TRACS is the go-to destination for those who understand the importance of building strong, authentic connections in the business world.</p>
                 </div>
                 <div className='a_4'>
                     <div className='a_41'><img src={pic1} /></div>
-                    <div className='a_42'><h1>Our Mission:</h1>
+                    <div className='a_42'><ul>Our Mission:</ul>
                         <p>Empowering individuals to grow, succeed, and innovate through the strength of their network. We are on a mission to redefine how professionals connect, communicate, and collaborate in today's fast-paced business landscape.</p>
-                        <h1>Our Vision</h1>
+                        <ul>Our Vision</ul>
                         <p>Our platform aims to be the cornerstone of global networking, empowering individuals and enterprises to expand their reach, exchange knowledge, and forge impactful partnerships.</p></div>
                 </div>
                 <div className='a_5'>
-                    <div className='a_51'><h1 >What We Offer:</h1>
+                    <div className='a_51'><ul >What We Offer:</ul>
                         <h3>Effortless Networking:</h3>
                         <p>Connect with like-minded professionals effortlessly through our intuitive platform.</p>
                         <h3>Explore Opportunities:</h3>
@@ -53,7 +53,7 @@ const About_us = () => {
                 </div>
                 <div className='a_6'>
                 <div className='a_62'>
-                        <h1 >Key Features:</h1>
+                        <ul >Key Features:</ul>
                         <h3>Connection Management:</h3>
                         <p>Our intelligent algorithm ensures that you connect with the right people based on your professional goals and interests.</p>
                         <h3>Search and Discovery:</h3>
@@ -67,7 +67,7 @@ const About_us = () => {
                     
                 </div>
                 <div className='a_7'>
-                <h1> Join Us in Building the Future:</h1>
+                <ul> Join Us in Building the Future:</ul>
                 <p>We invite you to be part of a community that values collaboration, innovation, and the limitless possibilities that arise when great minds come together. Whether you're looking for career opportunities, business partnerships, or simply seeking inspiration, TRACS is the catalyst for your success.</p>
                 </div>
             </div>

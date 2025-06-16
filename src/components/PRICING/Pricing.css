@@ -9,8 +9,11 @@ margin-bottom: 20px;
 .ph1{
     height: 80px;
     text-align: center;
-    background: #27479e;
+    background: #163b6d;
     margin-top: -26px;
+}
+.pricing-container p{
+    font-weight: 500;
 }
 .p1h1 h1{
     padding-top: 17px;
@@ -33,7 +36,7 @@ margin-bottom: 20px;
 .pricing-details2 button{
 margin-top: 20px;
 padding: 15px;
-background-color: blue;
+background-color: 163b6d;
 font-weight: 800;
 color: white;
 font-size: larger;

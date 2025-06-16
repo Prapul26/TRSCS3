@@ -44,7 +44,7 @@ const Home = () => {
 
         <div className="network-container">
           <Link to="/makeIntro">
-            <button style={{background:"#eeba2b"}}>Make Introduction Instantly</button>
+            <button className="ncb1" style={{background:"#eeba2b"}}>Make Introduction Instantly</button>
           </Link>
           <Link to="/inbox">
             <button style={{background:"#eeba2b"}} className="bttborder">
@@ -68,7 +68,7 @@ const Home = () => {
           </div>
         </div>
         <div className="line-1">
-          <p>
+          <p style={{fontSize:"18px",fontWeight:"700" }}>
 
             Welcome to <span style={{ color: "#f96b39" }}>TRACS</span>, your
             go-to source for connecting with a diverse community of talented
@@ -82,14 +82,14 @@ const Home = () => {
             <img src='https://tracs.app/public/uploads/website-images/home-img1.jpeg' style={{ width: "100%", height: "100%" }} />
           </div>
           <div className="hd2-details">
-            <h1 style={{textAlign:"center",color:"darkblue",textDecoration:"underline"}}>SUBSCRIBE</h1>
+            <h3 style={{textAlign:"center",color:"#27479e",textDecoration:"underline"}}>SUBSCRIBE</h3>
             <h3 style={{color:"black"}}>Become a part of our growing community!</h3>
-            <p>Joining is easy:</p>
-            <h3>1.Sign up for your 14-day trial</h3>
-            <h3>2.Create your Account</h3>
-            <h3>3.Add your contacts to your account</h3>
-            <h3>4.Start Making Introductions</h3>
-            <h3>5.Use your Dashboard for Results</h3>
+            <p style={{color:"#f96b39",fontWeight:"700"}}>Joining is easy:</p>
+            <p style={{color:"#f96b39",fontWeight:"700"}}>1.Sign up for your 14-day trial</p>
+            <p style={{color:"#f96b39",fontWeight:"700"}}>2.Create your Account</p>
+            <p style={{color:"#f96b39",fontWeight:"700"}}>3.Add your contacts to your account</p>
+            <p style={{color:"#f96b39",fontWeight:"700"}}>4.Start Making Introductions</p>
+            <p style={{color:"#f96b39",fontWeight:"700"}}>5.Use your Dashboard for Results</p>
           </div>
         </div>
        

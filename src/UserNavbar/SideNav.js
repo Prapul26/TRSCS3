@@ -23,6 +23,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { IoPerson } from "react-icons/io5";
 import { BsGraphUp } from "react-icons/bs";
+import "./SideNav.css"
 const SideNav = () => {
      const [intro, showIntro] = useState(false);
       const [settings,showSettings]=useState(false);
@@ -36,29 +37,29 @@ const SideNav = () => {
     <div>
          
                                 <div className="navs">
-                                <div onClick={handelSettings} style={{display:"flex",justifyContent:"space-between",borderBottom:"1px solid black"}} ><div style={{display:"flex"}}><div style={{marginTop:'19px',marginRight:"5px",marginLeft:"5px"}}><IoSettingsSharp size={20}/></div><h3>Account Settings</h3></div> <div style={{marginTop:"15px",marginLeft:'30px'}}>{settings ?< RiArrowDropUpLine size={25} style={{marginTop:"0px"}}/>:<RiArrowDropDownLine size={25} style={{marginTop:"0px"}} />}</div>
+                                <div onClick={handelSettings} style={{display:"flex",justifyContent:"space-between",borderBottom:"1px solid black"}} ><div style={{display:"flex"}}><div style={{marginTop:'19px',marginRight:"5px",marginLeft:"px"}}><IoSettingsSharp size={20}/></div><ul style={{fontFamily:"'Montserrat', sans-serif",fontWeight:"600",fontSize:"19px",marginLeft:"-20px"}}>Account Settings</ul></div> <div style={{marginTop:"15px",marginLeft:'10px'}}>{settings ?< RiArrowDropUpLine size={25} style={{marginTop:"0px"}}/>:<RiArrowDropDownLine size={25} style={{marginTop:"0px"}} />}</div>
                                
                                 </div>
                                 {
                                   settings && <div style={{marginLeft:"15px"}}>
-                                              <Link to='/myMembership'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><MdOutlineCardMembership size={18} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Membership</h3> </div></Link>
-                                              <Link to='/accountSettings'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><IoPerson size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>My Profile</h3> </div></Link>
-                                              <Link to='/affiliation'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><TbArrowsRandom size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3>Affiliation</h3> </div></Link>
+                                              <Link to='/myMembership'  style={{color:"inherit",textDecoration:"none"}}> <div style={{display:"flex"}} className='uk1'> <div style={{paddingLeft:"15px"}}>< MdOutlineCardMembership style={{marginTop:'24px'}} /></div><ul style={{fontFamily:"'Montserrat', sans-serif",fontWeight:"600",fontSize:"16px",marginTop:"22px",marginLeft:"-20px"}}>My Membership</ul></div></Link>
+                                              <Link to='/accountSettings'  style={{color:"inherit",textDecoration:"none"}}> <div style={{display:"flex"}} className='uk1'> <div style={{paddingLeft:"15px"}}>< IoPerson style={{marginTop:'24px'}} /></div><ul style={{fontFamily:"'Montserrat', sans-serif",fontWeight:"600",fontSize:"16px",marginTop:"22px",marginLeft:"-20px"}}>My Profile</ul></div></Link>
+                                              <Link to='/affiliation'  style={{color:"inherit",textDecoration:"none"}}> <div style={{display:"flex"}} className='uk1'> <div style={{paddingLeft:"15px"}}>< TbArrowsRandom style={{marginTop:'24px'}} /></div><ul style={{fontFamily:"'Montserrat', sans-serif",fontWeight:"600",fontSize:"16px",marginTop:"22px",marginLeft:"-20px"}}>Affiliation</ul></div></Link>
                                       
-                                              <Link to='/passwordChange'  style={{color:"inherit",textDecoration:"none"}}> <div className="membership"><div className="a2"><RiLockPasswordFill  size={16} className="a1" style={{marginTop:"24px",paddingLeft:'5px',paddingRight:'5px'}}/></div><h3> My Password </h3> </div></Link>
+                                              <Link to='/passwordChange'  style={{color:"inherit",textDecoration:"none"}}> <div style={{display:"flex"}} className='uk1'> <div style={{paddingLeft:"15px"}}>< RiLockPasswordFill style={{marginTop:'24px'}} /></div><ul style={{fontFamily:"'Montserrat', sans-serif",fontWeight:"600",fontSize:"16px",marginTop:"22px",marginLeft:"-20px"}}>My Password</ul></div></Link>
 
 
                                   </div>
                                 }
                                  <div className="intro1">
-                                 <div onClick={handelIntro} style={{display:"flex",justifyContent:"space-between"}} ><div style={{display:"flex"}}><div style={{marginTop:'19px',marginRight:"5px",marginLeft:"5px"}}><FaBriefcase size={20}/></div><h3>Introduction</h3></div> <div style={{marginTop:"15px"}}>{settings ?< RiArrowDropUpLine size={22} style={{marginTop:"0px"}}/>:<RiArrowDropDownLine size={25} style={{marginTop:"0px"}} />}</div>
+                                 <div onClick={handelIntro} style={{display:"flex",justifyContent:"space-between"}} ><div style={{display:"flex"}}><div style={{marginTop:'19px',marginRight:"5px",marginLeft:"5px"}}><FaBriefcase size={20}/></div><ul style={{fontFamily:"'Montserrat', sans-serif",fontWeight:"600",fontSize:"19px",marginLeft:"-20px"}}>Introduction</ul></div> <div style={{marginTop:"15px"}}>{settings ?< RiArrowDropUpLine size={22} style={{marginTop:"0px"}}/>:<RiArrowDropDownLine size={25} style={{marginTop:"0px"}} />}</div>
                                
                                </div>                                  {
                                     intro && <div className="intoNav" style={{marginLeft:"7px"}}>
-                                      <Link to='/contacts' style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex"}}><div>< RiContactsFill style={{marginRight:'7px',marginTop:'24px'}} /></div><h3>Contacts</h3></div></Link>
-                                     <Link to='/inbox'  style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex"}}><div><HiInboxArrowDown style={{marginRight:'7px',marginTop:'24px'}} /></div><h3>Messages</h3></div></Link> 
-                                     <Link to='/email'style={{color:"inherit",textDecoration:"none"}} ><div style={{display:"flex"}}> <div><MdOutlineEmail style={{marginRight:'7px',marginTop:'24px'}} /></div><h3>Template</h3></div></Link> 
-                                     <Link to='/signature'style={{color:"inherit",textDecoration:"none"}} > <div style={{display:"flex"}}><div><FaFileSignature style={{marginRight:'7px',marginTop:'24px'}} /></div><h3>Signature</h3></div></Link> 
+                                      <Link to='/contacts' style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex"}} className='uk1'> <div style={{paddingLeft:"15px"}}>< RiContactsFill style={{marginTop:'24px'}} /></div><ul style={{fontFamily:"'Montserrat', sans-serif",fontWeight:"600",fontSize:"16px",marginTop:"22px",marginLeft:"-20px"}}>Contacts</ul></div></Link>
+                                     <Link to='/inbox'  style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex"}} className='uk1'><div style={{paddingLeft:"15px"}}><HiInboxArrowDown style={{marginTop:'24px'}} /></div><ul style={{fontFamily:"'Montserrat', sans-serif",fontWeight:"600",fontSize:"16px",marginTop:"22px",marginLeft:"-20px"}}>Messages</ul></div></Link> 
+                                     <Link to='/email'style={{color:"inherit",textDecoration:"none"}} ><div style={{display:"flex"}} className='uk1'> <div style={{paddingLeft:"15px"}}><MdOutlineEmail style={{marginTop:'24px'}} /></div><ul style={{fontFamily:"'Montserrat', sans-serif",fontWeight:"600",fontSize:"16px",marginTop:"22px",marginLeft:"-20px"}}>Template</ul></div></Link> 
+                                     <Link to='/signature'style={{color:"inherit",textDecoration:"none"}} > <div style={{display:"flex"}} className='uk1'><div style={{paddingLeft:"15px"}}><FaFileSignature style={{marginTop:'24px'}} /></div><ul style={{fontFamily:"'Montserrat', sans-serif",fontWeight:"600",fontSize:"16px",marginTop:"22px",marginLeft:"-20px"}}>Signature</ul></div></Link> 
                       
                                     </div>
                                   }</div>

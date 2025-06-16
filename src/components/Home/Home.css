@@ -20,6 +20,9 @@ background-image: url(https://tracsdev.apttechsol.com/public/uploads/website-ima
     font-weight: 800;
     
 }
+.ncb1:hover{
+    background-color: antiquewhite;
+}
 .sh2 h2{
     margin-top: 0px;
 }

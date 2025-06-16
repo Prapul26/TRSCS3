@@ -42,7 +42,7 @@ const Pricing = () => {
         </div>
         <div className="pricing-holder">
           <div className="cal">
-            <h1>Choose the Package</h1>
+            <h1>Choose your Package</h1>
             <div className="pridiv"></div>
             <p>
               Discover the perfect plan for your needs with our flexible and
@@ -55,9 +55,9 @@ const Pricing = () => {
             {Basic.map((item, index) => (
               <div key={index} className="pd2">
                 <button>Basic</button>
-                <h1>${item.price}
-                </h1>
-                <h2>{item.days} Days Trail</h2>
+                <h2 style={{color:"#163b6d"}}>${item.price}
+                </h2>
+                <p style={{fontWeight:"700"}}>{item.days} Days Trail</p>
                 <ul>
                   {item.details.map((detail, i) => (
                     <li key={i}>
@@ -73,8 +73,8 @@ const Pricing = () => {
             {Standard.map((item, index) => (
               <div key={index} className="pd3">
                 <button>Standard</button>
-                <h1>${item.price}</h1>
-                <h2>{item.days} Days Trail</h2>
+                <h2 style={{color:"#163b6d"}}>${item.price}</h2>
+                <p style={{fontWeight:"700"}}>{item.days} Days Trail</p>
                 <ul>
                   {item.details.map((detail, i) => (
                     <li key={i}>

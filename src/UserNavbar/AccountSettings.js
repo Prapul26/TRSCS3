@@ -60,14 +60,9 @@ const AccountSettings = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isUpdating, setIsUpdating] = useState(false);
 const[addImg,setAddImg]=useState([])
- /* axiosRetry(axios, {
-    retries: 3,
-    retryDelay: (retryCount) => {
-      console.log(`Retrying request... (${retryCount})`);
-      return retryCount * 1000;
-    },
-    retryCondition: (error) => error.response?.status === 429,
-  }); */
+const [memberType,setMemberType]=useState("");
+
+ 
 const [files, setFiles] = useState([null]); // start with one file input
   const [previews, setPreviews] = useState([null]); // previews for selected files
   const [images, setImages] = useState([
@@ -103,12 +98,41 @@ const [files, setFiles] = useState([null]); // start with one file input
     setFiles(updatedFiles);
     setPreviews(updatedPreviews);
   };
+const handleDeleteImage = async (id) => {
+  try {
+    const token = localStorage.getItem("authToken");
 
-  const handleDeleteImage = (index) => {
-    const updatedImages = [...images];
-    updatedImages.splice(index, 1);
-    setImages(updatedImages);
-  };
+    let url = "";
+    if (memberType == 1) {
+      url = `https://tracsdev.apttechsol.com/api/delete-listing-image/${id}`;
+    } else if (memberType == 2) {
+      url = `https://tracsdev.apttechsol.com/api/delete_additional_image/${id}`;
+    } else {
+      alert("Invalid member type");
+      return;
+    }
+
+    const response = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.status === 200) {
+      // Update state to remove deleted image
+      setImages((prev) => prev.filter((img) => img.id !== id));
+      setTotalPhotos((prev) => prev.filter((img) => img.id !== id));
+      setMessage("Image deleted successfully!");
+    } else {
+      setMessage("Failed to delete image.");
+    }
+  } catch (error) {
+    console.error("Delete image error:", error.response?.data || error.message);
+    setMessage("An error occurred while deleting the image.");
+  }
+};
+
+
 
   const showMobnav = () => {
     setShowSidebar((prev) => !prev);
@@ -181,16 +205,19 @@ const [files, setFiles] = useState([null]); // start with one file input
         setWebsite(data.user.website || "");
         setLinkedIn(data.user.linkedin || "");
         setStates(data.states || []);
+        setMemberType(data.user.member_type || "")
 
         // 👇 Fix: Set additional image URLs
 const additional = data.total_photos || [];
 const fullImageUrls = additional
-  .slice(0, 5) // limit to first 5 images
-  .map((img) => 
-    `https://tracsdev.apttechsol.com/public/uploads/additional_images/${img.image}`
-  );
+  .slice(0, 5)
+  .map((img) => ({
+    id: img.id,
+    url: `https://tracsdev.apttechsol.com/public/uploads/additional_images/${img.image}`,
+  }));
 
-        setImages(fullImageUrls); // ✅ set them here
+setImages(fullImageUrls);
+
         setTotalPhotos(data.total_photos || []);
 
       } catch (error) {
@@ -261,6 +288,7 @@ const fullImageUrls = additional
 
   
 const [totalPhotos, setTotalPhotos] = useState([]);
+console.log("memberType ="+memberType)
   return (
     <div className="mobMenuaa">
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
@@ -509,19 +537,20 @@ const [totalPhotos, setTotalPhotos] = useState([]);
       <h3>Additional Images</h3>
     
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-        {images.map(( img) => (
-          <div key={img.id}>
-            <img src={img} alt="uploaded" width={150} height={100} />
-            <div>
-              <button
-                style={{ backgroundColor: 'crimson', color: 'white', marginTop: '5px' }}
-                onClick={() => handleDeleteImage(img.id)}
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
+       {images.map((img) => (
+  <div key={img.id}>
+    <img src={img.url} alt="uploaded" width={150} height={100} />
+    <div>
+      <button
+        style={{ backgroundColor: 'crimson', color: 'white', marginTop: '5px' }}
+        onClick={() => handleDeleteImage(img.id)}
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+))}
+
 
         {/* Previews of new selected files only if a file is selected */}
         {previews.map((preview,index) => (

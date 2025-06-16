@@ -12,10 +12,20 @@
 
 }
 .About_us-container{
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-bottom: 100px;
+}
+.About_us-container ul{
+        color: #27479e;
+        text-decoration: underline;
+          margin-left: -40px;
+font-size: 22px;
+font-weight: 700;
+}
+.About_us-container p{
+    font-weight: 600;
 }
 .a_1{
     
@@ -84,7 +94,7 @@ padding: 10px;
 color: rgb(0, 0, 0);
 }
 .a_5 h3{
-    color: orange;
+    color:  #f96b39;
 }
 .a_52{
     width: 50%;
@@ -103,7 +113,7 @@ border-radius: 20px;
 padding: 10px;
 }
 .a_62 h3{
-    color: orange;
+    color: #f96b39;
 }
 .a_62 p{
     color: rgb(0, 0, 0);

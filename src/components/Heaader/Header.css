@@ -80,34 +80,35 @@ color: white;
 }
 .dropDown2{
     height: fit-content;
-    width: 120px;
+    width: 160px;
     margin-left: -60px;
     position: absolute;
   
-    background-color: #26a5ea;
+    background-color: #d2d2d2;
  
     cursor: pointer;
+}
+.dropDown2 p{
+    font-weight: 800;
 }
 .profileDrop{
 
 padding-left: 5px;
-padding-top:5px ;
-padding-bottom: 5px;
+
 }
 .dropLogout{
 
 padding-left: 5px;
-padding-top:5px ;
-padding-bottom: 5px;
-margin-top: 5px;
+
+
 }
 .profileDrop:hover{
-    background-color: #a0a0ec;
-    color: white;
+   
+    color:gold;
 }
 .dropLogout:hover{
-    background-color: #a0a0ec;
-    color: white;
+
+    color:gold;
 }
 .profileDrop h3:hover{
     color: white;
