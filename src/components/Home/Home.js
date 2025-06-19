@@ -61,7 +61,7 @@ const Home = () => {
               Strengthening your reputation, while strengthening your
               Trusted-Relationships.
             </h1>
-           {!isLoggedIn &&(<Link to='/register'><button>Join now</button></Link>)} 
+           {!isLoggedIn &&(<Link to='/register'><button style={{color:"black",background:"#eeba2b"}}>Join now</button></Link>)} 
           </div>
           <div className="hd1-pic">
             <img src="https://tracs.app/public/uploads/website-images/home-img3.jpeg" style={{ width: "100%", height: "100%" }} />

@@ -48,7 +48,7 @@
     height: fit-content;
     margin-bottom: 13px;
     height: 100vh;
-    background: #eee;
+    background: #f1f1f1;
     ;
     border-top: 1px solid rgba(0, 0, 0, .1);
     flex-wrap: wrap;
@@ -95,6 +95,28 @@ margin-left: -30px;
 
 .imp-links p:hover{
     color: orange;
+}
+.tpc-container p{
+font-size: 13px !important;
+color: #787878;
+
+}
+.copyright-container h3{
+    font-size: 18px !important;
+    font-weight: 500;
+}
+.imp-links p{
+    font-size: 16px !important;
+    color: rgb(8, 8, 8) !important;
+}
+.imp-links p:hover{
+     color: rgb(226, 211, 0) !important;
+}
+.contact li:hover{
+    color: rgb(226, 211, 0) !important;
+}
+.tpc-container p:hover{
+     color: rgb(226, 211, 0) !important;
 }
 /* Media queries */
 
