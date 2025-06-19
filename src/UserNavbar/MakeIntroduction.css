@@ -21,6 +21,10 @@
 height: fit-content;
 
 }
+.pset{
+font-size: 13px !important;
+font-weight: 450;
+}
 .prevIntro{
     margin-right: 100px;
     margin-top: 10px;

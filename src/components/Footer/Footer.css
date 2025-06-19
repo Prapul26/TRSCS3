@@ -93,7 +93,9 @@
 margin-left: -30px;
 }
 
-
+.imp-links p:hover{
+    color: orange;
+}
 /* Media queries */
 
 /* For phones - smaller than 600px */

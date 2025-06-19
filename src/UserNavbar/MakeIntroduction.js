@@ -452,8 +452,8 @@ const MakeIntroduction = () => {
               <div>
                 <label>Select Template </label>
               </div>
-              <div style={{ marginTop: "-7px", marginLeft: "7px" }}>
-                <p style={{ fontSize: "12px", fontWeight: "bold" }}>
+              <div style={{ marginTop: "-9px", marginLeft: "7px" }}>
+                <p style={{ fontSize: "12px !important" }} className="pset">
                   Best Practices ?
                 </p>
               </div>{" "}

@@ -17,7 +17,7 @@ const Footer = () => {
 
             <div className='dlc-holder'>
                 <div className='download-container'>
-                    <h1>Download Our App</h1>
+                    <h2>Download Our App</h2>
                     <div className='store-holder' style={{display:"flex"}}>
                     <div className='playStore-container'>
                         <a href="https://play.google.com/store/apps/details?id=com.hotspot.tracs&pli=1" target="_blank" rel="noopener noreferrer"><img src="https://tracs.app/public/user/images/google-play-store.png" /></a>
@@ -53,24 +53,24 @@ const Footer = () => {
                 </div>
                 <div className='important-links-container'>
                     <div className='imp-links'>
-                        <h1>
+                        <h2>
                             Important Links
-                        </h1>
-                      <Link to='/home' style={{textDecoration:"none",color:"inherit"}}> <p style={{color:"black"}}>Home</p></Link> 
-                      <Link to='/pricing' style={{textDecoration:"none",color:"inherit"}}> <p style={{color:"black"}}>Pricing</p></Link> 
-                      <Link to='/about_us' style={{textDecoration:"none",color:"inherit"}}><p style={{color:"black"}}>About Us</p></Link>  
+                        </h2>
+                      <Link to='/home' style={{textDecoration:"none",color:"inherit"}}> <p style={{color:"black",fontWeight:"400"}}>Home</p></Link> 
+                      <Link to='/pricing' style={{textDecoration:"none",color:"inherit"}}> <p style={{color:"black",fontWeight:"400"}}>Pricing</p></Link> 
+                      <Link to='/about_us' style={{textDecoration:"none",color:"inherit"}}><p style={{color:"black",fontWeight:"400"}}>About Us</p></Link>  
                      
 
                     </div>
                 </div>
                 <div className='contact-container'>
                     <div className='contact'>
-                        <h1>Contact Us</h1>
+                        <h2>Contact Us</h2>
                         <div  className="conulli"style={{ display:"flex"}}>
                         <div><CiLocationOn size={20} /> </div>
                            <div style={{marginTop:"-18px"}}> <ul style={{ display: "flex", flexDirection: "column", flexWrap: "wrap",textDecoration:"none" }}>
-                         <li style={{listStyle:"none"}}>4031 Colonel Glenn Hwy Suite 416</li>
-                               <li style={{listStyle:"none"}}> Dayton ,OH 45431</li></ul>
+                         <li style={{listStyle:"none",fontWeight:"400"}}>4031 Colonel Glenn Hwy Suite 416</li>
+                               <li style={{listStyle:"none",fontWeight:"400"}}> Dayton ,OH 45431</li></ul>
                                </div>
                                
                                </div>
@@ -78,13 +78,13 @@ const Footer = () => {
 
                         <div className="conulli" style={{ display:"flex"}}>
                             <div><IoMailOutline /></div>
-                        <div style={{marginTop:"-18px"}}>   <ul><li style={{listStyle:"none"}}> support@tracs.app</li>
+                        <div style={{marginTop:"-18px"}}>   <ul><li style={{listStyle:"none",fontWeight:"400"}}> support@tracs.app</li>
                         </ul>
                         </div> 
                         </div>
                         <div  className="conulli" style={{display:"flex"}}> <div style={{marginTop:"0px"}}><FaPhoneAlt /></div>
                           <div style={{marginTop:"-16px"}}> <ul>
-                                <li style={{listStyle:"none"}}> 513.371.5299</li>
+                                <li style={{listStyle:"none",fontWeight:"400"}}> 513.371.5299</li>
                             </ul></div> 
                            
                         </div>

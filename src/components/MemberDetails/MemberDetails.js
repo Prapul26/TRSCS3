@@ -45,7 +45,7 @@ const MemberDetails = () => {
   const { user_id, member_type } = useParams();
   const [data, setData] = useState("");
   const [affdata,setAffdata]=useState("")
-  const[additionalImages,setAddImages]= useState({ images: [] });
+  const[additionalImages,setAddImages]= useState( [] );
   const picViewHandler = (index) => {
     setPicView(true);
     setCurrentIndex(index);
@@ -65,42 +65,46 @@ const MemberDetails = () => {
     cursor: "pointer",
     arrows: true,
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      const token = localStorage.getItem("authToken");
-      try {
-        const response = await axios.get(
-          `https://tracsdev.apttechsol.com/api/profile_details/${user_id}/${member_type}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        if (parseInt(member_type) === 1) {
-          setData(response.data.listing.user);
-         
-        } else if (parseInt(member_type) === 2) {
-          setData(response.data.user_profile);
+ useEffect(() => {
+  const fetchData = async () => {
+    const token = localStorage.getItem("authToken");
+    try {
+      const response = await axios.get(
+        `https://tracsdev.apttechsol.com/api/profile_details/${user_id}/${member_type}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-         setAffdata(response.data?.affiliation_link);
-         setAddImages(response.data)
-         console.log(additionalImages.images)
-        console.log(affdata)
-        console.log("userImages:"+data.user_images);
-        
-      } catch (err) {
-        console.log(err);
+      );
+
+      if (parseInt(member_type) === 1) {
+        setData(response.data.listing.user);
+      } else if (parseInt(member_type) === 2) {
+        const userProfile = response.data.user_profile;
+        setData(userProfile);
+        // Fix here: Set only image URLs
+        const imageUrls = userProfile.user_images?.map(img =>
+          `https://tracsdev.apttechsol.com/public/${img.image}`
+        );
+        setAddImages(imageUrls || []);
       }
-    };
-    fetchData();
-  }, []);
-           console.log(additionalImages.images)
-           console.log("userImages:"+data.user_images);
+
+      setAffdata(response.data?.affiliation_link);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  fetchData();
+}, []);
+
+         
 
   useEffect(() => {
   console.log("affdata changed:", affdata);
 }, [affdata]);
+        console.log("userImages:"+data.user_images);
   return (
     <div className="container">
       <Header />
@@ -244,6 +248,9 @@ const MemberDetails = () => {
           <div className="About-Container" style={{}}>
             <div>
               <h2 style={{ color: "black" }}>About Me</h2>
+            </div>
+            <div>
+              
             </div>
             <div>
               <p>{data.about}</p>

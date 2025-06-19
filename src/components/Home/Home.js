@@ -44,10 +44,10 @@ const Home = () => {
 
         <div className="network-container">
           <Link to="/makeIntro">
-            <button className="ncb1" style={{background:"#eeba2b"}}>Make Introduction Instantly</button>
+            <button className="ncb1" style={{background:"#eeba2b" ,color:"black"}}>Make Introduction Instantly</button>
           </Link>
           <Link to="/inbox">
-            <button style={{background:"#eeba2b"}} className="bttborder">
+            <button style={{background:"#eeba2b" ,color:"black"}} className="bttborder">
               <span>My Dashboard</span>
             </button>
           </Link>
