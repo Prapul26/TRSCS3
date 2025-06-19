@@ -45,6 +45,8 @@ import EditContact from "./UserNavbar/EditContact";
 import OrderDetails from "./UserNavbar/OrderDetails";
 import ReplyMessage from "./UserNavbar/ReplyMessage";
 import BumpMessage from "./UserNavbar/BumpMessage";
+import TermsAndCondition from "./components/TermsAndCondition/TermsAndCondition";
+import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 
 
 const App = () => {
@@ -98,6 +100,8 @@ const App = () => {
           <Route path="/orderDetails/:orderId" element={<OrderDetails/>}/>
         <Route path="/replyMessage/:subject/:user_id/:replies_code" element={<ReplyMessage />} />
 <Route path="/bumpMessage/:subject/:user_id/:replies_code/:is_bump" element={<BumpMessage/>}/>
+<Route path="/terms" element={<TermsAndCondition/>}/>
+<Route path="/privacy" element={<PrivacyPolicy/>}/>
         </Routes>
       </div>
     </Router>

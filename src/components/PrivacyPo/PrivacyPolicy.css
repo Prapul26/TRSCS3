@@ -1,0 +1,11 @@
+.privacyContainer{
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+.privacyContainer p{
+    font-weight: 500 !important;
+    font-size: 18px !important;
+}

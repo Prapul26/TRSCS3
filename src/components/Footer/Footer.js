@@ -96,7 +96,7 @@ const Footer = () => {
             </div>
             <div className='copyright-container'>
                 <div className='tpc-container'>
-                    <p> Terms and Condition /  Privact Policy  /  Contact</p>
+                  <div style={{display:"flex",textAlign:"center",alignContent:'center',justifyContent:"center"}}>  <p><Link to='/terms' style={{textDecoration:"none",color:"inherit"}}>Terms and Condition</Link> / </p> <p><Link to='/privacy' style={{textDecoration:"none",color:"inherit"}}>Privact Policy</Link>  /</p> <p> <Link to='/contact' style={{textDecoration:"none",color:"inherit"}}> Contact</Link></p></div>
                 </div>
                 <div>
                     <h3 style={{color:"white"}}>Copyright 2025 .AptTech Solutions Inc . All Rights Reserved.</h3>

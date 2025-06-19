@@ -1,0 +1,48 @@
+.termsContainer{
+ 
+    margin-bottom: 40px;
+  
+       background-image: url(https://tracsdev.apttechsol.com/public/user/images/background/dot-right-b-orange.png);
+    background-position: right bottom;
+        right: 0px;
+    bottom: 0px;
+        content: '';
+    
+    background-repeat: no-repeat;
+    z-index: -1;
+     margin-top: 40px;
+     padding: 20px;
+}
+.termsContainer p{
+    font-weight: 500 !important;
+    font-size: 18px !important;
+}
+
+.backImage{
+  background-image: url(https://tracsdev.apttechsol.com/public/user/images/background/dot-right-b-orange.png);
+    background-position: left top;
+        right: 0px;
+    bottom: 0px;
+        content: '';
+width: 70%;
+margin-left: 15%;
+margin-right: 15%;
+background-color: rgb(253, 248, 241);
+background-repeat: no-repeat;
+    z-index: -1;
+    
+    
+}
+
+.termsContainer h2{
+   
+}
+.backImage2{
+    background-image: url(https://tracsdev.apttechsol.com/public/user/images/background/dot-right-b-orange.png);
+    background-position: right bottom;
+        right: 0px;
+    bottom: 0px;
+        content: '';
+    background-repeat: no-repeat;
+    z-index: -1;
+}
