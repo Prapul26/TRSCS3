@@ -39,7 +39,7 @@ showBasic(!basic)
       try{
         const response= await axios.get("https://tracsdev.apttechsol.com/api/affiliation",{
           headers:{
-            Authorization:"Bearer 36|NUtJgD15eoKNZnQXYgYo5G3cbQdZe2PdeHD16Yy1"
+            Authorization:`Bearer${token}`
           }
         });
         setData(response.data);

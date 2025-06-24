@@ -49,6 +49,7 @@ import TermsAndCondition from "./components/TermsAndCondition/TermsAndCondition"
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 
 
+
 const App = () => {
   const [isLogin, setIsLogin] = useState(true);
   return (

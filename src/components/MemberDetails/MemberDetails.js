@@ -46,6 +46,8 @@ const MemberDetails = () => {
   const [data, setData] = useState("");
   const [affdata,setAffdata]=useState("")
   const[additionalImages,setAddImages]= useState( [] );
+  const[additionalimg,setAdditionalimg]=useState([""]);
+  const [fullImageUrls, setFullImageUrls] = useState([]);
   const picViewHandler = (index) => {
     setPicView(true);
     setCurrentIndex(index);
@@ -65,7 +67,7 @@ const MemberDetails = () => {
     cursor: "pointer",
     arrows: true,
   };
- useEffect(() => {
+useEffect(() => {
   const fetchData = async () => {
     const token = localStorage.getItem("authToken");
     try {
@@ -83,11 +85,23 @@ const MemberDetails = () => {
       } else if (parseInt(member_type) === 2) {
         const userProfile = response.data.user_profile;
         setData(userProfile);
-        // Fix here: Set only image URLs
+
         const imageUrls = userProfile.user_images?.map(img =>
           `https://tracsdev.apttechsol.com/public/${img.image}`
         );
         setAddImages(imageUrls || []);
+
+        const additional = userProfile.user_images;
+        if (additional) {
+          setAdditionalimg(additional);
+
+          const fullImageUrlsMapped = additional.map((img) => ({
+            id: img.id,
+            image: `uploads/additional_images/${img.image}`,
+          }));
+
+          setFullImageUrls(fullImageUrlsMapped);
+        }
       }
 
       setAffdata(response.data?.affiliation_link);
@@ -270,13 +284,16 @@ const MemberDetails = () => {
           <h2>Images</h2>
         </div>
         <div className="carlo" style={{ display: "flex" }}>
-          {additionalImages.images?.map((img, index) => (
-    <div className="AddImages" key={index}>
-      <div className="images" onClick={() => picViewHandler(index)}>
-        <img src={img} alt={`image-${index}`} />
-      </div>
+         {fullImageUrls.map((img, index) => (
+  <div className="AddImages" key={img.id}>
+    <div className="images" onClick={() => picViewHandler(index)}>
+      <img
+        src={`https://tracsdev.apttechsol.com/public/${img.image}`}
+        alt={`image-${img.id}`}
+      />
     </div>
-  ))}
+  </div>
+))}
         </div>
       </div>
       <div>
@@ -287,13 +304,16 @@ const MemberDetails = () => {
       <button className="close-btn" onClick={closeImagePopup}>
         <RxCross2 size={30} />
       </button>
-      <Slider {...sliderSettings}>
-        {additionalImages.images?.map((img, index) => (
-          <div key={index} className="popup-slide">
-            <img src={img} alt={`popup-image-${index}`} />
-          </div>
-        ))}
-      </Slider>
+       <Slider {...sliderSettings} initialSlide={currentIndex}>
+  {fullImageUrls.map((img) => (
+    <div key={img.id} className="popup-slide">
+      <img
+        src={`https://tracsdev.apttechsol.com/public/${img.image}`}
+        alt={`popup-image-${img.id}`}
+      />
+    </div>
+  ))}
+</Slider>
     </div>
   </div>
 )}

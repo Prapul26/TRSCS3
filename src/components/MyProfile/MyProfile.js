@@ -29,7 +29,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdArrowDropDown } from "react-icons/md";
 import Logo from "../assets/M-D1.jpg";
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 import { TiArrowBackOutline } from "react-icons/ti";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
@@ -41,11 +41,23 @@ import Images from "../Data/Images";
 import Slider from "react-slick";
 const MyProfile = () => {
   const [picView, setPicView] = useState(false);
+   const [imagePreview, setImagePreview] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const picViewHandler = (index) => {
+const[name,setName]=useState("");
+const[email,setEmail]=useState("");
+const[linkedIn,setLinkedIn]=useState("");
+const[website,setWebsite]=useState("");
+const[phone,setPhone]=useState("")
+const[business,setBusiness]=useState("")
+const[additionalimg,setAdditionalimg]=useState([""]);
+const[membertype,setMembertype]=useState("");
+const [about,setAbout]=useState("")
+const [affiliate,setAffiliate]=useState("")
+const [fullImageUrls, setFullImageUrls] = useState([]);
+const[data2,setData2]=useState("")
+  const picViewHandler = (id) => {
     setPicView(true);
-    setCurrentIndex(index);
+    setCurrentIndex(id);
   };
 
   const closeImagePopup = () => {
@@ -58,41 +70,135 @@ const MyProfile = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-   
-    cursor:"pointer",
+
+    cursor: "pointer",
     arrows: true,
   };
-  useEffect(()=>{
+  useEffect(() => {
+  const timeoutId = setTimeout(() => {
+    const fetchProfile = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+        const response = await axios.get(
+          "https://tracsdev.apttechsol.com/api/my-profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        const data = response.data;
+        const newImage = data.user?.image;
+        if (newImage) {
+          setImagePreview(`https://tracsdev.apttechsol.com/public/${newImage}`);
+        
+
+        }
+const name2= data.user.name ;
+if(name2){
+  setName(name2);
+ 
+}
+const name3= data.user.email ;
+if(name3){
+  setEmail(name3);
+ 
+}
+const name4= data.user.phone ;
+if(name4){
+  setPhone(name4);
+ 
+}
+const name5= data.user.website ;
+if(name5){
+  setWebsite(name5);
+ 
+}
+const name6=data.user.linkedin;
+
+if(name6){
+  setLinkedIn(name6);
+ 
+};
+const name7=data.user.business_name ;
+if(name7)
+{
+  setBusiness(name7)
+}  
+const name8=data.user.about ;
+if(name8){
+  setAbout(name8)
+}   
+const name9=data.user.member_type;
+if(name9 === "1"){
+  setMembertype("H7")
+}
+else if(name9 === "2"){
+  setMembertype("Tracs")
+}
+
+const additional = data.total_photos;  
+if (additional) {
+  setAdditionalimg(additional);
+
+  const fullImageUrlsMapped = additional.map((img) => ({
+    id: img.id,
+    image: `uploads/additional_images/${img.image}`, // use relative path
+  }));
+
+  setFullImageUrls(fullImageUrlsMapped);
+}
+
+      
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
+      }
+    };
+
+    fetchProfile();
+  }, 300);
+
+  return () => clearTimeout(timeoutId);
+}, []);
+   useEffect(()=>{
     const fetchData=async()=>{
-const token=`Bearer${"authToken"}`;
-
+      const token=localStorage.getItem("authToken");
+      try{
+        const response= await axios.get("https://tracsdev.apttechsol.com/api/affiliation",{
+          headers:{
+            Authorization:`Bearer${token} `
+          }
+        });
+        setData2(response.data);
+      }catch(err){
+        console.log(err)
+      }
     }
-  })
-
+   fetchData()},[])
   return (
     <div className="container">
       <Header />
       <Navbar />
-      <div style={{marginLeft:"20px"}}> <button style={{ borderRadius: "30px", border: "transparent" }}><span><Link to='/accountSettings'><TiArrowBackOutline color='white' size={35} /></Link></span> </button></div>
+      <div style={{ marginLeft: "20px" }}> <button style={{ borderRadius: "30px", border: "transparent" }}><span><Link to='/accountSettings'><TiArrowBackOutline color='white' size={35} /></Link></span> </button></div>
       <div className="member-holder">
         <div className="pic-Holder">
           <div>
             <div className="userPic">
-              <img src="https://img.freepik.com/free-photo/indoor-shot-beautiful-happy-african-american-woman-smiling-cheerfully-keeping-her-arms-folded-relaxing-indoors-after-morning-lectures-university_273609-1270.jpg" />
+              <img src={imagePreview} />
             </div>
           </div>
           <div className="dataName">
             <div className="userNAME">
-              <h2 style={{ justifyContent: "center" }}>Santhosh</h2>
+              <h2 style={{ justifyContent: "center" }}>{name}</h2>
             </div>
             <div className="userNAME2">
               <h4 style={{ justifyContent: "center", marginTop: "-10px" }}>
-        <span style={{background:"green" ,color:"white",borderRadius:"3px"}}><span style={{color:"green"}}>.</span> TRACS<span style={{color:"green"}}>..</span></span> <span style={{color:"black"}}>Member</span>
+                <span style={{ background: "green", color: "white", borderRadius: "3px" }}><span style={{ color: "green" }}>.</span> {membertype}<span style={{ color: "green" }}>..</span></span> <span style={{ color: "black" }}>Member</span>
               </h4>
             </div>
             <div className="userNAME2">
               <h4 style={{ justifyContent: "center", marginTop: "-10px" }}>
-                Insurance Company
+            {business}
               </h4>
             </div>{" "}
           </div>
@@ -111,9 +217,9 @@ const token=`Bearer${"authToken"}`;
                 </div>
                 <div>
                   <h4 style={{ textAlign: "left", color: "black" }}>Email</h4>
-                  <h3 style={{ color: "blue", fontWeight: "normal" }}>
-                    Sample@mail.com
-                  </h3>
+                  <h4 style={{ color: "blue"}}>
+                   {email}
+                  </h4>
                 </div>
               </div>
               <div className="PhoneLink">
@@ -122,9 +228,9 @@ const token=`Bearer${"authToken"}`;
                 </div>
                 <div>
                   <h4 style={{ textAlign: "left", color: "black" }}>Phone</h4>
-                  <h3 style={{ color: "blue", fontWeight: "normal" }}>
-                    8272927190
-                  </h3>
+                  <h4 style={{ color: "blue" }}>
+                  {phone}
+                  </h4>
                 </div>
               </div>
               <div className="PhoneLink">
@@ -141,9 +247,9 @@ const token=`Bearer${"authToken"}`;
                   >
                     Website Link
                   </h4>
-                  <h3 style={{ color: "blue", fontWeight: "normal" }}>
-                    www.sampleWeblink.com
-                  </h3>
+                  <h4 style={{ color: "blue",  }}>
+                  {website}
+                  </h4>
                 </div>
               </div>
             </div>
@@ -165,9 +271,9 @@ const token=`Bearer${"authToken"}`;
                     {" "}
                     Affiliation
                   </h4>
-                  <h3 style={{ color: "blue", fontWeight: "normal" }}>
-                    http/wdad/wsampke
-                  </h3>
+                  <h4 style={{ color: "blue" ,wordBreak:"break-word",whiteSpace:"normal"}}>
+                   {data2.link_exist?.affiliate_link}
+                  </h4>
                 </div>
               </div>
               <div className="AffiliationLink">
@@ -179,9 +285,9 @@ const token=`Bearer${"authToken"}`;
                     {" "}
                     Linked In
                   </h4>
-                  <h3 style={{ color: "blue", fontWeight: "normal" }}>
-                    www.LinkedInSample.com
-                  </h3>
+                  <h4 style={{ color: "blue" }}>
+                  {linkedIn}
+                  </h4>
                 </div>
               </div>
             </div>
@@ -226,7 +332,7 @@ const token=`Bearer${"authToken"}`;
                   </div>
                 </div>
                 <p style={{ marginLeft: "28px", color: "blue" }}>
-                  www.sampleWeblink.com
+                  www.sampleWeblinkw.com
                 </p>
               </div>
             </div>
@@ -268,12 +374,7 @@ const token=`Bearer${"authToken"}`;
             </div>
             <div>
               <p>
-                At TRACS, we believe in the power of connections. Our platform
-                is designed to be the heartbeat of professional networking,
-                where members come together to forge meaningful relationships,
-                exchange ideas, and unlock new opportunities. Our platform is
-                designed for individuals and businesses seeking meaningful
-                networking experiences.
+             {about}
               </p>
             </div>
           </div>
@@ -281,29 +382,39 @@ const token=`Bearer${"authToken"}`;
         <div style={{ marginTop: "20px", marginLeft: "20px" }}>
           <h2>Images</h2>
         </div>
-        <div className="carlo" style={{display:"flex"}}>{Images.map((img, index) => (
-  <div className="AddImages" key={index}>
-    <div className="images" onClick={()=>picViewHandler(index)}>
-      <img src={Object.values(img)[0]} alt={`image-${index}`} />
+        <div className="imgover"> 
+       <div className="carlo" style={{ display: "flex" }}>
+ {fullImageUrls.map((img, index) => (
+  <div className="AddImages" key={img.id}>
+    <div className="images" onClick={() => picViewHandler(index)}>
+      <img
+        src={`https://tracsdev.apttechsol.com/public/${img.image}`}
+        alt={`image-${img.id}`}
+      />
     </div>
   </div>
-))}</div>
-      </div>
-     <div > {picView && (
-      <div className="overlay">
-        <div className="popup-overlay">
-          <button className="close-btn" onClick={closeImagePopup} >
-            <RxCross2 size={30} />
-          </button>
-          <Slider {...sliderSettings} initialSlide={currentIndex}>
-            {Images.map((img, index) => (
-              <div key={index} className="popup-slide">
-                <img src={Object.values(img)[0]} alt={`popup-image-${index}`} />
-              </div>
-            ))}
-          </Slider>
-        </div>
+))}
 </div>
+</div>
+      </div>
+      <div > {picView && (
+        <div className="overlay">
+          <div className="popup-overlay">
+            <button className="close-btn" onClick={closeImagePopup} >
+              <RxCross2 size={30} />
+            </button>
+           <Slider {...sliderSettings} initialSlide={currentIndex}>
+  {fullImageUrls.map((img) => (
+    <div key={img.id} className="popup-slide">
+      <img
+        src={`https://tracsdev.apttechsol.com/public/${img.image}`}
+        alt={`popup-image-${img.id}`}
+      />
+    </div>
+  ))}
+</Slider>
+          </div>
+        </div>
       )}</div>
       <Footer />
     </div>
