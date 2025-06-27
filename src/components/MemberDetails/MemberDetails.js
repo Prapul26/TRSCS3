@@ -72,7 +72,7 @@ useEffect(() => {
     const token = localStorage.getItem("authToken");
     try {
       const response = await axios.get(
-        `https://tracsdev.apttechsol.com/api/profile_details/${user_id}/${member_type}`,
+        `${process.env.REACT_APP_API_BASE_URL}/profile_details/${user_id}/${member_type}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

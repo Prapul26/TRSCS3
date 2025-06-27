@@ -51,7 +51,7 @@ const [messageFilter, setMessageFilter] = useState("");
       const token = localStorage.getItem("authToken");
       try {
         const response = await axios.get(
-          " https://tracsdev.apttechsol.com/api/view-inbox-list-from-intro-api",
+          `${process.env.REACT_APP_API_BASE_URL}/view-inbox-list-from-intro-api`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -65,6 +65,7 @@ const [messageFilter, setMessageFilter] = useState("");
     };
     fetchMessages();
   }, []);
+  console.log("API BASE URL", process.env.REACT_APP_API_BASE_URL);
 useEffect(() => {
   const params = {};
   if (replyFilter !== "") params.bump = replyFilter;

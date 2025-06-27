@@ -146,7 +146,7 @@ const MakeIntroduction = () => {
       try {
         const token = localStorage.getItem("authToken");
         const response = await axios.get(
-          "https://tracsdev.apttechsol.com/api/sendmailintro/introduction_email",
+          `${process.env.REACT_APP_API_BASE_URL}/sendmailintro/introduction_email`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -172,7 +172,7 @@ const MakeIntroduction = () => {
     }
     try {
       const res = await axios.post(
-        "https://tracsdev.apttechsol.com/api/contact_store_form",
+        `${process.env.REACT_APP_API_BASE_URL}/contact_store_form`,
         {
           first_name: firstName,
           last_name: lastName,

@@ -56,7 +56,7 @@ const Email = ( ) => {
     
         const token = localStorage.getItem("authToken");
         try {
-          const response = await axios.get("https://tracsdev.apttechsol.com/api/view-template-list", {
+          const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/view-template-list`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -74,7 +74,7 @@ const Email = ( ) => {
 
   try {
     await axios.get(
-      `https://tracsdev.apttechsol.com/api/destroy-template/${id}`,
+      `${process.env.REACT_APP_API_BASE_URL}/destroy-template/${id}`,
       
       {
         headers: {

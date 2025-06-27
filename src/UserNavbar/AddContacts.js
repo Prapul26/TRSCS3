@@ -18,7 +18,7 @@ if (!firstName || !lastName || !email || !groupName) {
   return;
 }
 try{
-  const response =await axios.post("https://tracsdev.apttechsol.com/api/contact_store_form",
+  const response =await axios.post(`${process.env.REACT_APP_API_BASE_URL}/contact_store_form`,
     {
 first_name : firstName,
 last_name : lastName,

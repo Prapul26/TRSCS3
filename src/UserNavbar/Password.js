@@ -19,7 +19,7 @@ const handleSubmit = async (e) => {
   }
   const token = localStorage.getItem("authToken")
   try {
-    const response = await axios.post("https://tracsdev.apttechsol.com/api/update-password", {
+    const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/update-password`, {
       current_password:currentPassword,
       password: password,
       password_confirmation: confirmPassword

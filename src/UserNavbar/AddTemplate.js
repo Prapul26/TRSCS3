@@ -40,7 +40,7 @@ const AddTemplate = () => {
 
     try {
       const response = await axios.post(
-        "https://tracsdev.apttechsol.com/api/store-template",
+        `${process.env.REACT_APP_API_BASE_URL}/store-template`,
         formData,
         {
           headers: {

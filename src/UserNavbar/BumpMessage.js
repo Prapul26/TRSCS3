@@ -68,7 +68,7 @@ const formatted = date.toLocaleString('en-US', {
       const token = localStorage.getItem("authToken");
       try {
         const response = await axios.get(
-          `https://tracsdev.apttechsol.com/api/view_user_inboxhistory_intro/${subject}/${user_id}/${replies_code}`,
+           `${process.env.REACT_APP_API_BASE_URL}/view_user_inboxhistory_intro/${subject}/${user_id}/${replies_code}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -105,7 +105,7 @@ const handleSendReply = async () => {
   const token = localStorage.getItem("authToken");
   try {
     const response = await axios.post(
-      "https://tracsdev.apttechsol.com/api/sendReplyMailtomem_Api",
+      `${process.env.REACT_APP_API_BASE_URL}/sendReplyMailtomem_Api`,
       payload,
       {
         headers: {

@@ -37,7 +37,7 @@ showBasic(!basic)
     const fetchData=async()=>{
       const token=localStorage.getItem("authToken");
       try{
-        const response= await axios.get("https://tracsdev.apttechsol.com/api/affiliation",{
+        const response= await axios.get(`${process.env.REACT_APP_API_BASE_URL}/affiliation`,{
           headers:{
             Authorization:`Bearer${token}`
           }

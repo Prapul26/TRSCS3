@@ -32,7 +32,7 @@ const [msg,setMsg]=useState("")
     
       const fetchData = async () => {
         try {
-          const response = await axios.get("https://tracsdev.apttechsol.com/api/dashboard", {
+          const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/dashboard`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           setData(response.data.orders.data);

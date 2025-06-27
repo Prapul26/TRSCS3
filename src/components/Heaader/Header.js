@@ -13,6 +13,8 @@ import { ImCross } from "react-icons/im";
 import { faL } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 /*  <FaFacebook />
   <FaSquareXTwitter />
  <FaLinkedin />
@@ -27,6 +29,39 @@ const Header = () => {
   const [drop1, showDrop1] = useState(false);
   const [drop2, showDrop2] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [profileImg,setProfileImg]=useState("");
+ useEffect(() => {
+  const timeoutId = setTimeout(() => {
+    const fetchProfile = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+        const response = await axios.get(
+          "https://tracsdev.apttechsol.com/api/my-profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        const data = response.data;
+        const newImage = data.user?.image;
+       if (newImage) {
+        const imageUrl = `https://tracsdev.apttechsol.com/public/${newImage}`;
+        setProfileImg(imageUrl);
+        localStorage.setItem("profileImageUrl", imageUrl); // ✅ FIXED
+        console.log("Saving to localStorage:", imageUrl); // ✅ Will not be empty
+      }
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
+      }
+    };
+
+    fetchProfile();
+  }, 300);
+
+  return () => clearTimeout(timeoutId);
+}, []);
+
   const navigate = useNavigate();
   useEffect(() => {
     // Check if user is logged in by checking for token in localStorage
@@ -37,6 +72,7 @@ const Header = () => {
   }, []);
   const handleLogout = () => {
     localStorage.removeItem("authToken");
+    localStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
     navigate("/login"); // Redirect to login page
   };
@@ -276,7 +312,7 @@ const Header = () => {
             <div className="header-profile">
               <div className="picPro">
                 <img
-                  src="https://cdn.motiondesign.school/uploads/2021/05/radik.jpg"
+                  src={profileImg}
                   style={{ height: "100%", width: "100%", borderRadius: "50%" }}
                 />
               </div>

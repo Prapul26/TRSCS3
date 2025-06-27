@@ -24,7 +24,7 @@ const Contacts = () => {
       const token = localStorage.getItem("authToken");
       try {
         const response = await axios.get(
-          "https://tracsdev.apttechsol.com/api/view-introduction-email-list",
+          `${process.env.REACT_APP_API_BASE_URL}/view-introduction-email-list`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -45,7 +45,7 @@ const handleDelete = async (id) => {
 
   try {
     await axios.get(
-      `https://tracsdev.apttechsol.com/api/destroy-contact-from-intro/${id}`,
+      `${process.env.REACT_APP_API_BASE_URL}/destroy-contact-from-intro/${id}`,
       
       {
         headers: {

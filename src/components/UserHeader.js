@@ -18,11 +18,22 @@ import { HiInboxArrowDown } from "react-icons/hi2";
 import { IoBookOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
 import { FaArrowAltCircleDown } from "react-icons/fa";
 const UserHeader = () => {
   const [userNav, showUserNav] = useState(false);
   const [intro, showIntro] = useState(false);
   const [menuDrop, setMenuDrop]=useState(false);
+    const [profileImg,setProfileImg]=useState("");
+  const [imageUrl, setImageUrl] = useState("");
+
+useEffect(() => {
+  const storedImage = localStorage.getItem("profileImageUrl");
+  if (storedImage) {
+    setImageUrl(storedImage);
+  }
+}, []);
   const handelMenuDrop=()=>{
 setMenuDrop(!menuDrop)
   }
@@ -43,9 +54,11 @@ setMenuDrop(!menuDrop)
   }, []);
   const handleLogout = () => {
     localStorage.removeItem("authToken");
+    localStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
     navigate("/login"); // Redirect to login page
   };
+console.log("image:"+imageUrl)
   return (
     <div className="header" style={{ display: "flex" }}>
       {userNav && (
@@ -213,8 +226,7 @@ setMenuDrop(!menuDrop)
           </div>
           <div className="profile-pic">
             <img
-              src="https://cdn.motiondesign.school/uploads/2021/05/radik.jpg"
-              style={{ height: "100%", width: "100%"}}
+src={imageUrl}              style={{ height: "100%", width: "100%"}}
             />
           </div>
           <div className="profile-name" onClick={handelMenuDrop}>

@@ -34,6 +34,7 @@ const MobileNavbar = ({showMobnav}) => {
     showIntro2(!intro2);
   };
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const imageUrl=localStorage.getItem("profileImageUrl")
   const navigate = useNavigate();
   useEffect(() => {
     // Check if user is logged in by checking for token in localStorage
@@ -44,6 +45,7 @@ const MobileNavbar = ({showMobnav}) => {
   }, []);
   const handleLogout = () => {
     localStorage.removeItem("authToken");
+    localStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
     navigate("/login"); // Redirect to login page
   };
@@ -61,7 +63,7 @@ const MobileNavbar = ({showMobnav}) => {
         <FaHouse size={30 }/></div></Link>
         </div>
       <div style={{display:"flex"}}>
-        <div className={`mobnavPic ${mobnav ?"hidden":""}`}><img src="https://cdn.motiondesign.school/uploads/2021/05/radik.jpg"/></div>
+        <div className={`mobnavPic ${mobnav ?"hidden":""}`}><img src={imageUrl}/></div>
         
         <div className={`profile-name ${mobnav ?"hidden":""}`} onClick={handelMenuDrop} style={{marginTop:"22px"}}>
                 {menuDrop ?(  <IoMdArrowDropup color="black" size={22} />):(<IoMdArrowDropdown color="black" size={22}/> )}
