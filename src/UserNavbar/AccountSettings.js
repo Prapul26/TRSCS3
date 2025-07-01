@@ -89,6 +89,13 @@ const [files, setFiles] = useState([null]); // start with one file input
 
   const handleFileChange = (e, index) => {
     const file = e.target.files[0];
+     if (!file) return;
+
+  const validTypes = ["image/jpeg", "image/jpg"];
+  if (!validTypes.includes(file.type)) {
+    alert("Only JPG or JPEG images are allowed.");
+    return;
+  }
     const updatedFiles = [...files];
     const updatedPreviews = [...previews];
 
@@ -143,7 +150,11 @@ const handleDeleteImage = async (id) => {
       alert("Please select a valid image file.");
       return;
     }
-  
+   const validTypes = ["image/jpeg", "image/jpg"];
+  if (!validTypes.includes(file.type)) {
+    alert("Only JPG or JPEG images are allowed.");
+    return;
+  }
     const reader = new FileReader();
     reader.onloadend = () => {
       const base64String = reader.result;
@@ -499,6 +510,7 @@ console.log("memberType ="+memberType)
                       </div>
                       <input
                         type="text"
+                        accept=".jpg,.jpeg"
                         value={website}
                         onChange={(e) => setWebsite(e.target.value)}
                       />
