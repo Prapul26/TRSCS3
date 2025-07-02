@@ -160,21 +160,25 @@ if (additional) {
 
   return () => clearTimeout(timeoutId);
 }, []);
-   useEffect(()=>{
-    const fetchData=async()=>{
-      const token=localStorage.getItem("authToken");
-      try{
-        const response= await axios.get("https://tracsdev.apttechsol.com/api/affiliation",{
-          headers:{
-            Authorization:`Bearer${token} `
+useEffect(() => {
+    const fetchData = async () => {
+      const token = localStorage.getItem("authToken");
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_BASE_URL}/affiliation`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
-        });
+        );
         setData2(response.data);
-      }catch(err){
-        console.log(err)
+      } catch (err) {
+        console.log(err);
       }
-    }
-   fetchData()},[])
+    };
+    fetchData();
+  }, []);
   return (
     <div className="container">
       <Header />
