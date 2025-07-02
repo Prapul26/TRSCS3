@@ -58,7 +58,37 @@ setMenuDrop(!menuDrop)
     setIsLoggedIn(false);
     navigate("/login"); // Redirect to login page
   };
-console.log("image:"+imageUrl)
+console.log("image:"+imageUrl);
+useEffect(() => {
+  const timeoutId = setTimeout(() => {
+    const fetchProfile = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+        const response = await axios.get(
+          "https://tracsdev.apttechsol.com/api/my-profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        const data = response.data;
+        const newImage = data.user?.image;
+       if (newImage) {
+        const imageUrl = `https://tracsdev.apttechsol.com/public/${newImage}`;
+        setProfileImg(imageUrl);
+       
+      }
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
+      }
+    };
+
+    fetchProfile();
+  }, 300);
+
+  return () => clearTimeout(timeoutId);
+}, []);
   return (
     <div className="header" style={{ display: "flex" }}>
       {userNav && (
@@ -226,7 +256,7 @@ console.log("image:"+imageUrl)
           </div>
           <div className="profile-pic">
             <img
-src={imageUrl}              style={{ height: "100%", width: "100%"}}
+src={profileImg}              style={{ height: "100%", width: "100%"}}
             />
           </div>
           <div className="profile-name" onClick={handelMenuDrop}>

@@ -43,12 +43,14 @@ const MobileNavbar = ({showMobnav}) => {
       setIsLoggedIn(true);
     }
   }, []);
+  
   const handleLogout = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
     navigate("/login"); // Redirect to login page
   };
+  
   return (
     <div style={{display:"flex"}}>
       <div>

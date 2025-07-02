@@ -48,8 +48,7 @@ const Header = () => {
        if (newImage) {
         const imageUrl = `https://tracsdev.apttechsol.com/public/${newImage}`;
         setProfileImg(imageUrl);
-        localStorage.setItem("profileImageUrl", imageUrl); // ✅ FIXED
-        console.log("Saving to localStorage:", imageUrl); // ✅ Will not be empty
+       
       }
       } catch (error) {
         console.error("Error fetching profile data:", error);
