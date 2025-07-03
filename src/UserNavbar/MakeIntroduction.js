@@ -39,7 +39,7 @@ const MakeIntroduction = () => {
   const [searchText, setSearchText] = useState("");
   const [subject, setSubject] = useState("");
   const [addContacts, showAdd] = useState(false);
-  const [recepientType, setRecipientType] = useState("H7 Members");
+  const [recepientType, setRecipientType] = useState("");
   const [selectedTemplate, setSelectedTemplate] = useState("");
   const [message, setMessage] = useState(""); // New state
   const [data, setData] = useState("");
@@ -243,7 +243,8 @@ const MakeIntroduction = () => {
               value={recepientType}
               onChange={(e) => setRecipientType(e.target.value)}
             >
-              <option value="members">H7 Members</option>
+              <option value="undefined" >Select Member Type</option>
+              <option value="h7_members">H7 Members</option>
               <option value="tracs_members">TRACS Members</option>
               <option value="contacts">My Contact</option>
             </select>
@@ -332,9 +333,24 @@ const MakeIntroduction = () => {
               </form>
             )}
             <div className="checkbox-list">
-              {data.userslist?.filter((user) =>
-      user.business_name?.toLowerCase().includes(searchText.toLowerCase())
-    ).map((user, index) => (
+          {data.userslist
+  ?.filter((user) => {
+    const searchMatch = user.business_name
+      ?.toLowerCase()
+      .includes(searchText.toLowerCase());
+
+    // If no recipient type selected yet, show all users
+    if (!recepientType) return searchMatch;
+
+    // Filter based on selected type
+    const recipientMatch =
+      (recepientType === "h7_members" && user.member_type === "1") ||
+      (recepientType === "tracs_members" && user.member_type === "2") ||
+      (recepientType === "contacts" && user.member_type === "0");
+
+    return searchMatch && recipientMatch;
+  })
+  .map((user, index) =>(
                 <div key={user.id} className="checkbox-item">
                   <input
                     type="checkbox"
@@ -459,7 +475,7 @@ const MakeIntroduction = () => {
               </div>{" "}
             </div>
             <div>
-              <label>Manage Template</label>
+            <Link to='/email' style={{textDecoration:"none",color:"inherit"}}>  <label>ManageTemplate</label></Link>
             </div>
           </div>
           <br />
