@@ -4,7 +4,7 @@
     text-align: center;
     justify-items: center;
     padding: 1px;
-    background: #27479e;
+    background: #163b6d;
     color: rgb(251, 251, 251);
 }
 
@@ -20,6 +20,12 @@
   
 height: fit-content;
 
+}
+.adjustp p {
+    margin-left: 10px;;
+    margin-top: 8px;
+    font-weight: 500 !important;
+    font-size: 14px !important;
 }
 .pset{
 font-size: 13px !important;
@@ -49,6 +55,7 @@ font-weight: 450;
     overflow-y: auto;
     width: 80%;
     overflow-x: auto;
+   
 }
 .info-holder label{
     font-weight: 700;
@@ -103,10 +110,14 @@ padding: 5px;
   margin-right:20%;
     margin-top: -40px;
 }
+.checkbox-item {
+    border-bottom: 1px solid black;
+ cursor: pointer;
+}
 .checkbox-item img{
-    height: 60px;
-    width: 60px;
-    border-radius: 60px;
+    height: 80px;
+    width: 80px;
+    border-radius: 80px;
     margin-top: -10px;
     margin-left: 5px;
     margin-right: 10px;
@@ -189,22 +200,117 @@ word-wrap: break-word;
         padding-top: 10px;
         padding-right: 7px;
         display: flex;
-        width: 80%;
-            background-color: rgb(230, 242, 239);
-            border-bottom: 1px solid rgb(35, 35, 35);
+        width: 100%;
+         
+            border-bottom: 1px solid rgb(160, 160, 160);
            
             margin-top: 3px;
     }
-    
+    .omove{
+        margin-top: 30px;
+    }
     .colorCOrner :hover{
- background-color: #ffffff;
+ 
  cursor: pointer;
 
+    }
+    .colorCOrner1{
+   background-color: rgb(230, 242, 239);
+       width: 80%;
+       border-radius: 10px;
+    }
+    .movecorner:hover{
+        background-color: white;
     }
     .colorCOrner{
         padding: 5px;
     }
+.modal-overlay{
+    background-color: #d2daf9;
+     position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content{
+background-color: rgb(255, 255, 255);
+width: 80%;
+margin-left: 10%;
+margin-right:10%;
+border-radius: 20px;
+height: 86%;
+overflow-y: auto;
+justify-content: center;
+  align-items: center;
+  
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 20px;
+padding-bottom: 20px;
+}
+.instyleprofile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.instyleprofile p{
+    margin-top: -10px !important;
+}
+.prodet p{
+  margin-top: 7px !important;
+}
+.colorforabout{
+    background-color: #b6b7b8;
+}
+.practice-overlay{
+     background-color: #d2daf9;
+     position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  z-index: 1000;
+}
+.practiceHolder{
+    background-color: white;
+    margin-top: 10%;
+    width: 50%;
+    height: fit-content;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+     overflow-y: auto;
+}
+.repTokens p{
+font-size: 12px !important;
+margin-left: 10px;
+font-weight: 600;
+margin-top: 15px;}
 @media(max-width:480px){
+    .practiceHolder{
+    background-color: white;
+    margin-top: 470%;
+    width: 80%;
+    height: fit-content;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+     overflow-y: auto;
+}
     .info-holder{
         margin-top: 30px;
         padding: 20px;

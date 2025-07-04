@@ -44,11 +44,11 @@ const Home = () => {
 
         <div className="network-container">
           <Link to="/makeIntro">
-            <button className="ncb1" style={{background:"#eeba2b" ,color:"black"}}>Make Introduction Instantly</button>
+            <button className="ncb1" style={{background:"#eeba2b" ,color:"black",height:"55px",borderRadius:"25px"}}>MAKE INTRODUCTION INSTANTLY</button>
           </Link>
           <Link to="/inbox">
-            <button style={{background:"#eeba2b" ,color:"black"}} className="bttborder">
-              <span>My Dashboard</span>
+            <button style={{background:"#eeba2b" ,color:"black",height:"55px",borderRadius:"25px"}} className="bttborder">
+              <span>DASHBOARD</span>
             </button>
           </Link>
         </div>
@@ -61,14 +61,21 @@ const Home = () => {
               Strengthening your reputation, while strengthening your
               Trusted-Relationships.
             </h1>
-           {!isLoggedIn &&(<Link to='/register'><button style={{color:"black",background:"#eeba2b"}}>Join now</button></Link>)} 
+           {!isLoggedIn &&(<div> <p style={{color:"#f96b39",fontWeight:"700"}}>1.Sign up for your 14-day trial</p>
+            <p style={{color:"#f96b39",fontWeight:"700"}}>2.Create your Account</p>
+            <p style={{color:"#f96b39",fontWeight:"700"}}>3.Add your contacts to your account</p>
+            <p style={{color:"#f96b39",fontWeight:"700"}}>4.Start Making Introductions</p>
+            <p style={{color:"#f96b39",fontWeight:"700"}}>5.Use your Dashboard for Results</p><br/><Link to='/register'><button style={{color:"black",background:"#eeba2b",height:"45px",borderRadius:"20px"}}>JOIN NOW</button></Link></div>
+                  
+          )} 
+           
           </div>
           <div className="hd1-pic">
             <img src="https://tracs.app/public/uploads/website-images/home-img3.jpeg" style={{ width: "100%", height: "100%" }} />
           </div>
         </div>
         <div className="line-1">
-          <p style={{fontSize:"18px",fontWeight:"700" }}>
+          <p style={{fontSize:"18px",fontWeight:"700" ,marginBottom:"40px"}}>
 
             Welcome to <span style={{ color: "#f96b39" }}>TRACS</span>, your
             go-to source for connecting with a diverse community of talented
@@ -76,7 +83,7 @@ const Home = () => {
             relationships within our vibrant community.
           </p>
         </div>
-        <div className="hd2">
+     {/* {isLoggedIn && ( <div className="hd2">
           
           <div className="hd2-pic">
             <img src='https://tracs.app/public/uploads/website-images/home-img1.jpeg' style={{ width: "100%", height: "100%" }} />
@@ -91,7 +98,7 @@ const Home = () => {
             <p style={{color:"#f96b39",fontWeight:"700"}}>4.Start Making Introductions</p>
             <p style={{color:"#f96b39",fontWeight:"700"}}>5.Use your Dashboard for Results</p>
           </div>
-        </div>
+        </div>)} */} 
        
       </div>
 

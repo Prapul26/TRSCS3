@@ -2,17 +2,18 @@ import React, { useEffect } from "react";
 import "./MakeIntroduction.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { IoMail, IoPerson } from "react-icons/io5";
-import { RxCross2 } from "react-icons/rx";
+import { IoCall, IoGlobe, IoLogoLinkedin, IoMail, IoPerson } from "react-icons/io5";
+import { RxCross1, RxCross2 } from "react-icons/rx";
 import { IoMdPerson } from "react-icons/io";
 import { FaPlus } from "react-icons/fa";
 import Header from "../components/Heaader/Header";
 import Navbar from "../components/Navbar/Navbar";
 import { ImCross } from "react-icons/im";
 import Footer from "../components/Footer/Footer";
-import { TiArrowBackOutline } from "react-icons/ti";
+import { TiArrowBack, TiArrowBackOutline } from "react-icons/ti";
 import axios from "axios";
 import { PiMouseScrollFill } from "react-icons/pi";
+import { AiTwotoneQuestionCircle } from "react-icons/ai";
 
 const MakeIntroduction = () => {
   const templates = {
@@ -31,7 +32,7 @@ const MakeIntroduction = () => {
   SKN IT Solutions`,
   };
   const [users] = useState([
-   
+
   ]);
   const blockedDomains = ["gmail.com", "yahoo.com", "hotmail.com"];
   const [msg, setMsg] = useState("");
@@ -39,10 +40,13 @@ const MakeIntroduction = () => {
   const [searchText, setSearchText] = useState("");
   const [subject, setSubject] = useState("");
   const [addContacts, showAdd] = useState(false);
-  const [recepientType, setRecipientType] = useState("");
+  const [recepientType, setRecipientType] = useState("h7_members");
   const [selectedTemplate, setSelectedTemplate] = useState("");
-  const [message, setMessage] = useState(""); // New state
-  const [data, setData] = useState("");
+  const [message, setMessage] = useState("");
+  const [messagebody, setmessageBody] = useState("")
+  // New state
+
+  const [data, setData] = useState({});
   const [signature, setSignature] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
@@ -50,29 +54,43 @@ const MakeIntroduction = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [groupName, setGroupName] = useState("");
-
-  const handleToggle = (user) => {
-  const selected = selectedEmails.find((item) => item.email === user.email);
-  if (selected) {
-    setSelectedEmails((prevSelected) =>
-      prevSelected.filter((item) => item.email !== user.email)
-    );
-  } else {
-    const imageUrl = user.image
-      ? `https://tracsdev.apttechsol.com/public/${user.image}`
-      : user.photo || ""; // Fallback to local photo
-
-    setSelectedEmails((prevSelected) => [
-      ...prevSelected,
-      {
-        ...user,
-        image: imageUrl, // Ensure image is always available
-      },
-    ]);
-  }
+const [selectedUser, setSelectedUser] = useState(null);
+const [showModal, setShowModal] = useState(false);
+const [bestPractice, setBestPractise]=useState(false);
+const [validationError, setValidationError] = useState("");
+const handelbest=()=>{
+  setBestPractise(!bestPractice)
 };
 
+function stripHtml(html) {
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = html;
+  return tempDiv.textContent || tempDiv.innerText || "";
+};
+  const handleToggle = (user) => {
+    const selected = selectedEmails.find((item) => item.email === user.email);
+    if (selected) {
+      setSelectedEmails((prevSelected) =>
+        prevSelected.filter((item) => item.email !== user.email)
+      );
+    } else {
+      const imageUrl = user.image
+        ? `https://tracsdev.apttechsol.com/public/${user.image}`
+        : user.photo || ""; // Fallback to local photo
 
+      setSelectedEmails((prevSelected) => [
+        ...prevSelected,
+        {
+          ...user,
+          image: imageUrl, // Ensure image is always available
+        },
+      ]);
+    }
+  };
+
+const handelbestcancel=()=>{
+  setBestPractise(!bestPractice)
+}
   const handleRemove = (email) => {
     setSelectedEmails((prevSelected) =>
       prevSelected.filter((item) => item.email !== email)
@@ -89,55 +107,66 @@ const MakeIntroduction = () => {
     showAdd(false);
   };
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const token = localStorage.getItem("authToken");
+  e.preventDefault();
+  const token = localStorage.getItem("authToken");
 
-    const validEmails = selectedEmails.filter((user) => {
-      const domain = user.email.split("@")[1];
-      return user.email.includes("@") && !blockedDomains.includes(domain);
+  const validEmails = selectedEmails.filter((user) => {
+    const domain = user.email.split("@")[1];
+    return user.email.includes("@") && !blockedDomains.includes(domain);
+  });
+
+  if (validEmails.length < 2) {
+    setMsg("Select at least two emails.");
+    return;
+  }
+
+  // ❗ Check if tokens are still present
+  if (message.includes("[[name_1]]") || message.includes("[[name_2]]")) {
+    setMsg(
+      "Replace the following tokens with actual names before sending:\n[[name_1]]\n[[name_2]]"
+    );
+    return;
+  }
+
+  // Extract first two selected users
+  const [member, contact] = validEmails;
+
+  // Replace additional placeholders (if any)
+  const finalMessage = message
+    .replace(/\[\[member_first_name\]\]/gi, member.name.split(" ")[0])
+    .replace(/\[\[contact_first_name\]\]/gi, contact.name.split(" ")[0]);
+
+  try {
+    const formData = new FormData();
+    formData.append("message", finalMessage);
+    formData.append("recipient_type", recepientType);
+    formData.append("subject", subject);
+    formData.append("template_id", selectedTemplate);
+    formData.append("signature", signature);
+    validEmails.forEach((user) => {
+      formData.append("mail_id[]", user.email);
     });
 
-    if (validEmails.length < 2) {
-      setMsg("Select at least two emails.");
-      return;
-    }
+    const response = await axios.post(
+      "https://tracsdev.apttechsol.com/api/sendmailintrotointromem",
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
 
-    // Extract first two selected users
-    const [member, contact] = validEmails;
+    setMsg(response.data?.message || "Introduction sent successfully.");
+    console.log("Success:", response.data);
+  } catch (err) {
+    setMsg(err.response?.data?.message || "An error occurred.");
+  }
+};
 
-    // Replace placeholders
-    const finalMessage = message
-      .replace(/\[\[member_first_name\]\]/gi, member.name.split(" ")[0])
-      .replace(/\[\[contact_first_name\]\]/gi, contact.name.split(" ")[0]);
+  
 
-    try {
-      const formData = new FormData();
-      formData.append("message", finalMessage);
-      formData.append("recipient_type", recepientType);
-      formData.append("subject", subject);
-      formData.append("template_id", selectedTemplate);
-      formData.append("signature", signature);
-      validEmails.forEach((user) => {
-        formData.append("mail_id[]", user.email);
-      });
-
-      const response = await axios.post(
-        "https://tracsdev.apttechsol.com/api/sendmailintrotointromem",
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-
-      setMsg(response.data?.message || "Introduction sent successfully.");
-      console.log("Success:", response.data);
-    } catch (err) {
-      setMsg(err.response?.data?.message || "An error occurred.");
-    }
-  };
   const handleChangeSequence = () => {
     setSelectedEmails((prev) => [...prev].reverse()); // or shuffle logic
   };
@@ -190,17 +219,22 @@ const MakeIntroduction = () => {
       setMessage(error.response?.data?.message || "Error adding the Contact");
     }
   };
-  useEffect(() => {
-  if (selectedEmails.length > 0) {
+useEffect(() => {
+  if (selectedEmails.length > 0 && data?.userInfo?.name) {
     const businessNames = selectedEmails
-      .map((user) => user.business_name)
-      .filter(Boolean) // Remove undefined/null
+      .map((user) => user.name)
+      .filter(Boolean)
       .join("  &  ");
-    setSubject(`Introduction : <>${businessNames}`);
+
+    const userName = data.userInfo.name;
+
+    setSubject(`Introduction : ${userName} <> ${businessNames}`);
   } else {
     setSubject("");
   }
-}, [selectedEmails]);
+}, [selectedEmails, data?.userInfo]);
+
+
   return (
     <div className="make">
       <Header />
@@ -217,10 +251,10 @@ const MakeIntroduction = () => {
       >
         <div style={{ marginLeft: "20px" }}>
           {" "}
-          <button style={{ borderRadius: "30px", border: "transparent" }}>
+          <button style={{ borderRadius: "30px", border: "transparent", background: "#163b6d" }}>
             <span>
               <Link to="/inbox">
-                <TiArrowBackOutline color="white" size={35} />
+                <TiArrowBack color="white" size={35} style={{ background: "#163b6d" }} />
               </Link>
             </span>{" "}
           </button>
@@ -228,7 +262,7 @@ const MakeIntroduction = () => {
         <div className="prevIntro">
           <Link to="/inbox">
             {" "}
-            <button>Previous Introduction</button>
+            <button style={{ background: "#163b6d" }}> Previous Introductions</button>
           </Link>
         </div>
       </div>
@@ -236,14 +270,14 @@ const MakeIntroduction = () => {
       <div className="info-holder">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>To</label>
+            <div style={{display:"flex"}}><div><label>Directory</label></div><div style={{marginLeft:"5px",marginTop:"2px"}}><AiTwotoneQuestionCircle /></div></div>
             <br />
             <select
               className="toSelect"
               value={recepientType}
               onChange={(e) => setRecipientType(e.target.value)}
             >
-              <option value="undefined" >Select Member Type</option>
+
               <option value="h7_members">H7 Members</option>
               <option value="tracs_members">TRACS Members</option>
               <option value="contacts">My Contact</option>
@@ -332,80 +366,151 @@ const MakeIntroduction = () => {
                 </div>
               </form>
             )}
-            <div className="checkbox-list">
-          {data.userslist
-  ?.filter((user) => {
-    const searchMatch = user.business_name
-      ?.toLowerCase()
-      .includes(searchText.toLowerCase());
+            {showModal && selectedUser && (
+  <div className="modal-overlay">
+    <div className="modal-content">
+     <div style={{display:"flex",justifyContent:"space-between"}}>
+      <div><h3>{selectedUser.name}</h3></div>
+<div> <button style={{background:"white",color:"black",fontSize:"25px",marginTop:"-10px"}} className="close-button" onClick={() => setShowModal(false)}>×</button></div>
+     </div>
+      <div className="instyleprofile">
+        <div>
+    <div style={{justifyContent:"center",display:"flex",width:"100%"}}>  <img
+        src={`https://tracsdev.apttechsol.com/public/${selectedUser.image}`}
+        alt="User"
+        style={{ width: "100px", height: "100px", borderRadius: "50%" }}
+      /></div>
+      <div style={{justifyContent:"center",display:"flex",width:"100%"}}><h2>{selectedUser.name}</h2></div>
+        <div style={{justifyContent:"center",display:"flex",width:"100%",marginTop:"-10px !important"}}><p style={{marginTop:"-10px !important"}}> {selectedUser.member_type === "1"
+    ? "H7 Member"
+    : selectedUser.member_type === "2"
+    ? "TRACS Member"
+    : selectedUser.member_type === "3"
+    ? "My Contacts"
+    : "Unknown"}</p></div>
+          <div style={{justifyContent:"center",display:"flex",width:"100%"}}><p>{selectedUser.business_name }</p></div>
+    
+    
+    <div style={{width:"100%",display:"flex",justifyContent:"center"}}>
+      <div> <div  className="prodet"style={{display:"flex"}}>
+      <div style={{display:"flex"}}>
+        <div style={{marginRight:"10px"}}><IoMail size={20} color="#0089f8"/></div>
+        <div><strong>Email</strong><br/>
+        <p>{selectedUser.email}</p></div>
 
-    // If no recipient type selected yet, show all users
-    if (!recepientType) return searchMatch;
+      </div>
+     <div style={{display:"flex"}}>
+        <div style={{marginRight:"10px"}}><IoCall size={20} color="green"/></div>
+        <div><strong>Phone</strong><br/>
+        <p>{selectedUser.phone}</p></div>
 
-    // Filter based on selected type
-    const recipientMatch =
-      (recepientType === "h7_members" && user.member_type === "1") ||
-      (recepientType === "tracs_members" && user.member_type === "2") ||
-      (recepientType === "contacts" && user.member_type === "0");
+      </div>
+     </div>
+     <div  className="prodet"style={{display:"flex"}}>
+      <div style={{display:"flex"}}>
+        <div style={{marginRight:"10px"}}><IoGlobe size={20} color="#34b5b0"/></div>
+        <div><strong>Website</strong><br/>
+        <p>{selectedUser.website}</p></div>
 
-    return searchMatch && recipientMatch;
-  })
-  .map((user, index) =>(
-                <div key={user.id} className="checkbox-item">
-                  <input
-                    type="checkbox"
-                    checked={selectedEmails.some((u) => u.email === user.email)}
-                    onChange={() =>
-                      handleToggle(user)
-                    }
-                  />
-                  <span className="spandiv">
-                    <div className="spanImg">
-                      <img
-                        src={`https://tracsdev.apttechsol.com/public/${data.userslist[index]?.image}`}
-                        alt="User"
-                      />
-                    </div>
-                    <div style={{ marginTop: "-8px" }} className="spamData">
-                      <h3>{user.business_name || "No Network"}</h3>
-                      <div>
-                        <div style={{ display: "flex" }}>
-                          <div style={{ marginTop: "3px", marginRight: "5px" }}>
-                            <IoMdPerson />
+      </div>
+     <div style={{display:"flex"}}>
+        <div style={{marginRight:"10px"}}><IoLogoLinkedin size={20} color="skyblue"/></div>
+        <div><strong>LinkedIn</strong><br/>
+        <p>{selectedUser.linkedin}</p></div>
+
+      </div>
+     </div></div>
+     </div>
+
+<div><strong>About</strong>
+<div className='colorforabout'style={{marginBottom:"40px",padding:"10px"}}>{selectedUser.about}</div>
+  </div>
+    </div></div></div>
+  </div>
+)}
+            <div className="checkbox-list" >
+              {data.userslist
+                ?.filter((user) => {
+                  const searchMatch = user.name
+                    ?.toLowerCase()
+                    .includes(searchText.toLowerCase()) ||
+                    user.email?.toLowerCase().includes(searchText.toLowerCase());
+
+                  // If no recipient type selected yet, show all users
+                  if (!recepientType) return searchMatch;
+
+                  // Filter based on selected type
+                  const recipientMatch =
+                    (recepientType === "h7_members" && user.member_type === "1") ||
+                    (recepientType === "tracs_members" && user.member_type === "2") ||
+                    (recepientType === "contacts" && user.member_type === "3");
+
+                  return searchMatch && recipientMatch;
+                })
+                .map((user, index) => (
+                  <div key={user.id} className="checkbox-item" >
+   
+                    <input
+                      type="checkbox"
+                      checked={selectedEmails.some((u) => u.email === user.email)}
+                      onChange={() =>
+                        handleToggle(user)
+                      }
+                    />
+                    <span className="spandiv"onClick={() => {
+    setSelectedUser(user);
+    setShowModal(true);
+  }}>
+                      <div className="spanImg">
+                        <img
+                          src={`https://tracsdev.apttechsol.com/public/${data.userslist[index]?.image}`}
+                          alt="User"
+                        />
+                      </div>
+                      <div style={{ marginTop: "-8px" }} className="spamData">
+                        <h3>{user.name || "No Network"}</h3>
+                        <div>
+                          <div style={{ display: "flex" }}>
+                            <div style={{ marginTop: "3px", marginRight: "5px" }}>
+
+                              <IoMail />
+                            </div>
+                            <div>
+                              <h4>{user.email}</h4>
+                            </div>
                           </div>
-                          <div>
-                            <h4>{user.name}</h4>
-                          </div>
-                        </div>
-                        <div style={{ display: "flex" }}>
-                          <div style={{ marginTop: "3px", marginRight: "5px" }}>
-                            <IoMail />
-                          </div>
-                          <div className="emailSpan">
-                            <h4>{user.email || "No Email"}</h4>
+                          <div style={{ display: "flex" }}>
+                            <div style={{ marginTop: "3px", marginRight: "5px" }}>
+
+                              <IoMdPerson />
+                            </div>
+                            <div className="emailSpan">
+                              <h4>{user.business_name || "No business name"}</h4>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </span>
-                </div>
-              ))}
+                    </span>
+                  </div>
+                ))}
             </div>
           </div>
 
           <div className="selected-emails">
             <h4>Selected Emails</h4>
-          
-              {selectedEmails.map((user, index) => (
-                 <div className="colorCOrner"> <div className="movecorner">
+ <div className="colorCOrner1">
+            {selectedEmails.map((user, index) => (
+             
+              <div className="colorCOrner">
+                <div className="movecorner">
                   <div key={index} className="email-item">
                     <div className="selected-user-photo">
                       <img
                         src={user.image}
                         alt="User"
                         style={{
-                          width: "40px",
-                          height: "40px",
+                          width: "60px",
+                          height: "60px",
                           borderRadius: "50%",
                         }}
                       />
@@ -413,21 +518,10 @@ const MakeIntroduction = () => {
 
                     <div className="selected-user-info">
                       <div>
-                        <h4>{user.business_name || "No Network"}</h4>
+                        <h4>{user.name || "No Network"}</h4>
                       </div>
 
                       <div style={{ display: "flex", marginTop: "-0px" }}>
-                        <div style={{ marginTop: "3px", marginRight: "5px" }}>
-                          <IoPerson />
-                        </div>
-                        <div
-                          className="emailSpan"
-                          style={{ marginTop: "-19px", marginRight: "5px" }}
-                        >
-                          <h5>{user.name || "No name"}</h5>
-                        </div>
-                      </div>
-                      <div style={{ display: "flex", marginTop: "-20px" }}>
                         <div style={{ marginTop: "3px", marginRight: "5px" }}>
                           <IoMail />
                         </div>
@@ -435,32 +529,46 @@ const MakeIntroduction = () => {
                           className="emailSpan"
                           style={{ marginTop: "-19px", marginRight: "5px" }}
                         >
-                          <h5>{user.email || "No Email"}</h5>
+                          <h5>{user.email || "No name"}</h5>
+                        </div>
+                      </div>
+                      <div style={{ display: "flex", marginTop: "-20px" }}>
+                        <div style={{ marginTop: "3px", marginRight: "5px" }}>
+                          <IoPerson />
+                        </div>
+                        <div
+                          className="emailSpan"
+                          style={{ marginTop: "-19px", marginRight: "5px" }}
+                        >
+                          <h5>{user.business_name || "No Email"}</h5>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="omove">
                     {" "}
-                    <ImCross
+                    <RxCross1
                       size={20}
                       color="red"
                       onClick={() => handleRemove(user.email)}
+                      style={{fontSize:"30px"}}
                     />{" "}
                   </div>
                 </div>  </div>
-              ))}
-          
+            ))}
+</div>
           </div>
-          <div
-            className="scroll"
-            onClick={handleChangeSequence}
-            style={{ cursor: "pointer" }}
-          >
-            <IoPerson size={18} />
-            <PiMouseScrollFill size={20} />
-          </div>
-          <div
+          <div style={{ display: "flex" }}>
+            <div
+              className="scroll"
+              onClick={handleChangeSequence}
+              style={{ cursor: "pointer" }}
+            >
+              <IoPerson size={18} />
+              <PiMouseScrollFill size={20} />
+            </div>
+            <div className="adjustp"><p>Adjust the sequence of the selected users</p></div>
+          </div><div
             className="manageHeadingTEmplate"
             style={{ display: "flex", justifyContent: "space-between" }}
           >
@@ -468,14 +576,43 @@ const MakeIntroduction = () => {
               <div>
                 <label>Select Template </label>
               </div>
-              <div style={{ marginTop: "-9px", marginLeft: "7px" }}>
+              <div style={{ marginTop: "-9px", marginLeft: "7px" }} onClick={handelbest}>
                 <p style={{ fontSize: "12px !important" }} className="pset">
                   Best Practices ?
                 </p>
               </div>{" "}
+              {bestPractice && (
+                <div className="practice-overlay">
+                  <div className="practiceHolder">
+                    <div style={{display:"flex",justifyContent:"space-between",marginBottom:"15px",borderBottom:"1px solid black"}}>
+                      <div><strong style={{fontSize:"20px"}}>Help</strong></div>
+                      <div onClick={handelbestcancel}><RxCross2 /></div>
+                    </div>
+                    <div>
+                      <h4 style={{color:"rgb(224, 120, 37)"}}>
+Examples of Introductions and their Effectiveness Level:</h4>
+
+                      </div>
+                      <div><h4  style={{color:"rgb(224, 120, 37)"}}>Very effective with a high rate of success: </h4></div>
+                      <div><h3>Hi Kristen, I'd like to introduce you to John Smith with Results Resourcing 4You. John is brand new to the H7 way and he's looking to build mutually beneficial relationships with potential champions in your space so I instantly thought of you. I thought you two could meet over zoom and see if there's a way to help each other out.
+Can one of you reply to schedule that 1:1?
+
+Why this is so effective: This introduction strongly endorses both the connection and the individual being introduced, making it highly meaningful. The likelihood of successfully setting up and executing an appointment is very high. For new members now trying to complete a CSA One-to-One, initiating this relationship becomes significantly smoother from the start.</h3></div>
+<div><h4  style={{color:"rgb(224, 120, 37)"}}>Effective with a lower rate of success</h4></div>
+<div><h3>Hi Kristen, I'd like to introduce you to John Smith with Results Resourcing 4You. John meet Kristen. Kristen meet John. I think you two should connect.
+
+Why is this not as effective: This introduction lacks clarity on the purpose of the meeting, making it less meaningful. The likelihood of successfully setting up and executing an appointment is medium to low. For new CSA One-to-One members, initiating this relationship is a significant challenge from the start.</h3></div>
+<div><h4  style={{color:"rgb(224, 120, 37)"}}>Effective with a very low rate of response along with lots of </h4></div>
+<div><h4  style={{color:"rgb(224, 120, 37)"}}>confusion: </h4></div>
+<div><h3>Hi Kristen, meet John Smith. Kristen meet John. I think you two should connect.
+
+Why is this not as effective: This introduction lacks clear reasons for the meeting, making it less meaningful and harder for both parties to navigate. Consequently, the likelihood of successfully setting up an appointment and fostering a connection is low. For new members now trying to complete a CSA One-to-One, initiating this relationship presents a significant challenge from the outset.</h3></div>
+                      <div></div>
+                    </div></div>
+              )}
             </div>
             <div>
-            <Link to='/email' style={{textDecoration:"none",color:"inherit"}}>  <label>ManageTemplate</label></Link>
+              <Link to='/email' style={{ textDecoration: "none", color: "inherit" }}>  <label>ManageTemplate</label></Link>
             </div>
           </div>
           <br />
@@ -489,8 +626,10 @@ const MakeIntroduction = () => {
                 (t) => t.id === parseInt(selected)
               );
               if (selectedTemplateObj) {
-                setMessage(selectedTemplateObj.email_body);
-              } else {
+    // Clean HTML before setting message
+    const plainText = stripHtml(selectedTemplateObj.email_body);
+    setMessage(plainText);
+  } else {
                 setMessage("");
               }
             }}
@@ -513,6 +652,29 @@ const MakeIntroduction = () => {
             onChange={(e) => setSubject(e.target.value)}
           />
           <br />
+          <div style={{display:"flex"}}>
+            <div><button
+  style={{ background: "#ffc107", color: "black" }}
+  type="button"
+  onClick={() => {
+    if (selectedEmails.length < 2) {
+      setValidationError("Please select at least two users to replace tokens.");
+      return;
+    }
+
+    const [user1, user2] = selectedEmails;
+    let replaced = message
+      .replace(/\[\[name_1\]\]/gi, user1.name)
+      .replace(/\[\[name_2\]\]/gi, user2.name);
+
+    setMessage(replaced);
+    setValidationError(""); // clear error
+  }}
+>
+  Replace Tokens
+</button></div><div className="repTokens"><p> Replaces [[name_1]], [[name_2]], etc., with selected names</p></div>
+          </div>
+          <br/>
           <label>Message</label>
           <br />
           <textarea
@@ -523,29 +685,45 @@ const MakeIntroduction = () => {
           <br />
           <div className="lastbutton" style={{ display: "flex" }}>
             <div style={{ display: "flex" }}>
-              <input
-                type="checkbox"
-                checked={signature}
-                onChange={(e) =>
-                  setSignature(e.target.checked ? data.signature : "")
-                }
-              />
-              <h3>Include Signature</h3>
+             <input
+  type="checkbox"
+  checked={!!signature}
+  onChange={(e) => {
+    const checked = e.target.checked;
+    const plainSignature = stripHtml(data.signature.name);
+
+    if (checked) {
+      setMessage((prev) => prev + `\n\n${plainSignature}`);
+      setSignature(plainSignature);
+    } else {
+      setMessage((prev) =>
+        prev.replace(`\n\n${signature}`, "").trim()
+      );
+      setSignature("");
+    }
+  }}
+/>
+              <h3>Include Signature</h3><div style={{marginLeft:"5px",marginTop:"5px"}}><AiTwotoneQuestionCircle /></div>
             </div>
             <div className="formButtons">
-              <button style={{ background: "red" }}>Cancel</button>
+              <button style={{ background: "#dc3545" ,height:"37px",fontSize:"1rem",marginTop:"20px"}}>Cancel</button>
               <button
-                style={{ marginLeft: "10px", background: "green" }}
+                style={{ marginLeft: "10px", background: "#163b6d" ,fontSize:"1rem" ,height:"37px",marginTop:"20px"}}
                 type="submit"
               >
-                send
+                Send
               </button>
             </div>
-            <div>{msg}</div>
+           
+            
           </div>
-        </form>
+        </form> {validationError && (
+  <p style={{ color: "red", marginTop: "5px", whiteSpace: "pre-line" }}>
+    {validationError}
+  </p>
+)}<div style={{marginTop:"40px"}}>{msg}</div>
       </div>
-      <Footer />
+     
     </div>
   );
 };
