@@ -612,7 +612,7 @@ Why is this not as effective: This introduction lacks clear reasons for the meet
               )}
             </div>
             <div>
-              <Link to='/email' style={{ textDecoration: "none", color: "inherit" }}>  <label>ManageTemplate</label></Link>
+              <Link to='/email' style={{ textDecoration: "none", color: "inherit" }}>  <label>ManageTemplates</label></Link>
             </div>
           </div>
           <br />
