@@ -32,6 +32,7 @@ import SideNav from "./SideNav";
 import inboxData from "../components/Data/inboxData";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import axios from "axios";
+import { AiTwotoneQuestionCircle } from "react-icons/ai";
 
 const Inbox = () => {
   const [intro, showIntro] = useState(false);
@@ -43,6 +44,10 @@ const Inbox = () => {
   const [sentMessages, setSentMessages] = useState([]);
   const [replyFilter, setReplyFilter] = useState("");
 const [messageFilter, setMessageFilter] = useState("");
+const[showFilterReplie,setFilterReplie]=useState(false);
+const[showFilterMessage,setFilterMessage]=useState(false);
+const [showTakeAction,setTakeAction]=useState(false)
+const[showButton,setButton]=useState(false)
   const showMobnav = () => {
     setShowSidebar((prev) => !prev);
   };
@@ -113,7 +118,11 @@ useEffect(() => {
             <div className="inbox-container">
               <div className="messageInbox">
                 <div className="mI1">
-                  <p>Filter for Replies</p>
+                 
+                 <div style={{display:"flex",marginTop:"20px",marginBottom:"10px"}}><div><h4 style={{color:"black",fontSize:"18px"}}>Filter for Replies</h4></div><div style={{marginTop:"2px",marginLeft:"5px"}}onMouseEnter={()=>setFilterReplie(true)} onMouseLeave={()=>setFilterReplie(false)} >  {showFilterReplie && (<div className="showfilter1" >
+                    <p>Filter messages based on replies that are oped for Bump or closed</p>
+                  </div>)}<AiTwotoneQuestionCircle />
+               </div></div> 
                   <select  value={replyFilter}
   onChange={(e) => setReplyFilter(e.target.value)}>
                     <option value="">All Replies</option>
@@ -122,7 +131,10 @@ useEffect(() => {
                   </select>
                 </div>
                 <div className="mI2">
-                  <p>Filter for Messages</p>
+                    <div style={{display:"flex",marginTop:"20px",marginBottom:"10px"}}><div><h4 style={{color:"black",fontSize:"18px"}}>Filter for Messages</h4></div><div style={{marginTop:"2px",marginLeft:"5px"}}onMouseEnter={()=>setFilterMessage(true)} onMouseLeave={()=>setFilterMessage(false)} >  {showFilterMessage && (<div className="showfilter2" >
+                    <p>Filter messages based on Intro recevied and intro sent </p>
+                  </div>)}<AiTwotoneQuestionCircle />
+               </div></div> 
                   <select  value={messageFilter}
   onChange={(e) => setMessageFilter(e.target.value)}>
                     <option value="">All </option>
@@ -145,8 +157,8 @@ useEffect(() => {
                     {isExpanded ? "Collapse all" : "Expand all"}
                   </button>
                 </div>
-                <div style={{ marginTop: "1px", marginLeft: "20px" }}>
-                  <IoIosStar color=" #eeba2b" />= Take Action <button style={{background:"#dc3545"}}>Bump</button> = no replies
+                <div style={{ marginTop: "1px", marginLeft: "20px" }}  >{showTakeAction &&(<div className="takeAction1"><p>it need action for bump enabled messages</p></div>)}{showButton && (<div className="showButton"> <p>The bump button will be enabled if there are no replies.&nbsp;The introducer can follow up by clicking the Bump button of the message</p></div>)}
+                  <IoIosStar color=" #eeba2b" />= Take Action <AiTwotoneQuestionCircle onMouseEnter={()=>setTakeAction(true)} onMouseLeave={()=>setTakeAction(false)}/> <button style={{background:"#dc3545"}}>Bump</button> = no replies <AiTwotoneQuestionCircle onMouseEnter={()=>setButton(true) }onMouseLeave={()=>setButton(false)}/>
                 </div>
               </div>
 
@@ -173,7 +185,7 @@ useEffect(() => {
   }).map((item, index) => (
                   <div key={item.id} className="inbox">
                     <div classname="headingIntro">
-                      <h5 style={{fontSize:"18px" ,fontWeight:"700"}}>{item.subject}</h5>
+                      <h5 style={{fontSize:"18px" ,fontWeight:"700",marginTop:"-0px"}}>{item.subject}</h5>
                     </div>
                     <div className="pictime">
                       <div className="pic55">
@@ -195,7 +207,7 @@ useEffect(() => {
                     </div>
                     {isExpanded && (
                       <div>
-                        <h5 style={{fontSize:"18px" ,fontWeight:"700"}}>To</h5>
+                        <h5 style={{fontSize:"18px" ,fontWeight:"700"}}>Introducing</h5>
 
                         {/* Sender(s) */}
                         {item.recipients_info.map((recipient, idx) => (

@@ -37,6 +37,7 @@ const SideNav = () => {
     <div>
          
                                 <div className="navs">
+                               <Link to="/home"> <div className='tracsimG'><img src="https://tracsdev.apttechsol.com/public/uploads/website-images/logo-2024-09-05-10-18-08-4078.png"/></div></Link>  
                                 <div onClick={handelSettings} style={{display:"flex",justifyContent:"space-between",borderBottom:"1px solid black"}} ><div style={{display:"flex"}}><div style={{marginTop:'19px',marginRight:"5px",marginLeft:"px"}}><IoSettingsSharp size={20}/></div><ul style={{fontFamily:"'Montserrat', sans-serif",fontWeight:"600",fontSize:"19px",marginLeft:"-20px"}}>Account Settings</ul></div> <div style={{marginTop:"15px",marginLeft:'10px'}}>{settings ?< RiArrowDropUpLine size={25} style={{marginTop:"0px"}}/>:<RiArrowDropDownLine size={25} style={{marginTop:"0px"}} />}</div>
                                
                                 </div>

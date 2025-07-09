@@ -87,20 +87,21 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 .navs{
     color: rgb(24, 24, 24);
     padding: 10px;
-    margin-top: 50px;
+    margin-top: -70px;
     position: absolute;
+    background-color: white;
 height: 100vh;
 }
 
 
 .usernav{
-    width: 19%;
+    width: 270px;
 color: #000000;
 position: absolute;
 height: 100vh;
 word-wrap: break-word;
 margin-top: 0px;
-background-color: white;    cursor: pointer;
+background-color: rgb(255, 255, 255);    cursor: pointer;
 }
 .membership{
     display: flex;
