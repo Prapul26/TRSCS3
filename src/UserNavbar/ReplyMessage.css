@@ -26,16 +26,36 @@ width: 200px;
     margin-left: 40px;
   }
   .emailTemplateInput{
-    height: 30px;
+    height: 40px;
 display: flex;
+border-radius: 5px;
 border: 1px solid black;
 justify-content: space-between;
-    width: 200px;
+    width: 360px;
   }
   .templateSetHolder{
-    
-background-color: aliceblue;
-width: 200px;
+    background-color: #e1dfdf;
+width: 360px;
+border: 1px solid black;
+  }
+  .tempddd:hover{
+    background-color: #0d6efd;
+    color: white;
+
+  }
+  .tempddd{
+    padding-bottom: 2px;
+    padding-top: 2px;
+  }
+  .mdate h3{
+    font-size: 15px !important;
+    margin-top: 20px;
+        font-weight: 580;
+
+  }
+  .mName h3{
+    margin-top:20px;
+    font-weight: 530;
   }
   .templateSetHolder input{
     margin-top: 10px;
@@ -67,7 +87,7 @@ margin-right: 5%;
     justify-content: space-between;
 }
 .button-container button {
-    background-color: #0d6efd;
+    background-color: #163b6d ;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -121,20 +141,23 @@ margin-right: 5%;
     margin-bottom: 3px;
     border-bottom: 1px solid rgb(103, 102, 102);
 }
-.hoverall :hover{
-    background-color: #ccc;
+.hoverall:hover{
+    background-color: #f0f0f0;
 }
 .hoverall{
     margin-bottom: 10px;
 }
 .toMsg{
- height: 30px;
+ height: 40px;
 display: flex;
-border: 1px solid black;
+border-radius: 5px;
+border: 1px solid rgb(52, 117, 238);
 justify-content: space-between;
-    width: 300px;}
+    width: 380px;}
     .Nmails{
-        
+        background-color: white;
+        border: 1px solid black;
+      
     }
     .text-Area{
       height: 300px;
