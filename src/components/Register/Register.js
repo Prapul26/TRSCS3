@@ -4,6 +4,7 @@ import './Register.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import Header from '../Heaader/Header';
+import { Link } from 'react-router-dom';
 
 const Register = ({ switchToLogin }) => {
     const [firstName, setFirstName] = useState('');
@@ -149,7 +150,7 @@ const Register = ({ switchToLogin }) => {
                     {message && <p className="message">{message}</p>}
 
                     <p onClick={switchToLogin} className='switch'>
-                        Already have an account? Login here.
+                     <Link to='/login' style={{textDecoration:"none",color:"inherit"}}> Already have an account? Login here.</Link>  
                     </p>
                 </form>
             </div>

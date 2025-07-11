@@ -58,15 +58,17 @@ width: 30px;
 .dropDown1{
     height: 32px;
     width: 130px;
-    margin-left: -40px;
+    margin-top: 22px;
+    margin-left: -70px;
+    border: 1px solid rgb(195, 193, 193);
     position: absolute;
     padding: 10px;
-    background-color: #26a5ea;
+    background-color: #ffffff;
     display: flex;
     cursor: pointer;
 }
 .dropDown1:hover{
-    background-color: #a0a0ec;
+    background-color: #e2e2e2;
 }
 .usaFlag{
     height: 24px;
@@ -76,39 +78,45 @@ width: 30px;
     margin-left: 20px;
 }
 .usa h3:hover{
-color: white;
+
 }
 .dropDown2{
     height: fit-content;
     width: 160px;
     margin-left: -60px;
     position: absolute;
-  
-    background-color: #d2d2d2;
- 
+    margin-top: 22px;
+  border-radius: 5px;
+    background-color: #ffffff;
+ border:1px solid rgb(163, 163, 163);
     cursor: pointer;
+ 
 }
 .dropDown2 p{
-    font-weight: 800;
+    font-weight: 500 !important;
+    font-size: 15px !important;
 }
 .profileDrop{
 
-padding-left: 5px;
+
+padding: 5px;
+display: flex;
 
 }
 .dropLogout{
 
-padding-left: 5px;
-
+padding: 5px;
+display: flex;
+margin-top: -20px;
 
 }
 .profileDrop:hover{
    
-    color:gold;
+    background-color:#e2e2e2;
 }
 .dropLogout:hover{
 
-    color:gold;
+    background-color:#e2e2e2;
 }
 .profileDrop h3:hover{
     color: white;
@@ -142,6 +150,13 @@ padding-left: 5px;
         margin-top: 2px;
         transition: 0.3s;
     }
+    .dropDown1{
+        border-radius: 5px;
+        background-color: #ffffff;
+        border: 1px solid rgb(182, 182, 182);
+        margin-top: 22px;
+        margin-left: -80px;
+    }
     .Menu{
 transition: 0.3s;
         height: 100vh;
@@ -154,6 +169,10 @@ transition: 0.3s;
         padding: 20px;
         
     }
+    .Menu h2{
+        font-weight: 600 !important;
+        font-size: 18px !important;
+    }
     .crossPosition{
         float: right;
         margin-bottom: 20px;
@@ -162,6 +181,12 @@ transition: 0.3s;
         padding-left: 10px;
         border-bottom: 1px solid rgb(192, 186, 186);        width:95%;
         cursor: pointer;
+    }
+    .dropAbout h2{
+        font-size: 15px !important;
+    }
+    .dropAbout{
+        background-color: #f9f9f9;
     }
 
     .aboutUs{

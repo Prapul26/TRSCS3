@@ -47,6 +47,7 @@ import ReplyMessage from "./UserNavbar/ReplyMessage";
 import BumpMessage from "./UserNavbar/BumpMessage";
 import TermsAndCondition from "./components/TermsAndCondition/TermsAndCondition";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
+import Help from "./components/Help/Help";
 
 
 
@@ -103,6 +104,7 @@ const App = () => {
 <Route path="/bumpMessage/:subject/:user_id/:replies_code/:is_bump" element={<BumpMessage/>}/>
 <Route path="/terms" element={<TermsAndCondition/>}/>
 <Route path="/privacy" element={<PrivacyPolicy/>}/>
+<Route path="/help" element={<Help />}/>
         </Routes>
       </div>
     </Router>

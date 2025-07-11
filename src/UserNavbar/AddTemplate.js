@@ -107,7 +107,7 @@ const AddTemplate = () => {
                     />
                   </div>
                   <div className="saveTempButton">
-                    <button type="submit">SAVE</button>
+                    <button type="submit" style={{background:"#eeba2b",color:'black'}}>SAVE</button>
                   </div>
                   {message && <div className="message">{message}</div>}
                 </form>

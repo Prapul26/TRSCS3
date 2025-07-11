@@ -5,7 +5,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
 import { FiMenu } from "react-icons/fi";
 import { FcGlobe } from "react-icons/fc";
-import { IoMenu } from "react-icons/io5";
+import { IoLogOut, IoMenu, IoPerson } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropup } from "react-icons/io";
 import { CiMenuKebab } from "react-icons/ci";
@@ -117,7 +117,7 @@ const Header = () => {
             </div>
             <div
               onClick={handelAbout}
-              style={{ marginTop: "18px", marginRight: "5pxw" }}
+              style={{ marginTop: "11px", marginRight: "5pxw" }}
             >
               {" "}
               {about ? (
@@ -135,7 +135,7 @@ const Header = () => {
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   {" "}
-                  <h2 style={{ fontSize: "18px" }}>ABOUT US</h2>
+                  <h2 style={{ fontSize: "18px" }}>About us</h2>
                 </Link>
               </div>
               <div className="dropContact">
@@ -144,7 +144,7 @@ const Header = () => {
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   {" "}
-                  <h2 style={{ fontSize: "18px" }}>CONTACT</h2>
+                  <h2 style={{ fontSize: "18px" }}>Contact</h2>
                 </Link>
               </div>
               <div className="dropPartner">
@@ -153,7 +153,16 @@ const Header = () => {
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   {" "}
-                  <h2 style={{ fontSize: "18px" }}>PARTNERS</h2>
+                  <h2 style={{ fontSize: "18px" }}>Partners</h2>
+                </Link>
+              </div>
+              <div className="dropPartner">
+                <Link
+                  to="/help"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  {" "}
+                  <h2 style={{ fontSize: "18px" }}>Help</h2>
                 </Link>
               </div>
             </div>
@@ -203,13 +212,13 @@ const Header = () => {
             <a href="https://www.facebook.com/h7network">
               {" "}
               <div className="fff">
-                <FaFacebook size={30} color="darkblue" />
+                <FaFacebook size={25} color="darkblue" />
               </div>
             </a>
             <a href="https://www.linkedin.com/company/h7network/">
               <div className="ffn">
                 {" "}
-                <FaLinkedin size={30} color="darkblue" />
+                <FaLinkedin size={25} color="darkblue" />
               </div>
             </a>
           </div>
@@ -256,11 +265,13 @@ const Header = () => {
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <div className="profileDrop">
-                    <h3>My Profile</h3>
+                  <div style={{marginTop:"15px",marginRight:"6px"}}><IoPerson /></div>
+                        <div> <p>My Account</p></div>
                   </div>
                 </Link>
                 <div className="dropLogout" onClick={handleLogout}>
-                  <h3>Logout</h3>
+                  <div style={{marginTop:"15px",marginRight:"6px"}}><IoLogOut /></div>
+                      <div>    <p>Logout</p></div>
                 </div>
               </div>
             )}
@@ -328,11 +339,15 @@ const Header = () => {
                       style={{ textDecoration: "none", color: "inherit" }}
                     >
                       <div className="profileDrop">
-                        <p>My Account</p>
+                        <div style={{marginTop:"15px",marginRight:"6px"}}><IoPerson /></div>
+                        <div> <p>My Account</p></div>
+                       
                       </div>
                     </Link>
                     <div className="dropLogout" onClick={handleLogout}>
-                      <p>Logout</p>
+                      <div style={{marginTop:"15px",marginRight:"6px"}}><IoLogOut /></div>
+                      <div>    <p>Logout</p></div>
+                  
                     </div>
                   </div>
                 )}

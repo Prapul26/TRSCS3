@@ -54,27 +54,23 @@ const handleSubmit = async (e) => {
             <h2>Change Password</h2>
             
           </div>
-          <div className="passChange" style={{ whiteSpace: "nowrap" }}>
-              
+          <div className="passChange">
+              <div style={{paddingTop:"10px",paddingBottom:"20px",paddingLeft:"10px"}}>
               <div>
-                <label>Current Password:</label>
+                <label>Current Password</label>
                 <br />
                 <input value={currentPassword} onChange={(e)=>setCurrentPassword(e.target.value)} required />
               </div>
               <div>
-                <label>New Password:</label>
+                <label>New Password</label>
                 <br />
                 <input value={password} onChange={(e)=>setPassword(e.target.value)} required/>
                 <br />
-                <p>
+                <p style={{fontSize:"12px !important"}}>
                   Note: Password must be at least 8 characters long (12+
-                  recommended) and
+                  recommended) 
                 </p>
-                <p>
-                  include at least one uppercase letter, one lowercase letter,
-                  one number, and one
-                </p>
-                <p>special character (!”#$%&'()*+,-./:;?@[]^_`{}~).</p>
+                
               </div>
               <div style={{ marginTop: "50px" }}>
                 <label>Conform Password:</label>
@@ -83,10 +79,10 @@ const handleSubmit = async (e) => {
               </div>
               <div className="passButton">
                 {" "}
-                <button type="submit" style={{ background: "gold" }}>Update</button>
+                <button type="submit" style={{ background: "#eeba2b", color:"black",fontSize:"15px" }}>UPDATE</button>
                 {message && <p>{message}</p>}
               </div>
-            </div>
+            </div></div>
           </div>{" "}
         </div>
       </div></form>

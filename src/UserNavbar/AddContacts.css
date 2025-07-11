@@ -1,7 +1,5 @@
 .addContacts-container{
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 100%;
     padding: 20px;
     display: flex;
     background-color: #f9f9f9;
@@ -15,6 +13,7 @@
 .saveContactsButton{
     text-align: center;
     justify-content: center;
+    display: flex;
 }
 .addContacts-container label{
     margin-top: 20px;
@@ -27,11 +26,11 @@
     margin-top: 15px;
     margin-bottom: 20px;
     border-radius: 5px;
-    border: transparent;
+    border: 1px solid rgb(215, 215, 215);
 }
 .saveContactsButton button{
 padding: 8px 26px;
-font-size: 22px;
+font-size: 18px;
 color: white;
 background-color: orangered;
 border: transparent;
@@ -40,4 +39,14 @@ border-radius: 5px;
 .addcon{
     background-color: rgb(218, 217, 216);
     height: 100vh;
+}
+.addconHolder{
+    width: 80%;
+    margin-left: 18%;
+}
+@media(max-width:480px){
+    .addconHolder{
+        width: 100%;
+        margin-left: -0%;
+    }
 }

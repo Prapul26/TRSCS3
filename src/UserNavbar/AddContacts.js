@@ -4,12 +4,20 @@ import UserHeader from "../components/UserHeader";
 import { Link } from "react-router-dom";
 import { TiArrowBackOutline } from "react-icons/ti";
 import axios from "axios";
+import SideNav from "./SideNav";
+import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
+import MobileMenu from "../components/MobileMenu/MobileMenu";
 const AddContacts = () => {
   const[firstName ,setFirstName]=useState("");
   const[lastName,setLastName]=useState("");
   const[email,setEmail]=useState("");
   const[groupName,setGroupName]=useState("")
-  const[message,setMessage]=useState("")
+  const[message,setMessage]=useState("");
+   const [showSidebar, setShowSidebar] = useState(false);
+  
+   const showMobnav = () => {
+    setShowSidebar((prev) => !prev);
+  };
 const handleSubmit =async (e)=>{
 e.preventDefault();
 const token=localStorage.getItem("authToken")
@@ -39,7 +47,15 @@ setMessage(error.response?.data?.message || "Error adding the Contact")
 }
   return (
     <div className="addcon">
-      <UserHeader />
+      <UserHeader />{showSidebar && <MobileMenu />}
+    <div className="usernav">
+            <SideNav />
+          </div>
+      <div className="addconHolder">
+          <MobileNavbar  showMobnav={showMobnav}  />
+        <div className="d-header">
+                <h2>Add Contacts</h2>
+              </div>
       <div style={{marginLeft:"20px"}}> <button style={{ borderRadius: "30px", border: "transparent" }}><span><Link to='/contacts'><TiArrowBackOutline color='white' size={35} /></Link></span> </button></div>
 
       <div className="addContacts-container">
@@ -64,9 +80,10 @@ setMessage(error.response?.data?.message || "Error adding the Contact")
           </label><br/>
           <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)}/>
           <div className="saveContactsButton">
-          <button type="submit">SAVE</button></div>
+          <div><button type="submit" style={{background:"#eeba2b",color:"black",marginRight:"40px"}}>SAVE</button></div><div><Link to='/contacts'><button>cancel</button></Link></div></div>
           {message && <p className="message">{message}</p>}
         </form>
+      </div>
       </div>
     </div>
   );

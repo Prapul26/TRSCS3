@@ -19,28 +19,28 @@ const Partner = () => {
 
       <div className='partnerContainer'>
         <div className='picOne'>
-          <a href='https://www.h7network.com/' target="_blank" rel="noopener noreferrer" > <div className='pc1'>
+          <a style={{textDecoration:"none", color:'inherit'}} href='https://www.h7network.com/' target="_blank" rel="noopener noreferrer" > <div className='pc1'>
             <img src={p1}/>
             <p>H7 Network</p>
           </div></a>
          
-          <a href='https://www.evolvewomensnetwork.com/' target="_blank" rel="noopener noreferrer" ><div className='pc2'>
+          <a  style={{textDecoration:"none", color:'inherit'}} href='https://www.evolvewomensnetwork.com/' target="_blank" rel="noopener noreferrer" ><div className='pc2'>
             <img src={p2}/>
             <p>EVOLVE WOMEN'S NETWORK</p>
           </div></a> 
         </div>
         <div className='picTwo'>
-         <a href='https://www.evolvewomensnetwork.com/' target="_blank" rel="noopener noreferrer" ><div className='pc3'>
+         <a  style={{textDecoration:"none", color:'inherit'}} href='https://www.evolvewomensnetwork.com/' target="_blank" rel="noopener noreferrer" ><div className='pc3'>
             <img src={p3}/>
             <p>H7 Town Square</p>
           </div></a>  
-           <a href='https://www.thealternativeboard.com/' target="_blank" rel="noopener noreferrer" ><div className='pc4'>
+           <a  style={{textDecoration:"none", color:'inherit'}} href='https://www.thealternativeboard.com/' target="_blank" rel="noopener noreferrer" ><div className='pc4'>
             <img  src={p4}/>
             <p>TAB</p>
           </div></a>
         </div>
 
-        <a href='https://www.blackachievers.com/' target="_blank" rel="noopener noreferrer" ><div className='pc5'>
+        <a  style={{textDecoration:"none", color:'inherit'}} href='https://www.blackachievers.com/' target="_blank" rel="noopener noreferrer" ><div className='pc5'>
           <img src={p5}/>
           <p>Black Achievers</p>
         </div></a> 

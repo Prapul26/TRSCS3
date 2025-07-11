@@ -46,7 +46,8 @@ padding-bottom: 5px;
     display: flex;
 }
 .importB button{
-background-color: rgb(5, 172, 243);
+background-color: 163b6d;
+color: white;
 }
 .downloadB{
     margin-left: 20px;
@@ -55,10 +56,14 @@ background-color: rgb(5, 172, 243);
     margin-left: 20px;
 }
 .downloadB button{
-    background-color: rgb(63, 227, 17);
+    background-color: 163b6d;
+    color: white;
+
 }
 .addB button{
-    background-color: rgb(5, 172, 243);
+    background-color: 163b6d;
+    color: white;
+
 }
 .contacts-table {
     width: 100%;

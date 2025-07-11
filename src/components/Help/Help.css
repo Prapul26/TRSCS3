@@ -1,0 +1,47 @@
+.helpcurb{
+        text-align: center;
+    padding-top:1px;
+    padding-bottom: 1px;
+background-color: #163b6d;
+color: white;
+}
+.helpcurb h2{
+    font-size: 35px !important;
+}
+.helpContainer h2{
+        font-family: "Lucida Grande" !important;
+        font-size: 30px !important;
+
+}
+.helpContainer p{
+        font-family: Montserrat, sans-serif !important;
+    font-size: 18px !important;
+}
+.helpContainer{
+    width: 70%;
+    margin-left: 15%;
+    margin-bottom: 100px;
+}
+
+@media (max-width:480px) {
+    .helpContainer h2{
+       
+        font-size: 22px !important;
+
+}
+.helpContainer p{
+       
+    font-size: 18px !important;
+}
+.helpContainer{
+    width: 90%;
+    margin-left: 5%;
+}
+.helpcurb{
+        text-align: center;
+    padding-top:5px;
+    padding-bottom: 5px;
+background-color: #163b6d;
+color: white;
+}
+}

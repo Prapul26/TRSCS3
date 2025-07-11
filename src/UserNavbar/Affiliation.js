@@ -81,10 +81,10 @@ const Affiliation = () => {
               <MobileNavbar showMobnav={showMobnav} />
             </div>
 
-            <div className="dd-holder">
+            <div className="dd-holder2">
               <div style={{ display: "flex" }}>
                 <div>
-                  <h2>Affiliation</h2>
+                  <h2 style={{marginLeft:"10px"}}>Affiliation</h2>
                 </div>
                 <div className="status-toggle">
                   <span
@@ -116,7 +116,7 @@ const Affiliation = () => {
                   />
                 </div>
                 <div className="affdiv2">
-                  <button style={{ backgroundColor: "green" }} onClick={copyToClipboard}>
+                  <button style={{ backgroundColor: "#28a745" }} onClick={copyToClipboard}>
                     Copy text
                   </button>
                 </div>

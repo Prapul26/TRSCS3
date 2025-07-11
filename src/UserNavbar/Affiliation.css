@@ -139,4 +139,19 @@ width: 100%;
     .affili{
         width: 100%;
     }
+    .myAffiliation-holder{
+    width: 80%;
+     margin-left: -67px;
+
+}
+.dd-holder2{
+    background-color: white;
+    width: 110%;
+    margin-left: -60px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.affTable{
+    margin-left: -67px;
+}
 }
