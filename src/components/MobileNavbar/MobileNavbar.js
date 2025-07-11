@@ -16,10 +16,13 @@ import { SlLogout } from "react-icons/sl";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowAltCircleUp, FaArrowCircleDown, FaArrowCircleRight } from "react-icons/fa";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import axios from "axios";
 
 const MobileNavbar = ({showMobnav}) => {
   const [mobnav, setMobnav] = useState(false);
    const [intro, showIntro] = useState(false);
+     const [imagePreview, setImagePreview] = useState("");
+   
    const [intro2, showIntro2] = useState(false);
      const [menuDrop, setMenuDrop]=useState(false);
      const handelMenuDrop=()=>{
@@ -33,6 +36,37 @@ const MobileNavbar = ({showMobnav}) => {
   const handelIntro2 = () => {
     showIntro2(!intro2);
   };
+  useEffect(() => {
+  const timeoutId = setTimeout(() => {
+    const fetchProfile = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_BASE_URL}/my-profile`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        const data = response.data;
+        const newImage = data.user?.image;
+        if (newImage) {
+          setImagePreview(`https://tracsdev.apttechsol.com/public/${newImage}`);
+        }
+
+      
+
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
+      }
+    };
+
+    fetchProfile();
+  }, 300);
+
+  return () => clearTimeout(timeoutId);
+}, []);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const imageUrl=localStorage.getItem("profileImageUrl")
   const navigate = useNavigate();
@@ -65,7 +99,7 @@ const MobileNavbar = ({showMobnav}) => {
         <FaHouse size={30 }/></div></Link>
         </div>
       <div style={{display:"flex"}}>
-        <div className={`mobnavPic ${mobnav ?"hidden":""}`}><img src={imageUrl}/></div>
+        <div className={`mobnavPic ${mobnav ?"hidden":""}`}><img src={imagePreview}/></div>
         
         <div className={`profile-name ${mobnav ?"hidden":""}`} onClick={handelMenuDrop} style={{marginTop:"22px"}}>
                 {menuDrop ?(  <IoMdArrowDropup color="black" size={22} />):(<IoMdArrowDropdown color="black" size={22}/> )}

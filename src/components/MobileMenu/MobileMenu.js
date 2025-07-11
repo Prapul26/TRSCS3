@@ -25,30 +25,30 @@ const MobileMenu = () => {
       </div>
 
           <div className="introduction41" onClick={handelIntro2}>
-            <div style={{display:"flex"}}><div style={{marginTop:"13px",marginRight:"12px"}}><IoSettingsSharp size={20} color="black"/> </div>
-          <div style={{marginTop:"-4px"}}> <h2 style={{fontSize:"20px"}}>Application Setting</h2></div></div>
+            <div style={{display:"flex"}}><div style={{marginTop:"16px",marginRight:"12px"}}><IoSettingsSharp size={20} color="black"/> </div>
+          <div style={{marginTop:"-4px"}}> <h2 style={{fontSize:"20px",marginTop:"18px"}}>Application Setting</h2></div></div>
           <div style={{marginTop:"14px"}}><RiArrowDropDownLine color="black" size={25}/></div>
             </div>
                 {
                                                 intro2 && <div className="intoNav" style={{marginLeft:"7px"}}>
-                                                  <Link to='/myMembership' style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex" ,marginBottom:"8px"}}><div>< MdOutlineCardMembership size={20}color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>My Membership</h3></div></Link>
-                                                 <Link to='/accountSettings'  style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex",marginBottom:"8px"}}><div><IoPerson  size={20}color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>My Profile</h3></div></Link> 
-                                                 <Link to='/passwordChange'style={{color:"inherit",textDecoration:"none"}} ><div style={{display:"flex",marginBottom:"8px"}}> <div><IoPerson size={20} color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>My Password</h3></div></Link> 
-                                                 <Link to='/affiliation'style={{color:"inherit",textDecoration:"none"}} > <div style={{display:"flex",marginBottom:"8px"}}><div><TbArrowsRandom size={20}color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Affiliation</h3></div></Link> 
+                                                  <Link to='/myMembership' style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex" ,marginBottom:"8px"}}><div>< MdOutlineCardMembership size={20}color="black" style={{marginRight:'7px',marginTop:'1px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>My Membership</h3></div></Link>
+                                                 <Link to='/accountSettings'  style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex",marginBottom:"8px"}}><div><IoPerson  size={17}color="black" style={{marginRight:'7px',marginTop:'1px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>My Profile</h3></div></Link> 
+                                                 <Link to='/passwordChange'style={{color:"inherit",textDecoration:"none"}} ><div style={{display:"flex",marginBottom:"8px"}}> <div><IoPerson size={17} color="black" style={{marginRight:'7px',marginTop:'1px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>My Password</h3></div></Link> 
+                                                 <Link to='/affiliation'style={{color:"inherit",textDecoration:"none"}} > <div style={{display:"flex",marginBottom:"8px"}}><div><TbArrowsRandom size={17}color="black" style={{marginRight:'7px',marginTop:'1px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Affiliation</h3></div></Link> 
                                   
                                                 </div>
                                               }
                                                <div className="introduction4" onClick={handelIntro}>
                                                           <div style={{display:"flex"}}><div style={{marginTop:"13px",marginRight:"12px"}}><FaBriefcase size={20} color="black"/> </div>
                                                         <div style={{marginTop:"-4px"}}> <h2 style={{fontSize:"20px"}}>Introduction</h2></div></div>
-                                                        <div style={{marginTop:"14px"}}><RiArrowDropDownLine color="black" size={25}/></div>
+                                                        <div style={{marginTop:"10px"}}><RiArrowDropDownLine color="black" size={25}/></div>
                                                           </div>
                                                               {
                                                                                               intro && <div className="intoNav" style={{marginLeft:"7px"}}>
-                                                                                                <Link to='/contacts' style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex" ,marginBottom:"8px"}}><div>< RiContactsFill size={20}color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Contacts</h3></div></Link>
-                                                                                               <Link to='/inbox'  style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex",marginBottom:"8px"}}><div><HiInboxArrowDown  size={20}color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Messages</h3></div></Link> 
-                                                                                               <Link to='/email'style={{color:"inherit",textDecoration:"none"}} ><div style={{display:"flex",marginBottom:"8px"}}> <div><MdOutlineEmail size={20} color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Template</h3></div></Link> 
-                                                                                               <Link to='/signature'style={{color:"inherit",textDecoration:"none"}} > <div style={{display:"flex",marginBottom:"8px"}}><div><FaFileSignature  size={20}color="black" style={{marginRight:'7px',marginTop:'4px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Signature</h3></div></Link> 
+                                                                                                <Link to='/contacts' style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex" ,marginBottom:"8px"}}><div>< RiContactsFill size={17}color="black" style={{marginRight:'7px',marginTop:'1px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Contacts</h3></div></Link>
+                                                                                               <Link to='/inbox'  style={{color:"inherit",textDecoration:"none"}}><div style={{display:"flex",marginBottom:"8px"}}><div><HiInboxArrowDown  size={17}color="black" style={{marginRight:'7px',marginTop:'1px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Messages</h3></div></Link> 
+                                                                                               <Link to='/email'style={{color:"inherit",textDecoration:"none"}} ><div style={{display:"flex",marginBottom:"8px"}}> <div><MdOutlineEmail size={17} color="black" style={{marginRight:'7px',marginTop:'1px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Template</h3></div></Link> 
+                                                                                               <Link to='/signature'style={{color:"inherit",textDecoration:"none"}} > <div style={{display:"flex",marginBottom:"8px"}}><div><FaFileSignature  size={17}color="black" style={{marginRight:'7px',marginTop:'1px'}} /></div><h3 style={{color:"black",fontSize:'large'}}>Signature</h3></div></Link> 
                                                                                 
                                                                                               </div>
                                                                                             }
