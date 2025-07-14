@@ -14,13 +14,13 @@ const Navbar = () => {
         <ul style={{display:"flex",listStyleType:"none"}}>
            <Link to='/home' style={{textDecoration:"none",color:"inherit"}}><li >HOME</li></Link> 
            <li
-            onMouseEnter={() => setDropdownVisible(true)}
+            onMouseEnter={()=>setDropdownVisible(true)} onMouseLeave={() => setDropdownVisible(false)}
            
             style={{ position: 'relative', cursor: 'pointer' }}
           >
             ABOUT US
             {isDropdownVisible && (
-              <ul className='dropdown-menu23'  onMouseLeave={() => setDropdownVisible(false)}>
+              <ul className='dropdown-menu23' >
                 <li><Link to='/about_us' style={{ textDecoration: 'none', color: 'inherit' }}>About Us</Link></li>
                 <li><Link to='/contact' style={{ textDecoration: 'none', color: 'inherit' }}>Contact</Link></li>
                 <li><Link to='/partner' style={{ textDecoration: 'none', color: 'inherit' }}>Partners</Link></li>
