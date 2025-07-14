@@ -7,54 +7,55 @@ import MobileMenu from "../components/MobileMenu/MobileMenu";
 import { Link } from "react-router-dom";
 import axios from "axios";
 const Password = () => {
-  const [message,setMessage]=useState("")
+  const [message, setMessage] = useState("")
   const [showSidebar, setShowSidebar] = useState(false);
-const[currentPassword,setCurrentPassword]=useState("");
-const [password,setPassword]=useState("");
-const [confirmPassword,setConfirmPassword]=useState('');
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  if(password !== confirmPassword){
-    setMessage("New password and confirm password do not match.")
-  }
-  const token = localStorage.getItem("authToken")
-  try {
-    const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/update-password`, {
-      current_password:currentPassword,
-      password: password,
-      password_confirmation: confirmPassword
-    },
-    {headers: {
-      Authorization: `Bearer ${token}`,
-    }});
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      setMessage("New password and confirm password do not match.")
+    }
+    const token = localStorage.getItem("authToken")
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/update-password`, {
+        current_password: currentPassword,
+        password: password,
+        password_confirmation: confirmPassword
+      },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }
+        });
 
-    setMessage("Password updated successfully!");
-  } catch (error) {
-    setMessage(error.response?.data?.message || "Error updating the password");
-  }
-};
+      setMessage("Password updated successfully!");
+    } catch (error) {
+      setMessage(error.response?.data?.message || "Error updating the password");
+    }
+  };
   const showMobnav = () => {
     setShowSidebar((prev) => !prev);
   };
   return (
     <div className="mobMenuaa">
-      <form onSubmit={handleSubmit}>
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
-      <div style={{ width: "100%" }}>
+      <div>
         <UserHeader />
-
-        <div className="OMH">
+        <div className="overH">
           <div className="usernav">
             <SideNav />
           </div>
-          <MobileNavbar showMobnav={showMobnav} />
-          <div className="fz2">
-           
-          <div className="d-header" >
-            <h2>Change Password</h2>
-            
-          </div>
-          <div className="passChange">
+          <div className="fz1">
+            <div>
+              <MobileNavbar showMobnav={showMobnav} />
+            </div>
+            <div className="alfa" style={{height:"100vh"}}>
+ <div className="d-header">
+                <h2>Add Contacts</h2>
+              </div>
+        <div className="passChange" style={{marginTop:"40px"}}>
               <div style={{paddingTop:"10px",paddingBottom:"20px",paddingLeft:"10px"}}>
               <div>
                 <label>Current Password</label>
@@ -83,9 +84,10 @@ const handleSubmit = async (e) => {
                 {message && <p>{message}</p>}
               </div>
             </div></div>
-          </div>{" "}
+          </div>
+          </div>
         </div>
-      </div></form>
+      </div>
     </div>
   );
 };

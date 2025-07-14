@@ -15,4 +15,54 @@
 .mobnav2e h3{
     font-size: 15px !important;
 }
+.menu-item.active {
+  background-color: black;
+  color: white !important;
+  margin-left: -18px;
+  padding-top: 15px;
+}
+.menu-item2.active {
+  background-color: black;
+  color: white !important;
+  margin-left: -20px;
+}
+.menu-item3.active {
+  background-color: black;
+  color: white !important;
+  margin-left: -20px;
+}
+.menu-item4.active {
+  background-color: black;
+  color: white !important;
+  margin-left: -20px;
+}
+.menu-item5.active {
+  background-color: black;
+  color: white !important;
+  margin-left: -20px;
+}
+.menu-item6.active {
+  background-color: black;
+  color: white !important;
+  margin-left: -20px;
+}
+.menu-item7.active {
+  background-color: black;
+  color: white !important;
+  margin-left: -20px;
+}
+.menu-item8.active {
+  background-color: black;
+  color: white !important;
+  margin-left: -20px;
+}
+.menu-item.active p{
+    color: white;
+    padding-top: 5px;
+}
+.menu-item {
+  text-decoration: none;
+  color: black;
+}
+
 }

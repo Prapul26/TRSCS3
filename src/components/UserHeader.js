@@ -56,7 +56,7 @@ setMenuDrop(!menuDrop)
     localStorage.removeItem("authToken");
     localStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
-    navigate("/login"); // Redirect to login page
+    navigate("/"); // Redirect to login page
   };
 console.log("image:"+imageUrl);
 useEffect(() => {

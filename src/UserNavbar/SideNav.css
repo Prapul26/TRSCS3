@@ -2,7 +2,70 @@
 background-color: rgb(240, 239, 238);
 
 }
+.uk1{
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid black;
+  padding-top: 20px;
+  
+}
 .tracsimG img{
   height: 40px;
   margin-left: 20px;  
+}
+.menu-item{
+  color: black;
+  background-color: rgb(168, 25, 25);
+  
+}
+.menu-item.active{
+  color: white !important;
+  background-color: black;
+  padding-left: -15px;
+  height: 40px;
+  
+  margin-left: -22px;
+}
+
+.uk1.active:hover{
+  background-color: black;
+
+}
+.uk1.active{
+  width: 100%;
+  background-color: black;
+  margin-left: -1px;
+  margin-top: -10px;
+  height: 29px;
+padding-top: 20px;
+}
+.asDiv{
+display: flex;
+justify-content: space-between;
+background-color: white;
+
+}
+.inDiv{
+display: flex;
+
+justify-content: space-between;
+}
+.intro9{
+  border-bottom: 1px solid black;
+}
+.asDiv.active{
+display: flex;
+justify-content: space-between;
+margin-left: -19px;
+background: black;
+width: 103.7%;
+color: white;
+}
+.inDiv.active{
+  display: flex;
+justify-content: space-between;
+margin-left: -19px;
+background: black;
+width: 103.7%;
+color: white;
 }

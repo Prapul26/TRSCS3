@@ -116,7 +116,7 @@ const Affiliation = () => {
                   />
                 </div>
                 <div className="affdiv2">
-                  <button style={{ backgroundColor: "#28a745" }} onClick={copyToClipboard}>
+                  <button style={{ backgroundColor: "#28a745",marginTop:"5px" }} onClick={copyToClipboard}>
                     Copy text
                   </button>
                 </div>

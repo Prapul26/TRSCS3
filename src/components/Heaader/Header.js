@@ -73,7 +73,7 @@ const Header = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
-    navigate("/login"); // Redirect to login page
+    navigate("/"); // Redirect to login page
   };
   const handelDrop1 = () => {
     showDrop1(!drop1);
@@ -195,7 +195,7 @@ const Header = () => {
                   to="/login"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <button>Login</button>
+                  <button >Login</button>
                 </Link>
               </div>
               <div className="register">
@@ -308,12 +308,12 @@ const Header = () => {
             <div className="LRButton">
               <div style={{ marginLeft: "10px" }}>
                 <Link to="/login">
-                  <button style={{ background: " #eeba2b" }}>Login</button>
+                  <button style={{ background: " #eeba2b",color:"black" }}>Login</button>
                 </Link>
               </div>
               <div style={{ marginLeft: "10px" }}>
                 <Link to="/register">
-                  <button style={{ background: " #eeba2b" }}>Register</button>
+                  <button style={{ background: " #eeba2b",color:"black" }}>Register</button>
                 </Link>
               </div>
             </div>
