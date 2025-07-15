@@ -57,6 +57,7 @@ setMenuDrop(!menuDrop)
     localStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
     navigate("/"); // Redirect to login page
+    window.location.reload()
   };
 console.log("image:"+imageUrl);
 useEffect(() => {

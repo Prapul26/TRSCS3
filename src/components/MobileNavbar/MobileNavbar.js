@@ -83,6 +83,7 @@ const MobileNavbar = ({showMobnav}) => {
     localStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
     navigate("/"); // Redirect to login page
+    window.location.reload()
   };
   
   return (

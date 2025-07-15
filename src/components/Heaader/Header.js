@@ -74,6 +74,7 @@ const Header = () => {
     localStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
     navigate("/"); // Redirect to login page
+     window.location.reload();
   };
   const handelDrop1 = () => {
     showDrop1(!drop1);

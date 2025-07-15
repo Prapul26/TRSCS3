@@ -205,6 +205,16 @@ border-radius: 5px;
 .contacts-container{
 
 }
+.proPic{
+
+height: 220px;
+margin-left: 10%;
+margin-right: 10%;
+width: 80%;
+justify-content: center;
+align-items: center;
+
+}
 .pc11{
     width: 100%;
     
