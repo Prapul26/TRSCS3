@@ -10,10 +10,10 @@ import pd3 from "../assets/pd3.png";
 import Data2 from "../../components/Data/Data2";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../Heaader/Header";
 
-const Home = () => {
+const Home = () => {const navigate=useNavigate()
   const settings = {
     dots: true,
     infinite: true,
@@ -21,15 +21,33 @@ const Home = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showtext,setText]=useState(true) 
 
  useEffect(() => {
    // Check if user is logged in by checking for token in localStorage
-   const token = localStorage.getItem('authToken');
+   const token = localStorage.getItem('authToken', "dummy_token");
    if (token) {
-     setIsLoggedIn(true);
+     setIsLoggedIn(false);
+     setText(false)
    }
  }, []);
+   const handleMakeIntroClick = () => {
+    if (isLoggedIn) {
+      navigate("/login");
+    } else {
+      navigate("/makeIntro");
+    };
+
+  };
+  const handleDashboard=()=>{
+    if(isLoggedIn){
+      navigate("/login")
+    }
+    else{
+      navigate("/inbox")
+    }
+  }
   return (
     <div className="homeHolder">
       <Header />
@@ -43,14 +61,14 @@ const Home = () => {
         </div>
 
         <div className="network-container">
-          <Link to="/makeIntro">
-            <button className="ncb1" style={{background:"#eeba2b" ,color:"black",height:"55px",borderRadius:"25px"}}>MAKE INTRODUCTION INSTANTLY</button>
-          </Link>
-          <Link to="/inbox">
-            <button style={{background:"#eeba2b" ,color:"black",height:"55px",borderRadius:"25px"}} className="bttborder">
+          
+            <button className="ncb1" style={{background:"#eeba2b" ,color:"black",height:"55px",borderRadius:"25px"}}   onClick={handleMakeIntroClick}>MAKE INTRODUCTION INSTANTLY</button>
+       
+         
+            <button style={{background:"#eeba2b" ,color:"black",height:"55px",borderRadius:"25px"}} className="bttborder" onClick={handleDashboard}>
               <span>DASHBOARD</span>
             </button>
-          </Link>
+          
         </div>
       </div>
       <div className="home-details">
@@ -61,7 +79,7 @@ const Home = () => {
               Strengthening your reputation, while strengthening your
               Trusted-Relationships.
             </h1>
-           {!isLoggedIn &&(<div> <p style={{color:"#f96b39",fontWeight:"700"}}>1.Sign up for your 14-day trial</p>
+           {showtext &&(<div> <p style={{color:"#f96b39",fontWeight:"700"}}>1.Sign up for your 14-day trial</p>
             <p style={{color:"#f96b39",fontWeight:"700"}}>2.Create your Account</p>
             <p style={{color:"#f96b39",fontWeight:"700"}}>3.Add your contacts to your account</p>
             <p style={{color:"#f96b39",fontWeight:"700"}}>4.Start Making Introductions</p>

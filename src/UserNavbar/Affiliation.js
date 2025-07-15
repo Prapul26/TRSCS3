@@ -128,21 +128,21 @@ const Affiliation = () => {
                 <table>
                   <thead>
                     <tr>
-                      <td style={{ color: "black" }}>Package name</td>
-                      <td style={{ color: "black" }}>Package Price</td>
-                      <td style={{ color: "black" }}>Commission Amount</td>
-                      <td style={{ color: "black" }}>Purchased By</td>
-                      <td style={{ color: "black" }}>Purchased On</td>
+                      <td style={{ color: "black" ,fontSize:"20px"}}>Package name</td>
+                      <td style={{ color: "black" ,fontSize:"20px"}}>Package Price</td>
+                      <td style={{ color: "black",fontSize:"20px" }}>Commission Amount</td>
+                      <td style={{ color: "black" ,fontSize:"20px"}}>Purchased By</td>
+                      <td style={{ color: "black",fontSize:"20px" }}>Purchased On</td>
                     </tr>
                   </thead>
                   <tbody>
                     {data.data?.map((item, index) => (
                       <tr key={index}>
-                        <td>{item.package_name}</td>
-                        <td>${item.package_price}</td>
-                        <td>${item.commission_amount}</td>
-                        <td>{item.user?.name || "N/A"}</td>
-                        <td>{new Date(item.created_at).toLocaleString()}</td>
+                        <td style={{fontSize:"19px"}}>{item.package_name}</td>
+                        <td style={{fontSize:"19px"}}>${item.package_price}</td>
+                        <td style={{fontSize:"19px"}}>${item.commission_amount}</td>
+                        <td style={{fontSize:"19px"}}>{item.user?.name || "N/A"}</td>
+                        <td style={{fontSize:"19px"}}>{new Date(item.created_at).toLocaleString()}</td>
                       </tr>
                     ))}
                   </tbody>
