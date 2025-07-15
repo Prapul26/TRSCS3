@@ -13,38 +13,34 @@ import "slick-carousel/slick/slick-theme.css";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../Heaader/Header";
 
-const Home = () => {const navigate=useNavigate()
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+const Home = () => {
+  const navigate=useNavigate()
+ 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showtext,setText]=useState(true) 
 
  useEffect(() => {
    // Check if user is logged in by checking for token in localStorage
    const token = localStorage.getItem('authToken', "dummy_token");
+   
    if (token) {
      setIsLoggedIn(true);
      setText(false)
    }
  }, []);
    const handleMakeIntroClick = () => {
-    if (isLoggedIn) {
+    if (!showtext) {
       navigate("/makeIntro");
-    } else if(!isLoggedIn) {
+    } else if(showtext) {
       navigate("/login");
     };
 
   };
   const handleDashboard=()=>{
-    if(isLoggedIn){
+    if(!showtext){
       navigate("/inbox")
     }
-    else if(!isLoggedIn){
+    else if(showtext){
       navigate("/login")
     }
   }
@@ -79,7 +75,7 @@ const Home = () => {const navigate=useNavigate()
               Strengthening your reputation, while strengthening your
               Trusted-Relationships.
             </h1>
-           {!isLoggedIn &&(<div> <p style={{color:"#f96b39",fontWeight:"700"}}>1.Sign up for your 14-day trial</p>
+           {showtext &&(<div> <p style={{color:"#f96b39",fontWeight:"700"}}>1.Sign up for your 14-day trial</p>
             <p style={{color:"#f96b39",fontWeight:"700"}}>2.Create your Account</p>
             <p style={{color:"#f96b39",fontWeight:"700"}}>3.Add your contacts to your account</p>
             <p style={{color:"#f96b39",fontWeight:"700"}}>4.Start Making Introductions</p>

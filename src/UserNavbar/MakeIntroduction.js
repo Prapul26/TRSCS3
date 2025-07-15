@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./MakeIntroduction.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoCall, IoGlobe, IoLogoLinkedin, IoMail, IoPerson } from "react-icons/io5";
 import { RxCross1, RxCross2 } from "react-icons/rx";
 import { IoMdPerson } from "react-icons/io";
@@ -58,6 +58,7 @@ const [selectedUser, setSelectedUser] = useState(null);
 const [showModal, setShowModal] = useState(false);
 const [bestPractice, setBestPractise]=useState(false);
 const [validationError, setValidationError] = useState("");
+  const navigate = useNavigate();
 const handelbest=()=>{
   setBestPractise(!bestPractice)
 };
@@ -102,6 +103,9 @@ const handelbestcancel=()=>{
   );
   const handlePlus = () => {
     showAdd(!addContacts);
+  };
+  const handleGoBack = () => {
+    navigate(-1); // Go back to the previous page in history
   };
   const handelcross = () => {
     showAdd(false);
@@ -251,11 +255,11 @@ useEffect(() => {
       >
         <div style={{ marginLeft: "20px" }}>
           {" "}
-          <button style={{ borderRadius: "30px", border: "transparent", background: "#163b6d" }}>
+          <button style={{ borderRadius: "30px", border: "transparent", background: "#163b6d" }}  onClick={handleGoBack}>
             <span>
-              <Link to="/inbox">
+           
                 <TiArrowBack color="white" size={35} style={{ background: "#163b6d" }} />
-              </Link>
+             
             </span>{" "}
           </button>
         </div>

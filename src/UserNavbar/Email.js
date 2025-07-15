@@ -114,13 +114,13 @@ const Email = ( ) => {
         <table>
           <thead>
             <tr>
-              <td style={{color:"black"}}>Name</td>
-              <td style={{color:"black"}}>Category</td>
-              <td style={{color:"black"}}>Subject</td>
-              <td style={{color:"black"}} >Body</td>
-              <td style={{color:"black"}}>Created On</td>
-              <td style={{color:"black"}}>Action</td>
-              <td style={{color:"black"}}>Status</td>
+              <td style={{color:"black" ,fontSize:"20px"}}>Name</td>
+              <td style={{color:"black",fontSize:"20px"}}>Category</td>
+              <td style={{color:"black",fontSize:"20px"}}>Subject</td>
+              <td style={{color:"black",fontSize:"20px"}} >Body</td>
+              <td style={{color:"black",fontSize:"20px"}}>Created On</td>
+              <td style={{color:"black",fontSize:"20px"}}>Action</td>
+              <td style={{color:"black",fontSize:"20px"}}>Status</td>
             </tr>
           </thead>
           <tbody>

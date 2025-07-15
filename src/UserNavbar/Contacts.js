@@ -111,22 +111,22 @@ navigate(`/editContact/${id}`)
                 <table>
                   <thead>
                     <tr>
-                      <td>First Name</td>
-                      <td>Last Name</td>
-                      <td>Group Name</td>
-                      <td>Email</td>
-                      <td>Created On</td>
-                      <td>Action</td>
+                      <td  style={{fontSize:"20px"}}>First Name</td>
+                      <td  style={{fontSize:"20px"}}>Last Name</td>
+                      <td  style={{fontSize:"20px"}}>Group Name</td>
+                      <td  style={{fontSize:"20px"}}>Email</td>
+                      <td  style={{fontSize:"20px"}}>Created On</td>
+                      <td  style={{fontSize:"20px"}}>Action</td>
                     </tr>
                   </thead>
                   <tbody>
                     {contacts.map((contact) => (
                       <tr key={contact.id}>
-                        <td>{contact.first_name}</td>
-                        <td>{contact.last_name}</td>
-                        <td>{contact.group_name}</td>
-                        <td>{contact.email}</td>
-                        <td>{contact.created_at}</td>
+                        <td  style={{fontSize:"20px"}}>{contact.first_name}</td>
+                        <td  style={{fontSize:"20px"}}>{contact.last_name}</td>
+                        <td  style={{fontSize:"20px"}}>{contact.group_name}</td>
+                        <td  style={{fontSize:"20px"}}>{contact.email}</td>
+                        <td  style={{fontSize:"20px"}}>{contact.created_at}</td>
                         <td>
                       
                             <button style={{ background: "green" }} onClick={()=>handleEdit(contact.id)}>Edit</button>

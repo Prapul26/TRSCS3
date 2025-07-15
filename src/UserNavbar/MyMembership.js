@@ -66,22 +66,22 @@ const [msg,setMsg]=useState("")
      <div className='table-container'>
      <table >
           <thead>
-<td>Package</td>
-<td>Purchase Date</td>
-<td>Expired Date</td>
-<td>Price</td>
-<td>Payment Date</td>
-<td>Status</td>
+<td style={{fontSize:"22px"}}>Package</td>
+<td style={{fontSize:"22px"}}>Purchase Date</td>
+<td style={{fontSize:"22px"}}>Expired Date</td>
+<td style={{fontSize:"22px"}}>Price</td>
+<td style={{fontSize:"22px"}}>Payment Date</td>
+<td style={{fontSize:"22px"}}>Status</td>
           </thead>
           <tbody>
 {
   data.map((order,index)=>(
     <tr key={order.id || index}>
- <td>{order.listing_package_id}</td>
-        <td>{order.purchase_date}</td>
-        <td>{order.expired_date}</td>
-        <td>${order.amount_usd}</td>
-        <td>{order.payment_method}</td>
+ <td style={{fontSize:"20px"}}>{order.listing_package_id}</td>
+        <td  style={{fontSize:"20px"}}>{order.purchase_date}</td>
+        <td  style={{fontSize:"20px"}}>{order.expired_date}</td>
+        <td  style={{fontSize:"20px"}}>${order.amount_usd}</td>
+        <td  style={{fontSize:"20px"}}>{order.payment_method}</td>
         <td>
          <Link to={`/orderDetails/${order.id}`}> <button className='invoiceButton'>Invoice</button></Link>
           <Link to={`/orderHistory/${order.id}`}><button>History Details</button></Link>
