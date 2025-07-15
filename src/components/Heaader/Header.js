@@ -25,50 +25,46 @@ import axios from "axios";
  <ImCross />*/
 const Header = () => {
   const [menu, showMenu] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [about, showAbout] = useState(false);
   const [drop1, showDrop1] = useState(false);
   const [drop2, showDrop2] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [profileImg,setProfileImg]=useState("");
- useEffect(() => {
-  const timeoutId = setTimeout(() => {
-    const fetchProfile = async () => {
-      try {
-        const token = localStorage.getItem("authToken");
-        const response = await axios.get(
-          "https://tracsdev.apttechsol.com/api/my-profile",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        const data = response.data;
-        const newImage = data.user?.image;
-       if (newImage) {
-        const imageUrl = `https://tracsdev.apttechsol.com/public/${newImage}`;
-        setProfileImg(imageUrl);
-       
+useEffect(() => {
+  const fetchProfile = async () => {
+    const token = localStorage.getItem("authToken");
+    if (!token) {
+      setIsLoggedIn(false);
+      setLoading(false);
+      return;
+    }
+    try {
+      const response = await axios.get("https://tracsdev.apttechsol.com/api/my-profile", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (response?.data?.user) {
+        setIsLoggedIn(true);
+        const newImage = response.data.user?.image;
+        if (newImage) {
+          setProfileImg(`https://tracsdev.apttechsol.com/public/${newImage}`);
+        }
+      } else {
+        setIsLoggedIn(false);
       }
-      } catch (error) {
-        console.error("Error fetching profile data:", error);
-      }
-    };
+    } catch (error) {
+      console.error("Error fetching profile data:", error);
+      setIsLoggedIn(false);
+    }
+    setLoading(false);
+  };
 
-    fetchProfile();
-  }, 300);
-
-  return () => clearTimeout(timeoutId);
+  fetchProfile();
 }, []);
 
+
   const navigate = useNavigate();
-  useEffect(() => {
-    // Check if user is logged in by checking for token in localStorage
-    const token = localStorage.getItem("authToken");
-    if (token) {
-      setIsLoggedIn(true);
-    }
-  }, []);
+
   const handleLogout = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("profileImageUrl")
@@ -305,7 +301,7 @@ const Header = () => {
               )}
             </div>
           </div>
-          {!isLoggedIn && (
+          { !loading && !isLoggedIn && (
             <div className="LRButton">
               <div style={{ marginLeft: "10px" }}>
                 <Link to="/login">

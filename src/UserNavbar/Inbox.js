@@ -36,18 +36,18 @@ import { AiTwotoneQuestionCircle } from "react-icons/ai";
 
 const Inbox = () => {
   const [intro, showIntro] = useState(false);
-  const[serchParams,setSearchParams]=useSearchParams();
+  const [serchParams, setSearchParams] = useSearchParams();
   const [settings, showSettings] = useState(false);
   const [data2, setData] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
   const [showSidebar, setShowSidebar] = useState(false);
   const [sentMessages, setSentMessages] = useState([]);
   const [replyFilter, setReplyFilter] = useState("");
-const [messageFilter, setMessageFilter] = useState("");
-const[showFilterReplie,setFilterReplie]=useState(false);
-const[showFilterMessage,setFilterMessage]=useState(false);
-const [showTakeAction,setTakeAction]=useState(false)
-const[showButton,setButton]=useState(false)
+  const [messageFilter, setMessageFilter] = useState("");
+  const [showFilterReplie, setFilterReplie] = useState(false);
+  const [showFilterMessage, setFilterMessage] = useState(false);
+  const [showTakeAction, setTakeAction] = useState(false)
+  const [showButton, setButton] = useState(false)
   const showMobnav = () => {
     setShowSidebar((prev) => !prev);
   };
@@ -71,12 +71,12 @@ const[showButton,setButton]=useState(false)
     fetchMessages();
   }, []);
   console.log("API BASE URL", process.env.REACT_APP_API_BASE_URL);
-useEffect(() => {
-  const params = {};
-  if (replyFilter !== "") params.bump = replyFilter;
-  if (messageFilter !== "") params.all_filter = messageFilter;
-  setSearchParams(params);
-}, [replyFilter, messageFilter]);
+  useEffect(() => {
+    const params = {};
+    if (replyFilter !== "") params.bump = replyFilter;
+    if (messageFilter !== "") params.all_filter = messageFilter;
+    setSearchParams(params);
+  }, [replyFilter, messageFilter]);
   const handelExpand = () => {
     setData(!data2);
   };
@@ -118,25 +118,25 @@ useEffect(() => {
             <div className="inbox-container">
               <div className="messageInbox">
                 <div className="mI1">
-                 
-                 <div style={{display:"flex",marginTop:"20px",marginBottom:"10px"}}><div><h4 style={{color:"black",fontSize:"18px"}}>Filter for Replies</h4></div><div style={{marginTop:"2px",marginLeft:"5px"}}onMouseEnter={()=>setFilterReplie(true)} onMouseLeave={()=>setFilterReplie(false)} >  {showFilterReplie && (<div className="showfilter1" >
+
+                  <div style={{ display: "flex", marginTop: "20px", marginBottom: "10px" }}><div><h4 style={{ color: "black", fontSize: "18px" }}>Filter for Replies</h4></div><div style={{ marginTop: "2px", marginLeft: "5px" }} onMouseEnter={() => setFilterReplie(true)} onMouseLeave={() => setFilterReplie(false)} >  {showFilterReplie && (<div className="showfilter1" >
                     <p>Filter messages based on replies that are oped for Bump or closed</p>
                   </div>)}<AiTwotoneQuestionCircle />
-               </div></div> 
-                  <select  value={replyFilter}
-  onChange={(e) => setReplyFilter(e.target.value)}>
+                  </div></div>
+                  <select value={replyFilter}
+                    onChange={(e) => setReplyFilter(e.target.value)}>
                     <option value="">All Replies</option>
                     <option value="1">No Replies(Bump)</option>
                     <option value="2">Closed</option>
                   </select>
                 </div>
                 <div className="mI2">
-                    <div style={{display:"flex",marginTop:"20px",marginBottom:"10px"}}><div><h4 style={{color:"black",fontSize:"18px"}}>Filter for Messages</h4></div><div style={{marginTop:"2px",marginLeft:"5px"}}onMouseEnter={()=>setFilterMessage(true)} onMouseLeave={()=>setFilterMessage(false)} >  {showFilterMessage && (<div className="showfilter2" >
+                  <div style={{ display: "flex", marginTop: "20px", marginBottom: "10px" }}><div><h4 style={{ color: "black", fontSize: "18px" }}>Filter for Messages</h4></div><div style={{ marginTop: "2px", marginLeft: "5px" }} onMouseEnter={() => setFilterMessage(true)} onMouseLeave={() => setFilterMessage(false)} >  {showFilterMessage && (<div className="showfilter2" >
                     <p>Filter messages based on Intro recevied and intro sent </p>
                   </div>)}<AiTwotoneQuestionCircle />
-               </div></div> 
-                  <select  value={messageFilter}
-  onChange={(e) => setMessageFilter(e.target.value)}>
+                  </div></div>
+                  <select value={messageFilter}
+                    onChange={(e) => setMessageFilter(e.target.value)}>
                     <option value="">All </option>
                     <option value="1">Intros Recived</option>
                     <option value="2">Intros Sent</option>
@@ -150,145 +150,146 @@ useEffect(() => {
                 </div>
               </div>
 
-              <div className="collapseButton" style={{display:"flex",flexDirection:"column"}}>
+              <div className="collapseButton" style={{ display: "flex", flexDirection: "column" }}>
                 <div>
                   {" "}
                   <button onClick={() => setIsExpanded(!isExpanded)}>
                     {isExpanded ? "Collapse all" : "Expand all"}
                   </button>
                 </div>
-                <div style={{ marginTop: "1px", marginLeft: "20px" }}  >{showTakeAction &&(<div className="takeAction1"><p>it need action for bump enabled messages</p></div>)}{showButton && (<div className="showButton"> <p>The bump button will be enabled if there are no replies.&nbsp;The introducer can follow up by clicking the Bump button of the message</p></div>)}
-                  <IoIosStar color=" #eeba2b" />= Take Action <AiTwotoneQuestionCircle onMouseEnter={()=>setTakeAction(true)} onMouseLeave={()=>setTakeAction(false)}/> <button style={{background:"#dc3545"}}>Bump</button> = no replies <AiTwotoneQuestionCircle onMouseEnter={()=>setButton(true) }onMouseLeave={()=>setButton(false)}/>
+                <div style={{ marginTop: "1px", marginLeft: "20px" }}  >{showTakeAction && (<div className="takeAction1"><p>it need action for bump enabled messages</p></div>)}{showButton && (<div className="showButton"> <p>The bump button will be enabled if there are no replies.&nbsp;The introducer can follow up by clicking the Bump button of the message</p></div>)}
+                  <IoIosStar color=" #eeba2b" />= Take Action <AiTwotoneQuestionCircle onMouseEnter={() => setTakeAction(true)} onMouseLeave={() => setTakeAction(false)} /> <button style={{ background: "#dc3545" }}>Bump</button> = no replies <AiTwotoneQuestionCircle onMouseEnter={() => setButton(true)} onMouseLeave={() => setButton(false)} />
                 </div>
               </div>
 
               <div className="inbox-holder">
                 {sentMessages.filter((item) => {
-   
-    if (replyFilter === "1") {
-       return item.is_bump !== 1;
-    }
-    
-    if (replyFilter === "2") {
- return item.is_bump === 2;    }
-    return true; 
-  })
-  .filter((item) => {
-    // Message filter logic
-    if (messageFilter === "received") {
-      return item.type === "received"; // Assuming 'type' exists
-    }
-    if (messageFilter === "sent") {
-      return item.type === "sent";
-    }
-    return true;
-  }).map((item, index) => (
-                  <div key={item.id} className="inbox">
-                    <div classname="headingIntro">
-                      <h5 style={{fontSize:"18px" ,fontWeight:"700",marginTop:"-0px"}}>{item.subject}</h5>
-                    </div>
-                    <div className="pictime">
-                      <div className="pic55">
-                        <div className="pic55img">< img  src={item.sender_full_image}/>
-                        </div>
-                        <div className="pic55name">
-                          <span style={{fontSize:"14px !important"}}>{item.sender_full_name}</span>
-                        </div>
-                      </div>
-                      <div className="time55">
-                        <div className="time55Clock">
-                          <FaClock />
-                        </div>
-                        <div className="time55days">
-                          <span>{Math.floor((Date.now() - new Date(item.created_at)) / (1000 * 60 * 60 * 24))} days ago</span>
-                        </div>
-                       {item.recipients_info.some(recipient=>recipient.replied === false)&&( <div className="timeStar" style={{marginTop:"-0px"}}><IoIosStar color="#eeba2b"/></div>)}
-                      </div>
-                    </div>
-                    {isExpanded && (
-                      <div>
-                        <h5 style={{fontSize:"18px" ,fontWeight:"700"}}>Introducing</h5>
 
-                        {/* Sender(s) */}
-                        {item.recipients_info.map((recipient, idx) => (
-                          <Link to={`/memberDetails/${recipient.user_id}/${recipient.member_type}`}>
-                            <div key={idx} className="pic66">
-                              <div className="pic66img">
-                                <img
-                                   src={`https://tracsdev.apttechsol.com/public/${recipient.profile_image} `|| "/default.jpg"}
-                                 
-                                />
-                              </div>
-                              <div className="pic66name">
-                                <p>{recipient.name}</p>
-                              </div>
-                              <div className="pic66name">
-                                <p>
-                                 (Replies : {recipient.replied ? "Yes" : "No"})
-                                </p>
-                              </div>
-                            </div>
-                          </Link>
-                        ))}
-                        {item.sender?.contact && (
-  <Link to="/contactDetails" style={{ color: "inherit" }}>
-    <div className="contactInfo">
-      <div className="contact-icon">
-        <RiContactsBook3Line size={20} />
-      </div>
-      <div>
-        <p>{item.sender.contact.join(", ")}</p>
-      </div>
-      <div style={{ marginLeft: "10px" }}>
-        <p>
-          (Replies :
-          {item.sender.contactReply &&
-            ` ${item.sender.contactReply.join(", ")}`}
-          )
-        </p>
-      </div>
-    </div>
-  </Link>
-)}
-                        {/* Message */}
-                        <div><h5 style={{fontSize:"18px" ,fontWeight:"700"}}>Message</h5></div>
-                        <div style={{display:"flex"}}>
+                  if (replyFilter === "1") {
+                    return item.is_bump !== 1;
+                  }
+
+                  if (replyFilter === "2") {
+                    return item.is_bump === 2;
+                  }
+                  return true;
+                })
+                  .filter((item) => {
+                    // Message filter logic
+                    if (messageFilter === "received") {
+                      return item.type === "received"; // Assuming 'type' exists
+                    }
+                    if (messageFilter === "sent") {
+                      return item.type === "sent";
+                    }
+                    return true;
+                  }).map((item, index) => (
+                    <div key={item.id} className="inbox">
+                      <div classname="headingIntro">
+                        <h5 style={{ fontSize: "18px", fontWeight: "700", marginTop: "-0px" }}>{item.subject}</h5>
+                      </div>
+                      <div className="pictime">
+                        <div className="pic55">
                           <div className="pic55img">< img src={item.sender_full_image} />
+                          </div>
+                          <div className="pic55name">
+                            <span style={{ fontSize: "14px !important" }}>{item.sender_full_name}</span>
+                          </div>
                         </div>
-                         <div className="pic55name">
-                          <p>{item.sender_full_name}</p>
-                        </div></div>
-                       <div className="time55" style={{marginLeft:"1px",marginTop:"11px"}}>
-                        <div className="time55Clock">
-                          <FaClock />
-                        </div>
-                        <div className="time55days">
-                          <p style={{fontSize:"14px !important"}}>{Math.floor((Date.now() - new Date(item.created_at)) / (1000 * 60 * 60 * 24))} days ago</p>
-                        </div>
-                      
-                      </div>
-                        <div className="message" style={{ display: "flex" }}>
-                          
-                          <div><h4 className="messh4">{item.body}</h4></div>
-                          <div><Link to={`/messageDetails/${item.subject}/${item.user_id}/${item.replies_code}/chatbox=1&make_bump=${item.is_bump}`}>
-                            <h4 style={{ marginLeft: "80px" }}>See More...</h4>
-                          </Link></div>
-                        </div>
-
-                        {/* Reply & Bump Buttons */}
-                        <div className="replyBump">
-                          <Link to={`/replyMessage/${item.subject}/${item.user_id}/${item.replies_code}`}>
-  <button style={{ background: "#163b6d" }}>Reply</button>
-</Link>
-
-
-                          <Link to={`/bumpMessage/${item.subject}/${item.user_id}/${item.replies_code}/bump=${item.is_bump}`}>   {item.can_bump && <button className="colorButton" style={{ background: "#dc3545" }}>Bump</button>} </Link>
-      
+                        <div className="time55">
+                          <div className="time55Clock">
+                            <FaClock />
+                          </div>
+                          <div className="time55days">
+                            <span>{Math.floor((Date.now() - new Date(item.created_at)) / (1000 * 60 * 60 * 24))} days ago</span>
+                          </div>
+                          {item.recipients_info.some(recipient => recipient.replied === false) && (<div className="timeStar" style={{ marginTop: "-0px" }}><IoIosStar color="#eeba2b" /></div>)}
                         </div>
                       </div>
-                    )}
-                  </div>
-                ))}
+                      {isExpanded && (
+                        <div>
+                          <h5 style={{ fontSize: "18px", fontWeight: "700" }}>Introducing</h5>
+
+                          {/* Sender(s) */}
+                          {item.recipients_info.map((recipient, idx) => (
+                            <Link to={`/memberDetails/${recipient.user_id}/${recipient.member_type}`}>
+                              <div key={idx} className="pic66">
+                                <div className="pic66img">
+                                  <img
+                                    src={`https://tracsdev.apttechsol.com/public/${recipient.profile_image} ` || "/default.jpg"}
+
+                                  />
+                                </div>
+                                <div className="pic66name">
+                                  <p>{recipient.name}</p>
+                                </div>
+                                <div className="pic66name">
+                                  <p>
+                                    (Replies : {recipient.replied ? "Yes" : "No"})
+                                  </p>
+                                </div>
+                              </div>
+                            </Link>
+                          ))}
+                          {item.sender?.contact && (
+                            <Link to="/contactDetails" style={{ color: "inherit" }}>
+                              <div className="contactInfo">
+                                <div className="contact-icon">
+                                  <RiContactsBook3Line size={20} />
+                                </div>
+                                <div>
+                                  <p>{item.sender.contact.join(", ")}</p>
+                                </div>
+                                <div style={{ marginLeft: "10px" }}>
+                                  <p>
+                                    (Replies :
+                                    {item.sender.contactReply &&
+                                      ` ${item.sender.contactReply.join(", ")}`}
+                                    )
+                                  </p>
+                                </div>
+                              </div>
+                            </Link>
+                          )}
+                          {/* Message */}
+                          <div><h5 style={{ fontSize: "18px", fontWeight: "700" }}>Message</h5></div>
+                          <div style={{ display: "flex" }}>
+                            <div className="pic55img">< img src={item.sender_full_image} />
+                            </div>
+                            <div className="pic55name">
+                              <p>{item.sender_full_name}</p>
+                            </div></div>
+                          <div className="time55" style={{ marginLeft: "1px", marginTop: "11px" }}>
+                            <div className="time55Clock">
+                              <FaClock />
+                            </div>
+                            <div className="time55days">
+                              <p style={{ fontSize: "14px !important" }}>{Math.floor((Date.now() - new Date(item.created_at)) / (1000 * 60 * 60 * 24))} days ago</p>
+                            </div>
+
+                          </div>
+                          <div className="message" style={{ display: "flex" }}>
+
+                            <div><h4 className="messh4">{item.body}</h4></div>
+                            <div><Link to={`/messageDetails/${item.subject}/${item.user_id}/${item.replies_code}/chatbox=1&make_bump=${item.is_bump}`}>
+                              <h4 style={{ marginLeft: "80px" }}>See More...</h4>
+                            </Link></div>
+                          </div>
+
+                          {/* Reply & Bump Buttons */}
+                          <div className="replyBump">
+                            <Link to={`/replyMessage/${item.subject}/${item.user_id}/${item.replies_code}`}>
+                              <button style={{ background: "#163b6d" }}>Reply</button>
+                            </Link>
+
+
+                            <Link to={`/bumpMessage/${item.subject}/${item.user_id}/${item.replies_code}/bump=${item.is_bump}`}>   {item.can_bump && <button className="colorButton" style={{ background: "#dc3545" }}>Bump</button>} </Link>
+
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
               </div>
             </div>
           </div>

@@ -359,13 +359,20 @@ color: #000000;
    }
   @media (max-width: 480px){
    .IBPP{
-    margin-left: 0%;
-    width: 100%;
+  width: 100vw;
+        height: 100vh;
+        margin: 0px;
   
    }
+   
    .mobMenu331{
     display: block;
     
+   }
+
+   .mobMenuaa{
+    width: 100%;
+    background-color: #0078d4;
    }
      .messageInbox{
       display: flex;
@@ -386,5 +393,7 @@ color: #000000;
       margin-left: 10%;
       margin-right: 10%;
      }
+       
+  
   }
   

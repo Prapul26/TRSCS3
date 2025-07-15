@@ -19,31 +19,27 @@ const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showtext,setText]=useState(true) 
 
- useEffect(() => {
-   // Check if user is logged in by checking for token in localStorage
-   const token = localStorage.getItem('authToken', "dummy_token");
-   
-   if (token) {
-     setIsLoggedIn(true);
-     setText(false)
-   }
- }, []);
-   const handleMakeIntroClick = () => {
-    if (!showtext) {
-      navigate("/makeIntro");
-    } else if(showtext) {
-      navigate("/login");
-    };
+useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      setIsLoggedIn(true);
+      setText(false);
+    } else if(!token) {
+      setIsLoggedIn(false);
+      setText(true);
+    }
+  }, []);
 
+  const handleMakeIntroClick = () => {
+    const token = localStorage.getItem("authToken");
+    navigate(token ? "/makeIntro" : "/login");
   };
-  const handleDashboard=()=>{
-    if(!showtext){
-      navigate("/inbox")
-    }
-    else if(showtext){
-      navigate("/login")
-    }
-  }
+
+  const handleDashboard = () => {
+    const token = localStorage.getItem("authToken");
+    navigate(token ? "/inbox" : "/login");
+  };
+
   return (
     <div className="homeHolder">
       <Header />
@@ -75,13 +71,16 @@ const Home = () => {
               Strengthening your reputation, while strengthening your
               Trusted-Relationships.
             </h1>
-           {showtext &&(<div> <p style={{color:"#f96b39",fontWeight:"700"}}>1.Sign up for your 14-day trial</p>
+
+           
+  {showtext &&(<div> <p style={{color:"#f96b39",fontWeight:"700"}}>1.Sign up for your 14-day trial</p>
             <p style={{color:"#f96b39",fontWeight:"700"}}>2.Create your Account</p>
             <p style={{color:"#f96b39",fontWeight:"700"}}>3.Add your contacts to your account</p>
             <p style={{color:"#f96b39",fontWeight:"700"}}>4.Start Making Introductions</p>
             <p style={{color:"#f96b39",fontWeight:"700"}}>5.Use your Dashboard for Results</p><br/><Link to='/register'><button style={{color:"black",background:"#eeba2b",height:"45px",borderRadius:"20px"}}>JOIN NOW</button></Link></div>
                   
           )} 
+         
            
           </div>
           <div className="hd1-pic">
