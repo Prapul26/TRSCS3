@@ -26,13 +26,39 @@ margin-bottom: 20px;
     margin-bottom: 30px;
 }
 .pd1,.pd2,.pd3{
-    width: 30%;
+    width: 32%;
+    padding: 10px;
     margin-top: 30px;
-    border: .04rem solid rgb(185, 180, 180);
+    border: .04rem solid rgb(233, 229, 229);
     height: fit-content;
     text-align: center;
     border-radius: 20px;
 }
+.pd2,.pd3{
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+.getb button{
+    background-color: white !important;
+    border: 1px solid rgb(27, 27, 119);
+    color:  rgb(27, 27, 119) !important;
+    font-weight: 200 !important;
+      padding-right:18px !important ;
+        padding-left:18px !important  ;
+    padding-top:6px !important ;
+    padding-bottom: 6px !important;
+}
+.pd2-button button,.pd3-button button{
+    background-color: #163b6d !important;
+    padding-left:18px !important  ;
+    font-weight: 200 !important;
+    border-radius: 20px ;
+    padding-right:18px !important ;
+    padding-top:6px !important ;
+    padding-bottom: 6px !important;
+}
+.pd2:hover,.pd3:hover{
+   transform: scaleY(1.05);}
 .pricing-details2 button{
 margin-top: 20px;
 padding: 15px;
@@ -41,11 +67,11 @@ font-weight: 800;
 color: white;
 font-size: larger;
 }
-.pricing-details2 button:hover{
+.getb button:hover{
     box-shadow: none;
-    background-color: aliceblue;
+    background-color: #163b6d !important;
     border: 1px solid black;
-    color: black;
+    color: white !important;
 }
 .pricing-details2 ul{
     text-decoration: none;

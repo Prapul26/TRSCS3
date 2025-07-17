@@ -8,13 +8,16 @@
     background-color: rgb(152, 149, 149);
 }
 .abd{
-    margin-top: -150px;
+    margin-top: 100px;
     margin-left: 80px;
+    margin-bottom: 150px;
 }
 .abd h1{
     font-family: "Roboto", sans-serif;
-    font-weight: 100;
+    font-weight: 600;
     font-style: normal;
+    color: white;
+            font-size: 30px;
 }
 .no1{
     display: flex;
@@ -41,10 +44,12 @@
     margin-left: 40px;
 }
 .oneContent h4{
-    font-size: larger;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
 }
 .oneContent p{
-    color: white;
+    color: #dedede;
 }
 .no2{
     display: flex;
@@ -68,8 +73,10 @@
     margin-left: 40px;
 }
 .twoContent h4{
-    font-size: larger;
+    font-size: 20px;
     margin-top: 40px;
+    color: #fff;
+    font-weight: 500;
 }
 .LoginContainer {
     display: flex;
@@ -120,6 +127,28 @@
 }
 .switch:hover{
 color: red;
+}
+.regP p{
+color:#007bff;
+font-weight: 500 !important;
+font-size: 15px !important;
+}
+.forpass p{
+color:#007bff;
+font-weight: 500 !important;
+font-size: 15px !important;
+}
+.forpassd p{
+    color:#8f9091;
+    font-weight: 400 !important;
+font-size: 14px !important;
+}
+.forpass{
+   margin-top: -12px;
+}
+.forpassd{
+    margin-top: -12px;
+    margin-left: 4px;
 }
 @media (max-width: 480px) {
     .LoginContainer {

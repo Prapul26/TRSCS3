@@ -6,31 +6,62 @@
     background-color: #f5f5f5;
    
 }
+.picgif{
+    content: "\e005";
+    box-sizing: border-box;
+    line-height: 44px;
+    text-align: center;
+    font-size: 16px;
+    margin-left: 5px;
+    
+}
+
 .registerForm{
    
     display: flex;
    
     flex-direction: column;
-    padding: 20px;
     border: 1px solid #ccc;
-    border-top:10px solid #0056b3;
-    width: 50%;
-  margin-top: 20px;
+   
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 10%;
+    
+  margin-top: 60px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+}
+.regHolder{
+    width: 70%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+margin-left: 15%;
+margin-right: 15%;
+margin-top: 100px;
+background-color: white;
 }
 .registerForm label{
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     font-family:sans-serif;
     font-weight: 700;
 }
 .registerForm input{
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     padding: 8px;
-    border: 1px solid #ccc;
+    height: 25px;
+ 
+   border: transparent;
     border-radius: 4px;
+}
+.inputgif{
+    width: 90%;
+    background-color: transparent;
+}
+.inputgif input{
+    width: 100%;
+    border: transparent;
+      outline: none;
 }
 .registerForm button{
     padding: 10px;
@@ -43,6 +74,7 @@
     margin-bottom: 5px;
     transition: 1s;
 }
+
 .registerForm button:hover{
     background-color: #073b72;
     color:rgb(179, 245, 236);
@@ -50,19 +82,37 @@
 .registerForm p{
     cursor: pointer;
 }
-.registerForm h1{
-    text-align: center;
-    margin-top: -10px;
-    border-bottom: 4px solid black;
+.registerForm p{
+    margin-left: 20px;
 }
-@media (max-width: 600px) {
-    .registerForm {
-        width: 80%;
-    }
+.regContainer{
+    padding: 20px;
+}
+.reg1cont{
+    background-color: #eeeded;
+}
 
+
+
+@media (max-width: 480px){
+       .regHolder{
+    width: 100%;
+margin-top: 0px;
+padding: 0px;
+margin-left: 0px;
+margin-right: 0px;
 }
-@media (min-width: 601px) and (max-width: 1024px){
-    .registerForm {
-        width: 70%;
+  .registerForm {
+       display: block;
+       width: 100%;
+       margin-left: 0px;
+       margin-top: 20px;
+    }
+    .reg1cont{
+    }
+    .reg1cont p{
+        margin-top: 10px;
+            background-color: #eeeded;
+
     }
 }

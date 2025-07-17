@@ -241,6 +241,11 @@ const AccountSettings = () => {
 
     return () => clearTimeout(timeoutId);
   }, []);
+  const stripHtmlTags = (html) => {
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  return div.textContent || div.innerText || "";
+};
 
   const handleProfileUpdate = async () => {
     if (isUpdating) return;
@@ -320,6 +325,7 @@ const AccountSettings = () => {
                   style={{
                     background: "white",
                     paddingTop: "0px",
+                    width: "96.2%",
                     paddingBottom: "0px",
                     display: "flex",
                   }}
@@ -331,11 +337,12 @@ const AccountSettings = () => {
                         background: "#eeba2b",
                         paddingLeft: "30px",
                         paddingRight: "30px",
+                        color: "black",
                         marginLeft: "25px",
                         marginTop: "15px",
                       }}
                     >
-                      My Profile View
+                      MY PROFILE VIEW
                     </button>
                   </Link>
                 </div>
@@ -343,8 +350,8 @@ const AccountSettings = () => {
               <div className="prc1">
                 <div className="profileContainer1">
                   <div className="pc11">
-                    <div classname='pgpgg'>
-                      <div>
+                    <div className="pgpgg">
+                      <div  className="fr1">
                         <label>
                           First Name
                           <span style={{ color: "red", fontWeight: "600" }}>*</span>
@@ -360,7 +367,7 @@ const AccountSettings = () => {
                           />
                         </div>
                       </div>
-                      <div>
+                      <div className="fr2" >
                         <label>
                           Last Name
                           <span style={{ color: "red", fontWeight: "600" }}>*</span>
@@ -429,36 +436,68 @@ const AccountSettings = () => {
                         </div>
                       </div>
                     </div>
+                    <label>Business Name</label>
+                    <div className="nameInput">
+                      <div style={{ marginTop: "0px", marginLeft: "9px" }}>
+                        <MdBusiness size={30} />
+                      </div>
+                      <input
+                        type="text"
+                        value={businessName}
+                        onChange={(e) => setBusinessName(e.target.value)}
+                      />
+                    </div>
                     <div>
 
                     </div>
-                    <label>About Me/Business Description</label>
+                    <label>Business Description/About</label>
                     <textarea
                       className="textArea"
-                      value={about}
+                      value={stripHtmlTags(about)}
                       onChange={(e) => setAbout(e.target.value)}
                     />
-                    <div className="pc111">
-                      <div className="phone">
-                        <label>State</label>
-                        <div className="phoneInput">
-                          <div style={{ marginTop: "6px", marginLeft: "10px" }}>
-                            <IoLocationSharp size={26} />
+                     <div className="socialInputWrapper"> <div className="fr3">
+                      <label>Website</label>
+                      <div className="nameInput">
+                        <div style={{ marginTop: "0px", marginLeft: "9px" }}>
+                          <MdLink size={30} />
+                        </div>
+                        <input
+                          type="text"
+                          value={website}
+                          onChange={(e) => setWebsite(e.target.value)}
+                        />
+                      </div>
+                     </div>
+                      <div className="fr4" >
+                        <label>Linkedin</label>
+                        <div className="nameInput">
+                          <div style={{ marginTop: "0px", marginLeft: "9px" }}>
+                            <MdLink size={30} />
                           </div>
-                          <select
-                            value={state}
-                            style={{ height: "34px", width: "100%" }}
-                            onChange={(e) => setState(e.target.value)}
-                          >
-                            <option value="">Select State</option>
-                            {states.map((s) => (
-                              <option key={s.id} value={s.code}>
-                                {s.name}
-                              </option>
-                            ))}
-                          </select>
+                          <input
+                            type="text"
+                            value={linkedIn}
+                            onChange={(e) => setLinkedIn(e.target.value)}
+                          />
                         </div>
                       </div>
+
+
+                    </div>
+<label>Address</label>
+                    <div className="addressInput">
+                      <div style={{ marginTop: "3.5px", marginLeft: "10px" }}>
+                        <IoLocationSharp size={26} />
+                      </div>
+                      <input
+                        type="text"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                      />
+                    </div>
+                    <div className="pc111">
+
                       <div className="email">
                         <label>City</label>
                         <div className="emailInput">
@@ -474,71 +513,48 @@ const AccountSettings = () => {
                           />
                         </div>
                       </div>
-                    </div>
-                    <label>Address</label>
-                    <div className="addressInput">
-                      <div style={{ marginTop: "3.5px", marginLeft: "10px" }}>
-                        <IoLocationSharp size={26} />
+                      <div className="phone">
+                        <label>State</label>
+                        <div className="phoneInput">
+                          <div style={{ marginTop: "6px", marginLeft: "10px" }}>
+                            <IoLocationSharp size={26} />
+                          </div>
+                          <select
+                            value={state}
+                            style={{ height: "34px", outline: "transparent", border: "transparent", width: "100%" }}
+                            onChange={(e) => setState(e.target.value)}
+                          >
+                            <option value="">Select State</option>
+                            {states.map((s) => (
+                              <option key={s.id} value={s.code}>
+                                {s.name}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
                       </div>
-                      <input
-                        type="text"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                      />
                     </div>
-                    <label>Linked In Profile (URL)</label>
-                    <div className="nameInput">
-                      <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                        <MdLink size={30} />
-                      </div>
-                      <input
-                        type="text"
-                        value={linkedIn}
-                        onChange={(e) => setLinkedIn(e.target.value)}
-                      />
-                    </div>
-                    <label>Business Name</label>
-                    <div className="nameInput">
-                      <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                        <MdBusiness size={30} />
-                      </div>
-                      <input
-                        type="text"
-                        value={businessName}
-                        onChange={(e) => setBusinessName(e.target.value)}
-                      />
-                    </div>
+                    
+                   
 
-                    <label>Website</label>
-                    <div className="nameInput">
-                      <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                        <MdLink size={30} />
-                      </div>
-                      <input
-                        type="text"
-                        accept=".jpg,.jpeg"
-                        value={website}
-                        onChange={(e) => setWebsite(e.target.value)}
-                      />
-                    </div>
                   </div>
                   <div className="proPic">
-                   <div className="ppfof">
-                   <img
-                      src={imagePreview}
-                      alt="Profile Preview"
-                      style={{
-                        height: "100%",
-                        width: "100%",
-                        objectFit: "cover",
-                      }}
-                    /> </div> 
-                    <div>
+                    <div className="ppfof">
+                      <img
+                        src={imagePreview}
+                        alt="Profile Preview"
+                        style={{
+                          height: "100%",
+                          width: "100%",
+                          objectFit: "cover",
+                        }}
+                      /> </div>
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "60px" }}>
                       <button
-                        style={{ background: "#eeba2b" }}
+                        style={{ background: "#eeba2b", color: "black", fontWeight: "300 !important" }}
                         onClick={triggerFileInput}
                       >
-                        Upload Image
+                        UPLOAD IMAGE
                       </button>
                       <input
                         type="file"

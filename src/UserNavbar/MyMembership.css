@@ -1,6 +1,7 @@
 .OMH{
     width: 100%;
     display: flex;
+    
    
 }
 .myMembership-button{
@@ -91,8 +92,7 @@
     
 }
 .OMH {
-    background-color: rgb(236, 235, 234);
-}
+ background-color:#e9edf0;}
 
 .mymembershipTable {
     width: 100%;
@@ -103,10 +103,12 @@
 
 
 .table-container {
-    width: 80%;
+    width: 93.5%;
+    padding: 20px;
     overflow-x: auto; /* Enables horizontal scrolling */
-    background-color: rgb(255, 255, 255);
-    display: block; /* Ensures it scrolls independently */
+    background-color:white;
+    display: block;
+    margin-left: 20px; /* Ensures it scrolls independently */
 
 }
 
@@ -138,6 +140,14 @@ td button {
 .mobMenu33{
     display: none;
 }
+.mobMenuaa{
+     background-color:#e9edf0 !important;
+}
+.table-container table thead td{
+    color: #495057 !important;
+    background-color: #e9ecef !important;
+    
+}
 @media(max-width:480px){
     .myMembership-container{
         width: 90%;
@@ -160,7 +170,7 @@ td button {
         margin-left: 10%;
     }
     .table-container {
-        width: 100%;
+        width: 81%;
         overflow-x: auto; 
         background-color: rgb(255, 255, 255);
     }

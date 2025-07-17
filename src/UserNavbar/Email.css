@@ -8,18 +8,19 @@
 width: 80%;
 height: 100vh;
 margin-left: 19%;
-background-color: #f5f2f2;
+      background-color:#e9edf0 !important;
 }
 .EMPPP{
     width: 100%;
     display: flex;
-    background-color: rgb(218, 217, 216);
+      background-color:#e9edf0 !important;
 }
 .Email-container {
     overflow-x: auto; /* Enable horizontal scrolling */
    margin-left: 5%;
    margin-right: 5%;
-   width: 90%; /* Ensure the container spans the full width */
+   width: 90%; 
+   /* Ensure the container spans the full width */
 }
 
 .Email-container table {
@@ -27,8 +28,9 @@ background-color: #f5f2f2;
     border-collapse: collapse; /* Optional: Improve table appearance */
 }
 
-.Email-container table thead {
-    background-color: #ffffff; /* Optional: Add a background for headers */
+.Email-container table thead td{
+      background-color:#e9edf0 !important;
+      color: black !important;
 }
 
 .Email-container table td {
@@ -47,6 +49,9 @@ background-color: #f5f2f2;
 
 .Email-container table button:hover {
     opacity: 0.9; /* Add hover effect for buttons */
+}
+.Email-container p{
+    font-size: 15px !important;
 }
 
 /* Mobile View: Adjust layout for smaller screens */

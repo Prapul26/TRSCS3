@@ -81,12 +81,12 @@ navigate(`/editContact/${id}`)
             <MobileNavbar showMobnav={showMobnav} />
             <div className="contacts-container">
               <div className="d-header">
-                <h2>Contacts</h2>
+                <h2 style={{color:"#334e6f !important"}}>Contacts</h2>
               </div>
 
               <div className="contacts-buttons">
                 <div className="import">
-                  <input type="file" />
+                 <div className="importA"><input type="file" /></div> 
                   <div className="importB">
                     <button>Import</button>
                   </div>
@@ -105,28 +105,30 @@ navigate(`/editContact/${id}`)
                   </div>
                 </div>
               </div>
+<div className="er">
+
 
               <div className="contacts-table">
                 {error && <p className="error-message">{error}</p>}
                 <table>
                   <thead>
                     <tr>
-                      <td  style={{fontSize:"20px"}}>First Name</td>
-                      <td  style={{fontSize:"20px"}}>Last Name</td>
-                      <td  style={{fontSize:"20px"}}>Group Name</td>
-                      <td  style={{fontSize:"20px"}}>Email</td>
-                      <td  style={{fontSize:"20px"}}>Created On</td>
-                      <td  style={{fontSize:"20px"}}>Action</td>
+                      <td  style={{fontSize:"16px"}}>First Name</td>
+                      <td  style={{fontSize:"16px"}}>Last Name</td>
+                      <td  style={{fontSize:"16px"}}>Group Name</td>
+                      <td  style={{fontSize:"16px"}}>Email</td>
+                      <td  style={{fontSize:"16px"}}>Created On</td>
+                      <td  style={{fontSize:"16px"}}>Action</td>
                     </tr>
                   </thead>
                   <tbody>
                     {contacts.map((contact) => (
                       <tr key={contact.id}>
-                        <td  style={{fontSize:"20px"}}>{contact.first_name}</td>
-                        <td  style={{fontSize:"20px"}}>{contact.last_name}</td>
-                        <td  style={{fontSize:"20px"}}>{contact.group_name}</td>
-                        <td  style={{fontSize:"20px"}}>{contact.email}</td>
-                        <td  style={{fontSize:"20px"}}>{contact.created_at}</td>
+                        <td  style={{fontSize:"15px"}}>{contact.first_name}</td>
+                        <td  style={{fontSize:"15px"}}>{contact.last_name}</td>
+                        <td  style={{fontSize:"15px"}}>{contact.group_name}</td>
+                        <td  style={{fontSize:"15px"}}>{contact.email}</td>
+                        <td  style={{fontSize:"15px"}}>{contact.created_at}</td>
                         <td>
                       
                             <button style={{ background: "green" }} onClick={()=>handleEdit(contact.id)}>Edit</button>
@@ -142,7 +144,8 @@ navigate(`/editContact/${id}`)
                     ))}
                   </tbody>
                 </table>
-                {contacts.length === 0 && !error && <p>No contacts found.</p>}
+               
+              </div>
               </div>
             </div>
           </div>

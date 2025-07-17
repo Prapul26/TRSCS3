@@ -3,16 +3,17 @@
     width: 100%;
    background-color: white;
 
-    justify-items: center;
+    
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 13.5px;
 
 }
 .navbar-holder{
     display: flex;
+    padding-left: 14.5%;
 }
 .dropdown-menu23{
-    margin-top: 40px;
+    margin-top: 10px;
     background-color:white;
     position: absolute;
     list-style-type: none;
@@ -32,17 +33,25 @@
 }
 .navbar-holder img{
     margin-top: 4px;
+    max-width: 100%;
+    max-height: 100%;
+}
+.navbar-holder ul{
+    margin-left: -35px;
+    margin-top: 19px;
+    margin-bottom: -10px;
 }
 .navbar-holder li{
     margin-left: 20px;
-    font-weight: 600;
+    font-weight: 700;
+    padding-bottom: 8px;
     font-size: medium;
-    font-family:sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 .navbar-holder li:hover{
    
-    color: rgb(226, 16, 16);
- 
+border-bottom: 4px dashed  gold ; 
+
 }
 @media(max-width:480px){
     .Navbar-Container{

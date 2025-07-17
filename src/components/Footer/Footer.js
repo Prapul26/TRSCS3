@@ -78,7 +78,7 @@ const Footer = () => {
 
                         <div className="conulli" style={{ display:"flex"}}>
                             <div><IoMailOutline /></div>
-                        <div style={{marginTop:"-18px"}}>   <ul><li style={{listStyle:"none",fontWeight:"400",fontSize:"16px"}}> support@tracs.app</li>
+                        <div style={{marginTop:"-18px"}}>   <ul><li style={{listStyle:"none",fontWeight:"400",fontSize:"16px"}}> info@tracs.app</li>
                         </ul>
                         </div> 
                         </div>

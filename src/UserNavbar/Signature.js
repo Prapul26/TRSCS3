@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Signature.css";
 import UserHeader from "../components/UserHeader";
 import { FaFileSignature } from "react-icons/fa";
@@ -61,6 +61,34 @@ const handleSave=async(e)=>{
   setMsg(errorMessage);
 }
 }
+ useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_BASE_URL}/sendmailintro/introduction_email`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log("Image URL:", data.partners?.image);
+        setData(response.data);
+        setText(response.data.signature?.name || "");
+        console.log(response.data);
+      } catch (err) {
+        setMsg(err.response?.data?.message || "Something went wrong.");
+      }
+    };
+
+    fetchData();
+  }, []);
+    const stripHtmlTags = (html) => {
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  return div.textContent || div.innerText || "";
+};
   return (
     <div className='mobMenuaa'>
     <div className='mobMenu33'>
@@ -80,15 +108,12 @@ const handleSave=async(e)=>{
           <div className="signature-holder">
             <form onSubmit={handleSave}>
               <label>
-                <h2>Signature</h2>
+                <h2>Name<span style={{color:"red"}}> *</span></h2>
               </label>
               <br />
               <textarea
-                placeholder=" Name:
-        Identity Name:
-        Email:
-        Calender:"
-              value={text} onChange={(e)=>setText(e.target.value)} />
+              
+              value={stripHtmlTags(text)} onChange={(e)=>setText(e.target.value)} />
               <br />
               <button type="submit">SAVE</button>
             </form><div style={{textAlign:"center"}}>{msg}</div>

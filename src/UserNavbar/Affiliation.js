@@ -84,7 +84,7 @@ const Affiliation = () => {
             <div className="dd-holder2">
               <div style={{ display: "flex" }}>
                 <div>
-                  <h2 style={{marginLeft:"10px"}}>Affiliation</h2>
+                  <h2 style={{marginLeft:"20px",marginTop:"23px"}}>Affiliation</h2>
                 </div>
                 <div className="status-toggle">
                   <span
@@ -128,21 +128,21 @@ const Affiliation = () => {
                 <table>
                   <thead>
                     <tr>
-                      <td style={{ color: "black" ,fontSize:"20px"}}>Package name</td>
-                      <td style={{ color: "black" ,fontSize:"20px"}}>Package Price</td>
-                      <td style={{ color: "black",fontSize:"20px" }}>Commission Amount</td>
-                      <td style={{ color: "black" ,fontSize:"20px"}}>Purchased By</td>
-                      <td style={{ color: "black",fontSize:"20px" }}>Purchased On</td>
+                      <td style={{ color: "black" ,fontSize:"medium"}}>Package name</td>
+                      <td style={{ color: "black" ,fontSize:"medium"}}>Package Price</td>
+                      <td style={{ color: "black",fontSize:"medium" }}>Commission Amount</td>
+                      <td style={{ color: "black" ,fontSize:"medium"}}>Purchased By</td>
+                      <td style={{ color: "black",fontSize:"medium" }}>Purchased On</td>
                     </tr>
                   </thead>
                   <tbody>
                     {data.data?.map((item, index) => (
                       <tr key={index}>
-                        <td style={{fontSize:"19px"}}>{item.package_name}</td>
-                        <td style={{fontSize:"19px"}}>${item.package_price}</td>
-                        <td style={{fontSize:"19px"}}>${item.commission_amount}</td>
-                        <td style={{fontSize:"19px"}}>{item.user?.name || "N/A"}</td>
-                        <td style={{fontSize:"19px"}}>{new Date(item.created_at).toLocaleString()}</td>
+                        <td style={{fontSize:"18px",fontWeight:"500"}}>{item.package_name}</td>
+                        <td style={{fontSize:"18px",fontWeight:"500"}}>${item.package_price}</td>
+                        <td style={{fontSize:"18px",fontWeight:"500"}}>${item.commission_amount}</td>
+                        <td style={{fontSize:"18px",fontWeight:"500"}}>{item.user?.name || "N/A"}</td>
+                        <td style={{fontSize:"18px",fontWeight:"500"}}>{new Date(item.created_at).toLocaleString()}</td>
                       </tr>
                     ))}
                   </tbody>

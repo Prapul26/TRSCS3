@@ -5,6 +5,8 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import Header from '../Heaader/Header';
 import { Link } from 'react-router-dom';
+import { IoPerson } from 'react-icons/io5';
+import { LuRectangleVertical } from 'react-icons/lu';
 
 const Register = ({ switchToLogin }) => {
     const [firstName, setFirstName] = useState('');
@@ -73,86 +75,113 @@ const Register = ({ switchToLogin }) => {
             <Header />
             <Navbar />
             <div className='registerPage'>
+                <div className='regHolder'>
                 <form className='registerForm' onSubmit={handleRegister}>
-                    <h1>Register here ...</h1>
+                    
+                    <div  className="reg1cont" style={{paddingBottom:"0px",marginBottom:'20px',borderBottom:"1px solid black"}}><p>Register </p></div>
 
-                    <label htmlFor='firstName'>First Name</label>
-                    <input
+
+                 <div className='regContainer'>  <label htmlFor='firstName'>First Name<span style={{color:"red",fontWeight:"600"}}>*</span></label>
+                  <div style={{display:"flex" ,border:"1px solid #ddd" ,marginBottom:"20px",marginTop:"15px" ,background:"transparent"}}>
+                    <div className='picgif'><LuRectangleVertical></LuRectangleVertical></div>
+                     <div className='inputgif'> <input
                         type='text'
                         id='firstName'
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
                         required
-                    />
+                    /></div>
+                    </div>
 
-                    <label htmlFor='lastName'>Last Name</label>
+                    <label htmlFor='lastName'>Last Name<span style={{color:"red",fontWeight:"600"}}>*</span></label>
+                  <div style={{display:"flex" ,border:"1px solid #ddd" ,marginBottom:"20px",marginTop:"15px" ,background:"transparent"}}>
+                    <div className='picgif'><LuRectangleVertical></LuRectangleVertical></div>
+                  <div className='inputgif'>
                     <input
                         type='text'
                         id='lastName'
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
                         required
-                    />
+                    /></div></div>
 
-                    <label htmlFor='email'>Email</label>
+                    <label htmlFor='email'>Email<span style={{color:"red",fontWeight:"600"}}>*</span></label>
+                   <div style={{display:"flex" ,border:"1px solid #ddd" ,marginBottom:"20px",marginTop:"15px" ,background:"transparent"}}>
+                    <div className='picgif'><LuRectangleVertical></LuRectangleVertical></div>
+                   <div className='inputgif'>
                     <input
                         type='email'
                         id='email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                    />
-
+                    /></div>
+</div>
                     <label htmlFor='phone'>Phone</label>
-                    <input
+                  
+                  <div style={{display:"flex" ,border:"1px solid #ddd" ,marginBottom:"20px",marginTop:"15px" ,background:"transparent"}}>
+                    <div className='picgif'><LuRectangleVertical></LuRectangleVertical></div>
+                      <div className='inputgif'><input
                         type='text'
                         id='phone'
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         required
-                    />
+                    /></div></div>
 
-                    <label htmlFor='password'>Password</label>
-                    <input
+                    <label htmlFor='password'>Password<span style={{color:"red",fontWeight:"600"}}>*</span></label>
+                  <div style={{display:"flex" ,border:"1px solid #ddd" ,marginBottom:"20px",marginTop:"15px" ,background:"transparent"}}>
+                    <div className='picgif'><LuRectangleVertical></LuRectangleVertical></div>
+                    
+                    <div className='inputgif'><input
                         type='password'
                         id='password'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                    />
+                    /></div></div>
 
-                    <label htmlFor='confirmPassword'>Confirm Password</label>
-                    <input
+                    <label htmlFor='confirmPassword'>Confirm Password<span style={{color:"red",fontWeight:"600"}}>*</span></label>
+                   <div style={{display:"flex" ,border:"1px solid #ddd" ,marginBottom:"20px",marginTop:"15px" ,background:"transparent"}}>
+                    <div className='picgif'><LuRectangleVertical></LuRectangleVertical></div>
+                   <div className='inputgif'> <input
                         type='password'
                         id='confirmPassword'
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
-                    />
+                    /></div></div>
 
-                    <label htmlFor='referredBy'>Referred By</label>
-                    <input
+                    <label htmlFor='referredBy'>Who introduces you?</label>
+                  <div style={{display:"flex" ,border:"1px solid #ddd" ,marginBottom:"20px",marginTop:"15px" ,background:"transparent"}}>
+                    <div className='picgif'><LuRectangleVertical></LuRectangleVertical></div>
+                    <div className='inputgif'><input
                         type='text'
                         id='referredBy'
                         value={referredBy}
                         onChange={(e) => setReferredBy(e.target.value)}
-                    />
+                    /></div></div>
 
                     <label htmlFor='businessName'>Business Name</label>
+                  
+                  <div style={{display:"flex" ,border:"1px solid #ddd" ,marginBottom:"20px",marginTop:"15px" ,background:"transparent"}}> 
+                    <div className='picgif'><LuRectangleVertical></LuRectangleVertical></div>
+                 <div className='inputgif'>
                     <input
                         type='text'
                         id='businessName'
                         value={businessName}
                         onChange={(e) => setBusinessName(e.target.value)}
-                    />
+                    /> </div></div>
 
-                    <button type='submit'>Register</button>
-                    {message && <p className="message">{message}</p>}
+                    <button type='submit' style={{background:"#eeba2b",color:"black",fontSize:"18px",padding:"10px 25px 10px 25px"}}>Register</button>
+                    {message && <p className="message">{message}</p>}</div> 
 
                     <p onClick={switchToLogin} className='switch'>
                      <Link to='/login' style={{textDecoration:"none",color:"inherit"}}> Already have an account? Login here.</Link>  
                     </p>
                 </form>
+                </div>
             </div>
             <Footer />
         </div>

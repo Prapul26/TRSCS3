@@ -90,6 +90,11 @@ const Email = ( ) => {
     setError("Failed to delete the contact.");
   }
 };
+  const stripHtmlTags = (html) => {
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  return div.textContent || div.innerText || "";
+};
 
   return (
     <div className='mobMenuaa'>
@@ -105,22 +110,25 @@ const Email = ( ) => {
     <div  className="EMPP">
      <MobileNavbar showMobnav={showMobnav}/>
       <div className="d-header">
-      <h2>Email Template</h2>
+      <h2>Templates</h2>
       </div>
       <div className="addTemplateButton">
-      <Link to="/addTemplate"><button style={{ background: "green" }}> Add Template</button></Link>  
+      <Link to="/addTemplate"><button style={{     backgroundColor:" #163b6d !important"
+ }}> Add Template</button></Link>  
       </div>
-      <div className="Email-container">
+
+     
+      <div className="Email-container"> <div style={{padding:"10px",background:'white'}}>
         <table>
           <thead>
             <tr>
-              <td style={{color:"black" ,fontSize:"20px"}}>Name</td>
-              <td style={{color:"black",fontSize:"20px"}}>Category</td>
-              <td style={{color:"black",fontSize:"20px"}}>Subject</td>
-              <td style={{color:"black",fontSize:"20px"}} >Body</td>
-              <td style={{color:"black",fontSize:"20px"}}>Created On</td>
-              <td style={{color:"black",fontSize:"20px"}}>Action</td>
-              <td style={{color:"black",fontSize:"20px"}}>Status</td>
+              <td style={{color:"black" ,fontSize:"16px"}}>Name</td>
+              <td style={{color:"black",fontSize:"16px"}}>Category</td>
+              <td style={{color:"black",fontSize:"16px"}}>Subject</td>
+              <td style={{color:"black",fontSize:"16px"}} >Body</td>
+              <td style={{color:"black",fontSize:"16px"}}>Created On</td>
+              <td style={{color:"black",fontSize:"16px"}}>Action</td>
+              <td style={{color:"black",fontSize:"16px"}}>Status</td>
             </tr>
           </thead>
           <tbody>
@@ -129,8 +137,7 @@ const Email = ( ) => {
                       <td><p>{template.template_name}</p></td>
                       <td><p>{template.category_id?.toString()}</p></td>
                       <td><p>{template.subject || "N/A"}</p></td>
-                      <td dangerouslySetInnerHTML={{ __html: template.email_body }}></td>
-                      <td><p>{new Date(template.created_at).toLocaleDateString()}</p></td>
+             <td><p>{stripHtmlTags(template.email_body)}</p></td>                      <td><p>{new Date(template.created_at).toLocaleDateString()}</p></td>
                       <td>
                         <button style={{ backgroundColor: "green" }}  onClick={() => handleEdit(template.id)}>Edit</button>
                         <button style={{ backgroundColor: "red" }}  onClick={() => handleDelete(template.id)} >Delete</button>
@@ -148,6 +155,7 @@ const Email = ( ) => {
             
           </tbody>
         </table>
+      </div>
       </div>
     </div></div></div></div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import Header from '../Heaader/Header';
 import Navbar from '../Navbar/Navbar';
@@ -50,47 +50,53 @@ const Login = ({ switchToRegister }) => {
             <Navbar />
             <div className='LoginPage'>
                 <div className='abd'>
-                    <h1>Welcome To Login</h1>
+                    <h1>Sign up or log in to your account</h1>
 
                     <div className='no1'>
                         <div className='oneb'><h1>1</h1></div>
                         <div className='oneContent'>
-                            <h4>H7 Member does not need to register and can login using the registered email.</h4>
-                            <p>If you are logging in for the first time, click on the "Forgot Password" link to create a password. Also, check your spam folder if you don’t receive the email.</p>
+                            <h4>Current H7 Members do not need to Sign Up. They only need to Sign In.</h4>
+                            <p>If you are logging in first time, click on Forgot Password link to create a password. It will send you an email to your registered email. Please also check your SPAM email folder.</p>
                         </div>
                     </div>
 
                     <div className='no2'>
                         <div className='twob'><h1>2</h1></div>
                         <div className='twoContent'>
-                            <h4>TRACS Member can login using the registered email.</h4>
+                            <h4>NEW TRACS Users need to Sign Up first unless they are a current H7 Member. H7 Members need to follow up Step 1.</h4>
                         </div>
                     </div>
                 </div>
 
                 <form className='LoginContainer' onSubmit={handleLogin}>
-                    <h1>Login</h1>
-                    <label>User Mail</label><br />
+                    <h1>Sign In</h1>
+                   
                     <input
                         type='email'
                         id='email'
+                        placeholder='Email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     /><br />
 
-                    <label>Password</label><br />
+                 
                     <input
                         type='password'
                         id='password'
+                        placeholder='Password'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     /><br />
-
+<div style={{display:"flex",justifyContent:"space-between"}}>
+    <div style={{display:"flex"}}><div><input type='checkbox'/></div><div className='forpassd'><p>Keep me Log In</p></div></div>
+  <Link to='/forgotPassword' style={{textDecoration:"none"}}> <div  className='forpass'><p>Forgot Password ?</p></div></Link> 
+</div>
                     <button type='submit'>Login</button>
-                    <p>{message}</p>
-                    <p onClick={switchToRegister} className='switch'>Don't have an account? Register here.</p>
+                   
+                 <Link to="/register" style={{textDecoration:"none"}}><div className='regP'><p >Register</p></div></Link>   
+                     <p>{message}</p>
                 </form>
             </div>
             <Footer />

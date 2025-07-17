@@ -8,19 +8,19 @@ const Navbar = () => {
     
     <div className='Navbar-Container'>
        
-      <div className='navbar-holder'>
-        <img  src="https://tracsdev.apttechsol.com/public/uploads/website-images/logo-2024-09-05-10-18-08-4078.png"
-            style={{ height: "40px" }}/>
-        <ul style={{display:"flex",listStyleType:"none"}}>
+      <div className='navbar-holder'onMouseLeave={() => setDropdownVisible(false)}>
+       <Link to="/"> <img  src="https://tracsdev.apttechsol.com/public/uploads/website-images/logo-2024-09-05-10-18-08-4078.png"
+            style={{ height: "50px" }}/></Link>
+        <ul style={{display:"flex",listStyleType:"none"}} >
            <Link to='/home' style={{textDecoration:"none",color:"inherit"}}><li >HOME</li></Link> 
            <li
-            onMouseEnter={()=>setDropdownVisible(true)} onMouseLeave={() => setDropdownVisible(false)}
+            onMouseEnter={()=>setDropdownVisible(true)} 
            
             style={{ position: 'relative', cursor: 'pointer' }}
           >
             ABOUT US
             {isDropdownVisible && (
-              <ul className='dropdown-menu23' >
+              <ul className='dropdown-menu23'   onMouseEnter={()=>setDropdownVisible(true)} >
                 <li><Link to='/about_us' style={{ textDecoration: 'none', color: 'inherit' }}>About Us</Link></li>
                 <li><Link to='/contact' style={{ textDecoration: 'none', color: 'inherit' }}>Contact</Link></li>
                 <li><Link to='/partner' style={{ textDecoration: 'none', color: 'inherit' }}>Partners</Link></li>

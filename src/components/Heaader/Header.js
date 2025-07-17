@@ -14,6 +14,7 @@ import { faL } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { PiGlobe } from "react-icons/pi";
 
 /*  <FaFacebook />
   <FaSquareXTwitter />
@@ -226,13 +227,13 @@ useEffect(() => {
           <a href="https://www.facebook.com/h7network">
             <div className="facebook">
               {" "}
-              <FaFacebook size={28} color="white" />
+              <FaFacebook size={22} color="white" />
             </div>
           </a>
 
           <a href="https://www.linkedin.com/company/h7network/">
             <div className="LinkedIn">
-              <FaLinkedin size={28} color="white" />
+              <FaLinkedin size={22} color="white" />
             </div>
           </a>
         </div>
@@ -277,13 +278,13 @@ useEffect(() => {
         <div className="dropdowns">
           <div className="globe">
             <div className="globee">
-              <FcGlobe size={30} />{" "}
+              <PiGlobe color="white" size={22} />{" "}
             </div>
-            <div className="drop1" onClick={handelDrop1}>
+            <div className="drop1" style={{marginTop:"3px"}} onClick={handelDrop1}>
               {drop1 ? (
-                <IoMdArrowDropup size={20} />
+                <IoMdArrowDropup size={20} color="white" />
               ) : (
-                <IoMdArrowDropdown size={20} />
+                <IoMdArrowDropdown size={20} color="white" />
               )}
               {drop1 && (
                 <div className="dropDown1">
@@ -302,17 +303,17 @@ useEffect(() => {
             </div>
           </div>
           { !loading && !isLoggedIn && (
-            <div className="LRButton">
+            <div className="LRButton"> <div style={{ marginLeft: "10px" }}>
+                <Link to="/register">
+                  <button style={{ background: " #eeba2b",color:"black", padding:"5px 8px 5px 8px" }}>Register</button>
+                </Link>
+              </div>
               <div style={{ marginLeft: "10px" }}>
                 <Link to="/login">
-                  <button style={{ background: " #eeba2b",color:"black" }}>Login</button>
+                  <button style={{ background: " #eeba2b",color:"black", padding:"5px 8px 5px 8px" }}>Login</button>
                 </Link>
               </div>
-              <div style={{ marginLeft: "10px" }}>
-                <Link to="/register">
-                  <button style={{ background: " #eeba2b",color:"black" }}>Register</button>
-                </Link>
-              </div>
+             
             </div>
           )}
           {isLoggedIn && (

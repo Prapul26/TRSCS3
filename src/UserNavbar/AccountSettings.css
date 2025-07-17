@@ -1,6 +1,6 @@
 .overH{
     display: flex;
-    background-color: rgb(218, 217, 216);
+    background-color:#e9edf0;
 }
 .fz1{
     
@@ -20,10 +20,17 @@ width: 70%;
 
 
 }
-.pgpgg{
-    display: flex;
-    
+.pgpgg {
+  display: flex;
+  gap: 20px; /* Adjust spacing as needed */
+
 }
+.socialInputWrapper {
+  display: flex;
+  gap: 20px; /* Adjust spacing as needed */
+
+}
+
 .pc12{
 width: 30%;
 
@@ -82,6 +89,9 @@ border-radius: 5px;
     display: flex;
    
    justify-content: space-between;
+}
+.fr1,.fr2,.fr3,.fr4{
+width: 50%;
 }
 .textArea{
     height: 120px;
@@ -204,6 +214,15 @@ border-radius: 5px;
 }
 .contacts-container{
 
+}
+.fr1,.fr2,.fr3,.fr4{
+width: 100%;
+}
+.pgpgg{
+    flex-direction: column;
+}
+.socialInputWrapper{
+    flex-direction: column;
 }
 .proPic{
 

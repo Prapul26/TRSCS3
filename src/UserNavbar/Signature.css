@@ -6,9 +6,8 @@
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-    text-align: center;
-    background: linear-gradient(to right, #cfced0, #cecccf);
-}
+  
+background-color: white;}
 .signature-holder textarea{
     width: 100%;
     height: 150px;
@@ -17,18 +16,19 @@
 margin-top: 30px;
 padding-left: 20px;
 padding-right: 20px;
+color: black;
 background-color: orange;
 }
 .SPPP{
 width: 100%;
 display: flex;
-background-color: rgb(218, 217, 216);
+      background-color:#e9edf0 !important;
 }
 .SPP{
     width: 85%;
     height: 100vh;
     margin-left: 19%;
-    background-color: rgb(243, 241, 239);
+      background-color:#e9edf0 !important;
 }
 @media(max-width:480px){
     .signature-holder{

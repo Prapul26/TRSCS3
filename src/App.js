@@ -48,6 +48,7 @@ import BumpMessage from "./UserNavbar/BumpMessage";
 import TermsAndCondition from "./components/TermsAndCondition/TermsAndCondition";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import Help from "./components/Help/Help";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 
 
 
@@ -105,6 +106,7 @@ const App = () => {
 <Route path="/terms" element={<TermsAndCondition/>}/>
 <Route path="/privacy" element={<PrivacyPolicy/>}/>
 <Route path="/help" element={<Help />}/>
+<Route path="/forgotPassword" element={<ForgotPassword/>}/>
         </Routes>
       </div>
     </Router>

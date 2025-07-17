@@ -6,7 +6,7 @@
 }
 .affTable{
     
-    padding: 20px;
+   
     background-color: rgb(255, 254, 254);
     margin: 20px;
 }
@@ -15,14 +15,33 @@
         padding: 12px 8px !important;
         
 }
-
+.dd-holder2{
+    background-color: white;
+    margin-top: 30px;
+    width: 97.6%;
+    border-radius: 5px;
+    margin-left: 1.2%;
+}
+.dd-holder2 h2{
+    font-size: 20px !important;
+        color: #334e6f;
+    font-weight: 800;
+}
+.myAffiliation-holder h3{
+    font-size: 20px !important;
+    font-weight: 700;
+}
 .affTable table thead tr {
     color: white; /* Ensures text is visible */
     padding: 12px 8px !important;
     font-size: 25px !important;
 }
 .affTable table tbody{
-    background-color: #f1f0f0;
+    background-color:#e9edf0 !important;
+}
+.mobMenuaa{
+         background-color:#2083cf !important;
+
 }
 .spackage{
     display: flex;
@@ -81,13 +100,23 @@ width: 100%;
     height: 40px;
     width: 100%;
 }
+.affili{
+     background-color:#e9edf0 !important;
+}
 .myAffiliationCOntainer{
-    width: 85%;
+    width: 100%;
+      background-color:#e9edf0 !important;
+      margin-left: 14% !important;
+
+}
+.myAfflilationPage{
+     background-color:#e9edf0 !important;
 }
 .dd-holder{
     background-color: white;
-    width: 96%;
+    width: 100%;
     padding: 1px;
+    
  
     margin-left: 2%;
     margin-top: 20px;
@@ -136,6 +165,12 @@ width: 100%;
         width: 100%;
         margin-bottom: 20px;
     }
+    .myAffiliationCOntainer{
+    width: 100%;
+      background-color:#e9edf0 !important;
+      margin-left: 19% !important;
+
+}
    .affdiv2{
     width: 50%;
     margin-top: -3px;
@@ -163,6 +198,7 @@ width: 100%;
     border-radius: 10px;
 }
 .affTable{
-    margin-left: -67px;
+    margin-left: -57px;
+    width: 106%;
 }
 }

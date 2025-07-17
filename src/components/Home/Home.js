@@ -54,10 +54,10 @@ useEffect(() => {
 
         <div className="network-container">
           
-            <button className="ncb1" style={{background:"#eeba2b" ,color:"black",height:"55px",borderRadius:"25px"}}   onClick={handleMakeIntroClick}>MAKE INTRODUCTION INSTANTLY</button>
+            <button className="ncb1"  onClick={handleMakeIntroClick}>MAKE INTRODUCTION INSTANTLY</button>
        
          
-            <button style={{background:"#eeba2b" ,color:"black",height:"55px",borderRadius:"25px"}} className="bttborder" onClick={handleDashboard}>
+            <button  className="bttborder" onClick={handleDashboard}>
               <span>DASHBOARD</span>
             </button>
           
