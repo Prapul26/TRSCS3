@@ -92,7 +92,11 @@ const Inbox = () => {
   const handleExpand = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
-
+   const stripHtmlTags = (html) => {
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  return div.textContent || div.innerText || "";
+};
   return (
     <div className="mobMenuaa">
       <div className="mobMenu33">
@@ -158,8 +162,8 @@ const Inbox = () => {
                   </button>
                 </div>
                 <div style={{ marginTop: "1px", marginLeft: "20px" }}  >{showTakeAction && (<div className="takeAction1"><p>it need action for bump enabled messages</p></div>)}{showButton && (<div className="showButton"> <p>The bump button will be enabled if there are no replies.&nbsp;The introducer can follow up by clicking the Bump button of the message</p></div>)}
-                  <IoIosStar color=" #eeba2b" />= Take Action <AiTwotoneQuestionCircle onMouseEnter={() => setTakeAction(true)} onMouseLeave={() => setTakeAction(false)} /> <button style={{ background: "#dc3545" }}>Bump</button> = no replies <AiTwotoneQuestionCircle onMouseEnter={() => setButton(true)} onMouseLeave={() => setButton(false)} />
-                </div>
+                <p className="pppawda"> <IoIosStar color=" #eeba2b" />= Take Action <AiTwotoneQuestionCircle onMouseEnter={() => setTakeAction(true)} onMouseLeave={() => setTakeAction(false)} /> <button style={{ background: "#dc3545",padding:"5px 7px 5px 7px " }}>Bump</button> = no replies <AiTwotoneQuestionCircle onMouseEnter={() => setButton(true)} onMouseLeave={() => setButton(false)} />
+               </p>  </div>
               </div>
 
               <div className="inbox-holder">
@@ -186,14 +190,14 @@ const Inbox = () => {
                   }).map((item, index) => (
                     <div key={item.id} className="inbox">
                       <div classname="headingIntro">
-                        <h5 style={{ fontSize: "18px", fontWeight: "700", marginTop: "-0px" }}>{item.subject}</h5>
+                        <h5 style={{ fontSize: "16px", fontWeight: "600", marginTop: "-0px" }}>{item.subject}</h5>
                       </div>
                       <div className="pictime">
                         <div className="pic55">
                           <div className="pic55img">< img src={item.sender_full_image} />
                           </div>
                           <div className="pic55name">
-                            <span style={{ fontSize: "14px !important" }}>{item.sender_full_name}</span>
+                            <p style={{ fontSize: "14px !important" }}>{item.sender_full_name}</p>
                           </div>
                         </div>
                         <div className="time55">
@@ -201,18 +205,18 @@ const Inbox = () => {
                             <FaClock />
                           </div>
                           <div className="time55days">
-                            <span>{Math.floor((Date.now() - new Date(item.created_at)) / (1000 * 60 * 60 * 24))} days ago</span>
+                            <p>{Math.floor((Date.now() - new Date(item.created_at)) / (1000 * 60 * 60 * 24))} days ago</p>
                           </div>
                           {item.recipients_info.some(recipient => recipient.replied === false) && (<div className="timeStar" style={{ marginTop: "-0px" }}><IoIosStar color="#eeba2b" /></div>)}
                         </div>
                       </div>
                       {isExpanded && (
-                        <div>
-                          <h5 style={{ fontSize: "18px", fontWeight: "700" }}>Introducing</h5>
+                        <div style={{marginTop:"-16px"}}>
+                          <h5 style={{ fontSize: "17px", fontWeight: "700" }}>Introducing</h5>
 
                           {/* Sender(s) */}
                           {item.recipients_info.map((recipient, idx) => (
-                            <Link to={`/memberDetails/${recipient.user_id}/${recipient.member_type}`}>
+                            <Link style={{textDecoration:"none"}} to={`/memberDetails/${recipient.user_id}/${recipient.member_type}`}>
                               <div key={idx} className="pic66">
                                 <div className="pic66img">
                                   <img
@@ -221,10 +225,10 @@ const Inbox = () => {
                                   />
                                 </div>
                                 <div className="pic66name">
-                                  <p>{recipient.name}</p>
+                                  <p style={{textDecoration:"underline"}}>{recipient.name}</p>
                                 </div>
                                 <div className="pic66name">
-                                  <p>
+                                  <p >
                                     (Replies : {recipient.replied ? "Yes" : "No"})
                                   </p>
                                 </div>
@@ -252,14 +256,15 @@ const Inbox = () => {
                             </Link>
                           )}
                           {/* Message */}
-                          <div><h5 style={{ fontSize: "18px", fontWeight: "700" }}>Message</h5></div>
+                          <div style={{marginTop:"-24px"}}><h5 style={{ fontSize: "16px", fontWeight: "700" }}>Message</h5></div>
+                         <div style={{display:"flex"}}>
                           <div style={{ display: "flex" }}>
                             <div className="pic55img">< img src={item.sender_full_image} />
                             </div>
                             <div className="pic55name">
                               <p>{item.sender_full_name}</p>
                             </div></div>
-                          <div className="time55" style={{ marginLeft: "1px", marginTop: "11px" }}>
+                          <div className="time55" style={{ marginLeft: "15px", marginTop: "-0px" }}>
                             <div className="time55Clock">
                               <FaClock />
                             </div>
@@ -267,12 +272,12 @@ const Inbox = () => {
                               <p style={{ fontSize: "14px !important" }}>{Math.floor((Date.now() - new Date(item.created_at)) / (1000 * 60 * 60 * 24))} days ago</p>
                             </div>
 
-                          </div>
+                          </div></div>
                           <div className="message" style={{ display: "flex" }}>
 
-                            <div><h4 className="messh4">{item.body}</h4></div>
+                            <div ><p className="messh4">{stripHtmlTags(item.body)}</p></div>
                             <div><Link to={`/messageDetails/${item.subject}/${item.user_id}/${item.replies_code}/chatbox=1&make_bump=${item.is_bump}`}>
-                              <h4 style={{ marginLeft: "80px" }}>See More...</h4>
+                              <p className="plr" style={{ marginLeft: "80px" ,color:" rgba(23, 109, 240, 1)"}}>See More...</p>
                             </Link></div>
                           </div>
 

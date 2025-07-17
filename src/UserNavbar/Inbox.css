@@ -48,14 +48,21 @@ width: 30%;
   width: 30%;
   margin-bottom: 15px;
 }
+.mI3 button{
+  color: black;
+}
 .messageInbox select{
   width: 100%;
+}
+.pppawda{
+
+  font-size: 15px !important;
 }
 .inbox-holder {
     margin-left: 0px ;
     padding: 20px;
     background-color: white;
-   
+   margin-top: -18px;
    
    
     
@@ -63,9 +70,18 @@ width: 30%;
   }
   .pictime{
 display: flex;
+margin-top: -7px;
   }
   .pic55{
     display: flex;
+  }
+  .pic55name p{
+    font-weight: 400 !important;
+  }
+  .time55days p{
+        font-weight: 400 !important;
+margin-top: 4px;
+font-size: 14px !important;
   }
   .time55{
 display: flex;
@@ -77,6 +93,7 @@ margin-top: 0px;
   }
   .time55days{
 margin-left: 5px;
+margin-top: 1px;
   }
   .time55days p{
     font-size: 14px !important;
@@ -175,7 +192,7 @@ padding: 1px;
   }
   .pic66{
     display: flex;
-    margin-top: -15px;
+    margin-top: -29px;
   }
   .pic66img{
     height: 25px;
@@ -185,7 +202,20 @@ padding: 1px;
   }
   .pic66name{
     margin-left: 5px;
+     color: #434343;
+     margin-bottom: 14px
+;
     
+  }
+  .plr{
+    font-size: 13px !important;
+  }
+  .awda{
+    color: rgb(60, 134, 247);
+  }
+  .messh4{
+    font-size: 14px!important;
+    font-weight: 450;
   }
   .pic66name p{
     font-size:14px !important;
@@ -321,15 +351,18 @@ padding: 1px;
   .IBPPP{
     width: 100%;
     display: flex;
-    background-color: rgb(218, 217, 216);
+      background-color:#e9edf0 !important;
   }
   .IBPP{
     width: 85%;
     margin-left: 19%;
-    background-color: rgb(218, 217, 216);
+      background-color:#e9edf0 !important;
     
   }
-  
+  .d-header h2{
+    font-size: 20px !important;
+    color: #334e6f !important;
+  }
   .mailInbox-Mobile{
     background-color: #003c6d;
     display: none;
@@ -346,7 +379,7 @@ padding: 1px;
     color:  #eeba2b;
    }
    .messh4{
-width: 230px;
+width: 560px;
 height: 20px;
 color: #000000;
  white-space: nowrap;
@@ -354,13 +387,13 @@ color: #000000;
 
    }
    .message{
-    justify-content: space-between;
-    width: 390px;
+    
+    width: 100%;
    }
   @media (max-width: 480px){
    .IBPP{
   width: 100vw;
-        height: 100vh;
+        height: 100%;
         margin: 0px;
   
    }
@@ -369,7 +402,10 @@ color: #000000;
     display: block;
     
    }
-
+.message{
+    
+    width: 100%;
+   }
    .mobMenuaa{
     width: 100%;
     background-color: #0078d4;
@@ -383,6 +419,14 @@ color: #000000;
       margin-left: 10%;
       margin-right: 10%;
      }
+        .messh4{
+width: 210px;
+height: 20px;
+color: #000000;
+ white-space: nowrap;
+ overflow: hidden;
+
+   }
      .mI2{
       width: 80%;
       margin-left: 10%;
