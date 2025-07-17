@@ -190,6 +190,9 @@ border-radius: 5px;
     height: 30px;
     border: transparent;
 }
+.alfa input{
+    outline: transparent;
+}
 
 .confirmInput input{
     width: 90%;

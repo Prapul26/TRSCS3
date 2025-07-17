@@ -24,6 +24,8 @@ import {
   IoLocationSharp,
   IoBookOutline,
   IoPerson,
+  IoGlobe,
+  IoLogoLinkedin,
 } from "react-icons/io5";
 import { ImProfile } from "react-icons/im";
 import { IoIosArrowDropdown, IoIosArrowDropup } from "react-icons/io";
@@ -356,9 +358,9 @@ const AccountSettings = () => {
                           First Name
                           <span style={{ color: "red", fontWeight: "600" }}>*</span>
                         </label>
-                        <div className="nameInput">
-                          <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                            <MdPerson size={30} />
+                        <div className="nameInput" style={{marginTop:'10px'}} >
+                          <div style={{ marginTop: "5px", marginLeft: "9px" }}>
+                            <MdPerson size={20} />
                           </div>
                           <input
                             type="text"
@@ -372,9 +374,9 @@ const AccountSettings = () => {
                           Last Name
                           <span style={{ color: "red", fontWeight: "600" }}>*</span>
                         </label>
-                        <div className="nameInput">
-                          <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                            <MdPerson size={30} />
+                        <div className="nameInput" style={{marginTop:'10px'}}>
+                          <div style={{ marginTop: "5px", marginLeft: "9px" }}>
+                            <MdPerson size={20} />
                           </div>
                           <input
                             type="text"
@@ -388,9 +390,9 @@ const AccountSettings = () => {
                       Email
                       <span style={{ color: "red", fontWeight: "600" }}>*</span>
                     </label>
-                    <div className="nameInput">
-                      <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                        <MdOutlineMailOutline size={30} />
+                    <div className="nameInput" style={{marginTop:'10px'}}>
+                      <div style={{ marginTop: "5px", marginLeft: "9px" }}>
+                        <MdOutlineMailOutline size={20} />
                       </div>
                       <input
                         type="text"
@@ -408,7 +410,7 @@ const AccountSettings = () => {
                         </label>
                         <div className="phoneInput">
                           <div style={{ marginTop: "6px", marginLeft: "10px" }}>
-                            <FaPhoneAlt size={22} />
+                            <FaPhoneAlt size={15} />
                           </div>
                           <input
                             type="text"
@@ -427,7 +429,7 @@ const AccountSettings = () => {
                         <div className="emailInput">
                           <select
                             value={country}
-                            style={{ height: "32px", width: "100%" }}
+                            style={{ height: "32px", width: "100%" ,border:"transparent"}}
                             onChange={(e) => setCountry(e.target.value)}
                           >
                             <option value="">Select Country</option>
@@ -437,9 +439,9 @@ const AccountSettings = () => {
                       </div>
                     </div>
                     <label>Business Name</label>
-                    <div className="nameInput">
-                      <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                        <MdBusiness size={30} />
+                    <div className="nameInput" style={{marginTop:'10px'}}>
+                      <div style={{ marginTop: "5px", marginLeft: "9px" }}>
+                        <MdBusiness size={20} />
                       </div>
                       <input
                         type="text"
@@ -458,9 +460,9 @@ const AccountSettings = () => {
                     />
                      <div className="socialInputWrapper"> <div className="fr3">
                       <label>Website</label>
-                      <div className="nameInput">
-                        <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                          <MdLink size={30} />
+                      <div className="nameInput" style={{marginTop:'10px'}}>
+                        <div style={{ marginTop: "5px", marginLeft: "9px" }}>
+                          <IoGlobe size={20} />
                         </div>
                         <input
                           type="text"
@@ -469,11 +471,11 @@ const AccountSettings = () => {
                         />
                       </div>
                      </div>
-                      <div className="fr4" >
+                      <div className="fr4" style={{marginTop:'10px'}}>
                         <label>Linkedin</label>
                         <div className="nameInput">
-                          <div style={{ marginTop: "0px", marginLeft: "9px" }}>
-                            <MdLink size={30} />
+                          <div style={{ marginTop: "5px", marginLeft: "9px" }}>
+                            <IoLogoLinkedin size={20} />
                           </div>
                           <input
                             type="text"
@@ -487,8 +489,8 @@ const AccountSettings = () => {
                     </div>
 <label>Address</label>
                     <div className="addressInput">
-                      <div style={{ marginTop: "3.5px", marginLeft: "10px" }}>
-                        <IoLocationSharp size={26} />
+                      <div style={{ marginTop: "5px", marginLeft: "10px" }}>
+                        <IoLocationSharp size={18} />
                       </div>
                       <input
                         type="text"
@@ -502,9 +504,9 @@ const AccountSettings = () => {
                         <label>City</label>
                         <div className="emailInput">
                           <div
-                            style={{ marginTop: "3.5px", marginLeft: "10px" }}
+                            style={{ marginTop: "5px", marginLeft: "10px" }}
                           >
-                            <MdLocationCity size={26} />
+                            <MdLocationCity size={18} />
                           </div>
                           <input
                             type="text"
@@ -517,7 +519,7 @@ const AccountSettings = () => {
                         <label>State</label>
                         <div className="phoneInput">
                           <div style={{ marginTop: "6px", marginLeft: "10px" }}>
-                            <IoLocationSharp size={26} />
+                            <IoLocationSharp size={18} />
                           </div>
                           <select
                             value={state}
