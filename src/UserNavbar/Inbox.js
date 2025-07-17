@@ -157,12 +157,12 @@ const Inbox = () => {
               <div className="collapseButton" style={{ display: "flex", flexDirection: "column" }}>
                 <div>
                   {" "}
-                  <button onClick={() => setIsExpanded(!isExpanded)}>
+                  <button className="collapseButton-button" style={{background:"#163b6d !important"}} onClick={() => setIsExpanded(!isExpanded)}>
                     {isExpanded ? "Collapse all" : "Expand all"}
                   </button>
                 </div>
                 <div style={{ marginTop: "1px", marginLeft: "20px" }}  >{showTakeAction && (<div className="takeAction1"><p>it need action for bump enabled messages</p></div>)}{showButton && (<div className="showButton"> <p>The bump button will be enabled if there are no replies.&nbsp;The introducer can follow up by clicking the Bump button of the message</p></div>)}
-                <p className="pppawda"> <IoIosStar color=" #eeba2b" />= Take Action <AiTwotoneQuestionCircle onMouseEnter={() => setTakeAction(true)} onMouseLeave={() => setTakeAction(false)} /> <button style={{ background: "#dc3545",padding:"5px 7px 5px 7px " }}>Bump</button> = no replies <AiTwotoneQuestionCircle onMouseEnter={() => setButton(true)} onMouseLeave={() => setButton(false)} />
+                <p className="pppawda"> <IoIosStar color=" #eeba2b" />= Take Action <AiTwotoneQuestionCircle onMouseEnter={() => setTakeAction(true)} onMouseLeave={() => setTakeAction(false)} /> <button className="closss" style={{ background: "#dc3545 !important",padding:"5px 7px 5px 7px " }}>Bump</button> = no replies <AiTwotoneQuestionCircle onMouseEnter={() => setButton(true)} onMouseLeave={() => setButton(false)} />
                </p>  </div>
               </div>
 
@@ -257,7 +257,7 @@ const Inbox = () => {
                           )}
                           {/* Message */}
                           <div style={{marginTop:"-24px"}}><h5 style={{ fontSize: "16px", fontWeight: "700" }}>Message</h5></div>
-                         <div style={{display:"flex"}}>
+                         <div style={{display:"flex",marginTop:"-10px"}}>
                           <div style={{ display: "flex" }}>
                             <div className="pic55img">< img src={item.sender_full_image} />
                             </div>
@@ -273,7 +273,7 @@ const Inbox = () => {
                             </div>
 
                           </div></div>
-                          <div className="message" style={{ display: "flex" }}>
+                          <div className="message" style={{ display: "flex",marginTop:"-10px" }}>
 
                             <div ><p className="messh4">{stripHtmlTags(item.body)}</p></div>
                             <div><Link to={`/messageDetails/${item.subject}/${item.user_id}/${item.replies_code}/chatbox=1&make_bump=${item.is_bump}`}>
@@ -282,7 +282,7 @@ const Inbox = () => {
                           </div>
 
                           {/* Reply & Bump Buttons */}
-                          <div className="replyBump">
+                          <div className="replyBump" style={{marginTop:"-6px"}}>
                             <Link to={`/replyMessage/${item.subject}/${item.user_id}/${item.replies_code}`}>
                               <button style={{ background: "#163b6d" }}>Reply</button>
                             </Link>

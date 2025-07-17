@@ -1,5 +1,6 @@
 .inbox-container{
     margin: 20px;
+    width: 96.3%;
     
 
 }
@@ -35,8 +36,13 @@ background-color: white;
   background-color: white;
   display: flex;
 }
-.collapseButton button{
+.collapseButton-button{
   margin-left: 20px;
+  background-color: #163b6d !important;
+;
+}
+.closss{
+  background-color: #dc3545 !important;
 }
 .mI1{
 width: 30%;

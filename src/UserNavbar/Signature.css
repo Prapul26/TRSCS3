@@ -24,6 +24,9 @@ width: 100%;
 display: flex;
       background-color:#e9edf0 !important;
 }
+.signature-holder textarea{
+    font-size: 17px;
+}
 .SPP{
     width: 85%;
     height: 100vh;
