@@ -77,8 +77,14 @@ const MyMembership = () => {
                   {
                     data.map((order, index) => (
                       <tr key={order.id || index}>
-                        <td style={{ fontSize: "15px" }}>{order.listing_package_id}</td>
-                        <td style={{ fontSize: "15px" }}>{order.purchase_date}</td>
+                      <td style={{ fontSize: "15px" }}>
+  {order.listing_package_id === "2"
+    ? "Basic"
+    : order.listing_package_id === "3"
+    ? "Standard"
+    : "Unknown"}
+</td>
+             <td style={{ fontSize: "15px" }}>{order.purchase_date}</td>
                         <td style={{ fontSize: "15px" }}>{order.expired_date}</td>
                         <td style={{ fontSize: "15px" }}>${order.amount_usd}</td>
                         <td style={{ fontSize: "15px" }}>{order.payment_method}</td>

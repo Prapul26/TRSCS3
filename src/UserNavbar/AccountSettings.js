@@ -226,12 +226,14 @@ const AccountSettings = () => {
             .slice(0, 5)
             .map((img) => ({
               id: img.id,
-              url: `https://tracsdev.apttechsol.com/public/uploads/additional_images/${img.image}`,
+              url: `https://tracsdev.apttechsol.com/public/${img.image}`,
             }));
 
           setImages(fullImageUrls);
 
           setTotalPhotos(data.total_photos || []);
+         console.log("eff:", JSON.stringify(fullImageUrls));
+
 
         } catch (error) {
           console.error("Error fetching profile data:", error);

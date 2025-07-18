@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import "./Email.css";
 import UserHeader from "../components/UserHeader";
-import { FaFileSignature } from "react-icons/fa";
+import { FaCircle, FaFileSignature } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
-import { MdOutlineCardMembership } from "react-icons/md";
+import { MdModeEdit, MdOutlineCardMembership } from "react-icons/md";
 import { FaBriefcase } from "react-icons/fa6";
 import { IoSettingsSharp } from "react-icons/io5";
 import { ImProfile } from "react-icons/im";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
-import { RiContactsFill } from "react-icons/ri";
+import { RiContactsFill, RiDeleteBin6Line } from "react-icons/ri";
 import { HiInboxArrowDown } from "react-icons/hi2";
 import { IoBookOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
@@ -37,6 +37,12 @@ const Email = ( ) => {
      const [showSidebar, setShowSidebar] = useState(false);
      const [templates, setTemplates] = useState([]);
      const [error, setError] = useState("");
+      const [isActive, setIsActive] = useState(false);
+      
+   const handleToggle = () => {
+    setIsActive(!isActive);
+    alert("Status successfully updated");
+  };
        const showMobnav = () => {
          setShowSidebar(prev => !prev);
      
@@ -118,7 +124,8 @@ const Email = ( ) => {
       </div>
 
      
-      <div className="Email-container"> <div style={{padding:"10px",background:'white'}}>
+      <div className="Email-container"> <div style={{padding:"10px",background:'white',overflowX:"auto"}}>
+
         <table>
           <thead>
             <tr>
@@ -135,15 +142,41 @@ const Email = ( ) => {
           {templates.map((template) => (
                     <tr key={template.id}>
                       <td><p>{template.template_name}</p></td>
-                      <td><p>{template.category_id?.toString()}</p></td>
+                      <td><p>{template.category_id === "6" ?"Reply-Email":template.category_id?.toString()}</p></td>
                       <td><p>{template.subject || "N/A"}</p></td>
-             <td><p>{stripHtmlTags(template.email_body)}</p></td>                      <td><p>{new Date(template.created_at).toLocaleDateString()}</p></td>
-                      <td>
-                        <button style={{ backgroundColor: "green" }}  onClick={() => handleEdit(template.id)}>Edit</button>
-                        <button style={{ backgroundColor: "red" }}  onClick={() => handleDelete(template.id)} >Delete</button>
+<td
+  onClick={() =>
+    navigate("/viewTemplate", {
+      state: { emailBody: template.email_body },
+    })
+  }
+  style={{
+    width: "400px",
+    maxWidth: "400px",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+    cursor: "pointer",
+    color: "#163b6d",
+  }}
+>
+  <p style={{ margin: 0 }}>{stripHtmlTags(template.email_body)}</p>
+</td>        
+<td>
+  <p>{new Date(template.created_at).toISOString().split("T")[0]}</p>
+</td>            <td>
+                        <button style={{ backgroundColor: "green" }}  onClick={() => handleEdit(template.id)}><MdModeEdit />
+</button>
+                        <button style={{ backgroundColor: "red" }}  onClick={() => handleDelete(template.id)} ><RiDeleteBin6Line />
+</button>
                       </td>
                       <td>
-                        <button>{template.status === "1" ? "Active" : "Inactive"}</button>
+                      <div
+      className={`statusbar ${isActive ? "active" : ""}`}
+      onClick={handleToggle}
+    >
+      <FaCircle color="white" />
+    </div>
                       </td>
                     </tr>
                   ))}

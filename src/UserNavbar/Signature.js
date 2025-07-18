@@ -115,7 +115,7 @@ const handleSave=async(e)=>{
               
               value={stripHtmlTags(text)} onChange={(e)=>setText(e.target.value)} />
               <br />
-              <button type="submit">SAVE</button>
+             <div style={{display:"flex",justifyContent:"center"}}> <button type="submit">SAVE</button></div>
             </form><div style={{textAlign:"center"}}>{msg}</div>
           </div>
           

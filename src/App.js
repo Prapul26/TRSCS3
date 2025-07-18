@@ -49,6 +49,7 @@ import TermsAndCondition from "./components/TermsAndCondition/TermsAndCondition"
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import Help from "./components/Help/Help";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import ViewTemplate from "./UserNavbar/ViewTemplate";
 
 
 
@@ -106,6 +107,7 @@ const App = () => {
 <Route path="/terms" element={<TermsAndCondition/>}/>
 <Route path="/privacy" element={<PrivacyPolicy/>}/>
 <Route path="/help" element={<Help />}/>
+<Route path="/viewTemplate" element={<ViewTemplate/>}/>
 <Route path="/forgotPassword" element={<ForgotPassword/>}/>
         </Routes>
       </div>

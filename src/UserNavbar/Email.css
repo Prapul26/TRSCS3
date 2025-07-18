@@ -17,16 +17,39 @@ margin-left: 19%;
 }
 .Email-container {
     overflow-x: auto; /* Enable horizontal scrolling */
-   margin-left: 5%;
+   margin-left: 2%;
    margin-right: 5%;
-   width: 90%; 
+   width: 96%; 
    /* Ensure the container spans the full width */
+}
+
+.statusbar {
+  height: 17px;
+  width: 35px;
+  background-color: skyblue;
+  border-radius: 10px;
+  padding: 4px;
+  display: flex;
+  
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.statusbar.active {
+     height: 17px;
+     padding: 4px;
+  width: 35px;
+  margin-left: -2px;
+  background-color: rgb(168, 168, 168);
+  justify-content: flex-start;
 }
 
 .Email-container table {
    /* Let the table take up the full container width */
     border-collapse: collapse; /* Optional: Improve table appearance */
 }
+
 
 .Email-container table thead td{
       background-color:#e9edf0 !important;
