@@ -227,13 +227,13 @@ useEffect(() => {
           <a href="https://www.facebook.com/h7network">
             <div className="facebook">
               {" "}
-              <FaFacebook size={22} color="white" />
+              <FaFacebook size={20} color="white" />
             </div>
           </a>
 
           <a href="https://www.linkedin.com/company/h7network/">
             <div className="LinkedIn">
-              <FaLinkedin size={22} color="white" />
+              <FaLinkedin size={20} color="white" />
             </div>
           </a>
         </div>

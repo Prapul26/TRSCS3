@@ -16,14 +16,17 @@
 }
 .facebook{
 color: #316FF6;
+margin-top: 3px;
 }
 .x{
-margin-left: 8px;
+margin-left: 10px;
 color: #000000;
 }
 .LinkedIn{
-    margin-left: 8px;
+    margin-left: 13px;
     color: #137db6 ;
+    margin-top: 3px;
+
 }
 .globe{
     display: flex;
