@@ -54,10 +54,10 @@ useEffect(() => {
 
         <div className="network-container">
           
-            <button className="ncb1"  onClick={handleMakeIntroClick}>MAKE INTRODUCTION INSTANTLY</button>
+            <button className="ncb1" style={{borderRadius:"40px",padding:"13px 30px 13px 30px",fontSize:"17px"}}  onClick={handleMakeIntroClick}>MAKE INTRODUCTION INSTANTLY</button>
        
          
-            <button  className="bttborder" onClick={handleDashboard}>
+            <button style={{borderRadius:"40px",padding:"13px 30px 13px 30px",fontSize:"17px"}}   className="bttborder" onClick={handleDashboard}>
               <span>DASHBOARD</span>
             </button>
           
@@ -73,11 +73,11 @@ useEffect(() => {
             </h1>
 
            
-  {showtext &&(<div> <p style={{color:"#f96b39",fontWeight:"700"}}>1.Sign up for your 14-day trial</p>
-            <p style={{color:"#f96b39",fontWeight:"700"}}>2.Create your Account</p>
-            <p style={{color:"#f96b39",fontWeight:"700"}}>3.Add your contacts to your account</p>
-            <p style={{color:"#f96b39",fontWeight:"700"}}>4.Start Making Introductions</p>
-            <p style={{color:"#f96b39",fontWeight:"700"}}>5.Use your Dashboard for Results</p><br/><Link to='/register'><button style={{color:"black",background:"#eeba2b",height:"45px",borderRadius:"20px"}}>JOIN NOW</button></Link></div>
+  {showtext &&(<div className="rfgg"> <p style={{color:"#f96b39",fontWeight:"700",marginLeft:"20px"}}>1.Sign up for your 14-day trial</p>
+            <p style={{color:"#f96b39",fontWeight:"700",marginLeft:"20px",marginTop:"-4px"}}>2.Create your Account</p>
+            <p style={{color:"#f96b39",fontWeight:"700",marginLeft:"20px",marginTop:"-4px"}}>3.Add your contacts to your account</p>
+            <p style={{color:"#f96b39",fontWeight:"700",marginLeft:"20px",marginTop:"-4px"}}>4.Start Making Introductions</p>
+            <p style={{color:"#f96b39",fontWeight:"700",marginLeft:"20px",marginTop:"-4px"}}>5.Use your Dashboard for Results</p><br/><Link to='/register'><button style={{color:"black",background:"#eeba2b",height:"45px",borderRadius:"30px",marginTop:"-20px"}}>JOIN NOW</button></Link></div>
                   
           )} 
          
@@ -88,7 +88,7 @@ useEffect(() => {
           </div>
         </div>
         <div className="line-1">
-          <p style={{fontSize:"18px",fontWeight:"700" ,marginBottom:"40px"}}>
+          <p style={{fontSize:"18px",fontWeight:"700" ,marginBottom:"77px"}}>
 
             Welcome to <span style={{ color: "#f96b39" }}>TRACS</span>, your
             go-to source for connecting with a diverse community of talented

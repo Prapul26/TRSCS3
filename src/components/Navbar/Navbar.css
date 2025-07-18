@@ -13,16 +13,26 @@
     padding-left: 14.5%;
 }
 .dropdown-menu23{
-    margin-top: 10px;
+    margin-top: 25px;
+    border: 1px solid #e6e9e8;
     background-color:white;
     position: absolute;
-    list-style-type: none;
-    width:120px;
+   margin-left: -14px;
+    width:220px;
     border-radius: 5px;
-    padding: 15px;
+    display: flex;
+    flex-direction: column;
    
 }
+.fopl:hover{
+background-color: #eeeeee;
 
+}
+
+.fopl{
+    display: flex;
+ 
+}
 .dropdown-menu23 li{
 
     color:black;
@@ -53,6 +63,7 @@
 border-bottom: 4px dashed  gold ; 
 
 }
+
 @media(max-width:480px){
     .Navbar-Container{
         display: none;

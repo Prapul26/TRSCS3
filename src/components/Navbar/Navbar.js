@@ -20,15 +20,16 @@ const Navbar = () => {
           >
             ABOUT US
             {isDropdownVisible && (
-              <ul className='dropdown-menu23'   onMouseEnter={()=>setDropdownVisible(true)} >
-                <li><Link to='/about_us' style={{ textDecoration: 'none', color: 'inherit' }}>About Us</Link></li>
-                <li><Link to='/contact' style={{ textDecoration: 'none', color: 'inherit' }}>Contact</Link></li>
-                <li><Link to='/partner' style={{ textDecoration: 'none', color: 'inherit' }}>Partners</Link></li>
-              </ul>
+              <div className='dropdown-menu23'   onMouseEnter={()=>setDropdownVisible(true)} >
+              <div className='fopl' style={{paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid #e6e9e8"}}> <Link to='/about_us' style={{ textDecoration: 'none', color: 'inherit' }}><span style={{marginLeft:"10px",fontSize:"14px"}}>About Us</span></Link></div> 
+               <div  className='fopl'style={{paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid #e6e9e8"}}><Link to='/contact' style={{ textDecoration: 'none', color: 'inherit' }}><span  style={{marginLeft:"10px",fontSize:"14px"}}>Contact Us</span></Link></div> 
+                <div className='fopl' style={{paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid #e6e9e8"}}><Link to='/partner' style={{ textDecoration: 'none', color: 'inherit' }}><span  style={{marginLeft:"10px",fontSize:"14px"}}>Partners</span></Link></div>
+                <div  className='fopl' style={{paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid #e6e9e8"}}><Link to='/help' style={{ textDecoration: 'none', color: 'inherit' }}><span  style={{marginLeft:"10px",fontSize:"14px"}}>Help</span></Link></div>
+              </div>
             )}
           </li>
            <Link to="/pricing" style={{textDecoration:"none",color:"inherit"}}><li>PRICING</li></Link> 
-           <Link to='/network' style={{textDecoration:"none",color:"inherit"}}> <li>NETWORK 101</li></Link>
+           <Link to='/network' style={{textDecoration:"none",color:"inherit"}}> <li>NETWORKING 101</li></Link>
         </ul>
       </div>
     </div>
