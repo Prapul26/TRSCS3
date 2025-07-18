@@ -275,7 +275,7 @@ const Inbox = () => {
                           </div></div>
                           <div className="message" style={{ display: "flex",marginTop:"-10px" }}>
 
-                            <div ><p className="messh4">{stripHtmlTags(item.body)}</p></div>
+                            <div ><p className="messh4"><Link to={`/messageDetails/${item.subject}/${item.user_id}/${item.replies_code}/chatbox=1&make_bump=${item.is_bump}`} style={{textDecoration:"none",color:"inherit"}}>{stripHtmlTags(item.body)}</Link></p></div>
                             <div><Link to={`/messageDetails/${item.subject}/${item.user_id}/${item.replies_code}/chatbox=1&make_bump=${item.is_bump}`}>
                               <p className="plr" style={{ marginLeft: "80px" ,color:" rgba(23, 109, 240, 1)"}}>See More...</p>
                             </Link></div>

@@ -142,7 +142,7 @@ const Email = ( ) => {
           {templates.map((template) => (
                     <tr key={template.id}>
                       <td><p>{template.template_name}</p></td>
-                      <td><p>{template.category_id === "6" ?"Reply-Email":template.category_id?.toString()}</p></td>
+                      <td><p>{template.category_id === "6" ?"Reply-Email":template.category_id === "2" ?"Introduction-Email":template.category_id === "3" ?"Bump":template.category_id === "4" ?"Follow-up":template.category_id === "5" ?"Member-Email":template.category_id?.toString()}</p></td>
                       <td><p>{template.subject || "N/A"}</p></td>
 <td
   onClick={() =>
@@ -157,7 +157,7 @@ const Email = ( ) => {
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",
     cursor: "pointer",
-    color: "#163b6d",
+  
   }}
 >
   <p style={{ margin: 0 }}>{stripHtmlTags(template.email_body)}</p>
