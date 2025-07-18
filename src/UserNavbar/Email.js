@@ -38,11 +38,17 @@ const Email = ( ) => {
      const [templates, setTemplates] = useState([]);
      const [error, setError] = useState("");
       const [isActive, setIsActive] = useState(false);
+      const [activeStatuses, setActiveStatuses] = useState({});
+
       
-   const handleToggle = () => {
-    setIsActive(!isActive);
-    alert("Status successfully updated");
-  };
+const handleToggle = (id) => {
+  setActiveStatuses((prev) => ({
+    ...prev,
+    [id]: !prev[id],
+  }));
+  alert("Status successfully updated");
+};
+
        const showMobnav = () => {
          setShowSidebar(prev => !prev);
      
@@ -55,25 +61,35 @@ const Email = ( ) => {
     }
 
     useEffect(() => {
-      let isCalled = false;
-      const fetchTemplates = async () => {
-        if (isCalled) return;
-        isCalled = true;
-    
-        const token = localStorage.getItem("authToken");
-        try {
-          const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/view-template-list`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          setTemplates(response.data.templates.data);
-        } catch (err) {
-          setError(err.response?.data?.message || "Failed to fetch templates.");
-        }
-      };
-      fetchTemplates();
-    }, []);
+  let isCalled = false;
+  const fetchTemplates = async () => {
+    if (isCalled) return;
+    isCalled = true;
+
+    const token = localStorage.getItem("authToken");
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/view-template-list`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const fetchedTemplates = response.data.templates.data;
+      setTemplates(fetchedTemplates);
+
+      const initialStatuses = {};
+      fetchedTemplates.forEach((template) => {
+        initialStatuses[template.id] = template.status === "1";
+      });
+      setActiveStatuses(initialStatuses);
+    } catch (err) {
+      setError(err.response?.data?.message || "Failed to fetch templates.");
+    }
+  };
+
+  fetchTemplates();
+}, []);
+
     
    const handleDelete = async (id) => {
   const token = localStorage.getItem("authToken");
@@ -171,12 +187,13 @@ const Email = ( ) => {
 </button>
                       </td>
                       <td>
-                      <div
-      className={`statusbar ${isActive ? "active" : ""}`}
-      onClick={handleToggle}
-    >
-      <FaCircle color="white" />
-    </div>
+                    <div
+  className={`statusbar ${activeStatuses[template.id] ? "" : "active"}`}
+  onClick={() => handleToggle(template.id)}
+>
+  <FaCircle color="white" />
+</div>
+
                       </td>
                     </tr>
                   ))}
