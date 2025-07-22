@@ -21,6 +21,16 @@ padding-bottom: 25px;
     font-weight: 800;
     
 }
+.bttborder.active {
+  background-color: green;
+  color: white;
+     border-radius: 25px;
+}
+.bttborder.active:hover{
+      color: white !important;
+        background-color: green !important;
+}
+
 .ncb1{
     background-color: #eeba2b;
     color: black !important;

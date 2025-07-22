@@ -19,16 +19,14 @@ const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showtext,setText]=useState(true) 
 
+const [token, setToken] = useState(null);
+
 useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    if (token) {
-      setIsLoggedIn(true);
-      setText(false);
-    } else if(!token) {
-      setIsLoggedIn(false);
-      setText(true);
-    }
-  }, []);
+  const storedToken = localStorage.getItem("authToken");
+  setToken(storedToken);
+  setIsLoggedIn(!!storedToken);
+  setText(!storedToken);
+}, []);
 
   const handleMakeIntroClick = () => {
     const token = localStorage.getItem("authToken");
@@ -57,9 +55,17 @@ useEffect(() => {
             <button className="ncb1" style={{borderRadius:"40px",padding:"13px 30px 13px 30px",fontSize:"17px"}}  onClick={handleMakeIntroClick}>MAKE INTRODUCTION INSTANTLY</button>
        
          
-            <button style={{borderRadius:"40px",padding:"13px 30px 13px 30px",fontSize:"17px"}}   className="bttborder" onClick={handleDashboard}>
-              <span>DASHBOARD</span>
-            </button>
+           <button
+  style={{
+    borderRadius: "40px",
+    padding: "13px 30px",
+    fontSize: "17px",
+  }}
+ className={`bttborder ${token ? "active": ""}`}
+  onClick={handleDashboard}
+>
+  <span>DASHBOARD</span>
+</button>
           
         </div>
       </div>

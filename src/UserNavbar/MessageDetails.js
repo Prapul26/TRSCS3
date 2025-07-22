@@ -56,6 +56,18 @@ const stripHtmlTags = (html) => {
   div.innerHTML = html;
   return div.textContent || div.innerText || "";
 };
+ const formatWithLineBreaks = (text) => {
+    if (!text) return "";
+
+    const parts = text.trim().split(/\s+/); // split on 1+ spaces
+
+    const line1 = parts[0];                            // "Thanks"
+    const line2 = parts.slice(1, 3).join(" ");         // "Santhosh Nelli"
+    const line3 = parts[3];                            // "8374818142"
+    const line4 = parts.slice(4).join(" ");            // "SKN IT Solutions"
+
+    return `${line1}\n${line2}\n${line3}\n${line4}`;
+  };
   const payload = {
     user_id: data.userInfo?.id,
     sent_mail_history_id: data.sentMailsfirst?.id,
@@ -195,8 +207,9 @@ const stripHtmlTags = (html) => {
                       </div>
                       {showSignature && (
                         <div className="signature" style={{ display: "flex", flexDirection: "column" }}>
-                          <div>{data.userInfo?.name}</div>
-                          <div>{data.userInfo?.phone}</div>
+                       <div style={{ whiteSpace: "pre-line" ,fontSize:'14.5px'}} className="sigter">
+                        {formatWithLineBreaks(stripHtmlTags(data.authsignature?.name))}
+                      </div>
                         </div>
                       )}
                     </div>

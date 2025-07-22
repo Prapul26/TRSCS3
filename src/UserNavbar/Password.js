@@ -6,6 +6,7 @@ import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { MdLockOutline } from "react-icons/md";
 const Password = () => {
   const [message, setMessage] = useState("")
   const [showSidebar, setShowSidebar] = useState(false);
@@ -51,40 +52,52 @@ const Password = () => {
             <div>
               <MobileNavbar showMobnav={showMobnav} />
             </div>
-            <div className="alfa" style={{height:"100vh"}}>
- <div className="d-header">
+            <div className="alfa" style={{ height: "100vh" }}>
+              <div className="d-header">
                 <h2>Add Contacts</h2>
               </div>
-        <div className="passChange" style={{marginTop:"40px"}}>
-              <div style={{paddingTop:"10px",paddingBottom:"20px",paddingLeft:"10px"}}>
-              <div>
-                <label>Current Password</label>
-                <br />
-                <input value={currentPassword} onChange={(e)=>setCurrentPassword(e.target.value)} required />
-              </div>
-              <div>
-                <label>New Password</label>
-                <br />
-                <input value={password} onChange={(e)=>setPassword(e.target.value)} required/>
-                <br />
-                <p style={{fontSize:"12px !important"}}>
-                  Note: Password must be at least 8 characters long (12+
-                  recommended) 
-                </p>
-                
-              </div>
-              <div style={{ marginTop: "50px" }}>
-                <label>Conform Password:</label>
-                <br />
-                <input value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)} required/>
-              </div>
-              <div className="passButton">
-                {" "}
-                <button type="submit" style={{ background: "#eeba2b", color:"black",fontSize:"15px" }}>UPDATE</button>
-                {message && <p>{message}</p>}
-              </div>
-            </div></div>
-          </div>
+              <div className="passChange" style={{ marginTop: "40px" }}>
+                <div style={{ paddingTop: "10px", paddingBottom: "20px", paddingLeft: "10px" }}>
+                  <div>
+                    <label>Current Password</label>
+                    <br />
+                    <div className="inputpassreq">
+                      <div style={{marginTop:"9px",marginLeft:"7px"}}> <MdLockOutline /></div>
+                      <div style={{width:"95%",marginTop:"-7.5px"}}>                <input value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} required /></div>
+                    </div>
+                  </div>
+                  <div>
+                    <label>New Password</label>
+                    <br />
+                     <div className="inputpassreq">
+                      <div style={{marginTop:"9px",marginLeft:"7px"}}> <MdLockOutline /></div>
+                      <div style={{width:"95%",marginTop:"-7.5px"}}>                <input value={password} onChange={(e) => setPassword(e.target.value)} required /></div>
+                    </div>
+                   
+                    <br />
+                    <p style={{ fontSize: "12px !important" }}>
+                      Note: Password must be at least 8 characters long (12+
+                      recommended)
+                    </p>
+
+                  </div>
+                  <div style={{ marginTop: "50px" }}>
+                    <label>Conform Password:</label>
+                    <br />
+                     <div className="inputpassreq">
+                      <div style={{marginTop:"9px",marginLeft:"7px"}}> <MdLockOutline /></div>
+                      <div style={{width:"95%",marginTop:"-7.5px"}}>                      <input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+           </div>
+                    </div>
+                    <input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+                  </div>
+                  <div className="passButton">
+                    {" "}
+                    <button type="submit" style={{ background: "#eeba2b", color: "black", fontSize: "15px" }}>UPDATE</button>
+                    {message && <p>{message}</p>}
+                  </div>
+                </div></div>
+            </div>
           </div>
         </div>
       </div>

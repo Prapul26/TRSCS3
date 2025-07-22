@@ -43,18 +43,18 @@ const ReplyMessage = () => {
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setData(response.data);
-           setSentMails(response.data.sentMails.data)
+        setSentMails(response.data.sentMails.data)
       } catch (err) {
         console.error("Error fetching inbox history:", err);
       }
     };
     fetchData();
   }, [subject, user_id, replies_code]);
-const stripHtmlTags = (html) => {
-  const div = document.createElement("div");
-  div.innerHTML = html;
-  return div.textContent || div.innerText || "";
-};
+  const stripHtmlTags = (html) => {
+    const div = document.createElement("div");
+    div.innerHTML = html;
+    return div.textContent || div.innerText || "";
+  };
   const payload = {
     user_id: data.userInfo?.id,
     sent_mail_history_id: data.sentMailsfirst?.id,
@@ -84,7 +84,18 @@ const stripHtmlTags = (html) => {
       console.error("Error sending reply mail:", error);
     }
   };
+  const formatWithLineBreaks = (text) => {
+    if (!text) return "";
 
+    const parts = text.trim().split(/\s+/); // split on 1+ spaces
+
+    const line1 = parts[0];                            // "Thanks"
+    const line2 = parts.slice(1, 3).join(" ");         // "Santhosh Nelli"
+    const line3 = parts[3];                            // "8374818142"
+    const line4 = parts.slice(4).join(" ");            // "SKN IT Solutions"
+
+    return `${line1}\n${line2}\n${line3}\n${line4}`;
+  };
   return (
     <div className="mobMenuaa">
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
@@ -101,20 +112,20 @@ const stripHtmlTags = (html) => {
                   <h3>To</h3><br />
                   <div>
                     <div className="toMsg" onClick={handleSelectedMails}>
-                      <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginLeft: "5px" ,marginTop:"7px",color:"blue"}}>
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginLeft: "5px", marginTop: "7px", color: "blue" }}>
                         {selectedEmails.length === 0 ? (
                           <span>Select Emails</span>
                         ) : data.usersData?.filter(user => user.email !== data.userInfo?.email).every(user => selectedEmails.includes(user.email)) ? (
                           <span>All Selected ({selectedEmails.length})</span>
                         ) : (
                           data.usersData?.filter(user => selectedEmails.includes(user.email) && user.email !== data.userInfo?.email).map((user, index) => (
-                            <div key={index} style={{  whiteSpace: "nowrap" }}>
+                            <div key={index} style={{ whiteSpace: "nowrap" }}>
                               {user.name} ({user.email})
                             </div>
                           ))
                         )}
                       </div>
-                      <div style={{marginTop:"6px",marginRight:"4px"}}><FaSortDown /></div>
+                      <div style={{ marginTop: "6px", marginRight: "4px" }}><FaSortDown /></div>
                     </div>
                     {selectedMails && (
                       <div className="Nmails">
@@ -145,8 +156,8 @@ const stripHtmlTags = (html) => {
                   <div onClick={() => setTemplate(!template)}>
                     <h3>Email Template</h3><br />
                     <div className="emailTemplateInput">
-                      <div style={{ marginTop: "9px",marginLeft:"5px" }}><h4>{selectedTemplate}</h4></div>
-                      <div  style={{ marginTop: "9px" }}><FaSortDown /></div>
+                      <div style={{ marginTop: "9px", marginLeft: "5px" }}><h4>{selectedTemplate}</h4></div>
+                      <div style={{ marginTop: "9px" }}><FaSortDown /></div>
                     </div>
                   </div>
                   {template && (
@@ -182,64 +193,66 @@ const stripHtmlTags = (html) => {
                 <div className="text-Area">
                   <div className="tempBody">
                     {emailPreview?.map(template => (
-                      <div key={template.id} dangerouslySetInnerHTML={{ __html: template.email_body }} />
+                      <div style={{margin:"10px",fontSize:'15px'}}key={template.id} dangerouslySetInnerHTML={{ __html: template.email_body }} />
                     ))}
                   </div>
                   {showSignature && (
                     <div className="signature" style={{ display: "flex", flexDirection: "column" }}>
-                      <div>{data.userInfo?.name}</div>
-                      <div>{data.userInfo?.phone}</div>
+                      <div style={{ whiteSpace: "pre-line" ,fontSize:'14.5px'}} className="sigter">
+                        {formatWithLineBreaks(stripHtmlTags(data.authsignature?.name))}
+                      </div>
+
                     </div>
                   )}
                 </div>
               </div>
               <div className="signature">
                 <div className="checkbox-container">
-                  <input type="checkbox" id="include-signature" checked={showSignature} onChange={handleCheckboxChange} style={{marginTop:"-5px"}}/>
-                 <div></div> <label htmlFor="include-signature" style={{marginTop:"8px"}}>Include Signature</label>
+                  <input type="checkbox" id="include-signature" checked={showSignature} onChange={handleCheckboxChange} style={{ marginTop: "-5px" }} />
+                  <div></div> <label htmlFor="include-signature" style={{ marginTop: "8px" }}>Include Signature</label>
                   <AiTwotoneQuestionCircle style={{ marginLeft: "5px", marginTop: "11px" }} />
                 </div>
                 <div className="button-container">
                   <button onClick={handleSendReply}>Send</button>
                 </div>
               </div>
-             <div className="messageHeader" >
+              <div className="messageHeader" >
                 <div className="headerHeading">
                   <h3>Introduction - {data.usersData?.map((user) => user.name).join("& ")}</h3>
 
                 </div> {sentMail?.map((mail, index) => {
-  const formattedDate = new Date(mail.created_at).toLocaleString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-    hour12: true
-  });
+                  const formattedDate = new Date(mail.created_at).toLocaleString('en-US', {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric',
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    hour12: true
+                  });
 
-  return (
-    <div className="hoverall" key={index}>
-      <div className="MessageInDetail">
-        <div className="messageDetails">
-          <div className="mpicmname">
-            <div className="mPic">
-              <img src={`https://tracsdev.apttechsol.com/public/${data.userInfo?.image}`} />
-            </div>
-            <div className="mName">
-              <h3>{data.userInfo?.name}</h3>
-            </div>
-          </div>
-          <div className="mdate">
-            <h3>{formattedDate}</h3>
-          </div>
-        </div>
-        <div className="messageData">
-          <p>{stripHtmlTags(mail.body)}</p>
-        </div>
-      </div>
-    </div>
-  );
-})}
+                  return (
+                    <div className="hoverall" key={index}>
+                      <div className="MessageInDetail">
+                        <div className="messageDetails">
+                          <div className="mpicmname">
+                            <div className="mPic">
+                              <img src={`https://tracsdev.apttechsol.com/public/${data.userInfo?.image}`} />
+                            </div>
+                            <div className="mName">
+                              <h3>{data.userInfo?.name}</h3>
+                            </div>
+                          </div>
+                          <div className="mdate">
+                            <h3>{formattedDate}</h3>
+                          </div>
+                        </div>
+                        <div className="messageData">
+                          <p>{stripHtmlTags(mail.body)}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
