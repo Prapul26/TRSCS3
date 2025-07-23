@@ -1,0 +1,28 @@
+
+@media(max-width:480px){
+    .helpcurb1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  word-break: break-word;
+  padding: 10px;
+}
+
+.helpcurb1 p {
+  margin: 0;
+  font-size: 14px;
+  white-space: normal;
+  word-break: break-word;
+}
+.makeIntroHelp{
+    width: 90%;
+    margin-left: 0%;
+    border: transparent;
+    margin-left: 5%;
+    
+}
+
+.responsive-image{
+width: 100% !important;
+}
+}

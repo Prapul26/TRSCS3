@@ -109,12 +109,13 @@ const App = () => {
 <Route path="/bumpMessage/:subject/:user_id/:replies_code/:is_bump" element={<BumpMessage/>}/>
 <Route path="/terms" element={<TermsAndCondition/>}/>
 <Route path="/privacy" element={<PrivacyPolicy/>}/>
-<Route path="/help" element={<Help />}/>
+
 <Route path="/viewTemplate" element={<ViewTemplate/>}/>
 <Route path="/forgotPassword" element={<ForgotPassword/>}/>
 <Route path="/makeHelp" element={<MakeHelp/>}/>
-<Route path="/loginHelp" element={<LoginHelp/>}/>
-<Route path="/RegisterHelp" element={<RegisterHelp/>}/>
+<Route path="/help" element={<Help />}/>
+<Route path="/help/:id" element={<LoginHelp/>}/>
+<Route path="/helpDescription/:id" element={<RegisterHelp/>}/>
         </Routes>
       </div>
     </Router>
