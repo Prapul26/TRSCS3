@@ -403,7 +403,10 @@ color: #000000;
         margin: 0px;
   
    }
-   
+   .inbox-container{
+    margin-left: 5%;
+    width: 90%;
+   }
    .mobMenu331{
     display: block;
     

@@ -50,6 +50,9 @@ import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import Help from "./components/Help/Help";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ViewTemplate from "./UserNavbar/ViewTemplate";
+import MakeHelp from "./components/Help/MakeHelp";
+import LoginHelp from "./components/Help/LoginHelp";
+import RegisterHelp from "./components/Help/RegisterHelp";
 
 
 
@@ -109,6 +112,9 @@ const App = () => {
 <Route path="/help" element={<Help />}/>
 <Route path="/viewTemplate" element={<ViewTemplate/>}/>
 <Route path="/forgotPassword" element={<ForgotPassword/>}/>
+<Route path="/makeHelp" element={<MakeHelp/>}/>
+<Route path="/loginHelp" element={<LoginHelp/>}/>
+<Route path="/RegisterHelp" element={<RegisterHelp/>}/>
         </Routes>
       </div>
     </Router>
