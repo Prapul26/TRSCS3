@@ -4,6 +4,7 @@ import './Login.css';
 import Header from '../Heaader/Header';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import { IoLockClosed, IoPerson } from 'react-icons/io5';
 
 const Login = ({ switchToRegister }) => {
     const [email, setEmail] = useState('');
@@ -32,10 +33,10 @@ const Login = ({ switchToRegister }) => {
                 setMessage('Login successful!');
                 // Store token in localStorage or sessionStorage
                 localStorage.setItem('authToken', data.token);
-                
+
                 navigate('/home'); // Redirect after successful login
             }
-             else {
+            else {
                 setMessage(data.message || 'Login failed. Please check your credentials.');
             }
         } catch (error) {
@@ -70,33 +71,40 @@ const Login = ({ switchToRegister }) => {
 
                 <form className='LoginContainer' onSubmit={handleLogin}>
                     <h1>Sign In</h1>
-                   
-                    <input
+<div className='loginInputsDiv'>
+    <div style={{marginTop:"5px"}}><IoPerson /></div>
+    <div style={{width:"90%"}}><input
                         type='email'
                         id='email'
                         placeholder='Email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                    /><br />
+                    /></div>
+</div>
 
-                 
-                    <input
+                    <br />
+<div className='loginInputsDiv'>
+    <div style={{marginTop:"5px"}}><IoLockClosed /></div>
+    <div style={{width:"90%"}}>  <input
                         type='password'
                         id='password'
                         placeholder='Password'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                    /><br />
-<div style={{display:"flex",justifyContent:"space-between"}}>
-    <div style={{display:"flex"}}><div><input type='checkbox'/></div><div className='forpassd'><p>Keep me Log In</p></div></div>
-  <Link to='/forgotPassword' style={{textDecoration:"none"}}> <div  className='forpass'><p>Forgot Password ?</p></div></Link> 
+                    /></div>
 </div>
+
+                  <br />
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                        <div style={{ display: "flex" }}><div><input type='checkbox' /></div><div className='forpassd'><p>Keep me Log In</p></div></div>
+                        <Link to='/forgotPassword' style={{ textDecoration: "none" }}> <div className='forpass'><p>Forgot Password ?</p></div></Link>
+                    </div>
                     <button type='submit'>Login</button>
-                   
-                 <Link to="/register" style={{textDecoration:"none"}}><div className='regP'><p >Register</p></div></Link>   
-                     <p>{message}</p>
+
+                    <Link to="/register" style={{ textDecoration: "none" }}><div className='regP'><p >Register</p></div></Link>
+                    <p>{message}</p>
                 </form>
             </div>
             <Footer />

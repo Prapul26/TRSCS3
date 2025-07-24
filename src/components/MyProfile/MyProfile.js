@@ -41,20 +41,20 @@ import Images from "../Data/Images";
 import Slider from "react-slick";
 const MyProfile = () => {
   const [picView, setPicView] = useState(false);
-   const [imagePreview, setImagePreview] = useState("");
+  const [imagePreview, setImagePreview] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
-const[name,setName]=useState("");
-const[email,setEmail]=useState("");
-const[linkedIn,setLinkedIn]=useState("");
-const[website,setWebsite]=useState("");
-const[phone,setPhone]=useState("")
-const[business,setBusiness]=useState("")
-const[additionalimg,setAdditionalimg]=useState([""]);
-const[membertype,setMembertype]=useState("");
-const [about,setAbout]=useState("")
-const [affiliate,setAffiliate]=useState("")
-const [fullImageUrls, setFullImageUrls] = useState([]);
-const[data2,setData2]=useState("")
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [linkedIn, setLinkedIn] = useState("");
+  const [website, setWebsite] = useState("");
+  const [phone, setPhone] = useState("")
+  const [business, setBusiness] = useState("")
+  const [additionalimg, setAdditionalimg] = useState([""]);
+  const [membertype, setMembertype] = useState("");
+  const [about, setAbout] = useState("")
+  const [affiliate, setAffiliate] = useState("")
+  const [fullImageUrls, setFullImageUrls] = useState([]);
+  const [data2, setData2] = useState("")
   const picViewHandler = (id) => {
     setPicView(true);
     setCurrentIndex(id);
@@ -75,92 +75,95 @@ const[data2,setData2]=useState("")
     arrows: true,
   };
   useEffect(() => {
-  const timeoutId = setTimeout(() => {
-    const fetchProfile = async () => {
-      try {
-        const token = localStorage.getItem("authToken");
-        const response = await axios.get(
-           `${process.env.REACT_APP_API_BASE_URL}/my-profile`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+    const timeoutId = setTimeout(() => {
+      const fetchProfile = async () => {
+        try {
+          const token = localStorage.getItem("authToken");
+          const response = await axios.get(
+            `${process.env.REACT_APP_API_BASE_URL}/my-profile`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          const data = response.data;
+          const newImage = data.user?.image;
+          if (newImage) {
+            setImagePreview(`https://tracsdev.apttechsol.com/public/${newImage}`);
+
+
           }
-        );
-        const data = response.data;
-        const newImage = data.user?.image;
-        if (newImage) {
-          setImagePreview(`https://tracsdev.apttechsol.com/public/${newImage}`);
-        
+          const name2 = data.user.name;
+          if (name2) {
+            setName(name2);
 
+          }
+          const name3 = data.user.email;
+          if (name3) {
+            setEmail(name3);
+
+          }
+          const name4 = data.user.phone;
+          if (name4) {
+            setPhone(name4);
+
+          }
+          const name5 = data.user.website;
+          if (name5) {
+            setWebsite(name5);
+
+          }
+          const name6 = data.user.linkedin;
+
+          if (name6) {
+            setLinkedIn(name6);
+
+          };
+          const name7 = data.user.business_name;
+          if (name7) {
+            setBusiness(name7)
+          }
+          const name8 = data.user.about;
+          if (name8) {
+            setAbout(name8)
+          }
+          const name9 = data.user.member_type;
+          if (name9 === "1") {
+            setMembertype("H7")
+          }
+          else if (name9 === "2") {
+            setMembertype("Tracs")
+          }
+
+          const additional = data.total_photos;
+          if (additional) {
+            setAdditionalimg(additional);
+
+            const fullImageUrlsMapped = additional.map((img) => ({
+              id: img.id,
+              image: img.image.includes("uploads")
+                ? img.image
+                : `uploads/additional_images/${img.image}`,
+            }));
+
+
+            setFullImageUrls(fullImageUrlsMapped);
+
+          }
+
+
+        } catch (error) {
+          console.error("Error fetching profile data:", error);
         }
-const name2= data.user.name ;
-if(name2){
-  setName(name2);
- 
-}
-const name3= data.user.email ;
-if(name3){
-  setEmail(name3);
- 
-}
-const name4= data.user.phone ;
-if(name4){
-  setPhone(name4);
- 
-}
-const name5= data.user.website ;
-if(name5){
-  setWebsite(name5);
- 
-}
-const name6=data.user.linkedin;
+      };
 
-if(name6){
-  setLinkedIn(name6);
- 
-};
-const name7=data.user.business_name ;
-if(name7)
-{
-  setBusiness(name7)
-}  
-const name8=data.user.about ;
-if(name8){
-  setAbout(name8)
-}   
-const name9=data.user.member_type;
-if(name9 === "1"){
-  setMembertype("H7")
-}
-else if(name9 === "2"){
-  setMembertype("Tracs")
-}
+      fetchProfile();
+    }, 300);
 
-const additional = data.total_photos;  
-if (additional) {
-  setAdditionalimg(additional);
-
-  const fullImageUrlsMapped = additional.map((img) => ({
-    id: img.id,
-    image: `uploads/additional_images/${img.image}`, // use relative path
-  }));
-
-  setFullImageUrls(fullImageUrlsMapped);
-}
-
-      
-      } catch (error) {
-        console.error("Error fetching profile data:", error);
-      }
-    };
-
-    fetchProfile();
-  }, 300);
-
-  return () => clearTimeout(timeoutId);
-}, []);
-useEffect(() => {
+    return () => clearTimeout(timeoutId);
+  }, []);
+  useEffect(() => {
     const fetchData = async () => {
       const token = localStorage.getItem("authToken");
       try {
@@ -202,7 +205,7 @@ useEffect(() => {
             </div>
             <div className="userNAME2">
               <h4 style={{ justifyContent: "center", marginTop: "-10px" }}>
-            {business}
+                {business}
               </h4>
             </div>{" "}
           </div>
@@ -221,8 +224,8 @@ useEffect(() => {
                 </div>
                 <div>
                   <h4 style={{ textAlign: "left", color: "black" }}>Email</h4>
-                  <h4 style={{ color: "blue"}}>
-                   {email}
+                  <h4 style={{ color: "blue" }}>
+                    {email}
                   </h4>
                 </div>
               </div>
@@ -233,7 +236,7 @@ useEffect(() => {
                 <div>
                   <h4 style={{ textAlign: "left", color: "black" }}>Phone</h4>
                   <h4 style={{ color: "blue" }}>
-                  {phone}
+                    {phone}
                   </h4>
                 </div>
               </div>
@@ -251,8 +254,8 @@ useEffect(() => {
                   >
                     Website Link
                   </h4>
-                  <h4 style={{ color: "blue",  }}>
-                  {website}
+                  <h4 style={{ color: "blue", }}>
+                    {website}
                   </h4>
                 </div>
               </div>
@@ -275,8 +278,8 @@ useEffect(() => {
                     {" "}
                     Affiliation
                   </h4>
-                  <h4 style={{ color: "blue" ,wordBreak:"break-word",whiteSpace:"normal"}}>
-                   {data2.link_exist?.affiliate_link}
+                  <h4 style={{ color: "blue", wordBreak: "break-word", whiteSpace: "normal" }}>
+                    {data2.link_exist?.affiliate_link}
                   </h4>
                 </div>
               </div>
@@ -290,7 +293,7 @@ useEffect(() => {
                     Linked In
                   </h4>
                   <h4 style={{ color: "blue" }}>
-                  {linkedIn}
+                    {linkedIn}
                   </h4>
                 </div>
               </div>
@@ -378,7 +381,7 @@ useEffect(() => {
             </div>
             <div>
               <p>
-             {about}
+                {about}
               </p>
             </div>
           </div>
@@ -386,20 +389,21 @@ useEffect(() => {
         <div style={{ marginTop: "20px", marginLeft: "20px" }}>
           <h2>Images</h2>
         </div>
-        <div className="imgover"> 
-       <div className="carlo" style={{ display: "flex" }}>
- {fullImageUrls.map((img, index) => (
-  <div className="AddImages" key={img.id}>
-    <div className="images" onClick={() => picViewHandler(index)}>
-      <img
-        src={`https://tracsdev.apttechsol.com/public/${img.image}`}
-        alt={`image-${img.id}`}
-      />
-    </div>
-  </div>
-))}
-</div>
-</div>
+        <div className="imgover">
+          <div className="carlo" style={{ display: "flex" }}>
+            {fullImageUrls.map((img, index) => (
+              <div className="AddImages" key={img.id}>
+                <div className="images" onClick={() => picViewHandler(index)}>
+                  <img
+                    src={`https://tracsdev.apttechsol.com/public/${img.image}`}
+                    alt={`image-${img.id}`}
+                  />
+
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
       <div > {picView && (
         <div className="overlay">
@@ -407,16 +411,16 @@ useEffect(() => {
             <button className="close-btn" onClick={closeImagePopup} >
               <RxCross2 size={30} />
             </button>
-           <Slider {...sliderSettings} initialSlide={currentIndex}>
-  {fullImageUrls.map((img) => (
-    <div key={img.id} className="popup-slide">
-      <img
-        src={`https://tracsdev.apttechsol.com/public/${img.image}`}
-        alt={`popup-image-${img.id}`}
-      />
-    </div>
-  ))}
-</Slider>
+            <Slider {...sliderSettings} initialSlide={currentIndex}>
+              {fullImageUrls.map((img) => (
+                <div key={img.id} className="popup-slide">
+                  <img
+                    src={`https://tracsdev.apttechsol.com/public/${img.image}`}
+                    alt={`popup-image-${img.id}`}
+                  />
+                </div>
+              ))}
+            </Slider>
           </div>
         </div>
       )}</div>

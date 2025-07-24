@@ -87,15 +87,19 @@ navigate(`/editContact/${id}`)
               <div className="contacts-buttons">
                 <div className="import">
                  <div className="importA"><input type="file" /></div> 
+                 <div></div>
+                  
+                </div>
+                <div className="add">
                   <div className="importB">
                     <button>Import</button>
                   </div>
-                </div>
-                <div className="add">
                   <div className="downloadB">
                     <button>Download Template</button>
                   </div>
-                  <div className="addB">
+                  
+                </div>
+                <div className="addB">
                     <Link
                       to="/addContacts"
                       style={{ textDecoration: "none", color: "inherit" }}
@@ -103,7 +107,6 @@ navigate(`/editContact/${id}`)
                       <button>Add Contacts</button>
                     </Link>
                   </div>
-                </div>
               </div>
 <div className="er">
 

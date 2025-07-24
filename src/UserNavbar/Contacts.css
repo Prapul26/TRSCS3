@@ -167,7 +167,7 @@ padding: 20px;
 }
 .importA{
     background-color: white;
-    width: 60%;
+    width: 70%;
     padding-top: 6px;
     padding-left: 15px;
 }
@@ -224,10 +224,16 @@ border-radius: 10px;
         
     }
     .downloadB{
-        margin-left: 0px;
+        margin-left: -40px !important;
     }
     .addB{
         margin-left: 0px;
+    }
+    .addB button{
+        padding-top: 14px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 14px;
     }
     .import{
         justify-content: space-between;
@@ -243,9 +249,13 @@ border-radius: 10px;
         flex-direction: column;
     }
     .add{
-        flex-direction: column;
+        
         margin-top: 2px;
     }
+    .importB{
+        width: 20%;
+    }
+  
     .add button{
 width: 240px;
 height: 40px;
@@ -256,8 +266,8 @@ height: 40px;
         margin: 0px;
     }
     .importB button{
-        width: 240px;
+        width: 100px;
         height: 40px;
-        margin-top: 6px;
+        margin-top: 6px ;
     }
 }

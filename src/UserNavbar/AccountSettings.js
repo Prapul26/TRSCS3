@@ -353,6 +353,34 @@ const AccountSettings = () => {
               </div>
               <div className="prc1">
                 <div className="profileContainer1">
+                   <div className="proPic">
+                    <div className="ppfof">
+                      <img
+                        src={imagePreview}
+                        alt="Profile Preview"
+                        style={{
+                          height: "100%",
+                          width: "100%",
+                          objectFit: "cover",
+                        }}
+                      /> </div>
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "60px" }}>
+                      <button
+                        style={{ background: "#eeba2b", color: "black", fontWeight: "300 !important" }}
+                        onClick={triggerFileInput}
+                      >
+                        UPLOAD IMAGE
+                      </button>
+                      <input
+                        type="file"
+                        id="fileInput"
+                        accept="image/*"
+                        style={{ display: "none" }}
+                        onChange={handleImageChange}
+                      // onChange={console.log("file")}
+                      />
+                    </div>
+                  </div>
                   <div className="pc11">
                     <div className="pgpgg">
                       <div  className="fr1">
@@ -489,7 +517,7 @@ const AccountSettings = () => {
 
 
                     </div>
-<label>Address</label>
+                  <label>Address</label>
                     <div className="addressInput">
                       <div style={{ marginTop: "5px", marginLeft: "10px" }}>
                         <IoLocationSharp size={18} />
@@ -542,40 +570,13 @@ const AccountSettings = () => {
                    
 
                   </div>
-                  <div className="proPic">
-                    <div className="ppfof">
-                      <img
-                        src={imagePreview}
-                        alt="Profile Preview"
-                        style={{
-                          height: "100%",
-                          width: "100%",
-                          objectFit: "cover",
-                        }}
-                      /> </div>
-                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "60px" }}>
-                      <button
-                        style={{ background: "#eeba2b", color: "black", fontWeight: "300 !important" }}
-                        onClick={triggerFileInput}
-                      >
-                        UPLOAD IMAGE
-                      </button>
-                      <input
-                        type="file"
-                        id="fileInput"
-                        accept="image/*"
-                        style={{ display: "none" }}
-                        onChange={handleImageChange}
-                      // onChange={console.log("file")}
-                      />
-                    </div>
-                  </div>
+                 
                 </div>
                 <div className="additionalImages-holder">
                   <div style={{ padding: '20px' }}>
                     <h3>Additional Images</h3>
 
-                    <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+                    <div className="addmobview" style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' ,marginTop:"25px"}}>
                       {images.map((img) => (
                         <div key={img.id}>
                           <img src={img.url} alt="uploaded" width={150} height={100} />

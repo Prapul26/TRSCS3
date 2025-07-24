@@ -3,8 +3,8 @@
     padding: 20px;
     border-radius: 5px;
     
-    width: 90%;
-    margin-left: 5%;
+    width: 93%;
+    margin-left: 1.5%;
     margin-right: 5%;
   
 background-color: white;}
@@ -12,6 +12,7 @@ background-color: white;}
     width: 100%;
     height: 150px;
 }
+
 .signature-holder button{
 margin-top: 30px;
 padding-left: 20px;
@@ -33,6 +34,13 @@ display: flex;
     margin-left: 19%;
       background-color:#e9edf0 !important;
 }
+.linne{
+    margin-top: 80px;
+    width: 100%;
+    border-bottom: 1px solid rgb(201, 24, 24);
+    background-color: aquamarine;
+    height: 1px;
+}
 @media(max-width:480px){
     .signature-holder{
         width: 80%;
@@ -47,4 +55,9 @@ display: flex;
     .SPPP{
         width: 200%;
     }
+    .d-header{
+    text-align: left ;
+    width: 86%;
+    padding-left: 15px;
+}
 }

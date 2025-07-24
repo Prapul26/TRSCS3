@@ -106,7 +106,8 @@ const handleSave=async(e)=>{
       <h2>Signature</h2>
       </div>
           <div className="signature-holder">
-            <form onSubmit={handleSave}>
+           
+            <form onSubmit={handleSave}> <div classname="linne" style={{borderBottom:"1px solid black",marginTop:"34px",width:"103.5%",marginLeft:"-1.7%"}}></div>
               <label>
                 <h2>Name<span style={{color:"red"}}> *</span></h2>
               </label>

@@ -83,6 +83,8 @@ useEffect(() => {
   };
   const handelMenu = () => {
     showMenu(!menu);
+    showDrop1(false)
+    showDrop2(false)
   };
   const handleCross = () => {
     showMenu(false);
@@ -210,13 +212,13 @@ useEffect(() => {
             <a href="https://www.facebook.com/h7network">
               {" "}
               <div className="fff">
-                <FaFacebook size={25} color="darkblue" />
+                <FaFacebook size={22} color="#163b6d" />
               </div>
             </a>
             <a href="https://www.linkedin.com/company/h7network/">
               <div className="ffn">
                 {" "}
-                <FaLinkedin size={25} color="darkblue" />
+                <FaLinkedin size={22} color="#163b6d" />
               </div>
             </a>
           </div>
@@ -252,9 +254,9 @@ useEffect(() => {
           </div>
          <div className="drop2" onClick={handelDrop2}>
             {drop2 ? (
-              <IoMdArrowDropup size={20} />
+              <IoMdArrowDropup color="white" size={20} />
             ) : (
-              <IoMdArrowDropdown size={20} />
+              <IoMdArrowDropdown color="white" size={20} />
             )}
             {drop2 && (
               <div className="dropDown2">
@@ -278,9 +280,9 @@ useEffect(() => {
         <div className="dropdowns">
           <div className="globe">
             <div className="globee">
-              <PiGlobe color="white" size={22} />{" "}
+              <PiGlobe color="white" size={28} />{" "}
             </div>
-            <div className="drop1" style={{marginTop:"3px"}} onClick={handelDrop1}>
+            <div className="drop1" style={{marginTop:"9px"}} onClick={handelDrop1}>
               {drop1 ? (
                 <IoMdArrowDropup size={20} color="white" />
               ) : (
@@ -326,9 +328,9 @@ useEffect(() => {
               </div>
               <div className="drop2" onClick={handelDrop2}>
                 {drop2 ? (
-                  <IoMdArrowDropup size={20} />
+                  <IoMdArrowDropup size={20} color="white" />
                 ) : (
-                  <IoMdArrowDropdown size={20} />
+                  <IoMdArrowDropdown size={20} color="white" />
                 )}
                 {drop2 && (
                   <div className="dropDown2">
@@ -354,7 +356,7 @@ useEffect(() => {
           )}
         </div>
         <div className="menu" onClick={handelMenu}>
-          <FiMenu size={25} />
+          <FiMenu size={25} color="white" />
         </div>
       </div>
     </div>

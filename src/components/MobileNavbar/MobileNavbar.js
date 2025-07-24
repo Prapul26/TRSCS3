@@ -94,16 +94,16 @@ const MobileNavbar = ({showMobnav}) => {
     <div className={`mobnav ${showMobnav ?"move":""}`}>
       <div style={{display:"flex"}}><div className="menuButton" onClick={showMobnav}>
         {" "}
-        <LuMenu size={30} />
+        <LuMenu size={30} color="white"/>
       </div>
       <Link to="/home" style={{color:"inherit"}}><div style={{marginTop:"17px",marginRight:"70px"}}>
-        <FaHouse size={30 }/></div></Link>
+        <FaHouse size={30 }  color="white"/></div></Link>
         </div>
       <div style={{display:"flex"}}>
         <div className={`mobnavPic ${mobnav ?"hidden":""}`}><img src={imagePreview}/></div>
         
         <div className={`profile-name ${mobnav ?"hidden":""}`} onClick={handelMenuDrop} style={{marginTop:"22px"}}>
-                {menuDrop ?(  <IoMdArrowDropup color="black" size={22} />):(<IoMdArrowDropdown color="black" size={22}/> )}
+                {menuDrop ?(  <IoMdArrowDropup color="white" size={22} />):(<IoMdArrowDropdown color="white" size={22}/> )}
                 {menuDrop && <div className="menuDrop">
               <div style={{display:"flex",borderBottom:"1px solid black",marginBottom:"5px",cursor:"pointer"}} onClick={handleLogout }> <div style={{marginBottom:"5px"}}><RiLogoutBoxLine /></div><h4>Logout</h4></div>
            <Link to="/myMembership" style={{textDecoration:"none",color:"inherit" ,cursor:"pointer"}}>  <div style={{display:"flex"}}><div><MdAccountCircle /></div><h4>My Account</h4></div></Link></div>}
