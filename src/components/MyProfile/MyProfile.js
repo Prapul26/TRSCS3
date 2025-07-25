@@ -182,6 +182,12 @@ const MyProfile = () => {
     };
     fetchData();
   }, []);
+  const adjustInternalHtml = (html) => {
+  const container = document.createElement("div");
+  container.innerHTML = html;
+  return container.innerHTML;
+};
+
   return (
     <div className="container">
       <Header />
@@ -379,10 +385,10 @@ const MyProfile = () => {
             <div>
               <h2>About Me</h2>
             </div>
-            <div>
-              <p>
-                {about}
-              </p>
+            <div dangerouslySetInnerHTML={{ __html: adjustInternalHtml(about) }}>
+              
+             
+              
             </div>
           </div>
         </div>

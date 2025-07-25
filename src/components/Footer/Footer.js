@@ -62,6 +62,7 @@ const Footer = () => {
                      
 
                     </div>
+                    <div className='wdadad'><a href="https://h7network.blog/" style={{color:"inherit",textDecoration:"none"}}><p>TRACS is a subsidiary of the H7 Network</p></a></div>
                 </div>
                 <div className='contact-container'>
                     <div className='contact'>

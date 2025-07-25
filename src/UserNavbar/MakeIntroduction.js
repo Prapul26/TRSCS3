@@ -196,6 +196,11 @@ const handelbestcancel=()=>{
 
     fetchData();
   }, []);
+  const adjustinternalHTML=(html)=>{
+    const container=document.createElement("div");
+    container.innerHTML=html;
+    return container.html;
+  }
 
   const handleAddContact = async (e) => {
     const token = localStorage.getItem("authToken");
@@ -238,7 +243,11 @@ useEffect(() => {
   }
 }, [selectedEmails, data?.userInfo]);
 
-
+ const adjustInternalHtml = (html) => {
+  const container = document.createElement("div");
+  container.innerHTML = html;
+  return container.innerHTML;
+};
   return (
     <div className="make">
       <Header />
@@ -427,7 +436,10 @@ useEffect(() => {
      </div>
 
 <div><strong>About</strong>
-<div className='colorforabout'style={{marginBottom:"40px",padding:"10px"}}>{selectedUser.about}</div>
+<div className='colorforabout'style={{marginBottom:"40px",padding:"10px",overflowY:"auto"}} >
+  <div dangerouslySetInnerHTML={{ __html: adjustInternalHtml(selectedUser.about) }} 
+></div>
+</div>
   </div>
     </div></div></div>
   </div>
