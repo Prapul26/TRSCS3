@@ -6,7 +6,12 @@
     padding: 1px;
     background: #163b6d;
     color: rgb(251, 251, 251);
+}.signature-block {
+  margin-top: 30px;
+  font-size: 13px;
+  line-height: 0.3;
 }
+
 
 .info-holder{
     margin-top: 30px;
