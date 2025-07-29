@@ -199,7 +199,7 @@ const stripHtmlTags = (html) => {
                   </div>
                   <div className="messageRead">
                     <h3>Message:</h3>
-                    <div className="text-Area">
+                    <div className="text-Area" contentEditable>
                       <div className="tempBody">
                         {emailPreview?.map(template => (
                           <div key={template.id} dangerouslySetInnerHTML={{ __html: template.email_body }} />
