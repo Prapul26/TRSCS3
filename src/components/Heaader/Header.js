@@ -209,13 +209,15 @@ useEffect(() => {
             </div>
           )}
           <div className="social-Media">
-            <a href="https://www.facebook.com/h7network">
+            <a href="https://www.facebook.com/h7network" target="_blank" 
+  rel="noopener noreferrer">
               {" "}
               <div className="fff">
                 <FaFacebook size={22} color="#163b6d" />
               </div>
             </a>
-            <a href="https://www.linkedin.com/company/h7network/">
+            <a href="https://www.linkedin.com/company/h7network/" target="_blank" 
+  rel="noopener noreferrer">
               <div className="ffn">
                 {" "}
                 <FaLinkedin size={22} color="#163b6d" />
@@ -226,24 +228,28 @@ useEffect(() => {
       )}
       <div className="header-container">
         <div className="socila-icons">
-          <a href="https://www.facebook.com/h7network">
+          <a href="https://www.facebook.com/h7network" target="_blank" 
+  rel="noopener noreferrer">
             <div className="facebook">
               {" "}
               <FaFacebook size={20} color="white" />
             </div>
           </a>
 
-          <a href="https://www.linkedin.com/company/h7network/">
+          <a href="https://www.linkedin.com/company/h7network/" target="_blank" 
+  rel="noopener noreferrer">
             <div className="LinkedIn">
               <FaLinkedin size={20} color="white" />
             </div>
           </a>
+          <a href="https://h7network.blog/" target="_blank" 
+  rel="noopener noreferrer"><img src="https://h7network.blog/wp-content/uploads/2024/08/h7-header-logo.png" className="htimg"/></a>
         </div>
         <div className="pic">
-          <img
+         <Link to="/"> <img
             src="https://tracsdev.apttechsol.com/public/uploads/website-images/logo-2024-09-05-10-18-08-4078.png"
             style={{ height: "27px" }}
-          />
+          /></Link>
         </div>
         { isLoggedIn && (<div className="mobPicPro">
           <div className="mobPic1">

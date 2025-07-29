@@ -14,19 +14,19 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "../Heaader/Header";
 
 const Home = () => {
-  const navigate=useNavigate()
- 
+  const navigate = useNavigate()
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showtext,setText]=useState(true) 
+  const [showtext, setText] = useState(true)
 
-const [token, setToken] = useState(null);
+  const [token, setToken] = useState(null);
 
-useEffect(() => {
-  const storedToken = localStorage.getItem("authToken");
-  setToken(storedToken);
-  setIsLoggedIn(!!storedToken);
-  setText(!storedToken);
-}, []);
+  useEffect(() => {
+    const storedToken = localStorage.getItem("authToken");
+    setToken(storedToken);
+    setIsLoggedIn(!!storedToken);
+    setText(!storedToken);
+  }, []);
 
   const handleMakeIntroClick = () => {
     const token = localStorage.getItem("authToken");
@@ -44,57 +44,57 @@ useEffect(() => {
       <Navbar />
       <div className="serch-container" >
         <div className="sh2">
-          <h2 style={{color:"white"}}>
+          <h2 style={{ color: "white" }}>
             TRACS helps you effortlessly connect and make introductions like a
             champion !
           </h2>
         </div>
 
         <div className="network-container">
-          
-            <button className="ncb1" style={{borderRadius:"40px",padding:"13px 30px 13px 30px",fontSize:"17px"}}  onClick={handleMakeIntroClick}>MAKE INTRODUCTION INSTANTLY</button>
-       
-         
-           <button
-  style={{
-    borderRadius: "40px",
-    padding: "13px 30px",
-    fontSize: "17px",
-  }}
- className={`bttborder ${token ? "active": ""}`}
-  onClick={handleDashboard}
->
-  <span>DASHBOARD</span>
-</button>
-          
+
+          <button className="ncb1" style={{ borderRadius: "40px", padding: "13px 30px 13px 30px", fontSize: "17px" }} onClick={handleMakeIntroClick}>MAKE INTRODUCTION INSTANTLY</button>
+
+
+          <button
+            style={{
+              borderRadius: "40px",
+              padding: "13px 30px",
+              fontSize: "17px",
+            }}
+            className={`bttborder ${token ? "active" : ""}`}
+            onClick={handleDashboard}
+          >
+            <span>DASHBOARD</span>
+          </button>
+
         </div>
       </div>
       <div className="home-details">
         <div className="hd1">
-         
+
           <div className="hd1-details">
-            <h1 style={{fontSize:"25px"}}>
+            <h1 style={{ fontSize: "25px" }}>
               Strengthening your reputation, while strengthening your
               Trusted-Relationships.
             </h1>
 
-           
-  {showtext &&(<div className="rfgg"> <p style={{color:"#f96b39",fontWeight:"700",marginLeft:"20px"}}>1.Sign up for your 14-day trial</p>
-            <p style={{color:"#f96b39",fontWeight:"700",marginLeft:"20px",marginTop:"-4px"}}>2.Create your Account</p>
-            <p style={{color:"#f96b39",fontWeight:"700",marginLeft:"20px",marginTop:"-4px"}}>3.Add your contacts to your account</p>
-            <p style={{color:"#f96b39",fontWeight:"700",marginLeft:"20px",marginTop:"-4px"}}>4.Start Making Introductions</p>
-            <p style={{color:"#f96b39",fontWeight:"700",marginLeft:"20px",marginTop:"-4px"}}>5.Use your Dashboard for Results</p><br/><Link to='/register'><button style={{color:"black",background:"#eeba2b",height:"45px",borderRadius:"30px",marginTop:"-20px"}}>JOIN NOW</button></Link></div>
-                  
-          )} 
-         
-           
+
+            {showtext && (<div className="rfgg"> <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px" }}>1.Sign up for your 14-day trial</p>
+              <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px", marginTop: "-4px" }}>2.Create your Account</p>
+              <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px", marginTop: "-4px" }}>3.Add your contacts to your account</p>
+              <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px", marginTop: "-4px" }}>4.Start Making Introductions</p>
+              <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px", marginTop: "-4px" }}>5.Use your Dashboard for Results</p><br /><Link to='/register'><button style={{ color: "black", background: "#eeba2b", height: "45px", borderRadius: "30px", marginTop: "-20px" }}>JOIN NOW</button></Link></div>
+
+            )}
+
+
           </div>
           <div className="hd1-pic">
             <img src="https://tracs.app/public/uploads/website-images/home-img3.jpeg" style={{ width: "100%", height: "100%" }} />
           </div>
         </div>
         <div className="line-1">
-          <p style={{fontSize:"18px",fontWeight:"700" ,marginBottom:"77px"}}>
+          <p style={{ fontSize: "18px", fontWeight: "700", marginBottom: "77px" }}>
 
             Welcome to <span style={{ color: "#f96b39" }}>TRACS</span>, your
             go-to source for connecting with a diverse community of talented
@@ -102,7 +102,7 @@ useEffect(() => {
             relationships within our vibrant community.
           </p>
         </div>
-     {/* {isLoggedIn && ( <div className="hd2">
+        {/* {isLoggedIn && ( <div className="hd2">
           
           <div className="hd2-pic">
             <img src='https://tracs.app/public/uploads/website-images/home-img1.jpeg' style={{ width: "100%", height: "100%" }} />
@@ -117,8 +117,8 @@ useEffect(() => {
             <p style={{color:"#f96b39",fontWeight:"700"}}>4.Start Making Introductions</p>
             <p style={{color:"#f96b39",fontWeight:"700"}}>5.Use your Dashboard for Results</p>
           </div>
-        </div>)} */} 
-       
+        </div>)} */}
+
       </div>
 
       <Footer />

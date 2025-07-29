@@ -40,12 +40,14 @@ const Footer = () => {
                     </div>
                     <div className='socilaMediaStore-container'>
                          <div className="socila-icons">
-                                 <a href="https://www.facebook.com/h7network"><div className="facebook">
+                                 <a href="https://www.facebook.com/h7network" target="_blank" 
+  rel="noopener noreferrer"><div className="facebook">
                                     {" "}
                                     <FaFacebook size={28} color='black'/>
                                   </div></a> 
                                 
-                                 <a href="https://www.linkedin.com/company/h7network/"><div className="LinkedIn">
+                                 <a href="https://www.linkedin.com/company/h7network/" target="_blank" 
+  rel="noopener noreferrer"><div className="LinkedIn">
                                     <FaLinkedin size={28} color="black" />
                                   </div></a> 
                                 </div>
@@ -62,7 +64,8 @@ const Footer = () => {
                      
 
                     </div>
-                    <div className='wdadad'><a href="https://h7network.blog/" style={{color:"inherit",textDecoration:"none"}}><p>TRACS is a subsidiary of the H7 Network</p></a></div>
+                    <div className='wdadad'><a href="https://h7network.blog/" target="_blank" 
+  rel="noopener noreferrer" style={{color:"inherit",textDecoration:"none"}}><p>TRACS is a subsidiary of the H7 Network</p></a></div>
                 </div>
                 <div className='contact-container'>
                     <div className='contact'>

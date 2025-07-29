@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoCall, IoGlobe, IoLogoLinkedin, IoMail, IoPerson } from "react-icons/io5";
 import { RxCross1, RxCross2 } from "react-icons/rx";
 import { IoMdPerson } from "react-icons/io";
-import { FaPlus } from "react-icons/fa";
+import { FaAddressCard, FaPlus } from "react-icons/fa";
 import Header from "../components/Heaader/Header";
 import Navbar from "../components/Navbar/Navbar";
 import { ImCross } from "react-icons/im";
@@ -116,7 +116,7 @@ const handelbestcancel=()=>{
 
   const validEmails = selectedEmails.filter((user) => {
     const domain = user.email.split("@")[1];
-    return user.email.includes("@") && !blockedDomains.includes(domain);
+    return user.email.includes("@") ;
   });
 
   if (validEmails.length < 2) {
@@ -388,11 +388,26 @@ useEffect(() => {
      </div>
       <div className="instyleprofile">
         <div>
-    <div style={{justifyContent:"center",display:"flex",width:"100%"}}>  <img
-        src={`https://tracsdev.apttechsol.com/public/${selectedUser.image}`}
-        alt="User"
-        style={{ width: "100px", height: "100px", borderRadius: "50%" }}
-      /></div>
+
+
+   <div style={{ justifyContent: "center", display: "flex", width: "100%" }}>
+  <img
+    src={
+      selectedUser?.image && selectedUser.image !== "null" && selectedUser.image !== ""
+        ? `https://tracsdev.apttechsol.com/public/${selectedUser.image}`
+        : "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg"
+    }
+    alt="User"
+    onError={(e) => {
+      e.target.onerror = null;
+      e.target.src = "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg";
+    }}
+    style={{ width: "100px", height: "100px", borderRadius: "50%" }}
+  />
+</div>
+
+
+
       <div style={{justifyContent:"center",display:"flex",width:"100%"}}><h2>{selectedUser.name}</h2></div>
         <div style={{justifyContent:"center",display:"flex",width:"100%",marginTop:"-10px !important"}}><p style={{marginTop:"-10px !important"}}> {selectedUser.member_type === "1"
     ? "H7 Member"
@@ -479,9 +494,18 @@ useEffect(() => {
   }}>
                       <div className="spanImg">
                         <img
-                          src={`https://tracsdev.apttechsol.com/public/${data.userslist[index]?.image}`}
-                          alt="User"
-                        />
+  src={
+    user?.image && user.image !== "null" && user.image !== ""
+      ? `https://tracsdev.apttechsol.com/public/${user.image}`
+      : "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg"
+  }
+  alt="User"
+  onError={(e) => {
+    e.target.onerror = null;
+    e.target.src = "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg";
+  }}
+/>
+
                       </div>
                       <div style={{ marginTop: "-8px" }} className="spamData">
                         <h3>{user.name || "No Network"}</h3>
@@ -496,9 +520,9 @@ useEffect(() => {
                             </div>
                           </div>
                           <div style={{ display: "flex" }}>
-                            <div style={{ marginTop: "3px", marginRight: "5px" }}>
+                            <div style={{ marginTop: "0px", marginRight: "5px" }}>
 
-                              <IoMdPerson />
+                              <FaAddressCard  />
                             </div>
                             <div className="emailSpan">
                               <h4>{user.business_name || "No business name"}</h4>
@@ -522,14 +546,15 @@ useEffect(() => {
                   <div key={index} className="email-item">
                     <div className="selected-user-photo">
                       <img
-                        src={user.image}
-                        alt="User"
-                        style={{
-                          width: "60px",
-                          height: "60px",
-                          borderRadius: "50%",
-                        }}
-                      />
+  src={user.image?.trim() || "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg"}
+  alt="User"
+  style={{
+    width: "60px",
+    height: "60px",
+    borderRadius: "50%",
+  }}
+/>
+
                     </div>
 
                     <div className="selected-user-info">
@@ -550,7 +575,7 @@ useEffect(() => {
                       </div>
                       <div style={{ display: "flex", marginTop: "-20px" }}>
                         <div style={{ marginTop: "3px", marginRight: "5px" }}>
-                          <IoPerson />
+                          <FaAddressCard  />
                         </div>
                         <div
                           className="emailSpan"
@@ -644,6 +669,7 @@ Why is this not as effective: This introduction lacks clear reasons for the meet
               if (selectedTemplateObj) {
     // Clean HTML before setting message
     const plainText = stripHtml(selectedTemplateObj.email_body);
+    
     setMessage(plainText);
   } else {
                 setMessage("");

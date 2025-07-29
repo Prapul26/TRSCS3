@@ -133,6 +133,11 @@ margin-top: -20px;
     margin-top: -5px;
     margin-right: 30px;
 }
+.htimg{
+    height: 22px;
+    margin-left: 10px;
+    margin-top: 2px;
+}
 @media(max-width:480px){
     .socila-icons{
        display: none;
@@ -245,7 +250,7 @@ width: 50%;
         display: flex;
         width: 30%;
         
-        margin-left: 35%;
+        margin-left: -3%;
         margin-right: 35%;
         margin-top: 25px;
         justify-content: space-between;
