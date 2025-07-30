@@ -528,7 +528,7 @@ const MakeIntroduction = () => {
                               <FaAddressCard />
                             </div>
                             <div className="emailSpan">
-                              <h4>{user.business_name || "No business name"}</h4>
+                             <h4>{user?.listings?.[0]?.title || "No business name"}</h4>
                             </div>
                           </div>
                         </div>
@@ -562,7 +562,7 @@ const MakeIntroduction = () => {
 
                       <div className="selected-user-info">
                         <div>
-                          <h4>{user.name || "No Network"}</h4>
+                          <h4>{user.name || "No Name"}</h4>
                         </div>
 
                         <div style={{ display: "flex", marginTop: "-0px" }}>
@@ -573,7 +573,7 @@ const MakeIntroduction = () => {
                             className="emailSpan"
                             style={{ marginTop: "-19px", marginRight: "5px" }}
                           >
-                            <h5>{user.email || "No name"}</h5>
+                            <h5>{user.email || "No Email"}</h5>
                           </div>
                         </div>
                         <div style={{ display: "flex", marginTop: "-20px" }}>
@@ -584,7 +584,7 @@ const MakeIntroduction = () => {
                             className="emailSpan"
                             style={{ marginTop: "-19px", marginRight: "5px" }}
                           >
-                            <h5>{user.business_name || "No Email"}</h5>
+                            <h5>{user?.listings?.[0]?.title || "No Bussiness name"}</h5>
                           </div>
                         </div>
                       </div>
