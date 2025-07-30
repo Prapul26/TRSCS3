@@ -130,7 +130,7 @@ const MakeIntroduction = () => {
     // ❗ Check if tokens are still present
     if (message.includes("[[name_1]]") || message.includes("[[name_2]]")) {
       setMsg(
-        "Replace the following tokens with actual names before sending:\n[[name_1]]\n[[name_2]]"
+        "Replace the following tokens with the value(s) including brackets:\n[[name_1]]\n[[name_2]]"
       );
       return;
     }
@@ -750,6 +750,7 @@ let replaced1 = ggText
 */}
       
           <br />
+          <div style={{ marginTop: "0px" ,marginBottom:"20px",color:"#e6410fff",whiteSpace: 'pre-line',fontWeight:"600"}}>{msg}</div>
           <div className="lastbutton" style={{ display: "flex" }}>
             <div style={{ display: "flex" }}>
               <input
@@ -771,6 +772,7 @@ let replaced1 = ggText
 }}
 
               />
+              
               <h3>Include Signature</h3><div style={{ marginLeft: "5px", marginTop: "5px" }}><AiTwotoneQuestionCircle /></div>
             </div>
             <div className="formButtons">
@@ -789,7 +791,7 @@ let replaced1 = ggText
           <p style={{ color: "red", marginTop: "5px", whiteSpace: "pre-line" }}>
             {validationError}
           </p>
-        )}<div style={{ marginTop: "40px" }}>{msg}</div>
+        )}
       </div>
 
     </div>

@@ -13,37 +13,40 @@ const Login = ({ switchToRegister }) => {
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        try {
-            const response = await fetch('https://tracsdev.apttechsol.com/api/storeLogin', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email,
-                    password,
-                }),
-            });
+    try {
+        const response = await fetch('https://tracsdev.apttechsol.com/api/storeLogin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email,
+                password,
+            }),
+        });
 
-            const data = await response.json();
+        const data = await response.json();
 
-            if (response.ok && data.success) {
-                setMessage('Login successful!');
-                // Store token in localStorage or sessionStorage
-                localStorage.setItem('authToken', data.token);
-
-                navigate('/home'); // Redirect after successful login
-            }
-            else {
+        if (response.ok && data.success) {
+            setMessage('Login successful!');
+            localStorage.setItem('authToken', data.token);
+            navigate('/home');
+        } else {
+            // Customize error message for failed login
+            if (data.message?.toLowerCase().includes("invalid") || response.status === 401) {
+                setMessage('Invalid login information.');
+            } else {
                 setMessage(data.message || 'Login failed. Please check your credentials.');
             }
-        } catch (error) {
-            console.error('Error during login:', error);
-            setMessage('An error occurred. Please try again later.');
         }
-    };
+    } catch (error) {
+        console.error('Error during login:', error);
+        setMessage('An error occurred. Please try again later.');
+    }
+};
+
 
     return (
         <div>
