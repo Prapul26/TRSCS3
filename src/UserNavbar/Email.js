@@ -7,8 +7,8 @@ import { SlLogout } from "react-icons/sl";
 import { MdModeEdit, MdOutlineCardMembership } from "react-icons/md";
 import { FaBriefcase } from "react-icons/fa6";
 import { IoSettingsSharp } from "react-icons/io5";
-import { ImProfile } from "react-icons/im";
-import { IoIosArrowDropdown } from "react-icons/io";
+import { ImCross, ImProfile } from "react-icons/im";
+import { IoIosArrowDropdown, IoIosInformationCircle } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
 import { RiContactsFill, RiDeleteBin6Line } from "react-icons/ri";
 import { HiInboxArrowDown } from "react-icons/hi2";
@@ -39,7 +39,13 @@ const Email = () => {
   const [error, setError] = useState("");
   const [isActive, setIsActive] = useState(false);
   const [activeStatuses, setActiveStatuses] = useState({});
-
+    const [showpage, setShowPage] = useState(false);
+  const urlClick = () => {
+    setShowPage(!showpage)
+  }
+  const closeURlCLick = () => {
+    setShowPage(false)
+  }
 
   const handleToggle = (id) => {
     setActiveStatuses((prev) => ({
@@ -119,6 +125,24 @@ const Email = () => {
   };
 
   return (
+    <div>
+         {
+                    showpage && (
+                      <div className="pageURLContainer">
+                        <div className="pageURLHolder" >
+                          <div className="pageURLHeader">
+                            <div><h4 style={{ color: "white" }}>Ready-made messages you can use and edit</h4></div>
+                            
+                            <div onClick={closeURlCLick} style={{ marginTop: "9px" }}> <ImCross /></div>
+                          </div>
+                          <div className="pageiframeContainer">
+                            <div className="pageIframe"><iframe src="https://tracsdev.apttechsol.com/helpsection-descriptionnew/7" /></div>
+            
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  }
     <div className='mobMenuaa'>
       <div className='mobMenu33'>
         {showSidebar && (<MobileMenu />)}
@@ -132,7 +156,10 @@ const Email = () => {
           <div className="EMPP">
             <MobileNavbar showMobnav={showMobnav} />
             <div className="d-header">
-              <h2>Templates</h2>
+              <h2>Email Templates</h2>
+              <div style={{ display: "flex", marginTop: "14px" }} className="urlPage" onClick={urlClick}><div><p>Ready-made messages you can use and edit</p></div>
+                                                    <div style={{ marginTop: "-18px", marginLeft: "5px" }}><IoIosInformationCircle size={15} /></div>
+                                                  </div>
             </div>
             <div className="addTemplateButton">
               <Link to="/addTemplate"><button style={{
@@ -210,7 +237,7 @@ const Email = () => {
               </table>
             </div>
             </div>
-          </div></div></div></div>
+          </div></div></div></div></div>
   );
 };
 

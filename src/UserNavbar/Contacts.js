@@ -6,12 +6,22 @@ import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import axios from "axios";
+import { IoIosInformationCircle } from "react-icons/io";
+import { FaWindowMinimize } from "react-icons/fa";
+import { LuExternalLink } from "react-icons/lu";
+import { ImCross } from "react-icons/im";
 
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);
   const [error, setError] = useState("");
   const [showSidebar, setShowSidebar] = useState(false);
-
+    const [showpage, setShowPage] = useState(false);
+  const urlClick = () => {
+    setShowPage(!showpage)
+  }
+  const closeURlCLick = () => {
+    setShowPage(false)
+  }
   const showMobnav = () => {
     setShowSidebar((prev) => !prev);
   };
@@ -68,6 +78,24 @@ const handleEdit=(id)=>{
 navigate(`/editContact/${id}`)
 }
   return (
+    <div>
+      {
+              showpage && (
+                <div className="pageURLContainer">
+                  <div className="pageURLHolder" >
+                    <div className="pageURLHeader">
+                      <div><h4 style={{ color: "white" }}>View, add, and manage your saved contacts</h4></div>
+                      
+                      <div onClick={closeURlCLick} style={{ marginTop: "9px" }}> <ImCross /></div>
+                    </div>
+                    <div className="pageiframeContainer">
+                      <div className="pageIframe"><iframe src="https://tracsdev.apttechsol.com/helpsection-descriptionnew/16" /></div>
+      
+                    </div>
+                  </div>
+                </div>
+              )
+            }
     <div className="mobMenuaa">
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
       <div>
@@ -82,6 +110,9 @@ navigate(`/editContact/${id}`)
             <div className="contacts-container">
               <div className="d-header">
                 <h2 style={{color:"#334e6f !important"}}>Contacts</h2>
+                 <div style={{ display: "flex", marginTop: "14px" }} className="urlPage" onClick={urlClick}><div><p>View, add, and manage your saved contacts</p></div>
+                                      <div style={{ marginTop: "-18px", marginLeft: "5px" }}><IoIosInformationCircle size={15} /></div>
+                                    </div>
               </div>
 
               <div className="contacts-buttons">
@@ -154,7 +185,7 @@ navigate(`/editContact/${id}`)
           </div>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 

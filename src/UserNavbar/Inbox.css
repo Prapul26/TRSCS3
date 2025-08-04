@@ -170,6 +170,7 @@ padding: 1px;
   .takeAction1 p{
      font-size: 13px !important;
     margin-left: 4px;
+    color: white !important;
   }
   .showfilter2 p{
     font-size: 13px !important;
@@ -396,6 +397,68 @@ color: #000000;
     
     width: 100%;
    }
+   .urlPage p{
+    margin-top: -15px;
+    font-size: 12px !important;
+   }
+.urlPage p:hover{
+cursor: pointer;
+color: #000000;
+font-weight: 420;
+}
+.pageURLContainer {
+  position: fixed;
+  background-color: rgba(17, 17, 17, 0.2); /* ✅ Transparent background */
+  width: 100%;
+  height: 100%;
+}
+.pageURLHolder{
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+  margin-top: 5%;
+  background-color: white;
+}
+.pageURLHeader{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(255, 255, 255) !important;
+  background-color: #545454;
+}
+.expandButton{
+ border: 1px solid white;
+ display: flex;
+ padding: 10px;
+ border-radius: 5px;
+}
+.expandButton:hover{
+  color: black;
+  background-color: white;
+  border: 10x solid #545454;
+}
+.expandButton p{
+  margin-bottom: 0px;
+}
+.pageURLHeader h4{
+margin-top: 10px;
+  font-size: 18px !important;
+}
+.pageiframeContainer{
+height: 650px;
+}
+.pageIframe iframe{
+height: 100%;
+width: 100%;
+}
+.pageIframe{
+  height: 100%;
+width: 99%;
+}
+.pageURLHeader p{
+  margin-top: 0px;
+}
+
   @media (max-width: 480px){
    .IBPP{
   width: 100vw;
@@ -403,6 +466,13 @@ color: #000000;
         margin: 0px;
   
    }
+   .pageURLHolder{
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  margin-top: 15%;
+  background-color: white;
+}
    .inbox-container{
     margin-left: 5%;
     width: 90%;

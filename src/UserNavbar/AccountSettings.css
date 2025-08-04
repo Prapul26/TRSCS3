@@ -207,7 +207,9 @@ border-radius: 5px;
 .additionalImages-holder{
     margin-left: 20px;
 }
-
+.editProfileText{
+    
+}
 @media (max-width:480px) {
 
     .profileContainer1{
