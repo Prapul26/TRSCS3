@@ -23,6 +23,7 @@ const Home = () => {
 
   useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
+    
     setToken(storedToken);
     setIsLoggedIn(!!storedToken);
     setText(!storedToken);
@@ -51,23 +52,33 @@ const Home = () => {
         </div>
 
         <div className="network-container">
+  {isLoggedIn ? (
+    <button
+      style={{
+        borderRadius: "40px",
+        padding: "13px 30px",
+        fontSize: "17px",
+      }}
+      className="bttborder active"
+      onClick={handleDashboard}
+    >
+      <span>DASHBOARD</span>
+    </button>
+  ) : (
+    <button
+      className="ncb1"
+      style={{
+        borderRadius: "40px",
+        padding: "13px 30px",
+        fontSize: "17px",
+      }}
+      onClick={handleMakeIntroClick}
+    >
+      MAKE INTRODUCTION INSTANTLY
+    </button>
+  )}
+</div>
 
-          <button className="ncb1" style={{ borderRadius: "40px", padding: "13px 30px 13px 30px", fontSize: "17px" }} onClick={handleMakeIntroClick}>MAKE INTRODUCTION INSTANTLY</button>
-
-
-          <button
-            style={{
-              borderRadius: "40px",
-              padding: "13px 30px",
-              fontSize: "17px",
-            }}
-            className={`bttborder ${token ? "active" : ""}`}
-            onClick={handleDashboard}
-          >
-            <span>DASHBOARD</span>
-          </button>
-
-        </div>
       </div>
       <div className="home-details">
         <div className="hd1">

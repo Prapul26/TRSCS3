@@ -22,13 +22,14 @@ padding-bottom: 25px;
     
 }
 .bttborder.active {
-  background-color: green;
-  color: white;
+background-color: #eeba2b;
+  
      border-radius: 25px;
 }
 .bttborder.active:hover{
       color: white !important;
-        background-color: green !important;
+          color: white !important;
+    background-color: rgb(184, 186, 187);
 }
 
 .ncb1{
