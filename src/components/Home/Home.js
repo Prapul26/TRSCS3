@@ -21,22 +21,72 @@ const Home = () => {
 
   const [token, setToken] = useState(null);
 
-  useEffect(() => {
-    const storedToken = localStorage.getItem("authToken");
-    
-    setToken(storedToken);
-    setIsLoggedIn(!!storedToken);
-    setText(!storedToken);
-  }, []);
+useEffect(() => {
+  const token = localStorage.getItem("authToken");
+  setToken(token);
+  setIsLoggedIn(!!token);
+  setText(!token);
+
+  const logout = () => {
+    localStorage.removeItem("authToken");
+    setToken(null);
+    setIsLoggedIn(false);
+    setText(true);
+    navigate("/login");
+  };
+
+  // --- Inactivity Tracking ---
+  const updateLastActivity = () => {
+    localStorage.setItem("lastActivityTime", Date.now().toString());
+  };
+
+  const checkInactivity = () => {
+    const lastActivity = parseInt(localStorage.getItem("lastActivityTime"), 10);
+    if (!lastActivity) return;
+
+    const now = Date.now();
+    const diff = now - lastActivity;
+
+    if (diff > 10 * 60 * 1000) {
+      logout(); // 10 minutes of inactivity
+    }
+  };
+
+  // --- Detect user activity ---
+  const activityEvents = ["mousemove", "keydown", "click", "scroll"];
+  activityEvents.forEach((event) =>
+    window.addEventListener(event, updateLastActivity)
+  );
+  updateLastActivity(); // Set initial
+
+  // --- Detect visibility change ---
+  const handleVisibilityChange = () => {
+    if (document.visibilityState === "hidden") {
+      updateLastActivity(); // Save timestamp on tab close
+    } else {
+      checkInactivity(); // Check if user was idle too long
+    }
+  };
+  document.addEventListener("visibilitychange", handleVisibilityChange);
+
+  // --- Cleanup ---
+  return () => {
+    activityEvents.forEach((event) =>
+      window.removeEventListener(event, updateLastActivity)
+    );
+    document.removeEventListener("visibilitychange", handleVisibilityChange);
+  };
+}, [navigate]);
+
 
   const handleMakeIntroClick = () => {
     const token = localStorage.getItem("authToken");
-    navigate(token ? "/makeIntro" : "/login");
+    navigate("/login");
   };
 
   const handleDashboard = () => {
     const token = localStorage.getItem("authToken");
-    navigate(token ? "/inbox" : "/login");
+    navigate("/inbox" );
   };
 
   return (
@@ -52,7 +102,19 @@ const Home = () => {
         </div>
 
         <div className="network-container">
-  {isLoggedIn ? (
+
+{isLoggedIn?(<button style={{
+        borderRadius: "40px",
+        padding: "13px 30px",
+        fontSize: "17px",
+      }} onClick={handleDashboard} >DASHBOARD</button>):(   <button style={{
+        borderRadius: "40px",
+        padding: "13px 30px",
+        fontSize: "17px",
+      }} onClick={handleMakeIntroClick}> MAKE INTRODUCTION INSTANTLY </button>)}
+       
+          
+    { /*  {isLoggedIn ? (
     <button
       style={{
         borderRadius: "40px",
@@ -76,7 +138,7 @@ const Home = () => {
     >
       MAKE INTRODUCTION INSTANTLY
     </button>
-  )}
+      )}  */} 
 </div>
 
       </div>
@@ -90,7 +152,7 @@ const Home = () => {
             </h1>
 
 
-            {showtext && (<div className="rfgg"> <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px" }}>1.Sign up for your 14-day trial</p>
+            {!isLoggedIn && (<div className="rfgg"> <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px" }}>1.Sign up for your 14-day trial</p>
               <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px", marginTop: "-4px" }}>2.Create your Account</p>
               <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px", marginTop: "-4px" }}>3.Add your contacts to your account</p>
               <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px", marginTop: "-4px" }}>4.Start Making Introductions</p>
