@@ -22,13 +22,13 @@ const Home = () => {
   const [token, setToken] = useState(null);
 
 useEffect(() => {
-  const token = localStorage.getItem("authToken");
+  const token = sessionStorage.getItem("authToken");
   setToken(token);
   setIsLoggedIn(!!token);
   setText(!token);
 
   const logout = () => {
-    localStorage.removeItem("authToken");
+    sessionStorage.removeItem("authToken");
     setToken(null);
     setIsLoggedIn(false);
     setText(true);

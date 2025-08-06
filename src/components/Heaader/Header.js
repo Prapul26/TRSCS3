@@ -34,7 +34,7 @@ const Header = () => {
   const [profileImg,setProfileImg]=useState("");
 useEffect(() => {
   const fetchProfile = async () => {
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
     if (!token) {
       setIsLoggedIn(false);
       setLoading(false);
@@ -67,8 +67,8 @@ useEffect(() => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("profileImageUrl")
+    sessionStorage.removeItem("authToken");
+    sessionStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
     navigate("/"); // Redirect to login page
      window.location.reload();
