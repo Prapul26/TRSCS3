@@ -31,7 +31,7 @@ const Login = ({ switchToRegister }) => {
 
         if (response.ok && data.success) {
             setMessage('Login successful!');
-            localStorage.setItem('authToken', data.token);
+            sessionStorage.setItem('authToken', data.token);
             navigate('/home');
         } else {
             // Customize error message for failed login
