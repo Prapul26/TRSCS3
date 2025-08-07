@@ -27,6 +27,13 @@
 height: fit-content;
 
 }
+.showTakeAction3 p{
+color: white !important;
+background-color: #505d6e;
+padding: 10px;
+border-radius: 10px;
+
+}
 .adjustp p {
     margin-left: 10px;;
     margin-top: 8px;
@@ -291,7 +298,7 @@ padding-bottom: 20px;
 }
 .practiceHolder{
     background-color: white;
-    margin-top: 10%;
+    margin-top: 3%;
     width: 50%;
     height: fit-content;
     padding-left: 12px;

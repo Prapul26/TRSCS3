@@ -51,6 +51,7 @@ const Inbox = () => {
   const [showTakeAction, setTakeAction] = useState(false)
   const [showButton, setButton] = useState(false);
   const [showpage, setShowPage] = useState(false);
+  
   const urlClick = () => {
     setShowPage(!showpage)
   }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./MakeIntroduction.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -46,6 +46,7 @@ const MakeIntroduction = () => {
   const [ggText, setGGText] = useState("")
   const [messagebody, setmessageBody] = useState("")
   // New state
+  const[keyFeilds,setKeyFeilds]=useState([])
 
   const [data, setData] = useState({});
   const [signature, setSignature] = useState(false);
@@ -60,7 +61,20 @@ const MakeIntroduction = () => {
   const [bestPractice, setBestPractise] = useState(false);
   const [validationError, setValidationError] = useState("");
     const [includeSignature, setIncludeSignature] = useState(false);
+      const [showTakeAction, setTakeAction] = useState(false)
+           const [showTakeAction2, setTakeAction2] = useState(false);
+             const [showTakeAction3, setTakeAction3] = useState(false)
+    const field1 = keyFeilds.find(item => item.id === 1)?.description;
+        const field2 = keyFeilds.find(item => item.id === 9)?.description;
+            const field3 = keyFeilds.find(item => item.id === 4)?.description;
+            const field4 = keyFeilds.find(item => item.id === 6)?.description;
 
+
+ const adjustInternalhtml = (html) => {
+  const container = document.createElement("div");
+  container.innerHTML = html;
+  return container.innerHTML;
+};
   const navigate = useNavigate();
   const handelbest = () => {
     setBestPractise(!bestPractice)
@@ -191,7 +205,9 @@ const MakeIntroduction = () => {
         );
         console.log("Image URL:", data.partners?.image);
         setData(response.data);
+        setKeyFeilds(response.data.keyfields || [])
         console.log(response.data);
+
       } catch (err) {
         setMsg(err.response?.data?.message || "Something went wrong.");
       }
@@ -251,6 +267,20 @@ const MakeIntroduction = () => {
     container.innerHTML = html;
     return container.innerHTML;
   };
+
+const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
+
+  const handleMouseEnter = () => {
+    clearTimeout(hideTimeoutRef.current); // ✅ cancel pending hide
+    setTakeAction(true);
+  };
+
+  const handleMouseLeave = () => {
+    hideTimeoutRef.current = setTimeout(() => {
+      setTakeAction3(false);
+    }, 3000); // ✅ delay hiding for 3 seconds
+  };
+
   return (
     <div className="make">
       <Header />
@@ -286,7 +316,10 @@ const MakeIntroduction = () => {
       <div className="info-holder">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <div style={{ display: "flex" }}><div><label>Directory</label></div><div style={{ marginLeft: "5px", marginTop: "2px" }}><AiTwotoneQuestionCircle /></div></div>
+            {
+              showTakeAction && <div style={{marginTop:"-70px",width:"250px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"50px",background:"black",color:"white"}}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field1 || "") }} onMouseLeave={()=>setTakeAction(false)} /></div>
+            }
+            <div style={{ display: "flex" }}><div><label>Directory</label></div><div style={{ marginLeft: "5px", marginTop: "2px" }} onMouseEnter={handleMouseEnter} ><AiTwotoneQuestionCircle /></div></div>
             <br />
             <select
               className="toSelect"
@@ -616,10 +649,14 @@ const MakeIntroduction = () => {
             className="manageHeadingTEmplate"
             style={{ display: "flex", justifyContent: "space-between" }}
           >
+             {
+              showTakeAction2 && <div style={{marginTop:"-110px",position:"absolute",width:"350px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"90px",background:"black",color:"white"}}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field2 || "") }}  onMouseLeave={() => setTakeAction2(false)}/></div>
+            }
             <div style={{ display: "flex", marginBottom: "-29px" }}>
               <div>
                 <label>Select Template </label>
               </div>
+              <div  onMouseEnter={() => setTakeAction2(true)}><AiTwotoneQuestionCircle /></div>
               <div style={{ marginTop: "-9px", marginLeft: "7px" }} onClick={handelbest}>
                 <p style={{ fontSize: "12px !important" }} className="pset">
                   Best Practices ?
@@ -632,26 +669,7 @@ const MakeIntroduction = () => {
                       <div><strong style={{ fontSize: "20px" }}>Help</strong></div>
                       <div onClick={handelbestcancel}><RxCross2 /></div>
                     </div>
-                    <div>
-                      <h4 style={{ color: "rgb(224, 120, 37)" }}>
-                        Examples of Introductions and their Effectiveness Level:</h4>
-
-                    </div>
-                    <div><h4 style={{ color: "rgb(224, 120, 37)" }}>Very effective with a high rate of success: </h4></div>
-                    <div><h3>Hi Kristen, I'd like to introduce you to John Smith with Results Resourcing 4You. John is brand new to the H7 way and he's looking to build mutually beneficial relationships with potential champions in your space so I instantly thought of you. I thought you two could meet over zoom and see if there's a way to help each other out.
-                      Can one of you reply to schedule that 1:1?
-
-                      Why this is so effective: This introduction strongly endorses both the connection and the individual being introduced, making it highly meaningful. The likelihood of successfully setting up and executing an appointment is very high. For new members now trying to complete a CSA One-to-One, initiating this relationship becomes significantly smoother from the start.</h3></div>
-                    <div><h4 style={{ color: "rgb(224, 120, 37)" }}>Effective with a lower rate of success</h4></div>
-                    <div><h3>Hi Kristen, I'd like to introduce you to John Smith with Results Resourcing 4You. John meet Kristen. Kristen meet John. I think you two should connect.
-
-                      Why is this not as effective: This introduction lacks clarity on the purpose of the meeting, making it less meaningful. The likelihood of successfully setting up and executing an appointment is medium to low. For new CSA One-to-One members, initiating this relationship is a significant challenge from the start.</h3></div>
-                    <div><h4 style={{ color: "rgb(224, 120, 37)" }}>Effective with a very low rate of response along with lots of </h4></div>
-                    <div><h4 style={{ color: "rgb(224, 120, 37)" }}>confusion: </h4></div>
-                    <div><h3>Hi Kristen, meet John Smith. Kristen meet John. I think you two should connect.
-
-                      Why is this not as effective: This introduction lacks clear reasons for the meeting, making it less meaningful and harder for both parties to navigate. Consequently, the likelihood of successfully setting up an appointment and fostering a connection is low. For new members now trying to complete a CSA One-to-One, initiating this relationship presents a significant challenge from the outset.</h3></div>
-                    <div></div>
+                  <div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field4 || "") }} ></div>
                   </div></div>
               )}
             </div>
@@ -772,8 +790,10 @@ let replaced1 = ggText
 }}
 
               />
-              
-              <h3>Include Signature</h3><div style={{ marginLeft: "5px", marginTop: "5px" }}><AiTwotoneQuestionCircle /></div>
+                  {
+              showTakeAction3 && <div className="showTakeAction3" style={{marginTop:"-130px",position:"absolute",width:"350px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"90px",color:"white"}}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field3 || "") }} onMouseLeave={()=>setTakeAction3(false)}/></div>
+            }
+              <h3>Include Signature</h3><div style={{ marginLeft: "5px", marginTop: "5px" }} onMouseEnter={() => setTakeAction3(true)}><AiTwotoneQuestionCircle /></div>
             </div>
             <div className="formButtons">
               <button style={{ background: "#dc3545", height: "37px", fontSize: "1rem", marginTop: "20px" }}>Cancel</button>
