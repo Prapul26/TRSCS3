@@ -36,7 +36,7 @@ const AddTemplate = () => {
     formData.append("category_id", category);
     formData.append("description", description);
 
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
 
     try {
       const response = await axios.post(

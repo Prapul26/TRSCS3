@@ -36,7 +36,7 @@ const OrderHistory = () => {
   const [order, setOrder] = useState(null);
   const [error, setError] = useState("");
   useEffect(() => {
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
 
     const fetchOrderDetails = async () => {
       try {

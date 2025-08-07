@@ -72,7 +72,7 @@ const Email = () => {
       if (isCalled) return;
       isCalled = true;
 
-      const token = localStorage.getItem("authToken");
+      const token = sessionStorage.getItem("authToken");
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/view-template-list`, {
           headers: {
@@ -98,7 +98,7 @@ const Email = () => {
 
 
   const handleDelete = async (id) => {
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
 
     try {
       await axios.get(

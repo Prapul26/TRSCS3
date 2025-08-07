@@ -180,7 +180,7 @@ const MakeIntroduction = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem("authToken");
+        const token = sessionStorage.getItem("authToken");
         const response = await axios.get(
           `${process.env.REACT_APP_API_BASE_URL}/sendmailintro/introduction_email`,
           {
@@ -206,7 +206,7 @@ const MakeIntroduction = () => {
   }
 
   const handleAddContact = async (e) => {
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
     if (!firstName || !lastName || !email || !groupName) {
       setMessage("Please fill in all required fields.");
       return;

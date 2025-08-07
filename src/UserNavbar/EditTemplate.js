@@ -31,7 +31,7 @@ const EditTemplate = () => {
               if (isCalled) return;
               isCalled = true;
           
-              const token = localStorage.getItem("authToken");
+              const token = sessionStorage.getItem("authToken");
               try {
                 const response = await axios.get(`https://tracsdev.apttechsol.com/api/edit-template/${base64Id}`, {
                   headers: {
@@ -54,7 +54,7 @@ const EditTemplate = () => {
           const handleSubmit = async (e) => {
             e.preventDefault();
           
-            const token = localStorage.getItem("authToken");
+            const token = sessionStorage.getItem("authToken");
           
             try {
               const response = await axios.post(

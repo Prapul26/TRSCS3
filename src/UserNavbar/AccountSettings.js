@@ -118,7 +118,7 @@ const AccountSettings = () => {
   };
   const handleDeleteImage = async (id) => {
     try {
-      const token = localStorage.getItem("authToken");
+      const token = sessionStorage.getItem("authToken");
 
       let url = "";
       if (memberType == 1) {
@@ -194,7 +194,7 @@ const AccountSettings = () => {
     const timeoutId = setTimeout(() => {
       const fetchProfile = async () => {
         try {
-          const token = localStorage.getItem("authToken");
+          const token = sessionStorage.getItem("authToken");
           const response = await axios.get(
             `${process.env.REACT_APP_API_BASE_URL}/my-profile`,
             {
@@ -265,7 +265,7 @@ const AccountSettings = () => {
     setIsUpdating(true);
 
     try {
-      const token = localStorage.getItem("authToken");
+      const token = sessionStorage.getItem("authToken");
 
       // Prepare FormData for file uploads
       const formData = new FormData();

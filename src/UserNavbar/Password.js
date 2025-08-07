@@ -18,7 +18,7 @@ const Password = () => {
     if (password !== confirmPassword) {
       setMessage("New password and confirm password do not match.")
     }
-    const token = localStorage.getItem("authToken")
+    const token = sessionStorage.getItem("authToken")
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/update-password`, {
         current_password: currentPassword,

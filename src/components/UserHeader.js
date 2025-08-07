@@ -29,7 +29,7 @@ const UserHeader = () => {
   const [imageUrl, setImageUrl] = useState("");
 
 useEffect(() => {
-  const storedImage = localStorage.getItem("profileImageUrl");
+  const storedImage = sessionStorage.getItem("profileImageUrl");
   if (storedImage) {
     setImageUrl(storedImage);
   }

@@ -28,7 +28,7 @@ const MyMembership = () => {
     showIntro(!intro)
   }
   useEffect(() => {
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
 
     const fetchData = async () => {
       try {

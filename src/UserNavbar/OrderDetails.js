@@ -51,7 +51,7 @@ const OrderDetails = () => {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
     const fetchData = async () => {
       try {
         const response = await axios.get(

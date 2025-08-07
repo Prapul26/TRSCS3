@@ -31,7 +31,7 @@ const Contacts = () => {
     const fetchContacts = async () => {
       if (isCalled) return;
       isCalled = true;
-      const token = localStorage.getItem("authToken");
+      const token = sessionStorage.getItem("authToken");
       try {
         const response = await axios.get(
           `${process.env.REACT_APP_API_BASE_URL}/view-introduction-email-list`,
@@ -51,7 +51,7 @@ const Contacts = () => {
   }, []);
 
 const handleDelete = async (id) => {
-  const token = localStorage.getItem("authToken");
+  const token = sessionStorage.getItem("authToken");
 
   try {
     await axios.get(

@@ -20,7 +20,7 @@ const AddContacts = () => {
   };
 const handleSubmit =async (e)=>{
 e.preventDefault();
-const token=localStorage.getItem("authToken")
+const token=sessionStorage.getItem("authToken")
 if (!firstName || !lastName || !email || !groupName) {
   setMessage("Please fill in all required fields.");
   return;

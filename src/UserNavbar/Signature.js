@@ -52,7 +52,7 @@ const Signature = () => {
   };
 const handleSave=async(e)=>{
   e.preventDefault();
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
     try{
       const response=await axios.post(`${process.env.REACT_APP_API_BASE_URL}/signature_store_form`,{
         name : text
@@ -71,7 +71,7 @@ const handleSave=async(e)=>{
  useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem("authToken");
+        const token = sessionStorage.getItem("authToken");
         const response = await axios.get(
           `${process.env.REACT_APP_API_BASE_URL}/sendmailintro/introduction_email`,
           {

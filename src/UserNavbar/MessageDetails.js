@@ -37,7 +37,7 @@ const MessageDetails = () => {
   }
   useEffect(() => {
     const fetchData = async () => {
-      const token = localStorage.getItem("authToken");
+      const token = sessionStorage.getItem("authToken");
       try {
         const response = await axios.get(
           `${process.env.REACT_APP_API_BASE_URL}/view_user_inboxhistory_intro/${subject}/${user_id}/${replies_code}`,
@@ -85,7 +85,7 @@ const stripHtmlTags = (html) => {
   };
 
   const handleSendReply = async () => {
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/sendReplyMailtomem_Api`,
