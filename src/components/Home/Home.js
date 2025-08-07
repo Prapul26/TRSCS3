@@ -156,7 +156,7 @@ useEffect(() => {
               <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px", marginTop: "-4px" }}>2.Create your Account</p>
               <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px", marginTop: "-4px" }}>3.Add your contacts to your account</p>
               <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px", marginTop: "-4px" }}>4.Start Making Introductions</p>
-              <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px", marginTop: "-4px" }}>5.Use your Dashboard for Results</p><br /><Link to='/register'><button style={{ color: "black", background: "#eeba2b", height: "45px", borderRadius: "30px", marginTop: "-20px" }}>JOIN NOW</button></Link></div>
+              <p style={{ color: "#f96b39", fontWeight: "700", marginLeft: "20px", marginTop: "-4px" }}>5.Use your Dashboard for Results</p><br /></div>
 
             )}
 

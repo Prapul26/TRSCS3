@@ -8,8 +8,14 @@ import pic3 from '../assets/abd3.png'
 import happy from '../assets/happy.jpg'
 import Header from '../Heaader/Header';
 import Navbar from '../Navbar/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 const About_us = () => {
+    const navigate=useNavigate()
+    const handelJoin=()=>{
+        const token=sessionStorage.getItem("authToken");
+        navigate(token?"/myMembership":"/register")
+    }
     return (
         <div>
        <Header/>
@@ -70,6 +76,7 @@ const About_us = () => {
                 <ul> Join Us in Building the Future:</ul>
                 <p>We invite you to be part of a community that values collaboration, innovation, and the limitless possibilities that arise when great minds come together. Whether you're looking for career opportunities, business partnerships, or simply seeking inspiration, TRACS is the catalyst for your success.</p>
                 </div>
+                <div><button className='joinnnnn' onClick={handelJoin}>JOIN NOW</button></div>
             </div>
             <Footer />
         </div>

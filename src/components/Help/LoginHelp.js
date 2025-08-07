@@ -27,12 +27,12 @@ setTitle(response.data.title_info?.helpsection)
                   <div className='helpcurb1'><p style={{ color: "#007bff !important" }} className='ppffg'><Link to="/home" style={{ textDecoration: "none", color: "inherit" }}>HOME</Link></p><p>{">"}</p><p className='helppe'><Link to='/help'style={{ textDecoration: "none", color: "inherit" }}>Help</Link></p><p>{">"}</p><p style={{ marginLeft: '10px' }}>{helpTitle.title}</p></div>
                    <div className='makeIntroHelp'>
                 <h2>{helpTitle.title}</h2>
-             {data.map((help,index)=>( <div style={{marginBottom:"30px"}} className='selectM' key={help.id}>
+             {data.map((help,index)=>( <Link to={`/helpDescription/${help.id}`} style={{textDecoration:"none",color:"inherit"}}><div style={{marginBottom:"30px"}} className='selectM' key={help.id}>
                     <div>
-                      <Link to={`/helpDescription/${help.id}`} style={{textDecoration:"none",color:"inherit"}}><h5>{help.title}</h5></Link></div>
+                     <h5>{help.title}</h5></div>
                     <div>
-                      <Link to={`/helpDescription/${help.id}`} style={{textDecoration:"none",color:"inherit"}}><h5 style={{ fontWeight: '800', color: "#007bff" }}>{">"}</h5></Link></div>
-                </div>))}
+                      <h5 style={{ fontWeight: '800', color: "#007bff" }}>{">"}</h5></div>
+                </div></Link> ))}
                
             </div>
 
