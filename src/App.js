@@ -53,6 +53,7 @@ import ViewTemplate from "./UserNavbar/ViewTemplate";
 import MakeHelp from "./components/Help/MakeHelp";
 import LoginHelp from "./components/Help/LoginHelp";
 import RegisterHelp from "./components/Help/RegisterHelp";
+import WhatIsMakeInro from "./components/WhatInroduction/WhatIsMakeInro";
 
 
 
@@ -116,6 +117,7 @@ const App = () => {
 <Route path="/help" element={<Help />}/>
 <Route path="/help/:id" element={<LoginHelp/>}/>
 <Route path="/helpDescription/:id" element={<RegisterHelp/>}/>
+<Route path="/whatIsMakeIntro" element={<WhatIsMakeInro />}/>
         </Routes>
       </div>
     </Router>

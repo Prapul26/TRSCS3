@@ -1,0 +1,22 @@
+.whatmi-container{
+    width: 70% !important;
+    margin-left: 15% !important;
+    margin-right: 15% !important;
+    margin-top: 150px;
+    margin-bottom: 80px;
+}
+@media(max-width:480px){
+    .p1h1 h1{
+        font-size: 20px !important;
+    }
+    .ph1 {
+        height: 62px;
+    }
+    .whatmi-container{
+    width: 90% !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+}

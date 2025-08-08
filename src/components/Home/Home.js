@@ -81,7 +81,7 @@ useEffect(() => {
 
   const handleMakeIntroClick = () => {
     const token = localStorage.getItem("authToken");
-    navigate("/login");
+    navigate("/whatIsMakeIntro");
   };
 
   const handleDashboard = () => {
