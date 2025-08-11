@@ -64,7 +64,7 @@ useEffect(() => {
   const timeoutId = setTimeout(() => {
     const fetchProfile = async () => {
       try {
-        const token = localStorage.getItem("authToken");
+        const token = sessionStorage.getItem("authToken");
         const response = await axios.get(
           "https://tracsdev.apttechsol.com/api/my-profile",
           {

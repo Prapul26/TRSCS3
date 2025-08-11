@@ -1,0 +1,15 @@
+.emailContainer{
+    
+    padding-left: 10px;
+height: 40px;
+    background-color: rgb(233, 232, 232);
+    width: 900px;
+    border-radius: 5px;
+}
+.emailContainer p{
+    padding-top: 6.5px;
+}
+.rrtext{
+    margin-top: 15px;
+    width: 900px !important;
+}

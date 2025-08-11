@@ -54,6 +54,7 @@ import MakeHelp from "./components/Help/MakeHelp";
 import LoginHelp from "./components/Help/LoginHelp";
 import RegisterHelp from "./components/Help/RegisterHelp";
 import WhatIsMakeInro from "./components/WhatInroduction/WhatIsMakeInro";
+import ContactUs from "./UserNavbar/ContactUs";
 
 
 
@@ -118,6 +119,7 @@ const App = () => {
 <Route path="/help/:id" element={<LoginHelp/>}/>
 <Route path="/helpDescription/:id" element={<RegisterHelp/>}/>
 <Route path="/whatIsMakeIntro" element={<WhatIsMakeInro />}/>
+<Route path="/contactUs" element={<ContactUs />}/>
         </Routes>
       </div>
     </Router>

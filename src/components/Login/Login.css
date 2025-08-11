@@ -162,6 +162,20 @@ height: 31px;
     outline: transparent;
     border: transparent;
 }
+.registerKey{
+    display: flex;
+}
+.popShow{
+    position: absolute;
+    margin-top: 147px;
+    padding: 5px;
+    border-radius: 5px;
+    height: 180px;
+    width: 220px;
+    background-color: black;
+    opacity: 0.9;
+    color: white !important;
+}
 @media (max-width: 480px) {
     .LoginContainer {
         width: 80%;

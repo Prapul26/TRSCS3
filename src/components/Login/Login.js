@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import Header from '../Heaader/Header';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import { IoLockClosed, IoPerson } from 'react-icons/io5';
+import { IoIosInformationCircle } from 'react-icons/io';
+import { AiTwotoneQuestionCircle } from 'react-icons/ai';
+import axios from 'axios';
 
 const Login = ({ switchToRegister }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const[popUp,setPopUp]=useState(false);
+    const[popupMessage,setPopupMessage]=useState([])
+    const showPopUp=()=>{
+        setPopUp(true);
+    }
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -46,7 +54,22 @@ const Login = ({ switchToRegister }) => {
         setMessage('An error occurred. Please try again later.');
     }
 };
+useEffect(()=>{
+  const fetchData=async()=>{
+        try{
+const response=await axios.get("https://tracsdev.apttechsol.com/api/login");
+setPopupMessage(response.data.keyfields.find(item=>item.id === 10)?.description || "")
+        }catch(err){
+console.log(err)
+        }
+    };
 
+fetchData();},[]);
+const adjustInternalHtml=(html)=>{
+    const container =document.createElement("div");
+    container.innerHTML=html;
+    return container.innerHTML;
+}
 
     return (
         <div>
@@ -105,8 +128,11 @@ const Login = ({ switchToRegister }) => {
                         <Link to='/forgotPassword' style={{ textDecoration: "none" }}> <div className='forpass'><p>Forgot Password ?</p></div></Link>
                     </div>
                     <button type='submit'>Login</button>
-
-                    <Link to="/register" style={{ textDecoration: "none" }}><div className='regP'><p >Register</p></div></Link>
+{
+    popUp && (<div className='popShow' dangerouslySetInnerHTML={{ __html: adjustInternalHtml(popupMessage) }} onMouseLeave={()=>setPopUp(false)} ></div>)
+}
+                  <div className='registerKey'>  <div className='regP'><Link to="/register" style={{ textDecoration: "none" }}><p >Register</p></Link></div>
+                  <div style={{marginTop:"15px",marginLeft:"4px"}} onMouseEnter={()=>setPopUp(true)}><AiTwotoneQuestionCircle/></div></div>
                     <p>{message}</p>
                 </form>
             </div>

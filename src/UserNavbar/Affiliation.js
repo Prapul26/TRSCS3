@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { IoCopy } from "react-icons/io5";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import axios from "axios";
+import { IoIosInformationCircle } from "react-icons/io";
+import { ImCross } from "react-icons/im";
 
 const Affiliation = () => {
   const [basic, showBasic] = useState(false);
@@ -17,7 +19,15 @@ const Affiliation = () => {
   const [settings, showSettings] = useState(false);
   const [data, setData] = useState([]);
   const inputRef = useRef(null); // 🔑 Added input ref
-
+  const [showpage, setShowPage] = useState(false);
+  const [showData2,setShowData]=useState(false);
+const[errorHeading,setErrorHeading]=useState(false)
+    const urlClick = () => {
+    setShowPage(!showpage)
+  }
+  const closeURlCLick = () => {
+    setShowPage(false)
+  }
   const showMobnav = () => {
     setShowSidebar((prev) => !prev);
   };
@@ -60,14 +70,44 @@ const Affiliation = () => {
           }
         );
         setData(response.data);
+        console.log("status"+ data.link_exist?.status);
+        if(data.link_exist?.status === 1){
+          setShowData(true)
+        }
+        else{
+          setErrorHeading(true)
+        }
+
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
   }, []);
+   const status = data.link_exist?.status;
+ 
+       console.log("status from response:", status);
 
   return (
+    <div>
+
+     {
+           showpage && (
+             <div className="pageURLContainer">
+               <div className="pageURLHolder" >
+                 <div className="pageURLHeader">
+                   <div><h4 style={{ color: "white" }}>Promote services and earn commission</h4></div>
+                  
+                   <div onClick={closeURlCLick} style={{ marginTop: "9px" }}> <ImCross /></div>
+                 </div>
+                 <div className="pageiframeContainer">
+                   <div className="pageIframe"><iframe src="https://tracsdev.apttechsol.com/helpsection-descriptionnew/14" /></div>
+   
+                 </div>
+               </div>
+             </div>
+           )
+         }
     <div className="mobMenuaa">
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
       <div className="affili">
@@ -86,6 +126,9 @@ const Affiliation = () => {
                 <div>
                   <h2 style={{marginLeft:"20px",marginTop:"23px"}}>Affiliation</h2>
                 </div>
+                {
+                  showData2 && <div>wdddddd</div>
+                }
                 <div className="status-toggle">
                   <span
                     className={`status-label ${
@@ -98,7 +141,14 @@ const Affiliation = () => {
                     {activeTab === "active" ? "Active" : "In Active"}
                   </span>
                 </div>
+
               </div>
+              <div style={{ display: "flex" ,marginLeft:"20px"}} className="urlPage" onClick={urlClick}><div><p>Promote services and earn commission </p></div>
+                  <div style={{ marginTop: "-18px", marginLeft: "5px" }}><IoIosInformationCircle size={15} /></div>
+                </div>
+                {
+                  errorHeading &&(<div>awdawd</div>)
+                }
             </div>
 
             <div className="myAffiliation-holder">
@@ -123,7 +173,7 @@ const Affiliation = () => {
               </div>
             </div>
 
-            {activeTab === "active" && (
+            {showData2 &&  (
               <div className="affTable">
                 <table>
                   <thead>
@@ -152,7 +202,7 @@ const Affiliation = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div> </div>
   );
 };
 
