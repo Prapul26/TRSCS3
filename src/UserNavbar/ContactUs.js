@@ -23,25 +23,11 @@ const ContactUs = () => {
        setShowSidebar(prev => !prev);
    
      };
-     const [text,setText]=useState("")
+    
   
 const handleSave=async(e)=>{
   e.preventDefault();
-    const token = sessionStorage.getItem("authToken");
-    try{
-      const response=await axios.post(`${process.env.REACT_APP_API_BASE_URL}/signature_store_form`,{
-        name : text
-      },{
-        headers:{
-          Authorization:`Bearer ${token}`
-        }
-      }); setMsg(response.data.message || "");
-    
-    }  catch (err) {
-  const errorMessage =
-    err.response?.data?.message || "Data not saved. Please try again.";
-  setMsg(errorMessage);
-}
+   
 }
 
 

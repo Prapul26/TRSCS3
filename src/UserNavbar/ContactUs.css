@@ -13,3 +13,17 @@ height: 40px;
     margin-top: 15px;
     width: 900px !important;
 }
+@media (max-width:480px) {
+    .emailContainer{
+    
+    padding-left: 10px;
+height: 40px;
+    background-color: rgb(233, 232, 232);
+    width:100%;
+    border-radius: 5px;
+}
+.rrtext{
+    margin-top: 15px;
+    width: 100% !important;
+}
+}
