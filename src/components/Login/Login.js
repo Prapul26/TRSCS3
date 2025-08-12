@@ -132,7 +132,7 @@ const adjustInternalHtml=(html)=>{
     popUp && (<div className='popShow' dangerouslySetInnerHTML={{ __html: adjustInternalHtml(popupMessage) }} onMouseLeave={()=>setPopUp(false)} ></div>)
 }
                   <div className='registerKey'>  <div className='regP'><Link to="/register" style={{ textDecoration: "none" }}><p >Register</p></Link></div>
-                  <div style={{marginTop:"15px",marginLeft:"4px"}} onMouseEnter={()=>setPopUp(true)}><AiTwotoneQuestionCircle/></div></div>
+                  <div style={{marginTop:"15px",marginLeft:"4px"}} onMouseEnter={()=>setPopUp(true)}><AiTwotoneQuestionCircle color='black'/></div></div>
                     <p>{message}</p>
                 </form>
             </div>

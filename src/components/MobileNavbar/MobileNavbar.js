@@ -79,8 +79,8 @@ const MobileNavbar = ({showMobnav}) => {
   }, []);
   
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("profileImageUrl")
+    sessionStorage.removeItem("authToken");
+    sessionStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
     navigate("/"); // Redirect to login page
     window.location.reload()

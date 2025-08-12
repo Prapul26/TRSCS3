@@ -47,14 +47,14 @@ setMenuDrop(!menuDrop)
   const navigate = useNavigate();
   useEffect(() => {
     // Check if user is logged in by checking for token in localStorage
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
     if (token) {
       setIsLoggedIn(true);
     }
   }, []);
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("profileImageUrl")
+    sessionStorage.removeItem("authToken");
+    sessionStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
     navigate("/"); // Redirect to login page
     window.location.reload()
