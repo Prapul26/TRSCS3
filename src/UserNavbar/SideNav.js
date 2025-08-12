@@ -47,7 +47,7 @@ const SideNav = () => {
             currentPath === "/accountSettings" ||
             currentPath === "/affiliation" ||
             currentPath === "/passwordChange"
-          ) ? "active" : ""}`} onClick={handelSettings} style={{ marginBottom: "5px" }} ><div style={{ display: "flex" }}><div style={{ marginTop: '19px', marginRight: "5px", marginLeft: "px" }}><IoSettingsSharp size={20} /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "19px", marginLeft: "-20px" }}>Account Settings</ul></div> <div style={{ marginTop: "15px", marginLeft: '10px' }}>{settings ? < RiArrowDropUpLine size={25} style={{ marginTop: "0px" }} /> : <RiArrowDropDownLine size={25} style={{ marginTop: "0px" }} />}</div>
+          ) ? " " : ""}`} onClick={handelSettings} style={{ marginBottom: "5px" }} ><div style={{ display: "flex" }}><div style={{ marginTop: '19px', marginRight: "5px", marginLeft: "px" }}><IoSettingsSharp size={20} /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "19px", marginLeft: "-20px" }}>Account Settings</ul></div> <div style={{ marginTop: "15px", marginLeft: '10px' }}>{settings ? < RiArrowDropUpLine size={25} style={{ marginTop: "0px" }} /> : <RiArrowDropDownLine size={25} style={{ marginTop: "0px" }} />}</div>
 
           </div>
           {
@@ -68,7 +68,7 @@ const SideNav = () => {
             currentPath === "/inbox" ||
             currentPath === "/email" ||
             currentPath === "/signature"
-          ) ? "active" : ""}`} onClick={handelIntro} style={{ marginBottom: "5px" }} ><div style={{ display: "flex" }}><div style={{ marginTop: '19px', marginRight: "5px", marginLeft: "5px" }}><FaBriefcase size={20} /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "19px", marginLeft: "-20px" }}>Introduction</ul></div> <div style={{ marginTop: "15px" }}>{settings ? < RiArrowDropUpLine size={22} style={{ marginTop: "0px" }} /> : <RiArrowDropDownLine size={25} style={{ marginTop: "0px" }} />}</div>
+          ) ? " " : ""}`} onClick={handelIntro} style={{ marginBottom: "5px" }} ><div style={{ display: "flex" }}><div style={{ marginTop: '19px', marginRight: "5px", marginLeft: "5px" }}><FaBriefcase size={20} /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "19px", marginLeft: "-20px" }}>Introduction</ul></div> <div style={{ marginTop: "15px" }}>{settings ? < RiArrowDropUpLine size={22} style={{ marginTop: "0px" }} /> : <RiArrowDropDownLine size={25} style={{ marginTop: "0px" }} />}</div>
 
           </div>                                  {
             intro && <div className="intoNav" style={{ marginLeft: "7px" }}>
@@ -80,7 +80,7 @@ const SideNav = () => {
             </div>
           }</div>
 
-        <Link to='/contactUs'  style={{textDecoration:"none",color:"inherit"}}><div className='rdsewdx'>
+        <Link to='/contactUs'  style={{textDecoration:"none",color:"inherit"}}><div className={`rdsewdx ${currentPath === "/contactUs" ? "active" : ""}`}>
           <div style={{marginTop:"20px"}}><FaRegComment size={20} /></div>
           <div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "18px", marginLeft: "-20px" }}>Contact Us</ul></div>
         </div></Link>

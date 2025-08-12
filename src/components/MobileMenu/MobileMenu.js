@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { IoPerson, IoSettingsSharp } from 'react-icons/io5'
 import { MdOutlineCardMembership, MdOutlineEmail } from 'react-icons/md'
 import { TbArrowsRandom } from 'react-icons/tb'
-import { FaBriefcase, FaFileSignature } from 'react-icons/fa'
+import { FaBriefcase, FaFileSignature, FaRegComment, FaRegFile } from 'react-icons/fa'
 import { HiInboxArrowDown } from 'react-icons/hi2';
 import { useLocation } from 'react-router-dom';
 
@@ -34,12 +34,12 @@ const MobileMenu = () => {
       </div>
 
       <div className={`introduction41 ${(
-         currentPath === "/myMembership" ||
-            currentPath === "/accountSettings" ||
-            currentPath === "/affiliation" ||
-            currentPath === "/passwordChange"
-      ) ? "active" : ""}`} onClick={handelIntro2}>
-        <div style={{ display: "flex" }}><div style={{ marginTop: "16px", marginRight: "12px" }}><IoSettingsSharp size={20}  /> </div>
+        currentPath === "/myMembership" ||
+        currentPath === "/accountSettings" ||
+        currentPath === "/affiliation" ||
+        currentPath === "/passwordChange"
+      ) ? "" : ""}`} onClick={handelIntro2}>
+        <div style={{ display: "flex" }}><div style={{ marginTop: "16px", marginRight: "12px" }}><IoSettingsSharp size={20} /> </div>
           <div style={{ marginTop: "-4px" }}> <h2 style={{ fontSize: "20px", marginTop: "18px" }}>Application Setting</h2></div></div>
         <div style={{ marginTop: "14px" }}><RiArrowDropDownLine size={25} /></div>
       </div>
@@ -57,10 +57,10 @@ const MobileMenu = () => {
         currentPath === "/inbox" ||
         currentPath === "/email" ||
         currentPath === "/signature"
-      ) ? "active" : ""}`} onClick={handelIntro}>
-        <div style={{ display: "flex" }}><div style={{ marginTop: "13px", marginRight: "12px" }}><FaBriefcase size={20}  /> </div>
+      ) ? "" : ""}`} onClick={handelIntro}>
+        <div style={{ display: "flex" }}><div style={{ marginTop: "13px", marginRight: "12px" }}><FaBriefcase size={20} /> </div>
           <div style={{ marginTop: "-4px" }}> <h2 style={{ fontSize: "20px" }}>Introduction</h2></div></div>
-        <div style={{ marginTop: "10px" }}><RiArrowDropDownLine  size={25} /></div>
+        <div style={{ marginTop: "10px" }}><RiArrowDropDownLine size={25} /></div>
       </div>
       {
         intro && <div className="intoNav" style={{ marginLeft: "7px" }}>
@@ -71,6 +71,15 @@ const MobileMenu = () => {
 
         </div>
       }
+
+     <Link to="/contactUs" style={{ color: "inherit", textDecoration: "none" }} ><div className={`constactUS ${currentPath === "/contactUs" ? "active" : ""}`}>
+<div style={{marginTop:"16px",marginRight:"10px",marginLeft:"10px"}}><FaRegComment /></div>
+<div ><h2>Contact us</h2></div>
+      </div></Link> 
+    <Link to='/help' style={{ color: "inherit", textDecoration: "none" }}> <div className='apppphelp'>
+<div style={{marginTop:"16px",marginRight:"10px",marginLeft:"10px"}}><FaRegFile /></div>
+<div><h2>App Help</h2></div>
+      </div></Link> 
     </div>
   )
 }
