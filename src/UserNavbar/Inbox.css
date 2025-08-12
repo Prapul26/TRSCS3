@@ -56,6 +56,16 @@ width: 30%;
 }
 .mI3 button{
   color: black;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  font-size: 17px;
+  border-radius: 25px;
+}
+.mI3 button:hover{
+      background-color: rgb(184, 186, 187);
+
 }
 .messageInbox select{
   width: 100%;

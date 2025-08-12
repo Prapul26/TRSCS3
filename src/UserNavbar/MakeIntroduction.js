@@ -308,7 +308,7 @@ const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
         <div className="prevIntro">
           <Link to="/inbox">
             {" "}
-            <button style={{ background: "#163b6d" }}> Previous Introductions</button>
+            <button className="PrevIntrobutton"> Previous Introductions</button>
           </Link>
         </div>
       </div>

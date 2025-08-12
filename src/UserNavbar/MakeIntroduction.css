@@ -296,6 +296,20 @@ padding-bottom: 20px;
   overflow-y: auto;
   z-index: 1000;
 }
+.PrevIntrobutton{
+  color: black;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 17px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  border-radius: 25px;
+  background-color: #eeba2b;
+    
+}
+.PrevIntrobutton:hover{
+    background-color: rgb(184, 186, 187);
+}
 .practiceHolder{
     background-color: white;
     margin-top: 3%;
