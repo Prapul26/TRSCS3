@@ -264,7 +264,7 @@ src={profileImg}              style={{ height: "100%", width: "100%"}}
           {menuDrop ?(  <MdOutlineArrowDropUp size={25} color="white" />):(< MdOutlineArrowDropDown color="white" size={25}/> )}
           {menuDrop && <div className="menuDrop">
         <div style={{display:"flex",borderBottom:"1px solid black",marginBottom:"5px",cursor:"pointer"}} onClick={handleLogout}> <div style={{marginBottom:"5px"}}><RiLogoutBoxLine /></div><h4>Logout</h4></div>
-     <Link to="/myMembership" style={{textDecoration:"none",color:"inherit",cursor:"pointer"}}>  <div style={{display:"flex"}}><div><MdAccountCircle /></div><h4>My Account</h4></div></Link></div>}
+     <Link to="/myMembership" style={{textDecoration:"none",color:"inherit",cursor:"pointer"}}>  <div style={{display:"flex"}}><div><MdAccountCircle /></div><h4>Dashboard</h4></div></Link></div>}
           </div>
         </div>
       </div>

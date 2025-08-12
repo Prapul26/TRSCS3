@@ -162,7 +162,7 @@ useEffect(() => {
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   {" "}
-                  <h2 style={{ fontSize: "18px" }}>Help</h2>
+                  <h2 style={{ fontSize: "18px" }}>App Help</h2>
                 </Link>
               </div>
             </div>
@@ -272,7 +272,7 @@ useEffect(() => {
                 >
                   <div className="profileDrop">
                   <div style={{marginTop:"15px",marginRight:"6px"}}><IoPerson /></div>
-                        <div> <p>My Account</p></div>
+                        <div> <p>Dashboard</p></div>
                   </div>
                 </Link>
                 <div className="dropLogout" onClick={handleLogout}>
@@ -346,7 +346,7 @@ useEffect(() => {
                     >
                       <div className="profileDrop">
                         <div style={{marginTop:"15px",marginRight:"6px"}}><IoPerson /></div>
-                        <div> <p>My Account</p></div>
+                        <div> <p>Dashboard</p></div>
                        
                       </div>
                     </Link>
