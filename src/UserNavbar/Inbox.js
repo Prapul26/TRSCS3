@@ -40,7 +40,7 @@ const Inbox = () => {
   const [serchParams, setSearchParams] = useSearchParams();
   const [settings, showSettings] = useState(false);
   const [data2, setData] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(null);
   const [showSidebar, setShowSidebar] = useState(false);
   const [sentMessages, setSentMessages] = useState([]);
   const [showkeyfeilds, setKeyfeilds] = useState([]);
@@ -51,7 +51,8 @@ const Inbox = () => {
   const [showTakeAction, setTakeAction] = useState(false)
   const [showButton, setButton] = useState(false);
   const [showpage, setShowPage] = useState(false);
-  
+  const [expandedId, setExpandedId] = useState(null);
+  const [isAllExpanded, setIsAllExpanded] = useState(false);
   const urlClick = () => {
     setShowPage(!showpage)
   }
@@ -150,6 +151,10 @@ const Inbox = () => {
 
 
   const sanitizedHtml2 = container2.innerHTML;
+
+const toggleExpand = (id) => {
+  setExpandedId(prevId => (prevId === id ? null : id));
+};
   return (
     <div>
       {
@@ -237,7 +242,7 @@ const Inbox = () => {
                 <div className="collapseButton" style={{ display: "flex", flexDirection: "column" }}>
                   <div>
                     {" "}
-                    <button className="collapseButton-button" style={{ background: "#163b6d !important" }} onClick={() => setIsExpanded(!isExpanded)}>
+                    <button className="collapseButton-button" style={{ background: "#163b6d !important" }} onClick={() => setIsExpanded(prev => !prev)}>
                       {isExpanded ? "Collapse all" : "Expand all"}
                     </button>
                   </div>
@@ -277,9 +282,13 @@ const Inbox = () => {
                       return true;
                     }).map((item, index) => (
                       <div key={item.id} className="inbox">
+                        <div classname="headingContainer" style={{display:"flex",justifyContent:"space-between"}}>
                         <div classname="headingIntro">
                           <h5 style={{ fontSize: "16px", fontWeight: "600", marginTop: "-0px" }}>{item.subject}</h5>
                         </div>
+<div onClick={() => toggleExpand(item.id)}>
+  {expandedId === item.id ? <IoIosArrowDropup /> : <IoIosArrowDropdown />}
+</div>                  </div>
                         <div className="pictime">
                           <div className="pic55">
                             <div className="pic55img">< img src={item.sender_full_image} />
@@ -298,7 +307,7 @@ const Inbox = () => {
                             {item.recipients_info.some(recipient => recipient.replied === false) && (<div className="timeStar" style={{ marginTop: "-0px" }}><IoIosStar color="#eeba2b" /></div>)}
                           </div>
                         </div>
-                        {isExpanded && (
+                        {(isExpanded || expandedId === item.id) && (
                           <div style={{ marginTop: "-16px" }}>
                             <h5 style={{ fontSize: "17px", fontWeight: "700" }}>Introducing</h5>
 

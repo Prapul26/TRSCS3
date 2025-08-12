@@ -57,7 +57,7 @@ const handleSave=async(e)=>{
                 Email
               </label>
               <br />
-              <div className='emailContainer'><p>wd</p></div>
+              <div className='emailContainer'><p>wdwwwwweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p></div>
               <br/>
               <label>Message</label>
               <br/>

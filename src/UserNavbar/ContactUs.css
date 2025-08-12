@@ -21,6 +21,11 @@ height: 40px;
     background-color: rgb(233, 232, 232);
     width:100%;
     border-radius: 5px;
+    overflow: hidden;
+
+}
+.emailContainer p{
+    padding-top:0px;
 }
 .rrtext{
     margin-top: 15px;
