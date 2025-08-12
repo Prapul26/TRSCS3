@@ -87,7 +87,6 @@ padding-bottom: 5px;
 .introduction4{
   color: black;
 
-
 }
 .introduction41.active{
   background-color: black !important;
@@ -102,16 +101,15 @@ padding-bottom: 5px;
 }
 .introduction41{
   color: black;
- 
 
 }
 .constactUS{
 display: flex;
-
+ border-bottom: 1px solid black;
 }
 .apppphelp{
 display: flex;
-
+ border-bottom: 1px solid black;
 }
 .constactUS.active{
   background-color: black !important;

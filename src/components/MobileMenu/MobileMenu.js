@@ -33,6 +33,7 @@ const MobileMenu = () => {
           style={{ height: "55%", width: "80%", marginLeft: "10%", marginTop: "7%" }} /></Link>
       </div>
 
+      <div style={{borderBottom:"1px solid black"}}>
       <div className={`introduction41 ${(
         currentPath === "/myMembership" ||
         currentPath === "/accountSettings" ||
@@ -42,7 +43,7 @@ const MobileMenu = () => {
         <div style={{ display: "flex" }}><div style={{ marginTop: "16px", marginRight: "12px" }}><IoSettingsSharp size={20} /> </div>
           <div style={{ marginTop: "-4px" }}> <h2 style={{ fontSize: "20px", marginTop: "18px" }}>Application Setting</h2></div></div>
         <div style={{ marginTop: "14px" }}><RiArrowDropDownLine size={25} /></div>
-      </div>
+      </div>     
       {
         intro2 && <div className="intoNav" style={{ marginLeft: "7px" }}>
           <Link to='/myMembership' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/myMembership" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }} ><div>< MdOutlineCardMembership size={20} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>My Membership</h3></div></Link>
@@ -52,6 +53,10 @@ const MobileMenu = () => {
 
         </div>
       }
+     
+      </div> 
+
+      <div style={{borderBottom:"1px solid black"}}>
       <div className={`introduction4 ${(
         currentPath === "/contacts" ||
         currentPath === "/inbox" ||
@@ -71,6 +76,9 @@ const MobileMenu = () => {
 
         </div>
       }
+      
+      </div>
+      
 
      <Link to="/contactUs" style={{ color: "inherit", textDecoration: "none" }} ><div className={`constactUS ${currentPath === "/contactUs" ? "active" : ""}`}>
 <div style={{marginTop:"16px",marginRight:"10px",marginLeft:"10px"}}><FaRegComment /></div>
