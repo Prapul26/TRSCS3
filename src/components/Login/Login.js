@@ -8,6 +8,7 @@ import { IoLockClosed, IoPerson } from 'react-icons/io5';
 import { IoIosInformationCircle } from 'react-icons/io';
 import { AiTwotoneQuestionCircle } from 'react-icons/ai';
 import axios from 'axios';
+import { FaCircleQuestion } from 'react-icons/fa6';
 
 const Login = ({ switchToRegister }) => {
     const [email, setEmail] = useState('');
@@ -132,7 +133,7 @@ const adjustInternalHtml=(html)=>{
     popUp && (<div className='popShow' dangerouslySetInnerHTML={{ __html: adjustInternalHtml(popupMessage) }} onMouseLeave={()=>setPopUp(false)} ></div>)
 }
                   <div className='registerKey'>  <div className='regP'><Link to="/register" style={{ textDecoration: "none" }}><p >Register</p></Link></div>
-                  <div style={{marginTop:"15px",marginLeft:"4px"}} onMouseEnter={()=>setPopUp(true)}><AiTwotoneQuestionCircle color='black'/></div></div>
+                  <div style={{marginTop:"15px",marginLeft:"4px"}} onMouseEnter={()=>setPopUp(true)}><FaCircleQuestion  color='black'/></div></div>
                     <p>{message}</p>
                 </form>
             </div>

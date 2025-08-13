@@ -50,6 +50,10 @@ padding-top: 20px;
   padding-left: 5px;
     border-bottom: 1px solid black;
 }
+.resources{
+  display: flex;
+  justify-content: space-between;
+}
 .rdsewdx.active{
     width: 100%;
   background-color: black !important;

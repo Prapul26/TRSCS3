@@ -74,6 +74,12 @@ width: 30%;
 
   font-size: 15px !important;
 }
+.showButton {
+  color:white !important ;
+}
+.showButtonp {
+  color:white !important ;
+}
 .inbox-holder {
     margin-left: 0px ;
     padding: 20px;
@@ -149,8 +155,9 @@ padding: 2px;
 padding: 1px;
   }
   .showButton{
-  background-color: #000000;
-    color: white;
+  background-color: #595858;
+    color: white ;
+    opacity: 0.9;
 width: 270px;
   box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
 
@@ -162,6 +169,9 @@ padding: 2px;
 
 padding: 1px;
   }
+  .conversation-title {
+  font-size: 16px !important;
+}
   .showButton p{
  font-size: 13px !important;
     margin-left: 4px;

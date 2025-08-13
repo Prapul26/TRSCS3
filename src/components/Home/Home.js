@@ -80,7 +80,7 @@ useEffect(() => {
 
 
   const handleMakeIntroClick = () => {
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
     navigate("/whatIsMakeIntro");
   };
 

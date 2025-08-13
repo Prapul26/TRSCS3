@@ -14,6 +14,7 @@ import { TiArrowBack, TiArrowBackOutline } from "react-icons/ti";
 import axios from "axios";
 import { PiMouseScrollFill } from "react-icons/pi";
 import { AiTwotoneQuestionCircle } from "react-icons/ai";
+import { FaCircleQuestion } from "react-icons/fa6";
 
 const MakeIntroduction = () => {
   const templates = {
@@ -319,7 +320,7 @@ const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
             {
               showTakeAction && <div style={{marginTop:"-70px",width:"250px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"50px",background:"black",color:"white"}}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field1 || "") }} onMouseLeave={()=>setTakeAction(false)} /></div>
             }
-            <div style={{ display: "flex" }}><div><label>Directory</label></div><div style={{ marginLeft: "5px", marginTop: "2px" }} onMouseEnter={handleMouseEnter} ><AiTwotoneQuestionCircle /></div></div>
+            <div style={{ display: "flex" }}><div><label>Directory</label></div><div style={{ marginLeft: "5px", marginTop: "2px" }} onMouseEnter={handleMouseEnter} ><FaCircleQuestion /></div></div>
             <br />
             <select
               className="toSelect"
@@ -656,9 +657,9 @@ const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
               <div>
                 <label>Select Template </label>
               </div>
-              <div  onMouseEnter={() => setTakeAction2(true)}><AiTwotoneQuestionCircle /></div>
+              <div  onMouseEnter={() => setTakeAction2(true)} style={{marginTop:"2px",marginLeft:"6px"}}><FaCircleQuestion /></div>
               <div style={{ marginTop: "-9px", marginLeft: "7px" }} onClick={handelbest}>
-                <p style={{ fontSize: "12px !important" }} className="pset">
+                <p style={{ fontSize: "12px !important",textDecoration:"underline" }} className="pset">
                   Best Practices ?
                 </p>
               </div>{" "}
@@ -793,7 +794,7 @@ let replaced1 = ggText
                   {
               showTakeAction3 && <div className="showTakeAction3" style={{marginTop:"-130px",position:"absolute",width:"350px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"90px",color:"white"}}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field3 || "") }} onMouseLeave={()=>setTakeAction3(false)}/></div>
             }
-              <h3>Include Signature</h3><div style={{ marginLeft: "5px", marginTop: "5px" }} onMouseEnter={() => setTakeAction3(true)}><AiTwotoneQuestionCircle /></div>
+              <h3 style={{marginLeft:"4PX"}}>Include Signature</h3><div style={{ marginLeft: "5px", marginTop: "5px" }} onMouseEnter={() => setTakeAction3(true)}><FaCircleQuestion /></div>
             </div>
             <div className="formButtons">
               <button style={{ background: "#dc3545", height: "37px", fontSize: "1rem", marginTop: "20px" }}>Cancel</button>

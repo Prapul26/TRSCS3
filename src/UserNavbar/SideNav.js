@@ -2,7 +2,7 @@ import React from 'react'
 import { FaFileSignature, FaRegComment, FaRegFile } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
-import { MdOutlineArrowDropDown, MdOutlineArrowDropUp, MdOutlineCardMembership } from "react-icons/md";
+import { MdOutlineArrowDropDown, MdOutlineArrowDropUp, MdOutlineCardMembership, MdOutlineCreditCard } from "react-icons/md";
 import { FaBriefcase } from "react-icons/fa6";
 import { IoSettingsSharp } from "react-icons/io5";
 import { ImProfile } from "react-icons/im";
@@ -30,6 +30,10 @@ const SideNav = () => {
   const currentPath = location.pathname;
   const [intro, showIntro] = useState(true);
   const [settings, showSettings] = useState(true);
+  const[showResources,setResources]=useState(false);
+  const handleResources=()=>{
+    setResources(!showResources)
+  }
   const handelSettings = () => {
     showSettings(!settings);
   }
@@ -68,7 +72,7 @@ const SideNav = () => {
             currentPath === "/inbox" ||
             currentPath === "/email" ||
             currentPath === "/signature"
-          ) ? " " : ""}`} onClick={handelIntro} style={{ marginBottom: "5px" }} ><div style={{ display: "flex" }}><div style={{ marginTop: '19px', marginRight: "5px", marginLeft: "5px" }}><FaBriefcase size={20} /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "19px", marginLeft: "-20px" }}>Introduction</ul></div> <div style={{ marginTop: "15px" }}>{settings ? < RiArrowDropUpLine size={22} style={{ marginTop: "0px" }} /> : <RiArrowDropDownLine size={25} style={{ marginTop: "0px" }} />}</div>
+          ) ? " " : ""}`} onClick={handelIntro} style={{ marginBottom: "5px" }} ><div style={{ display: "flex" }}><div style={{ marginTop: '19px', marginRight: "5px", marginLeft: "5px" }}><FaBriefcase size={20} /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "19px", marginLeft: "-20px" }}>Introduction</ul></div> <div style={{ marginTop: "15px" }}>{intro ? < RiArrowDropUpLine size={22} style={{ marginTop: "0px" }} /> : <RiArrowDropDownLine size={25} style={{ marginTop: "0px" }} />}</div>
 
           </div>                                  {
             intro && <div className="intoNav" style={{ marginLeft: "7px" }}>
@@ -80,14 +84,25 @@ const SideNav = () => {
             </div>
           }</div>
 
+          <div style={{borderBottom:"1px solid black"}}>
+<div className='resources'onClick={handleResources}>
+  <div style={{marginTop:"15px"}}>< MdOutlineCreditCard size={22}/></div>
+  <div style={{marginLeft:"-65px",marginTop:'-4px'}}><ul  style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "19px", marginLeft: "-20px" }}>Resources</ul></div>
+  <div style={{marginTop:"15px"}} >{showResources ? < RiArrowDropUpLine size={22} style={{ marginTop: "0px" }} /> : <RiArrowDropDownLine size={25} style={{ marginTop: "0px" }} />}</div>
+</div>
+{
+  showResources &&(
+              <Link to='/help' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/contacts" ? "active" : ""}`}><div style={{ display: "flex" }} className={`uk1 ${currentPath === "/help" ? "active" : ""}`}> <div style={{ paddingLeft: "15px" }}>< FaRegFile /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "0px", marginLeft: "-20px" }}>App Help</ul></div></Link>
+
+  )
+}
+          </div>
+
         <Link to='/contactUs'  style={{textDecoration:"none",color:"inherit"}}><div className={`rdsewdx ${currentPath === "/contactUs" ? "active" : ""}`}>
           <div style={{marginTop:"20px"}}><FaRegComment size={20} /></div>
           <div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "18px", marginLeft: "-20px" }}>Contact Us</ul></div>
         </div></Link>
-        <Link to="/help" style={{textDecoration:"none",color:"inherit"}}><div className='intro11'>
-          <div style={{marginTop:"20px"}}><FaRegFile size={20} /></div>
-          <div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "18px", marginLeft: "-20px" }}>App Help</ul></div>
-        </div></Link>
+       
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import './MobileMenu.css'
 import { RiArrowDropDownLine, RiContactsFill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
 import { IoPerson, IoSettingsSharp } from 'react-icons/io5'
-import { MdOutlineCardMembership, MdOutlineEmail } from 'react-icons/md'
+import { MdOutlineCardMembership, MdOutlineCreditCard, MdOutlineEmail } from 'react-icons/md'
 import { TbArrowsRandom } from 'react-icons/tb'
 import { FaBriefcase, FaFileSignature, FaRegComment, FaRegFile } from 'react-icons/fa'
 import { HiInboxArrowDown } from 'react-icons/hi2';
@@ -14,12 +14,18 @@ const MobileMenu = () => {
   const currentPath = location.pathname;
   const [intro2, showIntro2] = useState(true);
   const [intro, showIntro] = useState(true);
+    const [intro3, showIntro3] = useState(true);
+
   const handelIntro2 = () => {
     showIntro2(!intro2);
   };
   const handelIntro = () => {
     showIntro(!intro);
   };
+  const handelIntro3 = () => {
+    showIntro3(!intro3);
+  };
+  
   const [selectedItem, setSelectedItem] = useState("");
 
   const handleSelect = (item) => {
@@ -79,15 +85,33 @@ const MobileMenu = () => {
       
       </div>
       
+ <div style={{borderBottom:"1px solid black"}}>
+      <div className={`introduction4 ${(
+        currentPath === "" ||
+        currentPath === "" ||
+        currentPath === "" ||
+        currentPath === ""
+      ) ? "" : ""}`} onClick={handelIntro3}>
+        <div style={{ display: "flex" }}><div style={{ marginTop: "13px", marginRight: "12px" }}><MdOutlineCreditCard size={20} /> </div>
+          <div style={{ marginTop: "-4px" }}> <h2 style={{ fontSize: "20px" }}>Resources</h2></div></div>
+        <div style={{ marginTop: "10px" }}><RiArrowDropDownLine size={25} /></div>
+      </div>
+      {
+        intro3 && <div className="intoNav" style={{ marginLeft: "7px" }}>
+          <Link to='/help' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/help" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< FaRegFile size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>App Help</h3></div></Link>
+        
+
+        </div>
+      }
+      
+      </div>
+      
 
      <Link to="/contactUs" style={{ color: "inherit", textDecoration: "none" }} ><div className={`constactUS ${currentPath === "/contactUs" ? "active" : ""}`}>
 <div style={{marginTop:"16px",marginRight:"10px",marginLeft:"10px"}}><FaRegComment /></div>
 <div ><h2>Contact us</h2></div>
       </div></Link> 
-    <Link to='/help' style={{ color: "inherit", textDecoration: "none" }}> <div className='apppphelp'>
-<div style={{marginTop:"16px",marginRight:"10px",marginLeft:"10px"}}><FaRegFile /></div>
-<div><h2>App Help</h2></div>
-      </div></Link> 
+   
     </div>
   )
 }

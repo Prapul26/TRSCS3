@@ -39,7 +39,7 @@ const formData=new FormData();
 formData.append("user_id",data.user?.id);
 formData.append("email",data.user?.email);
 formData.append("description",description);
-formData.append("g-recaptcha-response",capVal);
+formData.append("g-recaptcha-response","test");
 
 const response=await axios.post("https://tracsdev.apttechsol.com/api/storeusercontactpage",formData, {
           headers: {
@@ -47,7 +47,7 @@ const response=await axios.post("https://tracsdev.apttechsol.com/api/storeuserco
            
           },
         });
-        setMessage("Profile updated successfully!");
+        setMessage(response.data.message);
 
 
    }catch(err){

@@ -8,7 +8,7 @@ import { FaClock, FaFileSignature, FaWindowMinimize } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
 import { MdArrowCircleDown, MdOutlineCardMembership } from "react-icons/md";
-import { FaBriefcase } from "react-icons/fa6";
+import { FaBriefcase, FaCircleQuestion } from "react-icons/fa6";
 import { IoSettingsSharp } from "react-icons/io5";
 import { ImCross, ImProfile } from "react-icons/im";
 import { IoIosArrowDropdown } from "react-icons/io";
@@ -162,7 +162,7 @@ const toggleExpand = (id) => {
           <div className="pageURLContainer">
             <div className="pageURLHolder" >
               <div className="pageURLHeader">
-                <div><h4 style={{ color: "white" }}>Your Conversation with members</h4></div>
+                <div><h4 style={{ color: "white" }} >Your Conversation with members</h4></div>
                
                 <div onClick={closeURlCLick} style={{ marginTop: "9px" }}> <ImCross /></div>
               </div>
@@ -195,7 +195,7 @@ const toggleExpand = (id) => {
               <MobileNavbar showMobnav={showMobnav} />
               <div className="d-header">
                 <h2>Messages</h2>
-                <div style={{ display: "flex" }} className="urlPage" onClick={urlClick}><div><p>Your conversations with members </p></div>
+                <div style={{ display: "flex" }} className="urlPage" onClick={urlClick}><div><p className="conversation-title">Your conversations with members </p></div>
                   <div style={{ marginTop: "-18px", marginLeft: "5px" }}><IoIosInformationCircle size={15} /></div>
                 </div>
               </div>
@@ -250,12 +250,12 @@ const toggleExpand = (id) => {
                     dangerouslySetInnerHTML={{
                       __html: sanitizedHtml,
                     }}
-                  ></div></div>)}{showButton && (<div className="showButton"> <div
+                  ></div></div>)}{showButton && (<div className="showButton"> <div className="showButtonp"
                     dangerouslySetInnerHTML={{
                       __html: showkeyfeilds.find(item => item.id === 7)?.description || "",
                     }}
                   ></div></div>)}
-                    <p className="pppawda"> <IoIosStar color=" #eeba2b" />= Take Action <AiTwotoneQuestionCircle onMouseEnter={() => setTakeAction(true)} onMouseLeave={() => setTakeAction(false)} /> <button className="closss" style={{ background: "#dc3545 !important", padding: "5px 7px 5px 7px " }}>Bump</button> = no replies <AiTwotoneQuestionCircle onMouseEnter={() => setButton(true)} onMouseLeave={() => setButton(false)} />
+                     <p className="pppawda" style={{display:"flex"}}> <IoIosStar color=" #eeba2b" />= Take Action<div style={{marginLeft:"6px",marginRight:"6px",marginTop:"2px"}}><FaCircleQuestion  onMouseEnter={() => setTakeAction(true)} onMouseLeave={() => setTakeAction(false)} color="black" /></div> <div style={{marginTop:"-10px",marginRight:"6px"}}>  <button className="closss" style={{ background: "#dc3545 !important", padding: "5px 7px 5px 7px " }}>Bump</button></div>  = no replies <div style={{marginTop:"2px",marginLeft:"6px"}}><FaCircleQuestion  onMouseEnter={() => setButton(true)} onMouseLeave={() => setButton(false)} /></div>
                     </p>  </div>
                 </div>
 
@@ -322,10 +322,10 @@ const toggleExpand = (id) => {
                                     />
                                   </div>
                                   <div className="pic66name">
-                                    <p style={{ textDecoration: "underline" }}>{recipient.name}</p>
+                                    <p style={{ textDecoration: "underline",color:"black",fontWeight:"500" }}>{recipient.name}</p>
                                   </div>
                                   <div className="pic66name">
-                                    <p >
+                                    <p  style={{fontWeight:"500"}}>
                                       (Replies : {recipient.replied ? "Yes" : "No"})
                                     </p>
                                   </div>
