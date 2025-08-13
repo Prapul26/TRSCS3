@@ -25,9 +25,9 @@ const ReplyMessage = () => {
   const [selectedTemplateId, setSelectedTemplateId] = useState(null);
   const [showSignature, setShowSignature] = useState(true);
   const [sentMail, setSentMails] = useState([]);
-  const[signature,setSignature]=useState([]);
-      const[popUp,setPopUp]=useState(false);
-  
+  const [signature, setSignature] = useState([]);
+  const [popUp, setPopUp] = useState(false);
+
   const showMobnav = () => setShowSidebar(prev => !prev);
   const handleCheckboxChange = (e) => setShowSignature(e.target.checked);
   const handleSelectedMails = () => setSelectedMails(!selectedMails);
@@ -49,15 +49,15 @@ const ReplyMessage = () => {
         );
         setData(response.data);
         setSentMails(response.data.sentMails.data);
-        setSignature(sentMail.keyfields.find(item=>item.id === 4)?.description || "");
-        console.log("Signature:"+signature)
+        const sigValue = response.data.keyfields?.find(item => item.id === 4)?.description || "";
+        setSignature(sigValue);
       } catch (err) {
         console.error("Error fetching inbox history:", err);
       }
     };
     fetchData();
   }, [subject, user_id, replies_code]);
-          console.log("Signature:"+signature)
+  console.log("Signature:" + signature)
 
   const stripHtmlTags = (html) => {
     const div = document.createElement("div");
@@ -105,6 +105,11 @@ const ReplyMessage = () => {
 
     return `${line1}\n${line2}\n${line3}\n${line4}`;
   };
+  const adjustInnerHtml=(html)=>{
+    const container=document.createElement("div");
+    container.innerHTML=html;
+    return container.innerHTML;
+  }
   return (
     <div className="mobMenuaa">
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
@@ -202,12 +207,12 @@ const ReplyMessage = () => {
                 <div className="text-Area" contentEditable>
                   <div className="tempBody">
                     {emailPreview?.map(template => (
-                      <div style={{margin:"10px",fontSize:'15px'}}key={template.id} dangerouslySetInnerHTML={{ __html: template.email_body }} />
+                      <div style={{ margin: "10px", fontSize: '15px' }} key={template.id} dangerouslySetInnerHTML={{ __html: template.email_body }} />
                     ))}
                   </div>
                   {showSignature && (
                     <div className="signature" style={{ display: "flex", flexDirection: "column" }}>
-                      <div style={{ whiteSpace: "pre-line" ,fontSize:'14.5px'}} className="sigter">
+                      <div style={{ whiteSpace: "pre-line", fontSize: '14.5px' }} className="sigter">
                         {formatWithLineBreaks(stripHtmlTags(data.authsignature?.name))}
                       </div>
 
@@ -215,11 +220,16 @@ const ReplyMessage = () => {
                   )}
                 </div>
               </div>
+{
+                  popUp &&(<div className="sigPop" onMouseLeave={()=>setPopUp(false)}><div className="sispp" dangerouslySetInnerHTML={{ __html: adjustInnerHtml(signature) }} 
+></div></div>)
+                }
               <div className="signature">
+                
                 <div className="checkbox-container">
                   <input type="checkbox" id="include-signature" checked={showSignature} onChange={handleCheckboxChange} style={{ marginTop: "-5px" }} />
                   <div></div> <label htmlFor="include-signature" style={{ marginTop: "8px" }}>Include Signature</label>
-                  <div style={{marginTop:"-10px",marginLeft:"5px",marginRight:"5px"}}><p>Users can add their signature before submitting the form. Create {">"}</p></div><FaCircleQuestion style={{ marginLeft: "5px", marginTop: "11px" }} />
+                  <div style={{ marginTop: "-10px", marginLeft: "5px", marginRight: "5px" }}><p>Users can add their signature before submitting the form. Create {">"}</p></div><FaCircleQuestion onMouseEnter={()=>setPopUp(true)} style={{ marginLeft: "5px", marginTop: "11px" }} />
                 </div>
                 <div className="button-container">
                   <button onClick={handleSendReply}>Send</button>

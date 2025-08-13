@@ -170,6 +170,22 @@ justify-content: space-between;
       overflow-y: auto;
       background-color: rgb(236, 236, 236);
     }
+    .sigPop{
+      background-color: rgb(0, 0, 0);
+      padding: 5px;
+      border-radius: 5px;
+      width: 340px;
+      position: absolute;
+      margin-top: -120px;
+      opacity: 0.9;
+      margin-left: 480px;
+    }
+    .sispp span{
+color: white !important;
+    }
+    .sispp p{
+      color: white !important;
+    }
   @media (max-width: 480px){
     .mdpp{
      margin-left: 0%;

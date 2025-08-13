@@ -23,7 +23,8 @@ const BumpMessage = () =>{
   const [selectedTemplateId, setSelectedTemplateId] = useState(null);
   const [showSignature, setShowSignature] = useState(true);
   const [sentMail, setSentMails] = useState([]);
-    const[signature,setSignature]=useState(false)
+      const [signature, setSignature] = useState([]);
+      const [popUp, setPopUp] = useState(false);
   
   const showMobnav = () => setShowSidebar(prev => !prev);
   const handleCheckboxChange = (e) => setShowSignature(e.target.checked);
@@ -45,7 +46,9 @@ const BumpMessage = () =>{
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setData(response.data);
-           setSentMails(response.data.sentMails.data)
+           setSentMails(response.data.sentMails.data);
+            const sigValue = response.data.keyfields?.find(item => item.id === 4)?.description || "";
+        setSignature(sigValue);
       } catch (err) {
         console.error("Error fetching inbox history:", err);
       }
@@ -98,7 +101,11 @@ const stripHtmlTags = (html) => {
       console.error("Error sending reply mail:", error);
     }
   };
-
+ const adjustInnerHtml=(html)=>{
+    const container=document.createElement("div");
+    container.innerHTML=html;
+    return container.innerHTML;
+  }
   return (
     <div className="mobMenuaa">
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
@@ -208,11 +215,15 @@ const stripHtmlTags = (html) => {
                   )}
                 </div>
               </div>
+           {
+                  popUp &&(<div className="sigPop" onMouseLeave={()=>setPopUp(false)}><div className="sispp" dangerouslySetInnerHTML={{ __html: adjustInnerHtml(signature) }} 
+></div></div>)
+                }
               <div className="signature">
                 <div className="checkbox-container">
                   <input type="checkbox" id="include-signature" checked={showSignature} onChange={handleCheckboxChange} style={{marginTop:"-5px"}}/>
                  <div></div> <label htmlFor="include-signature" style={{marginTop:"8px"}}>Include Signature</label>
-                 <div style={{marginTop:"-10px",marginLeft:"5px",marginRight:"5px"}}><p>Users can add their signature before submitting the form. Create {">"}</p></div> <FaCircleQuestion style={{ marginLeft: "5px", marginTop: "11px" }} />
+                 <div style={{marginTop:"-10px",marginLeft:"5px",marginRight:"5px"}}><p>Users can add their signature before submitting the form. Create {">"}</p></div> <FaCircleQuestion onMouseEnter={()=>setPopUp(true)} style={{ marginLeft: "5px", marginTop: "11px" }} />
                 </div>
                 <div className="button-container">
                   <button onClick={handleSendReply}>Send</button>
