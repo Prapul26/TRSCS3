@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { IoPerson, IoSettingsSharp } from 'react-icons/io5'
 import { MdOutlineCardMembership, MdOutlineCreditCard, MdOutlineEmail } from 'react-icons/md'
 import { TbArrowsRandom } from 'react-icons/tb'
-import { FaBriefcase, FaFileSignature, FaRegComment, FaRegFile } from 'react-icons/fa'
+import { FaBriefcase, FaFileSignature, FaRegComment, FaRegFile, FaUnlockAlt } from 'react-icons/fa'
 import { HiInboxArrowDown } from 'react-icons/hi2';
 import { useLocation } from 'react-router-dom';
 
@@ -54,7 +54,7 @@ const MobileMenu = () => {
         intro2 && <div className="intoNav" style={{ marginLeft: "7px" }}>
           <Link to='/myMembership' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/myMembership" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }} ><div>< MdOutlineCardMembership size={20} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>My Membership</h3></div></Link>
           <Link to='/accountSettings' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/accountSettings" ? "active" : ""}`} ><div style={{ display: "flex", marginBottom: "8px" }}  ><div><IoPerson size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Dashboard</h3></div></Link>
-          <Link to='/passwordChange' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/passwordChange" ? "active" : ""}`} ><div style={{ display: "flex", marginBottom: "8px" }}  > <div><IoPerson size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Change Password</h3></div></Link>
+          <Link to='/passwordChange' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/passwordChange" ? "active" : ""}`} ><div style={{ display: "flex", marginBottom: "8px" }}  > <div><FaUnlockAlt size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Change Password</h3></div></Link>
           <Link to='/affiliation' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/affiliation" ? "active" : ""}`} > <div style={{ display: "flex", marginBottom: "8px" }}  ><div><TbArrowsRandom size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Affiliation</h3></div></Link>
 
         </div>

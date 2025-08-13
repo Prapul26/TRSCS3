@@ -113,6 +113,9 @@ margin-left: 20px;
 margin-top: 0px;
 
   }
+  .d-header p{
+    
+  }
   .time55days{
 margin-left: 5px;
 margin-top: 1px;
@@ -154,6 +157,11 @@ padding: 2px;
 
 padding: 1px;
   }
+  .d-header h3{
+    font-size: 15px !important;
+    margin-top: -14px;
+    margin-bottom: 10px;
+  }
   .showButton{
   background-color: #595858;
     color: white ;
@@ -169,8 +177,8 @@ padding: 2px;
 
 padding: 1px;
   }
-  .conversation-title {
-  font-size: 16px !important;
+  .conversation-title h3{
+  font-size: 16px !important ;
 }
   .showButton p{
  font-size: 13px !important;

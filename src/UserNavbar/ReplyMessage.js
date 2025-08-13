@@ -9,6 +9,8 @@ import { FaSortDown } from "react-icons/fa";
 import { TiArrowBackOutline } from "react-icons/ti";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import axios from "axios";
+import { FaCircleQuestion } from "react-icons/fa6";
+
 
 const ReplyMessage = () => {
   const [template, setTemplate] = useState(false);
@@ -22,7 +24,10 @@ const ReplyMessage = () => {
   const [selectedEmails, setSelectedEmails] = useState([]);
   const [selectedTemplateId, setSelectedTemplateId] = useState(null);
   const [showSignature, setShowSignature] = useState(true);
-  const [sentMail, setSentMails] = useState([])
+  const [sentMail, setSentMails] = useState([]);
+  const[signature,setSignature]=useState([]);
+      const[popUp,setPopUp]=useState(false);
+  
   const showMobnav = () => setShowSidebar(prev => !prev);
   const handleCheckboxChange = (e) => setShowSignature(e.target.checked);
   const handleSelectedMails = () => setSelectedMails(!selectedMails);
@@ -43,13 +48,17 @@ const ReplyMessage = () => {
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setData(response.data);
-        setSentMails(response.data.sentMails.data)
+        setSentMails(response.data.sentMails.data);
+        setSignature(sentMail.keyfields.find(item=>item.id === 4)?.description || "");
+        console.log("Signature:"+signature)
       } catch (err) {
         console.error("Error fetching inbox history:", err);
       }
     };
     fetchData();
   }, [subject, user_id, replies_code]);
+          console.log("Signature:"+signature)
+
   const stripHtmlTags = (html) => {
     const div = document.createElement("div");
     div.innerHTML = html;
@@ -210,7 +219,7 @@ const ReplyMessage = () => {
                 <div className="checkbox-container">
                   <input type="checkbox" id="include-signature" checked={showSignature} onChange={handleCheckboxChange} style={{ marginTop: "-5px" }} />
                   <div></div> <label htmlFor="include-signature" style={{ marginTop: "8px" }}>Include Signature</label>
-                  <AiTwotoneQuestionCircle style={{ marginLeft: "5px", marginTop: "11px" }} />
+                  <div style={{marginTop:"-10px",marginLeft:"5px",marginRight:"5px"}}><p>Users can add their signature before submitting the form. Create {">"}</p></div><FaCircleQuestion style={{ marginLeft: "5px", marginTop: "11px" }} />
                 </div>
                 <div className="button-container">
                   <button onClick={handleSendReply}>Send</button>

@@ -9,7 +9,7 @@ const MakeHelp = () => {
         <div>
             <Header />
             <Navbar />
-            <div className='helpcurb1'><p style={{ color: "#007bff !important" }} className='ppffg'><Link to="/home" style={{ textDecoration: "none", color: "inherit" }}>HOME</Link></p><p>{">"}</p><p className='helppe'><Link to='/help'style={{ textDecoration: "none", color: "inherit" }}>Help</Link></p><p>{">"}</p><p style={{ marginLeft: '10px' }}>Make Introduction</p></div>
+            <div className='helpcurb1'><p style={{ color: "#007bff !important" }} className='ppffg'></p><p className='helppe'><Link to='/help'style={{ textDecoration: "none", color: "inherit" }}>Help</Link></p><p>{" >"}</p><p style={{ marginLeft: '10px' }}>Make Introduction</p></div>
 
             <div className='makeIntroHelp'>
                 <h2>Make Introduction</h2>

@@ -129,8 +129,8 @@ const handleSave=async(e)=>{
         <div className="SPP"><MobileNavbar showMobnav={showMobnav}/>
         <div className="d-header">
       <h2> Email Signature</h2>
-           <div style={{ display: "flex", marginTop: "14px" }} className="urlPage" onClick={urlClick}><div><p>Ready-made messages you can use and edit</p></div>
-                                                          <div style={{ marginTop: "-18px", marginLeft: "5px" }}><IoIosInformationCircle size={15} /></div>
+           <div style={{ display: "flex", marginTop: "14px" }} className="urlPage" onClick={urlClick}><div><h3>Ready-made messages you can use and edit</h3></div>
+                                                          <div style={{ marginTop: "-15px", marginLeft: "5px" }}><IoIosInformationCircle size={15} /></div>
                                                         </div>
       </div>
           <div className="signature-holder">

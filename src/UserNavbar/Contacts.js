@@ -110,8 +110,8 @@ navigate(`/editContact/${id}`)
             <div className="contacts-container">
               <div className="d-header">
                 <h2 style={{color:"#334e6f !important"}}>Contacts</h2>
-                 <div style={{ display: "flex", marginTop: "14px" }} className="urlPage" onClick={urlClick}><div><p>View, add, and manage your saved contacts</p></div>
-                                      <div style={{ marginTop: "-18px", marginLeft: "5px" }}><IoIosInformationCircle size={15} /></div>
+                 <div style={{ display: "flex", marginTop: "14px" }} className="urlPage" onClick={urlClick}><div><h3>View, add, and manage your saved contacts</h3></div>
+                                      <div style={{ marginTop: "-15px", marginLeft: "5px" }}><IoIosInformationCircle size={15} /></div>
                                     </div>
               </div>
 

@@ -195,8 +195,8 @@ const toggleExpand = (id) => {
               <MobileNavbar showMobnav={showMobnav} />
               <div className="d-header">
                 <h2>Messages</h2>
-                <div style={{ display: "flex" }} className="urlPage" onClick={urlClick}><div><p className="conversation-title">Your conversations with members </p></div>
-                  <div style={{ marginTop: "-18px", marginLeft: "5px" }}><IoIosInformationCircle size={15} /></div>
+                <div style={{ display: "flex" }} className="urlPage" onClick={urlClick}><div><h3 className="conversation-title" >Your conversations with members </h3></div>
+                  <div style={{ marginTop: "-15px", marginLeft: "5px" }}><IoIosInformationCircle size={15} /></div>
                 </div>
               </div>
 
@@ -206,7 +206,7 @@ const toggleExpand = (id) => {
 
                     <div style={{ display: "flex", marginTop: "20px", marginBottom: "10px" }}><div><h4 style={{ color: "black", fontSize: "18px" }}>Filter for Replies</h4></div><div style={{ marginTop: "2px", marginLeft: "5px" }} onMouseEnter={() => setFilterReplie(true)} onMouseLeave={() => setFilterReplie(false)} >  {showFilterReplie && (<div className="showfilter1" >
                       <p>{showkeyfeilds.find(kf => kf.id === 2)?.description}</p>
-                    </div>)}<AiTwotoneQuestionCircle />
+                    </div>)}<FaCircleQuestion />
                     </div></div>
                     <select value={replyFilter}
                       onChange={(e) => setReplyFilter(e.target.value)}>
@@ -222,7 +222,7 @@ const toggleExpand = (id) => {
                           __html: showkeyfeilds.find(item => item.id === 5)?.description || "",
                         }}
                       ></div>
-                    </div>)}<AiTwotoneQuestionCircle />
+                    </div>)}<FaCircleQuestion />
                     </div></div>
                     <select value={messageFilter}
                       onChange={(e) => setMessageFilter(e.target.value)}>
@@ -255,7 +255,7 @@ const toggleExpand = (id) => {
                       __html: showkeyfeilds.find(item => item.id === 7)?.description || "",
                     }}
                   ></div></div>)}
-                     <p className="pppawda" style={{display:"flex"}}> <IoIosStar color=" #eeba2b" />= Take Action<div style={{marginLeft:"6px",marginRight:"6px",marginTop:"2px"}}><FaCircleQuestion  onMouseEnter={() => setTakeAction(true)} onMouseLeave={() => setTakeAction(false)} color="black" /></div> <div style={{marginTop:"-10px",marginRight:"6px"}}>  <button className="closss" style={{ background: "#dc3545 !important", padding: "5px 7px 5px 7px " }}>Bump</button></div>  = no replies <div style={{marginTop:"2px",marginLeft:"6px"}}><FaCircleQuestion  onMouseEnter={() => setButton(true)} onMouseLeave={() => setButton(false)} /></div>
+                     <p className="pppawda" style={{display:"flex"}}> <IoIosStar color=" #eeba2b" />= Take Action<div style={{marginLeft:"6px",marginRight:"6px",marginTop:"2px"}}><FaCircleQuestion  onMouseEnter={() => setTakeAction(true)} onMouseLeave={() => setTakeAction(false)} color="black" /></div><div style={{marginTop:'-20px',marginRight:"5px"}}><p>,</p></div> <div style={{marginTop:"-10px",marginRight:"6px"}}>  <button className="closss" style={{ background: "#dc3545 !important", padding: "5px 7px 5px 7px " }}>Bump</button></div>  = no replies <div style={{marginTop:"2px",marginLeft:"6px"}}><FaCircleQuestion  onMouseEnter={() => setButton(true)} onMouseLeave={() => setButton(false)} /></div>
                     </p>  </div>
                 </div>
 

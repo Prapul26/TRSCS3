@@ -1,21 +1,21 @@
 h2{
- font-family: "Montserrat", sans-serif  !important;
+ font-family: "Quattrocento Sans"  !important;
 font-size: 25px !important;
 }
 p{
-     font-family: "Montserrat", sans-serif  !important;
+     font-family:"Quattrocento Sans"  !important;
 font-size: 20px !important;
 }
 h3{
- font-family: "Montserrat", sans-serif  !important;
+ font-family: "Quattrocento Sans"  !important;
 font-size: 22px !important;
 }
 h4{
- font-family: "Montserrat", sans-serif  !important;
+ font-family: "Quattrocento Sans"  !important;
 
 }
 h1{
-     font-family: "Montserrat", sans-serif  !important;
+     font-family: "Quattrocento Sans"  !important;
 
 }
 p{
@@ -24,7 +24,7 @@ p{
 label{
      font-weight: 700;
      font-size: 18px;
-     font-family: 'Montserrat', sans-serif;
+     font-family: 'Quattrocento Sans';
 }
 table thead td {
     color: #fff !important;

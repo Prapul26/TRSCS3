@@ -23,7 +23,7 @@ fetchData();  },)
       <Header />
       <Navbar />
 
-      <div className='helpcurb1'><p style={{ color: "#007bff !important" }} className='ppffg'></p><p>{">"}</p><p style={{ marginLeft: '10px' }}>Help</p></div>
+      <div className='helpcurb1'><p style={{ color: "#007bff !important" }} className='ppffg'></p><p></p><p style={{ marginLeft: '10px' }}>Help</p></div>
       <div className='helpContainer'>
  {data.map((help, index) => (
          <Link to={`/help/${help.id}`} style={{ textDecoration: "none", color: "inherit" }}> <div className='makeIntoButtonContainer' key={help.id}>

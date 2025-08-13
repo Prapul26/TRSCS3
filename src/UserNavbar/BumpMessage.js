@@ -9,6 +9,7 @@ import { FaSortDown } from "react-icons/fa";
 import { TiArrowBackOutline } from "react-icons/ti";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import axios from 'axios';
+import { FaCircleQuestion } from 'react-icons/fa6';
 const BumpMessage = () =>{
    const [template, setTemplate] = useState(false);
   const [showReply, setReply] = useState(false);
@@ -21,7 +22,9 @@ const BumpMessage = () =>{
   const [selectedEmails, setSelectedEmails] = useState([]);
   const [selectedTemplateId, setSelectedTemplateId] = useState(null);
   const [showSignature, setShowSignature] = useState(true);
-  const [sentMail, setSentMails] = useState([])
+  const [sentMail, setSentMails] = useState([]);
+    const[signature,setSignature]=useState(false)
+  
   const showMobnav = () => setShowSidebar(prev => !prev);
   const handleCheckboxChange = (e) => setShowSignature(e.target.checked);
   const handleSelectedMails = () => setSelectedMails(!selectedMails);
@@ -209,7 +212,7 @@ const stripHtmlTags = (html) => {
                 <div className="checkbox-container">
                   <input type="checkbox" id="include-signature" checked={showSignature} onChange={handleCheckboxChange} style={{marginTop:"-5px"}}/>
                  <div></div> <label htmlFor="include-signature" style={{marginTop:"8px"}}>Include Signature</label>
-                  <AiTwotoneQuestionCircle style={{ marginLeft: "5px", marginTop: "11px" }} />
+                 <div style={{marginTop:"-10px",marginLeft:"5px",marginRight:"5px"}}><p>Users can add their signature before submitting the form. Create {">"}</p></div> <FaCircleQuestion style={{ marginLeft: "5px", marginTop: "11px" }} />
                 </div>
                 <div className="button-container">
                   <button onClick={handleSendReply}>Send</button>

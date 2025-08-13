@@ -378,8 +378,8 @@ const AccountSettings = () => {
                         </button>
                       </Link></div>
                     </div>
-                    <div style={{ display: "flex", marginTop: "14px" }} className="urlPage" onClick={urlClick}><div><p>Displays your personal details</p></div>
-                      <div style={{ marginTop: "-18px", marginLeft: "5px" }}><IoIosInformationCircle size={15} /></div>
+                    <div style={{ display: "flex", marginTop: "14px" }} className="urlPage" onClick={urlClick}><div><h3>Displays your personal details</h3></div>
+                      <div style={{ marginTop: "-15px", marginLeft: "5px" }}><IoIosInformationCircle size={15} /></div>
                     </div>
 
                   </div>
