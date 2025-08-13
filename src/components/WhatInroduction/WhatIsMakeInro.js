@@ -11,7 +11,7 @@ const WhatIsMakeInro = () => {
     useEffect(()=>{
         const fetchData=async()=>{
             try{
-const response=await axios.get("https://tracsdev.apttechsol.com/api/page/what-is-make-introduction");
+const response=await axios.get("https://tracsdev.apttechsol.com/api/page/Make-introduction");
 setData(response.data.data.page );
 console.log(response.data.data?.page)
             }catch(err){

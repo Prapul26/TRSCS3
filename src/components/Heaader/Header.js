@@ -267,7 +267,7 @@ useEffect(() => {
             {drop2 && (
               <div className="dropDown2">
                 <Link
-                  to="/inbox"
+                  to="/accountSettings"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <div className="profileDrop">
@@ -341,7 +341,7 @@ useEffect(() => {
                 {drop2 && (
                   <div className="dropDown2">
                     <Link
-                      to="/inbox"
+                      to="/accountSettings"
                       style={{ textDecoration: "none", color: "inherit" }}
                     >
                       <div className="profileDrop">
