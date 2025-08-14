@@ -55,21 +55,14 @@ const Footer = () => {
                 </div>
                 <div className='important-links-container'>
                     <div className='imp-links'>
-                        <h2>
-                            Important Links
-                        </h2>
-                      <Link to='/home' style={{textDecoration:"none",color:"inherit"}}> <p style={{color:"black",fontWeight:"400"}}>Home</p></Link> 
-                      <Link to='/pricing' style={{textDecoration:"none",color:"inherit"}}> <p style={{color:"black",fontWeight:"400"}}>Pricing</p></Link> 
-                      <Link to='/about_us' style={{textDecoration:"none",color:"inherit"}}><p style={{color:"black",fontWeight:"400"}}>About Us</p></Link>  
-                     
-
+                       
                     </div>
                     <div className='wdadad'><a href="https://h7network.blog/" target="_blank" 
   rel="noopener noreferrer" style={{color:"inherit",textDecoration:"none"}}><p>TRACS is a subsidiary of the H7 Network</p></a></div>
                 </div>
                 <div className='contact-container'>
                     <div className='contact'>
-                        <h2>Contact Us</h2>
+                      
                         <div  className="conulli"style={{ display:"flex"}}>
                         <div><CiLocationOn size={20} /> </div>
                            <div style={{marginTop:"-18px"}}> <ul style={{ display: "flex", flexDirection: "column", flexWrap: "wrap",textDecoration:"none" }}>

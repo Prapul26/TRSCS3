@@ -20,8 +20,8 @@ background-color: rgb(240, 239, 238);
 }
 .menu-item.active{
   color: white !important;
-  background-color: black;
-  padding-left: -15px;
+  background-color: rgb(255, 255, 255);
+
   height: 40px;
   
   margin-left: -22px;
@@ -34,10 +34,12 @@ background-color: rgb(240, 239, 238);
 .uk1.active{
   width: 100%;
   background-color: black;
-  margin-left: -1px;
+  margin-left: 0px;
+  margin-right: -20px;
   margin-top: -10px;
   height: 29px;
 padding-top: 20px;
+
 }
 .intro11{
   display: flex;

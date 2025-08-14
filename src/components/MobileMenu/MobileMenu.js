@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './MobileMenu.css'
-import { RiArrowDropDownLine, RiContactsFill } from 'react-icons/ri'
+import { RiArrowDropDownLine, RiContactsFill, RiFeedbackFill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
 import { IoPerson, IoSettingsSharp } from 'react-icons/io5'
 import { MdOutlineCardMembership, MdOutlineCreditCard, MdOutlineEmail } from 'react-icons/md'
@@ -76,7 +76,7 @@ const MobileMenu = () => {
       {
         intro && <div className="intoNav" style={{ marginLeft: "7px" }}>
           <Link to='/contacts' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/contacts" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< RiContactsFill size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>My Contacts</h3></div></Link>
-          <Link to='/inbox' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/inbox" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div><HiInboxArrowDown size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Messages</h3></div></Link>
+          <Link to='/inbox' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/inbox" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div><HiInboxArrowDown size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Introduction Messages</h3></div></Link>
           <Link to='/email' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/email" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}> <div><MdOutlineEmail size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Email Template</h3></div></Link>
           <Link to='/signature' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/signature" ? "active" : ""}`}> <div style={{ display: "flex", marginBottom: "8px" }}><div><FaFileSignature size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Email Signature</h3></div></Link>
 
@@ -99,6 +99,7 @@ const MobileMenu = () => {
       {
         intro3 && <div className="intoNav" style={{ marginLeft: "7px" }}>
           <Link to='/help' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/help" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< FaRegFile size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>App Help</h3></div></Link>
+            <a href='https://docs.google.com/forms/d/e/1FAIpQLSfqdWj3Mb6Zkzl1MLxgcjAlme37X1vxgeNwkosWLf-TDN3Hag/viewform?vc=0&c=0&w=1&flr=0' target='_blank' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/email" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}> <div><RiFeedbackFill size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Feedback</h3></div></a>
         
 
         </div>

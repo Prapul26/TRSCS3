@@ -1,9 +1,14 @@
-import React, { useState }  from 'react'
+import React, { useEffect, useState }  from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 import Header from '../Heaader/Header'
 const Navbar = () => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [isLogedIn,setIsLoggedIn]=useState(false);
+  useEffect(()=>{
+    const token=sessionStorage.getItem("authToken");
+    setIsLoggedIn(token)
+  })
   return (
     
     <div className='Navbar-Container'>
@@ -24,7 +29,9 @@ const Navbar = () => {
               <div className='fopl' style={{paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid #e6e9e8"}}> <Link to='/about_us' style={{ textDecoration: 'none', color: 'inherit' }}><span style={{marginLeft:"10px",fontSize:"14px"}}>About Us</span></Link></div> 
                <div  className='fopl'style={{paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid #e6e9e8"}}><Link to='/contact' style={{ textDecoration: 'none', color: 'inherit' }}><span  style={{marginLeft:"10px",fontSize:"14px"}}>Contact Us</span></Link></div> 
                 <div className='fopl' style={{paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid #e6e9e8"}}><Link to='/partner' style={{ textDecoration: 'none', color: 'inherit' }}><span  style={{marginLeft:"10px",fontSize:"14px"}}>Partners</span></Link></div>
-                <div  className='fopl' style={{paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid #e6e9e8"}}><Link to='/help' style={{ textDecoration: 'none', color: 'inherit' }}><span  style={{marginLeft:"10px",fontSize:"14px"}}>App Help</span></Link></div>
+                {
+                  isLogedIn && (<div  className='fopl' style={{paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid #e6e9e8"}}><Link to='/help' style={{ textDecoration: 'none', color: 'inherit' }}><span  style={{marginLeft:"10px",fontSize:"14px"}}>App Help</span></Link></div>)
+                }
               </div>
             )}
           </li>
