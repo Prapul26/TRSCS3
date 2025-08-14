@@ -156,7 +156,7 @@ useEffect(() => {
                   <h2 style={{ fontSize: "18px" }}>Partners</h2>
                 </Link>
               </div>
-              <div className="dropPartner">
+              {isLoggedIn &&<div className="dropPartner">
                 <Link
                   to="/help"
                   style={{ textDecoration: "none", color: "inherit" }}
@@ -165,6 +165,8 @@ useEffect(() => {
                   <h2 style={{ fontSize: "18px" }}>App Help</h2>
                 </Link>
               </div>
+              }
+              
             </div>
           )}
           <div className="pricing">
@@ -203,7 +205,7 @@ useEffect(() => {
                   to="/register"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <button>Register</button>
+                  <button >Register</button>
                 </Link>
               </div>
             </div>
@@ -218,7 +220,7 @@ useEffect(() => {
             </a>
             <a href="https://www.linkedin.com/company/h7network/" target="_blank" 
   rel="noopener noreferrer">
-              <div className="ffn">
+              <div className="ffn" style={{marginLeft:"15px"}}>
                 {" "}
                 <FaLinkedin size={22} color="#163b6d" />
               </div>
