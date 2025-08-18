@@ -18,8 +18,7 @@ const RegisterHelp = () => {
 const response=await axios.get(`https://tracsdev.apttechsol.com/api/helpsection-description/${id}`)
 setData(response.data?.title_info.description);
 setTitle(response.data?.title_info.seo_title)
-console.log("data:",data);
-console.log("title_info:", response.data?.title_info);
+
       }catch(err){
         console.log(err)
       }
