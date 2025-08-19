@@ -245,12 +245,12 @@ const toggleExpand = (id) => {
                     dangerouslySetInnerHTML={{
                       __html: sanitizedHtml,
                     }}
-                  ></div></div>)}{showButton && (<div className="showButton"> <div className="showButtonp"
+                  ></div></div>)}{showButton && (<div className="showButton" onMouseLeave={() => setButton(false)}> <div className="showButtonp"
                     dangerouslySetInnerHTML={{
                       __html: showkeyfeilds.find(item => item.id === 7)?.description || "",
                     }}
                   ></div></div>)}
-                     <p className="pppawda" style={{display:"flex"}}> <IoIosStar color=" #eeba2b" />= Take Action<div style={{marginLeft:"6px",marginRight:"6px",marginTop:"2px"}}><FaCircleQuestion  onMouseEnter={() => setTakeAction(true)} onMouseLeave={() => setTakeAction(false)} color="black" /></div><div style={{marginTop:'-20px',marginRight:"5px"}}><p>,</p></div> <div style={{marginTop:"-10px",marginRight:"6px"}}>  <button className="closss" style={{ background: "#dc3545 !important", padding: "5px 7px 5px 7px " }}>Bump</button></div>  = no replies <div style={{marginTop:"2px",marginLeft:"6px"}}><FaCircleQuestion  onMouseEnter={() => setButton(true)} onMouseLeave={() => setButton(false)} /></div>
+                     <p className="pppawda" style={{display:"flex"}}> <IoIosStar color=" #eeba2b" />= Take Action<div style={{marginLeft:"6px",marginRight:"6px",marginTop:"2px"}}><FaCircleQuestion  onMouseEnter={() => setTakeAction(true)} onMouseLeave={() => setTakeAction(false)} color="black" /></div><div style={{marginTop:'-20px',marginRight:"5px"}}><p>,</p></div> <div style={{marginTop:"-10px",marginRight:"6px"}}>  <button className="closss" style={{ background: "#dc3545 !important", padding: "5px 7px 5px 7px " }}>Bump</button></div>  = no replies <div style={{marginTop:"2px",marginLeft:"6px"}}><FaCircleQuestion  onMouseEnter={() => setButton(true)}  /></div>
                     </p>  </div>
                 </div>
 
