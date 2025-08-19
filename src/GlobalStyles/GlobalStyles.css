@@ -1,21 +1,21 @@
 h2{
- font-family: "Quattrocento Sans"  !important;
+ font-family:"Quattrocento Sans", sans-serif !important;
 font-size: 25px !important;
 }
 p{
-     font-family:"Quattrocento Sans"  !important;
+     font-family:"Quattrocento Sans", sans-serif   !important;
 font-size: 20px !important;
 }
 h3{
- font-family: "Quattrocento Sans"  !important;
+ font-family:"Quattrocento Sans", sans-serif   !important;
 font-size: 22px !important;
 }
 h4{
- font-family: "Quattrocento Sans"  !important;
+ font-family: "Quattrocento Sans", sans-serif  !important;
 
 }
 h1{
-     font-family: "Quattrocento Sans"  !important;
+     font-family: "Quattrocento Sans", sans-serif   !important;
 
 }
 p{
@@ -24,7 +24,7 @@ p{
 label{
      font-weight: 700;
      font-size: 18px;
-     font-family: 'Quattrocento Sans';
+     font-family:"Quattrocento Sans", sans-serif  !important;
 }
 table thead td {
     color: #fff !important;
