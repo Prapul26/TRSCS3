@@ -4,38 +4,29 @@ import "./NewInbox.css";
 import { RiContactsBook3Line } from "react-icons/ri";
 import { IoIosInformationCircle, IoIosStar, IoMdPerson } from "react-icons/io";
 import UserHeader from "../components/UserHeader";
-import { FaClock, FaFileSignature, FaWindowMinimize } from "react-icons/fa";
+import { FaAngleUp, FaClock, FaFileSignature, FaWindowMinimize } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
 import { MdArrowCircleDown, MdOutlineCardMembership } from "react-icons/md";
 import { FaBriefcase, FaCircleQuestion } from "react-icons/fa6";
-import { IoSettingsSharp } from "react-icons/io5";
+
 import { ImCross, ImProfile } from "react-icons/im";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
-import { RiContactsFill } from "react-icons/ri";
-import { HiInboxArrowDown } from "react-icons/hi2";
-import { IoBookOutline } from "react-icons/io5";
-import { MdOutlineEmail } from "react-icons/md";
-import { IoExpandSharp } from "react-icons/io5";
 
-import { MdPerson } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaLock } from "react-icons/fa6";
-import { MdOutlineMailOutline } from "react-icons/md";
-import { IoLocationSharp } from "react-icons/io5";
+import { FaAngleDown } from "react-icons/fa";
+
 import { Link, useSearchParams } from "react-router-dom";
-import { IoPerson } from "react-icons/io5";
+
 import { useState } from "react";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
-import inboxData from "../components/Data/inboxData";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import axios from "axios";
-import { AiTwotoneQuestionCircle } from "react-icons/ai";
-import { LuExternalLink } from "react-icons/lu";
+
 
 const Inbox = () => {
+  
   const [intro, showIntro] = useState(false);
   const [serchParams, setSearchParams] = useSearchParams();
   const [settings, showSettings] = useState(false);
@@ -53,6 +44,10 @@ const Inbox = () => {
   const [showpage, setShowPage] = useState(false);
   const [expandedId, setExpandedId] = useState(null);
   const [isAllExpanded, setIsAllExpanded] = useState(false);
+  const[showExpandedMessage,SetExpandedMessage]=useState(false);
+  const handleExpandedMessage=()=>{
+    SetExpandedMessage((prev)=>!prev)
+  }
   const urlClick = () => {
     setShowPage(!showpage)
   }
@@ -370,13 +365,30 @@ const toggleExpand = (id) => {
                                 </div>
 
                               </div></div>
-                            <div className="message" style={{ display: "flex", marginTop: "-10px" }}>
+                           <div className="message" style={{ display: "flex", marginTop: "-10px" }}>
+  {/* Show messh4 only when NOT expanded */}
+  {!showExpandedMessage && (
+    <div>
+      <p className="messh4">{stripHtmlTags(item.body)}</p>
+    </div>
+  )}
 
-                              <div ><p className="messh4"><Link to={`/messageDetails/${item.subject}/${item.user_id}/${item.replies_code}/chatbox=1&make_bump=${item.is_bump}`} style={{ textDecoration: "none", color: "inherit" }}>{stripHtmlTags(item.body)}</Link></p></div>
-                              <div><Link to={`/messageDetails/${item.subject}/${item.user_id}/${item.replies_code}/chatbox=1&make_bump=${item.is_bump}`}>
-                                <p className="plr" style={{ marginLeft: "80px", color: " rgba(23, 109, 240, 1)" }}>See More...</p>
-                              </Link></div>
-                            </div>
+  {/* Show expanded message only when expanded */}
+  {showExpandedMessage && (
+    <div className="expandedMessage">{stripHtmlTags(item.body)}</div>
+  )}
+
+  <div>
+    <p
+      className="plr"
+      style={{ marginLeft: "80px", color: "rgba(23, 109, 240, 1)", cursor: "pointer" }}
+      onClick={handleExpandedMessage}
+    >
+     {showExpandedMessage?<FaAngleUp size={17}/>:<FaAngleDown  size={17} />} 
+    </p>
+  </div>
+</div>
+
 
                             {/* Reply & Bump Buttons */}
                             <div className="replyBump" style={{ marginTop: "-6px" }}>
