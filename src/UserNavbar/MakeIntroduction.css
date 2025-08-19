@@ -29,10 +29,13 @@ height: fit-content;
 }
 .showTakeAction3 p{
 color: white !important;
-background-color: #505d6e;
+background-color: #000000;
 padding: 10px;
 border-radius: 10px;
 
+}
+.signatureDiv span{
+color: white !important;
 }
 .adjustp p {
     margin-left: 10px;;

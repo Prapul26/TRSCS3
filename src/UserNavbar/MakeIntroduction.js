@@ -318,7 +318,7 @@ const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             {
-              showTakeAction && <div style={{marginTop:"-70px",width:"250px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"50px",background:"black",color:"white"}}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field1 || "") }} onMouseLeave={()=>setTakeAction(false)} /></div>
+              showTakeAction && <div style={{marginTop:"-120px",width:"300px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"95px",background:"black",color:"white"}}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field1 || "") }} onMouseLeave={()=>setTakeAction(false)} /></div>
             }
             <div style={{ display: "flex" }}><div><label>Directory</label></div><div style={{ marginLeft: "5px", marginTop: "2px" }} onMouseEnter={handleMouseEnter} ><FaCircleQuestion /></div></div>
             <br />
@@ -651,18 +651,14 @@ const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
             style={{ display: "flex", justifyContent: "space-between" }}
           >
              {
-              showTakeAction2 && <div style={{marginTop:"-110px",position:"absolute",width:"350px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"90px",background:"black",color:"white"}}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field2 || "") }}  onMouseLeave={() => setTakeAction2(false)}/></div>
+              showTakeAction2 && <div style={{marginTop:"-140px",position:"absolute",width:"350px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"115px",background:"black",color:"white"}}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field2 || "") }}  onMouseLeave={() => setTakeAction2(false)}/></div>
             }
             <div style={{ display: "flex", marginBottom: "-29px" }}>
               <div>
                 <label>Select Template </label>
               </div>
               <div  onMouseEnter={() => setTakeAction2(true)} style={{marginTop:"2px",marginLeft:"6px"}}><FaCircleQuestion /></div>
-              <div style={{ marginTop: "-9px", marginLeft: "7px" }} onClick={handelbest}>
-                <p style={{ fontSize: "12px !important",textDecoration:"underline" }} className="pset">
-                  Best Practices ?
-                </p>
-              </div>{" "}
+             
               {bestPractice && (
                 <div className="practice-overlay">
                   <div className="practiceHolder">
@@ -674,10 +670,16 @@ const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
                   </div></div>
               )}
             </div>
+            
             <div>
               <Link to='/email' style={{ textDecoration: "none", color: "inherit" }}>  <label>ManageTemplates</label></Link>
             </div>
           </div>
+           <div style={{ marginTop: "10px", marginLeft: "0px" }} onClick={handelbest}>
+                <p style={{ fontSize: "12px !important",textDecoration:"underline" }} className="pset">
+                  Best Practices ?
+                </p>
+              </div>{" "}
           <br />
           <select
             className="templateSelect"
@@ -792,7 +794,7 @@ let replaced1 = ggText
 
               />
                   {
-              showTakeAction3 && <div className="showTakeAction3" style={{marginTop:"-130px",position:"absolute",width:"350px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"90px",color:"white"}}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field3 || "") }} onMouseLeave={()=>setTakeAction3(false)}/></div>
+              showTakeAction3 && <div className="showTakeAction3" style={{marginTop:"-155px",position:"absolute",width:"350px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"90px",color:"white"}}><div className="signatureDiv" dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field3 || "") }} onMouseLeave={()=>setTakeAction3(false)}/></div>
             }
               <h3 style={{marginLeft:"4PX"}}>Include Signature</h3><div style={{ marginLeft: "5px", marginTop: "5px" }} onMouseEnter={() => setTakeAction3(true)}><FaCircleQuestion /></div>
             </div>
