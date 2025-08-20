@@ -204,7 +204,7 @@ const ReplyMessage = () => {
               </div>
               <div className="messageRead">
                 <h3>Message:</h3>
-                <div className="text-Area" contentEditable>
+                <div className="text-Area" style={{marginTop:"15px"}}  contentEditable>
                   <div className="tempBody">
                     {emailPreview?.map(template => (
                       <div style={{ margin: "10px", fontSize: '15px' }} key={template.id} dangerouslySetInnerHTML={{ __html: template.email_body }} />
@@ -228,8 +228,8 @@ const ReplyMessage = () => {
                 
                 <div className="checkbox-container">
                   <input type="checkbox" id="include-signature" checked={showSignature} onChange={handleCheckboxChange} style={{ marginTop: "-5px" }} />
-                  <div></div> <label htmlFor="include-signature" style={{ marginTop: "8px" }}>Include Signature</label>
-                  <div style={{ marginTop: "-10px", marginLeft: "5px", marginRight: "5px" }}><p>Users can add their signature before submitting the form. Create {">"}</p></div><FaCircleQuestion onMouseEnter={()=>setPopUp(true)} style={{ marginLeft: "5px", marginTop: "11px" }} />
+                  <div></div> <label htmlFor="include-signature" style={{ marginTop: "10px" }}>Include Signature</label>
+                  <div style={{ marginTop: "-10px", marginLeft: "5px", marginRight: "5px" }}>{/*<p>Users can add their signature before submitting the form. Create {">"}</p>*/}</div><FaCircleQuestion onMouseEnter={()=>setPopUp(true)} style={{ marginLeft: "5px", marginTop: "11px" }} />
                 </div>
                 <div className="button-container">
                   <button onClick={handleSendReply}>Send</button>
