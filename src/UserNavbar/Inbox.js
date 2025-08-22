@@ -168,9 +168,13 @@ useEffect(() => {
 // If nothing saved, expand the first message once messages load
 useEffect(() => {
   if (!sessionStorage.getItem("expandedId") && sentMessages.length > 0) {
-    setExpandedId(sentMessages[0].id);
+    const sortedMessages = [...sentMessages].sort(
+      (a, b) => new Date(b.created_at) - new Date(a.created_at)
+    );
+    setExpandedId(sortedMessages[0].id); // now matches first in UI
   }
 }, [sentMessages]);
+
 
 const latestMessageId = sentMessages.length > 0 ? sentMessages[0].id : null;
 
