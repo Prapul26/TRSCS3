@@ -4,9 +4,9 @@ import UserHeader from "../components/UserHeader";
 import SideNav from "./SideNav";
 import { AiTwotoneQuestionCircle } from "react-icons/ai";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { FaSortDown } from "react-icons/fa";
-import { TiArrowBackOutline } from "react-icons/ti";
+import { TiArrowBack, TiArrowBackOutline } from "react-icons/ti";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import axios from 'axios';
 import { FaCircleQuestion } from 'react-icons/fa6';
@@ -106,6 +106,10 @@ const stripHtmlTags = (html) => {
     container.innerHTML=html;
     return container.innerHTML;
   }
+  const navigate=useNavigate();
+  const handleGoBack = () => {
+    navigate(-1); // Go back to the previous page in history
+  };
   return (
     <div className="mobMenuaa">
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
@@ -115,6 +119,16 @@ const stripHtmlTags = (html) => {
           <div className="usernav"><SideNav /></div>
           <div className="mdpp">
             <MobileNavbar showMobnav={showMobnav} />
+            <div style={{ marginLeft: "0px" }}>
+                                  {" "}
+                                  <button style={{ borderRadius: "30px", border: "transparent", background: "#163b6d" }} onClick={handleGoBack}>
+                                    <span>
+                        
+                                      <TiArrowBack color="white" size={35} style={{ background: "#163b6d" }} />
+                        
+                                    </span>{" "}
+                                  </button>
+                                </div>
             <div className="d-header"><h2>Messages Details</h2></div>
             <div className="messageDetails-container">
               <div className="select-holder">

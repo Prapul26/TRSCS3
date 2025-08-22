@@ -147,14 +147,31 @@ const Inbox = () => {
 
   const sanitizedHtml2 = container2.innerHTML;
 
-  const toggleExpand = (id) => {
-    setExpandedId(prevId => (prevId === id ? null : id));
-  };
+const toggleExpand = (id) => {
+  setExpandedId(prevId => (prevId === id ? null : id));
+
+  if (id) {
+    sessionStorage.setItem("expandedId", id); // save when opened
+  } else {
+    sessionStorage.removeItem("expandedId"); // clear when collapsed
+  }
+};
+
+// Restore saved expandedId on mount
 useEffect(() => {
-  if (sentMessages.length > 0) {
-    setExpandedId(sentMessages[0].id); // expand first item only on initial load
+  const savedExpanded = sessionStorage.getItem("expandedId");
+  if (savedExpanded) {
+    setExpandedId(Number(savedExpanded));
+  }
+}, []);
+
+// If nothing saved, expand the first message once messages load
+useEffect(() => {
+  if (!sessionStorage.getItem("expandedId") && sentMessages.length > 0) {
+    setExpandedId(sentMessages[0].id);
   }
 }, [sentMessages]);
+
 
 
   return (
@@ -288,7 +305,7 @@ useEffect(() => {
                       <div key={item.id} className="inbox">
                         <div classname="headingContainer" style={{ display: "flex", justifyContent: "space-between" }}>
                           <div classname="headingIntro">
-                            <h5 style={{ fontSize: "16px", fontWeight: "600", marginTop: "-0px" }}>{item.subject}</h5>
+                            <h5 style={{ fontSize: "16px", fontWeight: "600", marginTop: "-0px",cursor:"pointer" }} onClick={() => toggleExpand(item.id)} >{item.subject}</h5>
                           </div>
                           <div onClick={() => toggleExpand(item.id)}>
                             {expandedId === item.id ? <IoIosArrowDropup /> : <IoIosArrowDropdown />}
