@@ -26,7 +26,7 @@ import axios from "axios";
 
 
 const Inbox = () => {
-  
+
   const [intro, showIntro] = useState(false);
   const [serchParams, setSearchParams] = useSearchParams();
   const [settings, showSettings] = useState(false);
@@ -44,9 +44,9 @@ const Inbox = () => {
   const [showpage, setShowPage] = useState(false);
   const [expandedId, setExpandedId] = useState(null);
   const [isAllExpanded, setIsAllExpanded] = useState(false);
-  const[showExpandedMessage,SetExpandedMessage]=useState(false);
-  const handleExpandedMessage=()=>{
-    SetExpandedMessage((prev)=>!prev)
+  const [showExpandedMessage, SetExpandedMessage] = useState(false);
+  const handleExpandedMessage = () => {
+    SetExpandedMessage((prev) => !prev)
   }
   const urlClick = () => {
     setShowPage(!showpage)
@@ -147,9 +147,16 @@ const Inbox = () => {
 
   const sanitizedHtml2 = container2.innerHTML;
 
-const toggleExpand = (id) => {
-  setExpandedId(prevId => (prevId === id ? null : id));
-};
+  const toggleExpand = (id) => {
+    setExpandedId(prevId => (prevId === id ? null : id));
+  };
+useEffect(() => {
+  if (sentMessages.length > 0) {
+    setExpandedId(sentMessages[0].id); // expand first item only on initial load
+  }
+}, [sentMessages]);
+
+
   return (
     <div>
       {
@@ -158,7 +165,7 @@ const toggleExpand = (id) => {
             <div className="pageURLHolder" >
               <div className="pageURLHeader">
                 <div><h4 style={{ color: "white" }} >Your Conversation with members</h4></div>
-               
+
                 <div onClick={closeURlCLick} style={{ marginTop: "9px" }}> <ImCross /></div>
               </div>
               <div className="pageiframeContainer">
@@ -250,23 +257,24 @@ const toggleExpand = (id) => {
                       __html: showkeyfeilds.find(item => item.id === 7)?.description || "",
                     }}
                   ></div></div>)}
-                     <p className="pppawda" style={{display:"flex"}}> <IoIosStar color=" #eeba2b" />= Take Action<div style={{marginLeft:"6px",marginRight:"6px",marginTop:"2px"}}><FaCircleQuestion  onMouseEnter={() => setTakeAction(true)} onMouseLeave={() => setTakeAction(false)} color="black" /></div><div style={{marginTop:'-20px',marginRight:"5px"}}><p>,</p></div> <div style={{marginTop:"-10px",marginRight:"6px"}}>  <button className="closss" style={{ background: "#dc3545 !important", padding: "5px 7px 5px 7px " }}>Bump</button></div>  = no replies <div style={{marginTop:"2px",marginLeft:"6px"}}><FaCircleQuestion  onMouseEnter={() => setButton(true)}  /></div>
+                    <p className="pppawda" style={{ display: "flex" }}> <IoIosStar color=" #eeba2b" />= Take Action<div style={{ marginLeft: "6px", marginRight: "6px", marginTop: "2px" }}><FaCircleQuestion onMouseEnter={() => setTakeAction(true)} onMouseLeave={() => setTakeAction(false)} color="black" /></div><div style={{ marginTop: '-20px', marginRight: "5px" }}><p>,</p></div> <div style={{ marginTop: "-10px", marginRight: "6px" }}>  <button className="closss" style={{ background: "#dc3545 !important", padding: "5px 7px 5px 7px " }}>Bump</button></div>  = no replies <div style={{ marginTop: "2px", marginLeft: "6px" }}><FaCircleQuestion onMouseEnter={() => setButton(true)} /></div>
                     </p>  </div>
                 </div>
 
                 <div className="inbox-holder">
-                  {sentMessages.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)) 
-                  .filter((item) => {
+                  {sentMessages.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+                    .filter((item) => {
 
-                    if (replyFilter === "1") {
-                      return item.is_bump !== 1;
-                    }
+                      if (replyFilter === "1") {
+                        return item.is_bump !== 1;
+                      }
 
-                    if (replyFilter === "2") {
-                      return item.is_bump === 2;
-                    }
-                    return true;
-                  })
+
+                      if (replyFilter === "2") {
+                        return item.is_bump === 2;
+                      }
+                      return true;
+                    })
                     .filter((item) => {
                       // Message filter logic
                       if (messageFilter === "received") {
@@ -278,13 +286,13 @@ const toggleExpand = (id) => {
                       return true;
                     }).map((item, index) => (
                       <div key={item.id} className="inbox">
-                        <div classname="headingContainer" style={{display:"flex",justifyContent:"space-between"}}>
-                        <div classname="headingIntro">
-                          <h5 style={{ fontSize: "16px", fontWeight: "600", marginTop: "-0px" }}>{item.subject}</h5>
-                        </div>
-<div onClick={() => toggleExpand(item.id)}>
-  {expandedId === item.id ? <IoIosArrowDropup /> : <IoIosArrowDropdown />}
-</div>                  </div>
+                        <div classname="headingContainer" style={{ display: "flex", justifyContent: "space-between" }}>
+                          <div classname="headingIntro">
+                            <h5 style={{ fontSize: "16px", fontWeight: "600", marginTop: "-0px" }}>{item.subject}</h5>
+                          </div>
+                          <div onClick={() => toggleExpand(item.id)}>
+                            {expandedId === item.id ? <IoIosArrowDropup /> : <IoIosArrowDropdown />}
+                          </div>                  </div>
                         <div className="pictime">
                           <div className="pic55">
                             <div className="pic55img">< img src={item.sender_full_image} />
@@ -297,21 +305,21 @@ const toggleExpand = (id) => {
                             <div className="time55Clock">
                               <FaClock />
                             </div>
-                           <div className="time55days">
-  <p>
-    {(() => {
-      const diffMs = Date.now() - new Date(item.created_at).getTime();
-      const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-      const diffDays = Math.floor(diffHours / 24);
+                            <div className="time55days">
+                              <p>
+                                {(() => {
+                                  const diffMs = Date.now() - new Date(item.created_at).getTime();
+                                  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+                                  const diffDays = Math.floor(diffHours / 24);
 
-      if (diffHours < 24) {
-        return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
-      } else {
-        return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
-      }
-    })()}
-  </p>
-</div>
+                                  if (diffHours < 24) {
+                                    return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
+                                  } else {
+                                    return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
+                                  }
+                                })()}
+                              </p>
+                            </div>
 
                             {item.recipients_info.some(recipient => recipient.replied === false) && (<div className="timeStar" style={{ marginTop: "-0px" }}><IoIosStar color="#eeba2b" /></div>)}
                           </div>
@@ -331,10 +339,10 @@ const toggleExpand = (id) => {
                                     />
                                   </div>
                                   <div className="pic66name">
-                                    <p style={{ textDecoration: "underline",color:"black",fontWeight:"500" }}>{recipient.name}</p>
+                                    <p style={{ textDecoration: "underline", color: "black", fontWeight: "500" }}>{recipient.name}</p>
                                   </div>
                                   <div className="pic66name">
-                                    <p  style={{fontWeight:"500"}}>
+                                    <p style={{ fontWeight: "500" }}>
                                       (Replies : {recipient.replied ? "Yes" : "No"})
                                     </p>
                                   </div>
@@ -379,26 +387,26 @@ const toggleExpand = (id) => {
                                 </div>
 
                               </div></div>
-                           <div className="message" style={{ display: "flex", marginTop: "-10px" }}>
-  {/* Show messh4 only when NOT expanded */}
+                            <div className="message" style={{ display: "flex", marginTop: "-10px" }}>
+                              {/* Show messh4 only when NOT expanded */}
 
 
-  {/* Show expanded message only when expanded */}
-  {!showExpandedMessage && (
-    <div className="expandedMessage">{stripHtmlTags(item.body)}</div>
-  )}
+                              {/* Show expanded message only when expanded */}
+                              {!showExpandedMessage && (
+                                <div className="expandedMessage">{stripHtmlTags(item.body)}</div>
+                              )}
 
-  <div>
+                              <div>
 
-  
-  </div>
-</div>
+
+                              </div>
+                            </div>
 
 
                             {/* Reply & Bump Buttons */}
                             <div className="replyBump" style={{ marginTop: "-6px" }}>
 
-                              <Link to={`/messageDetails/${item.subject}/${item.user_id}/${item.replies_code}/bump=${item.is_bump}`}><button  style={{ background: "#163b6d" }}>View</button></Link>
+                              <Link to={`/messageDetails/${item.subject}/${item.user_id}/${item.replies_code}/bump=${item.is_bump}`}><button style={{ background: "#163b6d" }}>View</button></Link>
                               <Link to={`/replyMessage/${item.subject}/${item.user_id}/${item.replies_code}`}>
                                 <button style={{ background: "#163b6d" }}>Reply</button>
                               </Link>
