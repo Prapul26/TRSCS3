@@ -255,7 +255,8 @@ const toggleExpand = (id) => {
                 </div>
 
                 <div className="inbox-holder">
-                  {sentMessages.filter((item) => {
+                  {sentMessages.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)) 
+                  .filter((item) => {
 
                     if (replyFilter === "1") {
                       return item.is_bump !== 1;
@@ -296,9 +297,22 @@ const toggleExpand = (id) => {
                             <div className="time55Clock">
                               <FaClock />
                             </div>
-                            <div className="time55days">
-                              <p>{Math.floor((Date.now() - new Date(item.created_at)) / (1000 * 60 * 60 * 24))} days ago</p>
-                            </div>
+                           <div className="time55days">
+  <p>
+    {(() => {
+      const diffMs = Date.now() - new Date(item.created_at).getTime();
+      const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+      const diffDays = Math.floor(diffHours / 24);
+
+      if (diffHours < 24) {
+        return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
+      } else {
+        return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
+      }
+    })()}
+  </p>
+</div>
+
                             {item.recipients_info.some(recipient => recipient.replied === false) && (<div className="timeStar" style={{ marginTop: "-0px" }}><IoIosStar color="#eeba2b" /></div>)}
                           </div>
                         </div>
@@ -392,6 +406,8 @@ const toggleExpand = (id) => {
 
                             {/* Reply & Bump Buttons */}
                             <div className="replyBump" style={{ marginTop: "-6px" }}>
+
+                              <Link to={`/messageDetails/${item.subject}/${item.user_id}/${item.replies_code}/bump=${item.is_bump}`}><button  style={{ background: "#163b6d" }}>View</button></Link>
                               <Link to={`/replyMessage/${item.subject}/${item.user_id}/${item.replies_code}`}>
                                 <button style={{ background: "#163b6d" }}>Reply</button>
                               </Link>

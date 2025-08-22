@@ -207,7 +207,7 @@ const stripHtmlTags = (html) => {
                     </div>
                   </div>
                   <div className="messageRead">
-                    <h3>Message:</h3>
+                    <h3 style={{marginBottom:"20px"}}>Message:</h3>
                     <div className="text-Area" contentEditable>
                       <div className="tempBody">
                         {emailPreview?.map(template => (
@@ -230,8 +230,8 @@ const stripHtmlTags = (html) => {
                   <div className="signature">
                     <div className="checkbox-container">
                       <input type="checkbox" id="include-signature" checked={showSignature} onChange={handleCheckboxChange} style={{ marginTop: "-5px" }} />
-                      <div></div> <label htmlFor="include-signature" style={{ marginTop: "8px" }}>Include Signature</label>
-                      <div style={{marginTop:"-10px",marginLeft:"5px",marginRight:"5px"}}><p>Users can add their signature before submitting the form. Create {">"}</p></div> <FaCircleQuestion onMouseEnter={()=>setPopUp(true)} style={{ marginLeft: "5px", marginTop: "11px" }} />
+                      <div></div> <label htmlFor="include-signature" style={{ marginTop: "10px" }}>Include Signature</label>
+                      <div style={{marginTop:"-10px",marginLeft:"5px",marginRight:"5px"}}></div> <FaCircleQuestion onMouseEnter={()=>setPopUp(true)} style={{ marginLeft: "5px", marginTop: "11px" }} />
                     </div>
                     <div className="button-container">
                       <button onClick={handleSendReply}>Send</button>
