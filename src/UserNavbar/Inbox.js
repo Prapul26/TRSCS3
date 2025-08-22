@@ -172,6 +172,7 @@ useEffect(() => {
   }
 }, [sentMessages]);
 
+const latestMessageId = sentMessages.length > 0 ? sentMessages[0].id : null;
 
 
   return (
@@ -345,6 +346,31 @@ useEffect(() => {
                             {item.recipients_info.some(recipient => recipient.replied === false) && (<div className="timeStar" style={{ marginTop: "-0px" }}><IoIosStar color="#eeba2b" /></div>)}
                           </div>
                         </div>
+{item.id === latestMessageId && (
+  <div style={{ display: 'flex', alignItems: 'center' }} className="latestReply">
+    <p style={{ marginRight: "5px" , fontWeight: "600"}}>Latest Reply:</p>
+    <p style={{ marginRight: "10px" }}>
+      {item.sender_full_name}
+    </p>
+    <FaClock />
+    <p style={{ color: "#025ea3" ,marginLeft:"5px"}}>
+      {(() => {
+        const diffMs = Date.now() - new Date(item.created_at).getTime();
+        const diffMinutes = Math.floor(diffMs / (1000 * 60));
+        const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+        const diffDays = Math.floor(diffHours / 24);
+
+        if (diffMinutes < 60) {
+          return `${diffMinutes} minute${diffMinutes !== 1 ? "s" : ""} ago`;
+        } else if (diffHours < 24) {
+          return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
+        } else {
+          return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
+        }
+      })()}
+    </p>
+  </div>
+)}
                         {(isExpanded || expandedId === item.id) && (
                           <div style={{ marginTop: "-16px" }}>
                             <h5 style={{ fontSize: "17px", fontWeight: "700" }}>Introducing</h5>

@@ -208,6 +208,14 @@ padding: 1px;
    font-size: 16px !important;        margin-left: 4px;
 
   }
+  .latestReply p{
+font-size: 16px !important;
+color: #025ea3;
+
+  }
+  .latestReply{
+    margin-top: -15px;
+  }
   .pic55img{
     height: 25px;
     width: 25px;
