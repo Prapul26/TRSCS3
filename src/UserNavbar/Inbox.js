@@ -381,25 +381,16 @@ const toggleExpand = (id) => {
                               </div></div>
                            <div className="message" style={{ display: "flex", marginTop: "-10px" }}>
   {/* Show messh4 only when NOT expanded */}
-  {!showExpandedMessage && (
-    <div>
-      <p className="messh4">{stripHtmlTags(item.body)}</p>
-    </div>
-  )}
+
 
   {/* Show expanded message only when expanded */}
-  {showExpandedMessage && (
+  {!showExpandedMessage && (
     <div className="expandedMessage">{stripHtmlTags(item.body)}</div>
   )}
 
   <div>
-    <p
-      className="plr"
-      style={{ marginLeft: "80px", color: "rgba(23, 109, 240, 1)", cursor: "pointer" }}
-      onClick={handleExpandedMessage}
-    >
-     {showExpandedMessage?<FaAngleUp size={17}/>:<FaAngleDown  size={17} />} 
-    </p>
+
+  
   </div>
 </div>
 

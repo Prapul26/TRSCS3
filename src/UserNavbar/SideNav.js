@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FaFileSignature, FaRegComment, FaRegFile, FaUnlockAlt } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
@@ -28,9 +28,11 @@ import { CiFileOn } from 'react-icons/ci';
 const SideNav = () => {
   const location = useLocation();
   const currentPath = location.pathname;
-  const [intro, showIntro] = useState(true);
-  const [settings, showSettings] = useState(true);
-  const[showResources,setResources]=useState(true);
+  const [intro, showIntro] = useState(false);
+  const [settings, showSettings] = useState(false);
+  const[showResources,setResources]=useState(false);
+
+            
   const handleResources=()=>{
     setResources(!showResources)
   }
@@ -40,6 +42,29 @@ const SideNav = () => {
   const handelIntro = () => {
     showIntro(!intro);
   };
+  useEffect(() => {
+    if (
+      currentPath === "/myMembership" ||
+      currentPath === "/accountSettings" ||
+      currentPath === "/affiliation" ||
+      currentPath === "/passwordChange"
+    ) {
+      showSettings(true);
+    } else {
+      showSettings(false);
+    }
+
+    if (
+      currentPath === "/contacts" ||
+      currentPath === "/inbox" ||
+      currentPath === "/email" ||
+      currentPath === "/signature"
+    ) {
+      showIntro(true);
+    } else {
+      showIntro(false);
+    }
+  }, [currentPath]);
   return (
     <div>
 

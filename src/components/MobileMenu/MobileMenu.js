@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './MobileMenu.css'
 import { RiArrowDropDownLine, RiContactsFill, RiFeedbackFill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
@@ -12,9 +12,9 @@ import { useLocation } from 'react-router-dom';
 const MobileMenu = () => {
   const location = useLocation();
   const currentPath = location.pathname;
-  const [intro2, showIntro2] = useState(true);
-  const [intro, showIntro] = useState(true);
-    const [intro3, showIntro3] = useState(true);
+  const [intro2, showIntro2] = useState(false);
+  const [intro, showIntro] = useState(false);
+    const [intro3, showIntro3] = useState(false);
 
   const handelIntro2 = () => {
     showIntro2(!intro2);
@@ -31,6 +31,29 @@ const MobileMenu = () => {
   const handleSelect = (item) => {
     setSelectedItem(item);
   };
+    useEffect(() => {
+      if (
+        currentPath === "/myMembership" ||
+        currentPath === "/accountSettings" ||
+        currentPath === "/affiliation" ||
+        currentPath === "/passwordChange"
+      ) {
+        showIntro2(true);
+      } else {
+        showIntro2(false);
+      }
+  
+      if (
+        currentPath === "/contacts" ||
+        currentPath === "/inbox" ||
+        currentPath === "/email" ||
+        currentPath === "/signature"
+      ) {
+        showIntro(true);
+      } else {
+        showIntro(false);
+      }
+    }, [currentPath]);
   return (
     <div className='mobnav2e'>
 
