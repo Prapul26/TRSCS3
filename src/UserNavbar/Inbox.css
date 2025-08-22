@@ -99,9 +99,11 @@ margin-top: -7px;
   }
   .pic55name p{
     font-weight: 400 !important;
+    font-size: 16px !important;
   }
   .time55days p{
         font-weight: 400 !important;
+           font-size: 16px !important;
 margin-top: 4px;
 font-size: 14px !important;
   }
@@ -121,8 +123,7 @@ margin-left: 5px;
 margin-top: 1px;
   }
   .time55days p{
-    font-size: 14px !important;
-    margin-top: -2px;
+   font-size: 16px !important;    margin-top: -2px;
      font-weight: 600;
   }
   .showfilter1{
@@ -140,8 +141,7 @@ border-radius: 5px;
 padding: 1px;
   }
   .showfilter1 p{
-    font-size: 13px !important;
-    margin-left: 4px;
+   font-size: 16px !important;    margin-left: 4px;
   }
     .showfilter2{
     background-color: #000000;
@@ -186,6 +186,7 @@ padding: 1px;
   }
   .showButton p{
     margin-left: -0pt !important;
+       font-size: 16px !important;
     padding: 4px;
   }
   .takeAction1{
@@ -200,13 +201,11 @@ padding: 1px;
     color: white;
   }
   .takeAction1 p{
-     font-size: 13px !important;
-    margin-left: 4px;
+   font-size: 16px !important;    margin-left: 4px;
     color: white !important;
   }
   .showfilter2 p{
-    font-size: 13px !important;
-        margin-left: 4px;
+   font-size: 16px !important;        margin-left: 4px;
 
   }
   .pic55img{
@@ -219,7 +218,7 @@ padding: 1px;
     margin-left: 5px;
   }
   .pic55name p{
-    font-size: 14px !important;
+    font-size: 16px !important;
     margin-top: 0px;
     font-weight: 600;
     margin-bottom: 10px;
