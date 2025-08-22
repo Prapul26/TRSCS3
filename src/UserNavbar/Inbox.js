@@ -324,17 +324,21 @@ useEffect(() => {
                             </div>
                             <div className="time55days">
                               <p>
-                                {(() => {
-                                  const diffMs = Date.now() - new Date(item.created_at).getTime();
-                                  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-                                  const diffDays = Math.floor(diffHours / 24);
+                               {(() => {
+  const diffMs = Date.now() - new Date(item.created_at).getTime();
+  const diffMinutes = Math.floor(diffMs / (1000 * 60));
+  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+  const diffDays = Math.floor(diffHours / 24);
 
-                                  if (diffHours < 24) {
-                                    return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
-                                  } else {
-                                    return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
-                                  }
-                                })()}
+  if (diffMinutes < 60) {
+    return `${diffMinutes} minute${diffMinutes !== 1 ? "s" : ""} ago`;
+  } else if (diffHours < 24) {
+    return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
+  } else {
+    return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
+  }
+})()}
+
                               </p>
                             </div>
 
@@ -400,7 +404,21 @@ useEffect(() => {
                                   <FaClock />
                                 </div>
                                 <div className="time55days">
-                                  <p style={{ fontSize: "14px !important" }}>{Math.floor((Date.now() - new Date(item.created_at)) / (1000 * 60 * 60 * 24))} days ago</p>
+                                  <p style={{ fontSize: "14px !important" }}>{(() => {
+  const diffMs = Date.now() - new Date(item.created_at).getTime();
+  const diffMinutes = Math.floor(diffMs / (1000 * 60));
+  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+  const diffDays = Math.floor(diffHours / 24);
+
+  if (diffMinutes < 60) {
+    return `${diffMinutes} minute${diffMinutes !== 1 ? "s" : ""} ago`;
+  } else if (diffHours < 24) {
+    return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
+  } else {
+    return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
+  }
+})()}
+</p>
                                 </div>
 
                               </div></div>
