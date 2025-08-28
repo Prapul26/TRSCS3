@@ -55,6 +55,7 @@ import LoginHelp from "./components/Help/LoginHelp";
 import RegisterHelp from "./components/Help/RegisterHelp";
 import WhatIsMakeInro from "./components/WhatInroduction/WhatIsMakeInro";
 import ContactUs from "./UserNavbar/ContactUs";
+import Faq from "./components/Faq/Faq";
 
 
 
@@ -111,7 +112,7 @@ const App = () => {
 <Route path="/bumpMessage/:subject/:user_id/:replies_code/:is_bump" element={<BumpMessage/>}/>
 <Route path="/terms" element={<TermsAndCondition/>}/>
 <Route path="/privacy" element={<PrivacyPolicy/>}/>
-
+<Route path="/faq" element={<Faq />}/>
 <Route path="/viewTemplate" element={<ViewTemplate/>}/>
 <Route path="/forgotPassword" element={<ForgotPassword/>}/>
 <Route path="/makeHelp" element={<MakeHelp/>}/>
