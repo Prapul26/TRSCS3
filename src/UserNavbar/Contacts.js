@@ -10,12 +10,84 @@ import { IoIosInformationCircle } from "react-icons/io";
 import { FaWindowMinimize } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import { ImCross } from "react-icons/im";
+import * as XLSX from "xlsx";
 
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);
   const [error, setError] = useState("");
   const [showSidebar, setShowSidebar] = useState(false);
     const [showpage, setShowPage] = useState(false);
+    const [selectedFile, setSelectedFile] = useState(null);
+  const [message, setMessage] = useState("");
+
+
+
+ const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+
+  // Step 2: handle import click
+  const handleImport = async () => {
+    if (!selectedFile) {
+      alert("Please select a file first.");
+      return;
+    }
+
+    const token = sessionStorage.getItem("authToken");
+
+    try {
+      const reader = new FileReader();
+      reader.onload = async (evt) => {
+        const data = evt.target.result;
+        const workbook = XLSX.read(data, { type: "binary" });
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const rows = XLSX.utils.sheet_to_json(worksheet);
+
+        // Loop through Excel rows
+        for (let row of rows) {
+          const firstName = row["First Name"];
+          const lastName = row["Last Name"];
+          const email = row["Email"];
+          const groupName = row["Group Name"];
+
+          // validate required fields
+          if (!firstName || !lastName || !email || !groupName) {
+            console.log("Skipping row (missing fields):", row);
+            continue;
+          }
+
+          try {
+            await axios.post(
+              `${process.env.REACT_APP_API_BASE_URL}/contact_store_form`,
+              {
+                first_name: firstName,
+                last_name: lastName,
+                email: email,
+                group_name: groupName,
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+          } catch (err) {
+            console.error("Failed to import contact:", row, err);
+          }
+        }
+
+        setMessage("Contacts imported successfully!");
+      };
+
+      reader.readAsBinaryString(selectedFile);
+    } catch (error) {
+      console.error("Error reading file:", error);
+      setMessage("Failed to import contacts.");
+    }
+  };
+
+
   const urlClick = () => {
     setShowPage(!showpage)
   }
@@ -78,6 +150,8 @@ const handleEdit=(id)=>{
   
 navigate(`/editContact/${id}`)
 }
+
+
   return (
     <div>
       {
@@ -117,20 +191,23 @@ navigate(`/editContact/${id}`)
               </div>
 
               <div className="contacts-buttons">
-                <div className="import">
-                 <div className="importA"><input type="file" /></div> 
-                 <div></div>
-                  
-                </div>
-                <div className="add">
-                  <div className="importB">
-                    <button>Import</button>
-                  </div>
-                  <div className="downloadB">
-                    <button>Download Template</button>
-                  </div>
-                  
-                </div>
+          <div className="import">
+  <div className="importA">
+    <input type="file" accept=".xlsx,.xls" onChange={handleFileChange} />
+  </div>
+</div>
+<div className="add">
+  <div className="importB">
+     <button type="button" onClick={handleImport}>
+        Import
+      </button>
+      {message && <p>{message}</p>}
+  </div>
+  <div className="downloadB">
+    <button>Download Template</button>
+  </div>
+</div>
+
                 <div className="addB">
                     <Link
                       to="/addContacts"

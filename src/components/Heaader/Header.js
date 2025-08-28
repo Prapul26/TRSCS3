@@ -8,7 +8,6 @@ import { FcGlobe } from "react-icons/fc";
 import { IoLogOut, IoMenu, IoPerson } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropup } from "react-icons/io";
-import { CiMenuKebab } from "react-icons/ci";
 import { ImCross } from "react-icons/im";
 import { faL } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
@@ -28,6 +27,7 @@ const Header = () => {
   const [menu, showMenu] = useState(false);
   const [loading, setLoading] = useState(true);
   const [about, showAbout] = useState(false);
+   const [about2, showAbout2] = useState(false);
   const [drop1, showDrop1] = useState(false);
   const [drop2, showDrop2] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -91,6 +91,9 @@ useEffect(() => {
   };
   const handelAbout = () => {
     showAbout(!about);
+  };
+   const handelAbout2 = () => {
+    showAbout2(!about2);
   };
   return (
     <div className="Header">
@@ -169,6 +172,45 @@ useEffect(() => {
               
             </div>
           )}
+
+
+
+<div className="aboutUs">
+            <div>
+              <h2 style={{ fontSize: "18px" }}>Resources</h2>
+            </div>
+            <div
+              onClick={handelAbout2}
+              style={{ marginTop: "11px", marginRight: "5pxw" }}
+            >
+              {" "}
+              {about2 ? (
+                <IoMdArrowDropup size={35} />
+              ) : (
+                <IoMdArrowDropdown size={35} />
+              )}
+            </div>
+          </div>{" "}
+          {about2 && (
+            <div className="dropAbout">
+              <div className="dropAboutUs">
+                <Link
+                  to="/faq"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  {" "}
+                  <h2 style={{ fontSize: "18px" }}>FAQ</h2>
+                </Link>
+              </div>
+             
+              
+            </div>
+          )}
+
+
+
+
+
           <div className="pricing">
             <div className="Pricing">
               <Link
