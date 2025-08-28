@@ -61,6 +61,7 @@ const MakeIntroduction = () => {
   const [showModal, setShowModal] = useState(false);
   const [bestPractice, setBestPractise] = useState(false);
   const [validationError, setValidationError] = useState("");
+  const[contacts,setContacts]=useState([])
     const [includeSignature, setIncludeSignature] = useState(false);
       const [showTakeAction, setTakeAction] = useState(false)
            const [showTakeAction2, setTakeAction2] = useState(false);
@@ -281,6 +282,41 @@ const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
       setTakeAction3(false);
     }, 3000); // ✅ delay hiding for 3 seconds
   };
+useEffect(() => {
+  const fetchContacts = async () => {
+    const token = sessionStorage.getItem("authToken");
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_BASE_URL}/view-introduction-email-list`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const normalized = response.data.template.data.map((c) => ({
+        id: c.id,
+        name: `${c.first_name} ${c.last_name}`,
+        email: c.email,
+        phone: c.phone,
+        website: c.website,
+        linkedin: c.linkedin,
+        business_name: c.group_name,
+        image: c.photo || "",
+        member_type: "3",
+        about: c.about || "",
+      }));
+
+      setContacts(normalized);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  fetchContacts();
+}, []);
+
 
   return (
     <div className="make">
@@ -497,7 +533,7 @@ const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
               </div>
             )}
             <div className="checkbox-list" >
-              {data.userslist
+              {(recepientType === "contacts" ? contacts : data.userslist)
                 ?.filter((user) => {
                   const searchMatch = user.name
                     ?.toLowerCase()
@@ -553,7 +589,7 @@ const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
                               <IoMail />
                             </div>
                             <div>
-                              <h4>{user.email}</h4>
+                              <h4 style={{marginTop:"3px"}}>{user.email}</h4>
                             </div>
                           </div>
                           <div style={{ display: "flex" }}>
@@ -562,7 +598,7 @@ const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
                               <FaAddressCard />
                             </div>
                             <div className="emailSpan">
-                             <h4>{user?.listings?.[0]?.title || "No business name"}</h4>
+                             <h4 style={{marginTop:"3px"}}>{user?.listings?.[0]?.title || "No business name"}</h4>
                             </div>
                           </div>
                         </div>

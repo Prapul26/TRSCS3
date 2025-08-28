@@ -18,6 +18,7 @@ const Faq = () => {
           </div>
         </div>    
         <div className='faqContainer'>
+          
             </div> 
       <Footer />
     </div>

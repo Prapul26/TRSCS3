@@ -42,6 +42,7 @@ const Contacts = () => {
           }
         );
         setContacts(response.data.template.data);
+        console.log("contacts :"+contacts)
       } catch (error) {
         setError("Failed to fetch contacts.");
       }

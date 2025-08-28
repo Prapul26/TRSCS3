@@ -38,7 +38,7 @@ const Navbar = () => {
           </li>
                      <li onMouseEnter={()=>{setResources(true) ;
                       setDropdownVisible(false)}}> RESOURCES
-                      {showResources &&(<div className='resources' onMouseLeave={()=>setResources(false)  }>
+                      {showResources &&(<div className='resources1' onMouseLeave={()=>setResources(false)  }>
               <div className='fopl' style={{paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid #e6e9e8"}}> <Link to='/faq' style={{ textDecoration: 'none', color: 'inherit' }}><span style={{marginLeft:"10px",fontSize:"14px"}}>FAQ</span></Link></div> 
 
                       </div>)}</li> 
