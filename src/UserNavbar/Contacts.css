@@ -33,6 +33,8 @@ border-radius: 5px;
 .contacts-buttons{
     margin: 20px;
     display: flex;
+    width: 96.7%;
+   
 }
 .contacts-buttons button{
 padding-left: 10px;
@@ -148,6 +150,17 @@ padding: 20px;
     display: flex;
       background-color:#e9edf0 !important;
 }
+.giofo{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+.pokijhabvc{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+
+}
 .CPP{
     width: 85%;
     height: 100vh;
@@ -167,9 +180,10 @@ padding: 20px;
 }
 .importA{
     background-color: white;
-    width: 70%;
+    width: 50%;
     padding-top: 6px;
     padding-left: 15px;
+    margin-right: 10%;
 }
 @media (max-width: 768px) {
    
@@ -188,6 +202,7 @@ padding: 20px;
     .importA{
     background-color: white;
     width: 96%;
+    margin-top: 5px;
     padding-bottom: 5px;
     padding-top: 6px;
     padding-left: 15px;
@@ -214,6 +229,7 @@ border-radius: 10px;
     }
     .contacts-buttons{
         flex-direction: column;
+        width: 90%;
     }
     .add{
         margin-top: 20px;
@@ -224,7 +240,13 @@ border-radius: 10px;
         
     }
     .downloadB{
-        margin-left: -40px !important;
+        margin-left: 0px !important;
+    }
+    .downloadB button{
+          padding-top: 14px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 14px;
     }
     .addB{
         margin-left: 0px;
@@ -235,6 +257,13 @@ border-radius: 10px;
         padding-right: 20px;
         padding-bottom: 14px;
     }
+    .pokijhabvc{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
+ 
+}
     .import{
         justify-content: space-between;
     }
@@ -252,8 +281,10 @@ border-radius: 10px;
         
         margin-top: 2px;
     }
-    .importB{
-        width: 20%;
+    .importB
+{
+        width: 50%;
+       
     }
   
     .add button{
@@ -266,8 +297,15 @@ height: 40px;
         margin: 0px;
     }
     .importB button{
-        width: 100px;
+        width: 200px;
         height: 40px;
         margin-top: 6px ;
+
     }
+    .giofo{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: space-between;
+}
 }

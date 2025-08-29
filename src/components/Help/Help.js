@@ -38,7 +38,7 @@ const Help = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get("https://tracsdev.apttechsol.com/api/helpsection ");
-        setData(response.data.blogs.data || [])
+        setData(response.data.blogs || [])
       } catch (err) {
         console.log(err)
       }
