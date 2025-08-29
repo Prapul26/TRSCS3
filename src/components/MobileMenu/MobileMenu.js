@@ -52,7 +52,16 @@ const MobileMenu = () => {
         showIntro(true);
       } else {
         showIntro(false);
-      }
+      };
+       if(
+      currentPath === "/help2" ||
+     currentPath.startsWith("/helpSection2/") ||
+    currentPath.startsWith("/helpDescription2/") 
+    ){
+showIntro3(true)
+    }else{
+showIntro3(false)
+    }
     }, [currentPath]);
   return (
     <div className='mobnav2e'>
@@ -121,7 +130,9 @@ const MobileMenu = () => {
       </div>
       {
         intro3 && <div className="intoNav" style={{ marginLeft: "7px" }}>
-          <Link to='/help' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/help" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< FaRegFile size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>App Help</h3></div></Link>
+          <Link to='/help2' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/help2"||
+     currentPath.startsWith("/helpSection2/") ||
+    currentPath.startsWith("/helpDescription2/") ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< FaRegFile size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>App Help</h3></div></Link>
             <a href='https://docs.google.com/forms/d/e/1FAIpQLSfqdWj3Mb6Zkzl1MLxgcjAlme37X1vxgeNwkosWLf-TDN3Hag/viewform?vc=0&c=0&w=1&flr=0' target='_blank' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/email" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}> <div><RiFeedbackFill size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Feedback</h3></div></a>
         
 

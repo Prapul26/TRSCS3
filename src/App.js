@@ -56,6 +56,9 @@ import RegisterHelp from "./components/Help/RegisterHelp";
 import WhatIsMakeInro from "./components/WhatInroduction/WhatIsMakeInro";
 import ContactUs from "./UserNavbar/ContactUs";
 import Faq from "./components/Faq/Faq";
+import Help2 from "./components/Help2/Help2";
+import HelpSection2 from "./components/Help2/HelpSection2";
+import HelpDescription2 from "./components/Help2/HelpDescription2";
 
 
 
@@ -117,6 +120,9 @@ const App = () => {
 <Route path="/forgotPassword" element={<ForgotPassword/>}/>
 <Route path="/makeHelp" element={<MakeHelp/>}/>
 <Route path="/help" element={<Help />}/>
+<Route path="/help2" element={<Help2 />}/>
+<Route path="/helpSection2/:id" element={<HelpSection2 />}/>
+<Route path="/helpDescription2/:id" element={<HelpDescription2 />}/>
 <Route path="/help/:id" element={<LoginHelp/>}/>
 <Route path="/helpDescription/:id" element={<RegisterHelp/>}/>
 <Route path="/whatIsMakeIntro" element={<WhatIsMakeInro />}/>
