@@ -27,6 +27,27 @@ const Contacts = () => {
     setSelectedFile(e.target.files[0]);
   };
 
+const fetchContacts = async () => {
+  const token = sessionStorage.getItem("authToken");
+  try {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_BASE_URL}/view-introduction-email-list`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    setContacts(response.data.template.data);
+  } catch (error) {
+    setError("Failed to fetch contacts.");
+  }
+};
+
+useEffect(() => {
+  fetchContacts();
+}, []);
+
   // Step 2: handle import click
   const handleImport = async () => {
     if (!selectedFile) {
@@ -85,6 +106,7 @@ const Contacts = () => {
         }
 
         setMessage("Contacts imported successfully!");
+         fetchContacts();
       };
 
       reader.readAsBinaryString(selectedFile);
