@@ -11,6 +11,7 @@ import { FaWindowMinimize } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import { ImCross } from "react-icons/im";
 import * as XLSX from "xlsx";
+import { MdDelete, MdOutlineModeEdit } from "react-icons/md";
 
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);
@@ -72,8 +73,14 @@ const Contacts = () => {
                 },
               }
             );
+            console.log("Sending row:", {
+  first_name: firstName,
+  last_name: lastName,
+  email,
+  group_name: groupName
+});
           } catch (err) {
-            console.error("Failed to import contact:", row, err);
+            console.error("Failed to import contact:", row,  err.response?.data);
           }
         }
 
@@ -243,16 +250,19 @@ const Contacts = () => {
                             <td style={{ fontSize: "15px" }}>{contact.last_name}</td>
                             <td style={{ fontSize: "15px" }}>{contact.group_name}</td>
                             <td style={{ fontSize: "15px" }}>{contact.email}</td>
-                            <td style={{ fontSize: "15px" }}>{contact.created_at}</td>
+                           <td style={{ fontSize: "15px" }}>
+  {new Date(contact.created_at).toISOString().split("T")[0]}
+</td>
+
                             <td>
 
-                              <button style={{ background: "green" }} onClick={() => handleEdit(contact.id)}>Edit</button>
+                              <button style={{ background: "green" }} onClick={() => handleEdit(contact.id)}><MdOutlineModeEdit /></button>
 
                               <button
                                 style={{ background: "red", marginLeft: "5px" }}
                                 onClick={() => handleDelete(contact.id)}
                               >
-                                Delete
+                                <MdDelete />
                               </button>
                             </td>
                           </tr>

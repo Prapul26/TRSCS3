@@ -36,6 +36,8 @@ background-color: #eeba2b;
     background-color: #eeba2b;
     color: black !important;
     border-radius: 25px;
+    padding-top: 12px;
+    padding-bottom: 2pc;
 }
 .bttborder{
      background-color: #eeba2b;
@@ -44,6 +46,9 @@ background-color: #eeba2b;
 }
 .sh2 h2{
     margin-top: 0px;
+}
+.down2 img{
+    width: 40% !important;
 }
 .rfgg p{
     margin-left: 0px;
@@ -144,15 +149,21 @@ h1{
 
 .hd1 {
     display: flex;
+    margin-bottom: 30px;
 }
 
 .hd1-pic {
-    width: 50%;
+    width: 27%;
+    margin-left: 10%;
       margin-top: 50px;
-    height: 350px;
+    height: 270px;
+}
+.hd1-pic img{
+    
 }
 
 .hd1-details {
+    margin-top: 40px;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -160,6 +171,30 @@ h1{
     width: 50%;
     margin-top: 50px;
     font-size: 20px;
+}
+.down2{
+   
+}
+.hd1-details p{
+    font-weight: 700 !important;
+     margin-top: 40px;
+    text-align: left;
+}
+.hd1-details h3{
+    text-align: left;
+    font-style: bold;
+    margin-top: 10px;
+    font-weight: 900 !important;
+    font-size: 27px !important;
+}
+.down2 h3{
+ font-style: bold;
+    margin-top: 10px;
+    font-weight: 900 !important;
+    font-size: 27px !important;
+}
+.down2 p{
+  font-weight: 700 !important;
 }
 
 .hd1-details button {
@@ -390,6 +425,9 @@ border-radius: 20px;
         margin-top: 5px;
         border-radius: 5px;
     }
+    .down2 img{
+width: 100%;
+    }
 
     .serch-container {
         height: 260px;
@@ -399,6 +437,9 @@ background-image:url(https://tracsdev.apttechsol.com/public/uploads/website-imag
         display: contents;
         flex-direction: column;
     }
+    .down2{
+        margin-top: 40px;
+    }
 
     .hd1-details {
         width: 100%;
@@ -407,6 +448,7 @@ background-image:url(https://tracsdev.apttechsol.com/public/uploads/website-imag
 
     .hd1-pic {
         width: 100%;
+        margin-left: 0%;
     }
 
     .hd2 {
@@ -417,7 +459,18 @@ background-image:url(https://tracsdev.apttechsol.com/public/uploads/website-imag
     .hd2-details {
         width: 100%;
     }
-
+.hd1-details h3{
+    font-size: 22px !important;
+}
+.hd1-details p{
+    font-size: 17.5px !important;
+}
+.down2 h3{
+  font-size: 22px !important;
+}
+.down2 p{
+    font-size: 17.5px !important;  
+}
     .hd2-pic {
         width: 100%;
     }
