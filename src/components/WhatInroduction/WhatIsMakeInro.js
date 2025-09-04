@@ -19,11 +19,22 @@ console.log(response.data.data?.page)
             }
         }
     fetchData()},[]);
-    const adjustInternalHtml=(html)=>{
-        const container=document.createElement("div");
-        container.innerHTML=html;
-        return container.innerHTML
-    }
+const adjustInternalHtml = (html) => {
+  const container = document.createElement("div");
+  container.innerHTML = html;
+
+  // Find all images and wrap them in a link to "/register"
+  const images = container.querySelectorAll("img");
+  images.forEach((img) => {
+    const link = document.createElement("a");
+    link.href = "/register";
+    img.parentNode.insertBefore(link, img);
+    link.appendChild(img);
+  });
+
+  return container.innerHTML;
+};
+
   return (
     
     <div>

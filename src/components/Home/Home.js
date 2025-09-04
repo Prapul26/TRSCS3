@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Slider from "react-slick";
-
+import imgage from "../../assets/image.png"
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import pd1 from "../assets/pd1.png";
@@ -12,6 +12,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../Heaader/Header";
+import image from "../../assets/image2.png"
 
 const Home = () => {
   const navigate = useNavigate()
@@ -107,13 +108,13 @@ const Home = () => {
 
           </div>
           <div className="hd1-pic">
-            <img src="https://tracsdev.apttechsol.com/public/uploads/website-images/home-img-new.png" style={{ width: "100%", height: "100%" }} />
+            <img src={imgage} style={{ width: "100%", height: "100%" }} />
           </div>
         </div>
         <div className="down2" style={{textAlign:"center"}}>
           <div><h3>How it Works</h3></div>
           <div><p>Strengthening your reputation, while strengthening your Trusted-Relationships.</p></div>
-          <div><img  src="https://tracsdev.apttechsol.com/public/uploads/website-images/IMG-20250901-WA0029.png"/></div>
+          <div><img  src={image}/></div>
         </div>
         
 
