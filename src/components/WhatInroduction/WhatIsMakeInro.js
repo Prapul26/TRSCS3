@@ -46,7 +46,7 @@ const adjustInternalHtml = (html) => {
           </div>
         </div>
       <div className='whatmi-container' >
-<div  dangerouslySetInnerHTML={{ __html: adjustInternalHtml(data.description)}}></div>
+<div className='hojk' dangerouslySetInnerHTML={{ __html: adjustInternalHtml(data.description)}}></div>
       </div>
       <Footer />
     </div>
