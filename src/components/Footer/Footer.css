@@ -188,42 +188,11 @@ color: #787878;
 }
 
 /* For laptops and small desktops - between 1025px and 1440px */
-@media (min-width: 1025px) and (max-width: 1440px) {
-    .dlc-holder {
-        flex-direction: row;
-        height: 240px;
-    }
 
-    .download-container,
-    .important-links-container,
-    .contact-container {
-        flex: 1 1 250px;
-        margin: 10px;
-    }
-    .socialInvisible{
-        display: none;
-    }
-}
 
 /* For large desktops - wider than 1440px */
-@media (min-width: 1441px) {
-    .dlc-holder {
-        flex-direction: row;
-        justify-content: space-between;
-        height: 240px;
-    }
 
-    .download-container,
-    .important-links-container,
-    .contact-container {
-        flex: 1 1 300px;
-        margin: 10px;
-    }
-    .socialInvisible{
-        display: none;
-    }
-}
-@media (max-width:480px){
+@media (max-width:1025px){
     .contact-container{
         flex: 1 1 300px;
         /* Ensures items take at least 300px width */
