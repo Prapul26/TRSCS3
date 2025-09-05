@@ -127,7 +127,7 @@ margin-right: 5%;
 .hoverall{
     margin-bottom: 10px;
 }
-  @media (max-width: 480px){
+  @media (max-width: 1024px){
     .mdpp{
      margin-left: 0%;
      width: 100%;

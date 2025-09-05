@@ -43,7 +43,7 @@ background-color: white;
     background-color: rgb(218, 217, 216);
     
   }
-  @media (max-width: 480px){
+  @media (max-width: 1024px){
     .activeStatus{
    margin-left: 5%;
    width: 80%;

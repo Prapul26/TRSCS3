@@ -46,7 +46,7 @@ position: fixed;
     background-color:transparent /* Dark overlay background */
 
 }
-@media(max-width:480px){
+@media(max-width:1024px){
     .popup-overlay{
         height: 600px;
         width: 100%;

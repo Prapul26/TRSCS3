@@ -203,7 +203,7 @@ flex-direction: column;
     font-weight: 900;
 background-color: orange;
 }
-@media(max-width:480px){
+@media(max-width:1024px){
     .payn{
         flex-direction: column;
     }

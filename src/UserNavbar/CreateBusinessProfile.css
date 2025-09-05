@@ -239,7 +239,7 @@ margin-bottom: 40px;
     padding-bottom: 15px;
     background-color: orange;
 }
-@media(max-width:480px){
+@media(max-width:1024px){
     .cbpbc{
         width: 100%;
         margin: 0px;

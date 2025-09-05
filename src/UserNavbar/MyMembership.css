@@ -148,7 +148,7 @@ td button {
     background-color: #e9ecef !important;
     
 }
-@media(max-width:480px){
+@media(max-width:1024px){
     .myMembership-container{
         width: 90%;
         margin-left: 5%;

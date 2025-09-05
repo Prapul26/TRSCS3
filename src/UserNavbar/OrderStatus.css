@@ -43,7 +43,7 @@ justify-content: space-between;
 background-color: rgb(158, 112, 26);
 }
 
-@media(max-width:480px){
+@media(max-width:1024px){
     .ods{
         flex-direction: column;
         text-align: center;

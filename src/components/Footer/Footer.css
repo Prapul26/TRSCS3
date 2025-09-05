@@ -166,7 +166,7 @@ color: #787878;
 }
 
 /* For tablets - between 600px and 1024px */
-@media (min-width: 601px) and (max-width: 1024px) {
+@media (min-width: 481px) and (max-width: 1024px)  {
     .dlc-holder {
         flex-direction: row;
         /* Maintain row direction */

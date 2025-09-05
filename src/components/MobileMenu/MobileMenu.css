@@ -1,7 +1,7 @@
 .mobnav2e{
     display: none;
 }
-@media(max-width:480px){
+@media(max-width:1024px){
 .mobnav2e{
     width: 270px;
     height: 100vh;

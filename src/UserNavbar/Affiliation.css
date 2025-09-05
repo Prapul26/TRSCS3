@@ -152,7 +152,7 @@ width: 100%;
     width: 89.5%;
     margin-left: 6.2% !important;
 }
-@media(max-width:480px){
+@media(max-width:1024px){
     .affTable{
         overflow-x: auto;
         width: 100%;

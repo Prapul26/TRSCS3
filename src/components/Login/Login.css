@@ -176,7 +176,7 @@ height: 31px;
     opacity: 0.9;
     color: white !important;
 }
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
     .LoginContainer {
         width: 80%;
         margin-top: -80px;

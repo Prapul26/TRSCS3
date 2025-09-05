@@ -75,7 +75,7 @@ border-bottom: 4px dashed  gold ;
 
 }
 
-@media(max-width:480px){
+@media (max-width: 1024px) {
     .Navbar-Container{
         display: none;
     }

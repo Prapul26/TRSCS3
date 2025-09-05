@@ -23,7 +23,8 @@
     width: 100% !important;
 }
 }
-@media (min-width: 481px) and (max-width: 576px) {  .p1h1 h1{
+@media (max-width: 1024px) { 
+    .p1h1 h1{
         font-size: 20px !important;
     }
     .ph1 {
@@ -38,4 +39,5 @@
 }
 .hojk img{
     width: 100% !important;
-} } 
+}
+ } 

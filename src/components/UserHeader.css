@@ -157,7 +157,7 @@ background-color: rgb(255, 255, 255);    cursor: pointer;
     color: #000000;
     
 }
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
     .headerContainer {
         padding: 5px;
     }

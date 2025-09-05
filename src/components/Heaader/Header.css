@@ -138,7 +138,7 @@ margin-top: -20px;
     margin-left: 10px;
     margin-top: 2px;
 }
-@media(max-width:480px){
+@media (max-width: 1024px) {
     .socila-icons{
        display: none;
     }
@@ -277,6 +277,7 @@ width: 50%;
         .header-container{
             border-radius: 30px;
             margin: 10px;
+            margin-bottom: 40px;
         }
         .header{
             background-color: white;

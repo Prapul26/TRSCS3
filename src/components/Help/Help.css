@@ -72,7 +72,7 @@ background-color: #f4f3f3;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width:480px) {
+@media (max-width:1024px) {
 
 .helpContainer{
     width: 100%;

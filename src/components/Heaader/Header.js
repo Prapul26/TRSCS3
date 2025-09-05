@@ -27,41 +27,41 @@ const Header = () => {
   const [menu, showMenu] = useState(false);
   const [loading, setLoading] = useState(true);
   const [about, showAbout] = useState(false);
-   const [about2, showAbout2] = useState(false);
+  const [about2, showAbout2] = useState(false);
   const [drop1, showDrop1] = useState(false);
   const [drop2, showDrop2] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [profileImg,setProfileImg]=useState("");
-useEffect(() => {
-  const fetchProfile = async () => {
-    const token = sessionStorage.getItem("authToken");
-    if (!token) {
-      setIsLoggedIn(false);
-      setLoading(false);
-      return;
-    }
-    try {
-      const response = await axios.get("https://tracsdev.apttechsol.com/api/my-profile", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (response?.data?.user) {
-        setIsLoggedIn(true);
-        const newImage = response.data.user?.image;
-        if (newImage) {
-          setProfileImg(`https://tracsdev.apttechsol.com/public/${newImage}`);
+  const [profileImg, setProfileImg] = useState("");
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const token = sessionStorage.getItem("authToken");
+      if (!token) {
+        setIsLoggedIn(false);
+        setLoading(false);
+        return;
+      }
+      try {
+        const response = await axios.get("https://tracsdev.apttechsol.com/api/my-profile", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (response?.data?.user) {
+          setIsLoggedIn(true);
+          const newImage = response.data.user?.image;
+          if (newImage) {
+            setProfileImg(`https://tracsdev.apttechsol.com/public/${newImage}`);
+          }
+        } else {
+          setIsLoggedIn(false);
         }
-      } else {
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
         setIsLoggedIn(false);
       }
-    } catch (error) {
-      console.error("Error fetching profile data:", error);
-      setIsLoggedIn(false);
-    }
-    setLoading(false);
-  };
+      setLoading(false);
+    };
 
-  fetchProfile();
-}, []);
+    fetchProfile();
+  }, []);
 
 
   const navigate = useNavigate();
@@ -71,7 +71,7 @@ useEffect(() => {
     sessionStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
     navigate("/"); // Redirect to login page
-     window.location.reload();
+    window.location.reload();
   };
   const handelDrop1 = () => {
     showDrop1(!drop1);
@@ -92,7 +92,7 @@ useEffect(() => {
   const handelAbout = () => {
     showAbout(!about);
   };
-   const handelAbout2 = () => {
+  const handelAbout2 = () => {
     showAbout2(!about2);
   };
   return (
@@ -159,7 +159,7 @@ useEffect(() => {
                   <h2 style={{ fontSize: "18px" }}>Partners</h2>
                 </Link>
               </div>
-              {isLoggedIn &&<div className="dropPartner">
+              {isLoggedIn && <div className="dropPartner">
                 <Link
                   to="/help"
                   style={{ textDecoration: "none", color: "inherit" }}
@@ -169,13 +169,13 @@ useEffect(() => {
                 </Link>
               </div>
               }
-              
+
             </div>
           )}
 
 
 
-<div className="aboutUs">
+          <div className="aboutUs">
             <div>
               <h2 style={{ fontSize: "18px" }}>Resources</h2>
             </div>
@@ -202,8 +202,8 @@ useEffect(() => {
                   <h2 style={{ fontSize: "18px" }}>FAQ</h2>
                 </Link>
               </div>
-             
-              
+
+
             </div>
           )}
 
@@ -253,16 +253,16 @@ useEffect(() => {
             </div>
           )}
           <div className="social-Media">
-            <a href="https://www.facebook.com/h7network" target="_blank" 
-  rel="noopener noreferrer">
+            <a href="https://www.facebook.com/h7network" target="_blank"
+              rel="noopener noreferrer">
               {" "}
               <div className="fff">
                 <FaFacebook size={22} color="#163b6d" />
               </div>
             </a>
-            <a href="https://www.linkedin.com/company/h7network/" target="_blank" 
-  rel="noopener noreferrer">
-              <div className="ffn" style={{marginLeft:"15px"}}>
+            <a href="https://www.linkedin.com/company/h7network/" target="_blank"
+              rel="noopener noreferrer">
+              <div className="ffn" style={{ marginLeft: "15px" }}>
                 {" "}
                 <FaLinkedin size={22} color="#163b6d" />
               </div>
@@ -272,37 +272,37 @@ useEffect(() => {
       )}
       <div className="header-container">
         <div className="socila-icons">
-          <a href="https://www.facebook.com/h7network" target="_blank" 
-  rel="noopener noreferrer">
+          <a href="https://www.facebook.com/h7network" target="_blank"
+            rel="noopener noreferrer">
             <div className="facebook">
               {" "}
               <FaFacebook size={20} color="white" />
             </div>
           </a>
 
-          <a href="https://www.linkedin.com/company/h7network/" target="_blank" 
-  rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/company/h7network/" target="_blank"
+            rel="noopener noreferrer">
             <div className="LinkedIn">
               <FaLinkedin size={20} color="white" />
             </div>
           </a>
-          <a href="https://h7network.blog/" target="_blank" 
-  rel="noopener noreferrer"><img src="https://h7network.blog/wp-content/uploads/2024/08/h7-header-logo.png" className="htimg"/></a>
+          <a href="https://h7network.blog/" target="_blank"
+            rel="noopener noreferrer"><img src="https://h7network.blog/wp-content/uploads/2024/08/h7-header-logo.png" className="htimg" /></a>
         </div>
         <div className="pic">
-         <Link to="/"> <img
+          <Link to="/"> <img
             src="https://tracsdev.apttechsol.com/public/uploads/website-images/logo-2024-09-05-10-18-08-4078.png"
             style={{ height: "27px" }}
           /></Link>
         </div>
-        { isLoggedIn && (<div className="mobPicPro">
+        {isLoggedIn && (<div className="mobPicPro">
           <div className="mobPic1">
             <img
               src="https://cdn.motiondesign.school/uploads/2021/05/radik.jpg"
               style={{ height: "100%", width: "100%", borderRadius: "50%" }}
             />
           </div>
-         <div className="drop2" onClick={handelDrop2}>
+          <div className="drop2" onClick={handelDrop2}>
             {drop2 ? (
               <IoMdArrowDropup color="white" size={20} />
             ) : (
@@ -315,13 +315,13 @@ useEffect(() => {
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <div className="profileDrop">
-                  <div style={{marginTop:"15px",marginRight:"6px"}}><IoPerson /></div>
-                        <div> <p>Dashboard</p></div>
+                    <div style={{ marginTop: "15px", marginRight: "6px" }}><IoPerson /></div>
+                    <div> <p>Dashboard</p></div>
                   </div>
                 </Link>
                 <div className="dropLogout" onClick={handleLogout}>
-                  <div style={{marginTop:"15px",marginRight:"6px"}}><IoLogOut /></div>
-                      <div>    <p>Logout</p></div>
+                  <div style={{ marginTop: "15px", marginRight: "6px" }}><IoLogOut /></div>
+                  <div>    <p>Logout</p></div>
                 </div>
               </div>
             )}
@@ -332,7 +332,7 @@ useEffect(() => {
             <div className="globee">
               <PiGlobe color="white" size={28} />{" "}
             </div>
-            <div className="drop1" style={{marginTop:"9px"}} onClick={handelDrop1}>
+            <div className="drop1" style={{ marginTop: "9px" }} onClick={handelDrop1}>
               {drop1 ? (
                 <IoMdArrowDropup size={20} color="white" />
               ) : (
@@ -354,18 +354,18 @@ useEffect(() => {
               )}
             </div>
           </div>
-          { !loading && !isLoggedIn && (
+          {!loading && !isLoggedIn && (
             <div className="LRButton"> <div style={{ marginLeft: "10px" }}>
-                <Link to="/register">
-                  <button style={{ background: " #eeba2b",color:"black", padding:"5px 8px 5px 8px" }}>Register</button>
-                </Link>
-              </div>
+              <Link to="/register">
+                <button style={{ background: " #eeba2b", color: "black", padding: "5px 8px 5px 8px" }}>Register</button>
+              </Link>
+            </div>
               <div style={{ marginLeft: "10px" }}>
                 <Link to="/login">
-                  <button style={{ background: " #eeba2b",color:"black", padding:"5px 8px 5px 8px" }}>Login</button>
+                  <button style={{ background: " #eeba2b", color: "black", padding: "5px 8px 5px 8px" }}>Login</button>
                 </Link>
               </div>
-             
+
             </div>
           )}
           {isLoggedIn && (
@@ -389,15 +389,15 @@ useEffect(() => {
                       style={{ textDecoration: "none", color: "inherit" }}
                     >
                       <div className="profileDrop">
-                        <div style={{marginTop:"15px",marginRight:"6px"}}><IoPerson /></div>
+                        <div style={{ marginTop: "15px", marginRight: "6px" }}><IoPerson /></div>
                         <div> <p>Dashboard</p></div>
-                       
+
                       </div>
                     </Link>
                     <div className="dropLogout" onClick={handleLogout}>
-                      <div style={{marginTop:"15px",marginRight:"6px"}}><IoLogOut /></div>
+                      <div style={{ marginTop: "15px", marginRight: "6px" }}><IoLogOut /></div>
                       <div>    <p>Logout</p></div>
-                  
+
                     </div>
                   </div>
                 )}

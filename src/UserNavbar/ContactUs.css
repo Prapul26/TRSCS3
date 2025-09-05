@@ -14,7 +14,7 @@ height: 40px;
     margin-top: 15px;
     width: 900px !important;
 }
-@media (max-width:480px) {
+@media (max-width:1024px) {
     .emailContainer{
     
     padding-left: 10px;

@@ -6,7 +6,7 @@
     width: 80%;
     height: 600px;
 }
-@media(max-width:480px){
+@media(max-width:1024px){
   .networkContainer{
     height: 100vh;
   }

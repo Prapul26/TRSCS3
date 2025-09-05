@@ -52,7 +52,7 @@ background-color: white;
   .rgb :hover{
     background-color: rgb(255, 213, 1);
   }
-  @media (max-width: 480px){
+  @media (max-width: 1024px){
     .orderHistoryPage{
       width: 70%;
     margin-left: -0%;

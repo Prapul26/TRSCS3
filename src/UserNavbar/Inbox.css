@@ -508,7 +508,7 @@ width: 99%;
   margin-top: 0px;
 }
 
-  @media (max-width: 480px){
+  @media (max-width: 1024px){
    .IBPP{
   width: 100vw;
         height: 100%;

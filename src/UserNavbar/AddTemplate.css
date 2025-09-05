@@ -63,7 +63,7 @@ margin-top: 40px;
 .tokenP p{
     font-size:14.5px;
 }
-@media(max-width:480px){
+@media(max-width:1024px){
     .templateTokenHolder{
         height: 700px;
         width: 80%;

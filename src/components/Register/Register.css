@@ -94,7 +94,7 @@ background-color: white;
 
 
 
-@media (max-width: 480px){
+@media (max-width: 1024px){
        .regHolder{
     width: 100%;
 margin-top: 0px;
