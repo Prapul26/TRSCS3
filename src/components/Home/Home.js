@@ -96,10 +96,11 @@ const Home = () => {
       <Navbar />
     
       <div className="home-details">
+        <div style={{textAlign:"center"}} className="hd0"><h3>Total Referral Advanced Conversion System</h3></div>
         <div className="hd1">
 
           <div className="hd1-details">
-            <div><p >Total Referral Advanced Conversion System</p></div>
+            
             <div><h3>TRACS helps you effortlessly connect and make introductions like a champion!</h3></div>
             <div>{isLoggedIn ?<Link to="/inbox"><button className="ncb1">DASHBOARD</button></Link> :<Link to='/whatIsMakeIntro'><button className="ncb1" >LEARN MORE</button></Link>}</div>
 

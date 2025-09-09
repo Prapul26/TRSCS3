@@ -9,7 +9,12 @@ padding-bottom: 25px;
 
 }
 
-
+.hd0{
+    margin-top: 20px;
+}
+.hd0 h3{
+    font-size: 27px !important;
+}
 .sh2 {
     margin-bottom: 5px;
 

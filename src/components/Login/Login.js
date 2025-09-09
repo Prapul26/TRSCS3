@@ -20,41 +20,38 @@ const Login = ({ switchToRegister }) => {
         setPopUp(true);
     }
     const navigate = useNavigate();
+const handleLogin = async (e) => {
+  e.preventDefault();
 
-    const handleLogin = async (e) => {
-    e.preventDefault();
+  try {
+    const formData = new URLSearchParams();
+    formData.append("email", email);
+    formData.append("password", password);
 
-    try {
-        const response = await fetch('https://tracsdev.apttechsol.com/api/storeLogin', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email,
-                password,
-            }),
-        });
+    const response = await fetch("https://tracsdev.apttechsol.com/api/storeLogin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: formData.toString(),
+    });
 
-        const data = await response.json();
+    const data = await response.json();
 
-        if (response.ok && data.success) {
-            setMessage('Login successful!');
-            sessionStorage.setItem('authToken', data.token);
-            navigate('/home');
-        } else {
-            // Customize error message for failed login
-            if (data.message?.toLowerCase().includes("invalid") || response.status === 401) {
-                setMessage('Invalid login information.');
-            } else {
-                setMessage(data.message || 'Login failed. Please check your credentials.');
-            }
-        }
-    } catch (error) {
-        console.error('Error during login:', error);
-        setMessage('An error occurred. Please try again later.');
+    if (response.ok && data.success) {
+      setMessage("Login successful!");
+      sessionStorage.setItem("authToken", data.token);
+      navigate("/home");
+    } else {
+      setMessage(data.message || "Login failed. Please check your credentials.");
     }
+  } catch (error) {
+    console.error("Error during login:", error);
+    setMessage("An error occurred. Please try again later.");
+  }
 };
+
+   
 useEffect(()=>{
   const fetchData=async()=>{
         try{

@@ -58,26 +58,34 @@ const Inbox = () => {
   const showMobnav = () => {
     setShowSidebar((prev) => !prev);
   };
-  useEffect(() => {
-    const fetchMessages = async () => {
-      const token = sessionStorage.getItem("authToken");
-      try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_API_BASE_URL}/view-inbox-list-from-intro-api`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setSentMessages(response.data.sentMails || []);
-        setKeyfeilds(response.data.keyfields || [])
-      } catch (error) {
-        console.error("Error fetching profile data:", error);
-      }
-    };
-    fetchMessages();
-  }, []);
+useEffect(() => {
+  const fetchMessages = async () => {
+    const token = sessionStorage.getItem("authToken");
+    try {
+      const response = await axios.get(
+        "https://tracsdev.apttechsol.com/api/view-inbox-list-from-intro-api",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: "application/json",
+          },
+          params: {
+            bump: replyFilter || "",      // only add if filter selected
+            all_filter: messageFilter || ""
+          },
+        }
+      );
+
+      setSentMessages(response.data.sentMails || []);
+      setKeyfeilds(response.data.keyfields || []);
+    } catch (error) {
+      console.error("Error fetching inbox data:", error.response?.data || error.message);
+    }
+  };
+
+  fetchMessages();
+}, [replyFilter, messageFilter]); // 👈 refetch when filter changes
+
   console.log("API BASE URL", process.env.REACT_APP_API_BASE_URL);
   useEffect(() => {
     const params = {};
