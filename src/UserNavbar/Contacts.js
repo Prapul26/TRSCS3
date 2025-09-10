@@ -49,72 +49,101 @@ useEffect(() => {
 }, []);
 
   // Step 2: handle import click
-  const handleImport = async () => {
-    if (!selectedFile) {
-      alert("Please select a file first.");
-      return;
-    }
+const handleImport = async () => {
+  if (!selectedFile) {
+    alert("Please select a file first.");
+    return;
+  }
 
-    const token = sessionStorage.getItem("authToken");
+  const token = sessionStorage.getItem("authToken");
 
-    try {
-      const reader = new FileReader();
-      reader.onload = async (evt) => {
-        const data = evt.target.result;
-        const workbook = XLSX.read(data, { type: "binary" });
-        const sheetName = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[sheetName];
-        const rows = XLSX.utils.sheet_to_json(worksheet);
+  try {
+    const reader = new FileReader();
 
-        // Loop through Excel rows
-        for (let row of rows) {
-          const firstName = row["First Name"];
-          const lastName = row["Last Name"];
-          const email = row["Email"];
-          const groupName = row["Group Name"];
+    reader.onload = async (evt) => {
+      const fileExt = selectedFile.name.split(".").pop().toLowerCase();
+      let data = evt.target.result;
+      let workbook;
 
-          // validate required fields
-          if (!firstName || !lastName || !email || !groupName) {
-            console.log("Skipping row (missing fields):", row);
-            continue;
-          }
+      if (fileExt === "csv") {
+        // ✅ Read CSV as text
+        workbook = XLSX.read(data, { type: "string" });
+      } else {
+        // ✅ Excel
+        workbook = XLSX.read(data, { type: "binary" });
+      }
 
-          try {
-            await axios.post(
-              `${process.env.REACT_APP_API_BASE_URL}/contact_store_form`,
-              {
-                first_name: firstName,
-                last_name: lastName,
-                email: email,
-                group_name: groupName,
-              },
-              {
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                },
-              }
-            );
-            console.log("Sending row:", {
-  first_name: firstName,
-  last_name: lastName,
-  email,
-  group_name: groupName
-});
-          } catch (err) {
-            console.error("Failed to import contact:", row,  err.response?.data);
-          }
+      const sheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[sheetName];
+      const rows = XLSX.utils.sheet_to_json(worksheet, { defval: "" });
+
+      console.log("📂 Imported rows:", rows);
+
+      if (!rows.length) {
+        alert("No data found in file. Check headers in your CSV!");
+        return;
+      }
+
+      for (let row of rows) {
+        console.log("➡ Processing row:", row); // 👀 Debug
+
+        const firstName = row["First Name"];
+        const lastName = row["Last Name"];
+        const email = row["Email"];
+        const groupName = row["Group Name"];
+
+        if (!firstName || !lastName || !email || !groupName) {
+          console.log("⚠ Skipping row (missing fields):", row);
+          continue;
         }
 
-        setMessage("Contacts imported successfully!");
-         fetchContacts();
-      };
+        try {
+          await axios.post(
+            `${process.env.REACT_APP_API_BASE_URL}/contact_store_form`,
+            {
+              first_name: firstName,
+              last_name: lastName,
+              email,
+              group_name: groupName,
+            },
+            { headers: { Authorization: `Bearer ${token}` } }
+          );
+          console.log("✅ Imported:", { firstName, lastName, email, groupName });
+        } catch (err) {
+          console.error("❌ Failed to import contact:", row, err.response?.data);
+        }
+      }
 
+      setMessage("Contacts imported successfully!");
+      window.location.reload();; // reloads table
+    };
+
+    if (selectedFile.name.endsWith(".csv")) {
+      reader.readAsText(selectedFile);
+    } else {
       reader.readAsBinaryString(selectedFile);
-    } catch (error) {
-      console.error("Error reading file:", error);
-      setMessage("Failed to import contacts.");
     }
-  };
+  } catch (error) {
+    console.error("Error reading file:", error);
+    setMessage("Failed to import contacts.");
+  }
+};
+
+
+const handleDownloadTemplate = () => {
+  // Define the header row
+  const headers = [["First Name", "Last Name", "Email", "Group Name"]];
+
+  // Create a worksheet
+  const worksheet = XLSX.utils.aoa_to_sheet(headers);
+
+  // Create a workbook and append the worksheet
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Template");
+
+  // Trigger download
+  XLSX.writeFile(workbook, "contacts_template.xlsx");
+};
 
 
   const urlClick = () => {
@@ -221,13 +250,14 @@ useEffect(() => {
 
                 <div className="contacts-buttons">
                   <div className="giofo" >
-                    <div className="importB" >
-                      <button>Download Template</button>
-                      {message && <p>{message}</p>}
-                    </div>
+                    <div className="importB">
+  <button onClick={handleDownloadTemplate}>Download Template</button>
+  {message && <p>{message}</p>}
+</div>
+
 
                     <div className="importA">
-                      <input type="file" accept=".xlsx,.xls" onChange={handleFileChange} />
+<input type="file" accept=".xlsx,.xls,.csv" onChange={handleFileChange} />
                     </div>
 
                   </div>
