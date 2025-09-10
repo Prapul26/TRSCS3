@@ -51,7 +51,7 @@ useEffect(() => {
   // Step 2: handle import click
 const handleImport = async () => {
   if (!selectedFile) {
-    alert("Please select a file first.");
+    setMessage("⚠ Please select a file first.");
     return;
   }
 
@@ -66,10 +66,8 @@ const handleImport = async () => {
       let workbook;
 
       if (fileExt === "csv") {
-        // ✅ Read CSV as text
         workbook = XLSX.read(data, { type: "string" });
       } else {
-        // ✅ Excel
         workbook = XLSX.read(data, { type: "binary" });
       }
 
@@ -77,23 +75,23 @@ const handleImport = async () => {
       const worksheet = workbook.Sheets[sheetName];
       const rows = XLSX.utils.sheet_to_json(worksheet, { defval: "" });
 
-      console.log("📂 Imported rows:", rows);
-
       if (!rows.length) {
-        alert("No data found in file. Check headers in your CSV!");
+        setMessage("⚠ No data found in file. Check headers in your file.");
         return;
       }
 
-      for (let row of rows) {
-        console.log("➡ Processing row:", row); // 👀 Debug
+      let imported = 0;
+      let skipped = 0;
+      let failed = 0;
 
+      for (let row of rows) {
         const firstName = row["First Name"];
         const lastName = row["Last Name"];
         const email = row["Email"];
         const groupName = row["Group Name"];
 
         if (!firstName || !lastName || !email || !groupName) {
-          console.log("⚠ Skipping row (missing fields):", row);
+          skipped++;
           continue;
         }
 
@@ -108,14 +106,30 @@ const handleImport = async () => {
             },
             { headers: { Authorization: `Bearer ${token}` } }
           );
-          console.log("✅ Imported:", { firstName, lastName, email, groupName });
+          imported++;
         } catch (err) {
-          console.error("❌ Failed to import contact:", row, err.response?.data);
+          // ✅ Check if error is due to duplicate entry
+          if (err.response?.data?.message?.includes("already exists")) {
+            setMessage(`⚠ Contact with email "${email}" already exists.`);
+          } else {
+            console.error("❌ Failed to import:", row, err.response?.data);
+            failed++;
+          }
         }
       }
 
-      setMessage("Contacts imported successfully!");
-      window.location.reload();; // reloads table
+      // ✅ Final message after import
+      if (imported > 0) {
+        setMessage(`✅ ${imported} contacts imported successfully.`);
+      }
+      if (skipped > 0) {
+        setMessage((prev) => `${prev} ⚠ ${skipped} rows skipped (missing fields).`);
+      }
+      if (failed > 0) {
+        setMessage((prev) => `${prev} ❌ ${failed} contacts failed to import.`);
+      }
+
+      fetchContacts(); // reload table
     };
 
     if (selectedFile.name.endsWith(".csv")) {
@@ -125,9 +139,11 @@ const handleImport = async () => {
     }
   } catch (error) {
     console.error("Error reading file:", error);
-    setMessage("Failed to import contacts.");
+    setMessage("❌ Failed to import contacts.");
   }
 };
+
+
 
 
 const handleDownloadTemplate = () => {
