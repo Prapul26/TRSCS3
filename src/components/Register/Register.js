@@ -4,7 +4,7 @@ import './Register.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import Header from '../Heaader/Header';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoBriefcaseOutline, IoLockClosedOutline, IoMailOutline, IoPerson, IoPersonOutline, IoPhoneLandscapeOutline } from 'react-icons/io5';
 import { LuRectangleVertical } from 'react-icons/lu';
 import { CiPhone } from 'react-icons/ci';
@@ -23,7 +23,7 @@ const Register = ({ switchToLogin }) => {
 
     // 🟢 Fetch CSRF Token on Component Mount
 
-
+const navigate=useNavigate()
     const handleRegister = async (e) => {
         e.preventDefault();
         setMessage(''); // Clear previous messages
@@ -56,7 +56,9 @@ const Register = ({ switchToLogin }) => {
             );
 
             if (response.status === 201) {
-                setMessage(response.data.message || 'Registration successful. Please verify your email.');
+                alert(response.data.message || 'Registration successful. Please verify your email.');
+          navigate("/login")
+
                 console.log('User registered:', response.data.user);
             }
         } catch (error) {

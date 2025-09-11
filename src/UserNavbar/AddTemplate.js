@@ -5,6 +5,8 @@ import SideNav from "./SideNav";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import UserHeader from "../components/UserHeader";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { TiArrowBack } from "react-icons/ti";
 
 const AddTemplate = () => {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -16,6 +18,8 @@ const AddTemplate = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
+  const navigate=useNavigate();
+
   const handleClick = () => {
     showTemplateTokens(!templateTokens);
   };
@@ -53,7 +57,9 @@ const AddTemplate = () => {
       setMessage(error.response?.data?.message || "Error adding the Template");
     }
   };
-
+  const handleGoBack = () => {
+    navigate(-1); // Go back to the previous page in history
+  };
   return (
     <div>
       <div className="mobMenuaa">
@@ -70,6 +76,16 @@ const AddTemplate = () => {
               <div className="d-header">
                 <h2>Add Template</h2>
               </div>
+              <div style={{ marginLeft: "20px" ,marginBottom:"20px"}}>
+                        {" "}
+                        <button style={{ borderRadius: "30px", border: "transparent", background: "#163b6d" }} onClick={handleGoBack}>
+                          <span>
+              
+                            <TiArrowBack color="white" size={35} style={{ background: "#163b6d" }} />
+              
+                          </span>{" "}
+                        </button>
+                      </div>
               <div className="templateContainer">
                 <form onSubmit={handleSubmit}>
                   <div>

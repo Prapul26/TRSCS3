@@ -41,7 +41,7 @@ const handleLogin = async (e) => {
     if (response.ok && data.success) {
       setMessage("Login successful!");
       sessionStorage.setItem("authToken", data.token);
-      navigate("/home");
+      navigate("/inbox");
     } else {
       setMessage(data.message || "Login failed. Please check your credentials.");
     }

@@ -118,3 +118,6 @@ background-color: rgb(240, 239, 238);
   
 background-color: rgb(240, 239, 238);
 }
+.navs{
+  overflow-y: auto;
+}

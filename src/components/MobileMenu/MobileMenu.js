@@ -85,7 +85,7 @@ showIntro3(false)
       {
         intro2 && <div className="intoNav" style={{ marginLeft: "7px" }}>
           <Link to='/myMembership' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/myMembership" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }} ><div>< MdOutlineCardMembership size={20} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>My Membership</h3></div></Link>
-          <Link to='/accountSettings' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/accountSettings" ? "active" : ""}`} ><div style={{ display: "flex", marginBottom: "8px" }}  ><div><IoPerson size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Dashboard</h3></div></Link>
+          <Link to='/accountSettings' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/accountSettings" ? "active" : ""}`} ><div style={{ display: "flex", marginBottom: "8px" }}  ><div><IoPerson size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>My Profile</h3></div></Link>
           <Link to='/passwordChange' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/passwordChange" ? "active" : ""}`} ><div style={{ display: "flex", marginBottom: "8px" }}  > <div><FaUnlockAlt size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Change Password</h3></div></Link>
           <Link to='/affiliation' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/affiliation" ? "active" : ""}`} > <div style={{ display: "flex", marginBottom: "8px" }}  ><div><TbArrowsRandom size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Affiliation</h3></div></Link>
 
@@ -107,8 +107,9 @@ showIntro3(false)
       </div>
       {
         intro && <div className="intoNav" style={{ marginLeft: "7px" }}>
-          <Link to='/contacts' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/contacts" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< RiContactsFill size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>My Contacts</h3></div></Link>
           <Link to='/inbox' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/inbox" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div><HiInboxArrowDown size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Introduction Messages</h3></div></Link>
+                    <Link to='/contacts' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/contacts" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< RiContactsFill size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>My Contacts</h3></div></Link>
+
           <Link to='/email' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/email" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}> <div><MdOutlineEmail size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Email Template</h3></div></Link>
           <Link to='/signature' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/signature" ? "active" : ""}`}> <div style={{ display: "flex", marginBottom: "8px" }}><div><FaFileSignature size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Email Signature</h3></div></Link>
 

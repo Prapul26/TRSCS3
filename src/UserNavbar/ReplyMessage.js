@@ -187,6 +187,7 @@ const ReplyMessage = () => {
                       <div style={{ marginTop: "9px", marginLeft: "5px" }}><h4>{selectedTemplate}</h4></div>
                       <div style={{ marginTop: "9px" }}><FaSortDown /></div>
                     </div>
+
                   </div>
                   {template && (
                     <div className="templateSetHolder">
@@ -214,6 +215,7 @@ const ReplyMessage = () => {
                       ))}
                     </div>
                   )}
+                 <Link to="/addTemplate"> <div>Add template</div></Link>
                 </div>
               </div>
               <div className="messageRead">

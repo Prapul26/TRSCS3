@@ -78,7 +78,7 @@ const MyProfile = () => {
     const timeoutId = setTimeout(() => {
       const fetchProfile = async () => {
         try {
-          const token = localStorage.getItem("authToken");
+          const token = sessionStorage.getItem("authToken");
           const response = await axios.get(
             `${process.env.REACT_APP_API_BASE_URL}/my-profile`,
             {

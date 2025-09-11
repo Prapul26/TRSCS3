@@ -266,7 +266,7 @@ const latestMessageId = sentMessages.length > 0 ? sentMessages[0].id : null;
 
                   <div className="mI3">
                     <Link to="/makeIntro">
-                      <button>Make Introduction</button>
+                      <button>Make An Introduction</button>
                     </Link>{" "}
                   </div>
                 </div>

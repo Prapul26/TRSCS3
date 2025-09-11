@@ -70,7 +70,7 @@ const MakeIntroduction = () => {
         const field2 = keyFeilds.find(item => item.id === 9)?.description;
             const field3 = keyFeilds.find(item => item.id === 4)?.description;
             const field4 = keyFeilds.find(item => item.id === 6)?.description;
-
+const navigate2=useNavigate();
 
  const adjustInternalhtml = (html) => {
   const container = document.createElement("div");
@@ -131,7 +131,7 @@ const MakeIntroduction = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
 
     const validEmails = selectedEmails.filter((user) => {
       const domain = user.email.split("@")[1];
@@ -182,6 +182,7 @@ const MakeIntroduction = () => {
       );
 
       setMsg(response.data?.message || "Introduction sent successfully.");
+navigate2("/inbox");
       console.log("Success:", response.data);
     } catch (err) {
       setMsg(err.response?.data?.message || "An error occurred.");
@@ -323,7 +324,7 @@ useEffect(() => {
       <Header />
       <Navbar />
       <div className="crub">
-        <h1 style={{ color: "white" }}>Make Introduction</h1>
+        <h1 style={{ color: "white" }}>Make An Introduction</h1>
       </div>
       <div
         style={{
@@ -708,7 +709,7 @@ useEffect(() => {
             </div>
             
             <div>
-              <Link to='/email' style={{ textDecoration: "none", color: "inherit" }}>  <label>ManageTemplates</label></Link>
+              <Link to='/addTemplate' style={{ textDecoration: "none", color: "inherit" }}>  <label>ManageTemplates</label></Link>
             </div>
           </div>
            <div style={{ marginTop: "10px", marginLeft: "0px" }} onClick={handelbest}>
