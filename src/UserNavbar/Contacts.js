@@ -220,10 +220,9 @@ const handleDownloadTemplate = () => {
   };
 
   const navigate = useNavigate();
-  const handleEdit = (id) => {
-
-    navigate(`/editContact/${id}`)
-  }
+const handleEdit = (contact) => {
+  navigate(`/editContact/${contact.id}`, { state: { contact } });
+};
 
 
   return (
@@ -325,7 +324,7 @@ const handleDownloadTemplate = () => {
 
                             <td>
 
-                              <button style={{ background: "green" }} onClick={() => handleEdit(contact.id)}><MdOutlineModeEdit /></button>
+                              <button style={{ background: "green" }} onClick={() => handleEdit(contact)}><MdOutlineModeEdit /></button>
 
                               <button
                                 style={{ background: "red", marginLeft: "5px" }}
