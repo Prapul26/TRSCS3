@@ -58,33 +58,33 @@ const Inbox = () => {
   const showMobnav = () => {
     setShowSidebar((prev) => !prev);
   };
-useEffect(() => {
-  const fetchMessages = async () => {
-    const token = sessionStorage.getItem("authToken");
-    try {
-      const response = await axios.get(
-        "https://tracsdev.apttechsol.com/api/view-inbox-list-from-intro-api",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            Accept: "application/json",
-          },
-          params: {
-            bump: replyFilter || "",      // only add if filter selected
-            all_filter: messageFilter || ""
-          },
-        }
-      );
+  useEffect(() => {
+    const fetchMessages = async () => {
+      const token = sessionStorage.getItem("authToken");
+      try {
+        const response = await axios.get(
+          "https://tracsdev.apttechsol.com/api/view-inbox-list-from-intro-api",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              Accept: "application/json",
+            },
+            params: {
+              bump: replyFilter || "",      // only add if filter selected
+              all_filter: messageFilter || ""
+            },
+          }
+        );
 
-      setSentMessages(response.data.sentMails || []);
-      setKeyfeilds(response.data.keyfields || []);
-    } catch (error) {
-      console.error("Error fetching inbox data:", error.response?.data || error.message);
-    }
-  };
+        setSentMessages(response.data.sentMails || []);
+        setKeyfeilds(response.data.keyfields || []);
+      } catch (error) {
+        console.error("Error fetching inbox data:", error.response?.data || error.message);
+      }
+    };
 
-  fetchMessages();
-}, [replyFilter, messageFilter]); // 👈 refetch when filter changes
+    fetchMessages();
+  }, [replyFilter, messageFilter]); // 👈 refetch when filter changes
 
   console.log("API BASE URL", process.env.REACT_APP_API_BASE_URL);
   useEffect(() => {
@@ -155,36 +155,36 @@ useEffect(() => {
 
   const sanitizedHtml2 = container2.innerHTML;
 
-const toggleExpand = (id) => {
-  setExpandedId(prevId => (prevId === id ? null : id));
+  const toggleExpand = (id) => {
+    setExpandedId(prevId => (prevId === id ? null : id));
 
-  if (id) {
-    sessionStorage.setItem("expandedId", id); // save when opened
-  } else {
-    sessionStorage.removeItem("expandedId"); // clear when collapsed
-  }
-};
+    if (id) {
+      sessionStorage.setItem("expandedId", id); // save when opened
+    } else {
+      sessionStorage.removeItem("expandedId"); // clear when collapsed
+    }
+  };
 
-// Restore saved expandedId on mount
-useEffect(() => {
-  const savedExpanded = sessionStorage.getItem("expandedId");
-  if (savedExpanded) {
-    setExpandedId(Number(savedExpanded));
-  }
-}, []);
+  // Restore saved expandedId on mount
+  useEffect(() => {
+    const savedExpanded = sessionStorage.getItem("expandedId");
+    if (savedExpanded) {
+      setExpandedId(Number(savedExpanded));
+    }
+  }, []);
 
-// If nothing saved, expand the first message once messages load
-useEffect(() => {
-  if (!sessionStorage.getItem("expandedId") && sentMessages.length > 0) {
-    const sortedMessages = [...sentMessages].sort(
-      (a, b) => new Date(b.created_at) - new Date(a.created_at)
-    );
-    setExpandedId(sortedMessages[0].id); // now matches first in UI
-  }
-}, [sentMessages]);
+  // If nothing saved, expand the first message once messages load
+  useEffect(() => {
+    if (!sessionStorage.getItem("expandedId") && sentMessages.length > 0) {
+      const sortedMessages = [...sentMessages].sort(
+        (a, b) => new Date(b.created_at) - new Date(a.created_at)
+      );
+      setExpandedId(sortedMessages[0].id); // now matches first in UI
+    }
+  }, [sentMessages]);
 
 
-const latestMessageId = sentMessages.length > 0 ? sentMessages[0].id : null;
+  const latestMessageId = sentMessages.length > 0 ? sentMessages[0].id : null;
 
 
   return (
@@ -318,7 +318,7 @@ const latestMessageId = sentMessages.length > 0 ? sentMessages[0].id : null;
                       <div key={item.id} className="inbox">
                         <div classname="headingContainer" style={{ display: "flex", justifyContent: "space-between" }}>
                           <div classname="headingIntro">
-                            <h5 style={{ fontSize: "16px", fontWeight: "600", marginTop: "-0px",cursor:"pointer" }} onClick={() => toggleExpand(item.id)} >{item.subject}</h5>
+                            <h5 style={{ fontSize: "16px", fontWeight: "600", marginTop: "-0px", cursor: "pointer" }} onClick={() => toggleExpand(item.id)} >{item.subject}</h5>
                           </div>
                           <div onClick={() => toggleExpand(item.id)}>
                             {expandedId === item.id ? <IoIosArrowDropup /> : <IoIosArrowDropdown />}
@@ -337,20 +337,20 @@ const latestMessageId = sentMessages.length > 0 ? sentMessages[0].id : null;
                             </div>
                             <div className="time55days">
                               <p>
-                               {(() => {
-  const diffMs = Date.now() - new Date(item.created_at).getTime();
-  const diffMinutes = Math.floor(diffMs / (1000 * 60));
-  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-  const diffDays = Math.floor(diffHours / 24);
+                                {(() => {
+                                  const diffMs = Date.now() - new Date(item.created_at).getTime();
+                                  const diffMinutes = Math.floor(diffMs / (1000 * 60));
+                                  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+                                  const diffDays = Math.floor(diffHours / 24);
 
-  if (diffMinutes < 60) {
-    return `${diffMinutes} minute${diffMinutes !== 1 ? "s" : ""} ago`;
-  } else if (diffHours < 24) {
-    return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
-  } else {
-    return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
-  }
-})()}
+                                  if (diffMinutes < 60) {
+                                    return `${diffMinutes} minute${diffMinutes !== 1 ? "s" : ""} ago`;
+                                  } else if (diffHours < 24) {
+                                    return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
+                                  } else {
+                                    return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
+                                  }
+                                })()}
 
                               </p>
                             </div>
@@ -358,31 +358,31 @@ const latestMessageId = sentMessages.length > 0 ? sentMessages[0].id : null;
                             {item.recipients_info.some(recipient => recipient.replied === false) && (<div className="timeStar" style={{ marginTop: "-0px" }}><IoIosStar color="#eeba2b" /></div>)}
                           </div>
                         </div>
-{item.id === latestMessageId && (
-  <div style={{ display: 'flex', alignItems: 'center' }} className="latestReply">
-    <p style={{ marginRight: "5px" , fontWeight: "600"}}>Latest Reply:</p>
-    <p style={{ marginRight: "10px" }}>
-      {item.sender_full_name}
-    </p>
-    <FaClock />
-    <p style={{ color: "#025ea3" ,marginLeft:"5px"}}>
-      {(() => {
-        const diffMs = Date.now() - new Date(item.created_at).getTime();
-        const diffMinutes = Math.floor(diffMs / (1000 * 60));
-        const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-        const diffDays = Math.floor(diffHours / 24);
+                        {item.id === latestMessageId && (
+                          <div style={{ display: 'flex', alignItems: 'center' }} className="latestReply">
+                            <p style={{ marginRight: "5px", fontWeight: "600" }}>Latest Reply:</p>
+                            <p style={{ marginRight: "10px" }}>
+                              {item.sender_full_name}
+                            </p>
+                            <FaClock />
+                            <p style={{ color: "#025ea3", marginLeft: "5px" }}>
+                              {(() => {
+                                const diffMs = Date.now() - new Date(item.created_at).getTime();
+                                const diffMinutes = Math.floor(diffMs / (1000 * 60));
+                                const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+                                const diffDays = Math.floor(diffHours / 24);
 
-        if (diffMinutes < 60) {
-          return `${diffMinutes} minute${diffMinutes !== 1 ? "s" : ""} ago`;
-        } else if (diffHours < 24) {
-          return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
-        } else {
-          return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
-        }
-      })()}
-    </p>
-  </div>
-)}
+                                if (diffMinutes < 60) {
+                                  return `${diffMinutes} minute${diffMinutes !== 1 ? "s" : ""} ago`;
+                                } else if (diffHours < 24) {
+                                  return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
+                                } else {
+                                  return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
+                                }
+                              })()}
+                            </p>
+                          </div>
+                        )}
                         {(isExpanded || expandedId === item.id) && (
                           <div style={{ marginTop: "-16px" }}>
                             <h5 style={{ fontSize: "17px", fontWeight: "700" }}>Introducing</h5>
@@ -443,20 +443,20 @@ const latestMessageId = sentMessages.length > 0 ? sentMessages[0].id : null;
                                 </div>
                                 <div className="time55days">
                                   <p style={{ fontSize: "14px !important" }}>{(() => {
-  const diffMs = Date.now() - new Date(item.created_at).getTime();
-  const diffMinutes = Math.floor(diffMs / (1000 * 60));
-  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-  const diffDays = Math.floor(diffHours / 24);
+                                    const diffMs = Date.now() - new Date(item.created_at).getTime();
+                                    const diffMinutes = Math.floor(diffMs / (1000 * 60));
+                                    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+                                    const diffDays = Math.floor(diffHours / 24);
 
-  if (diffMinutes < 60) {
-    return `${diffMinutes} minute${diffMinutes !== 1 ? "s" : ""} ago`;
-  } else if (diffHours < 24) {
-    return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
-  } else {
-    return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
-  }
-})()}
-</p>
+                                    if (diffMinutes < 60) {
+                                      return `${diffMinutes} minute${diffMinutes !== 1 ? "s" : ""} ago`;
+                                    } else if (diffHours < 24) {
+                                      return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
+                                    } else {
+                                      return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
+                                    }
+                                  })()}
+                                  </p>
                                 </div>
 
                               </div></div>

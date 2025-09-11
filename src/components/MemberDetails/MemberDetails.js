@@ -69,7 +69,7 @@ const MemberDetails = () => {
   };
 useEffect(() => {
   const fetchData = async () => {
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_API_BASE_URL}/profile_details/${user_id}/${member_type}`,
