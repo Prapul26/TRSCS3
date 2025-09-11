@@ -47,7 +47,7 @@ const MakeIntroduction = () => {
   const [ggText, setGGText] = useState("")
   const [messagebody, setmessageBody] = useState("")
   // New state
-  const[keyFeilds,setKeyFeilds]=useState([])
+  const [keyFeilds, setKeyFeilds] = useState([])
 
   const [data, setData] = useState({});
   const [signature, setSignature] = useState(false);
@@ -61,22 +61,22 @@ const MakeIntroduction = () => {
   const [showModal, setShowModal] = useState(false);
   const [bestPractice, setBestPractise] = useState(false);
   const [validationError, setValidationError] = useState("");
-  const[contacts,setContacts]=useState([])
-    const [includeSignature, setIncludeSignature] = useState(false);
-      const [showTakeAction, setTakeAction] = useState(false)
-           const [showTakeAction2, setTakeAction2] = useState(false);
-             const [showTakeAction3, setTakeAction3] = useState(false)
-    const field1 = keyFeilds.find(item => item.id === 1)?.description;
-        const field2 = keyFeilds.find(item => item.id === 9)?.description;
-            const field3 = keyFeilds.find(item => item.id === 4)?.description;
-            const field4 = keyFeilds.find(item => item.id === 6)?.description;
-const navigate2=useNavigate();
+  const [contacts, setContacts] = useState([])
+  const [includeSignature, setIncludeSignature] = useState(false);
+  const [showTakeAction, setTakeAction] = useState(false)
+  const [showTakeAction2, setTakeAction2] = useState(false);
+  const [showTakeAction3, setTakeAction3] = useState(false)
+  const field1 = keyFeilds.find(item => item.id === 1)?.description;
+  const field2 = keyFeilds.find(item => item.id === 9)?.description;
+  const field3 = keyFeilds.find(item => item.id === 4)?.description;
+  const field4 = keyFeilds.find(item => item.id === 6)?.description;
+  const navigate2 = useNavigate();
 
- const adjustInternalhtml = (html) => {
-  const container = document.createElement("div");
-  container.innerHTML = html;
-  return container.innerHTML;
-};
+  const adjustInternalhtml = (html) => {
+    const container = document.createElement("div");
+    container.innerHTML = html;
+    return container.innerHTML;
+  };
   const navigate = useNavigate();
   const handelbest = () => {
     setBestPractise(!bestPractice)
@@ -182,7 +182,7 @@ const navigate2=useNavigate();
       );
 
       setMsg(response.data?.message || "Introduction sent successfully.");
-navigate2("/inbox");
+      navigate2("/inbox");
       console.log("Success:", response.data);
     } catch (err) {
       setMsg(err.response?.data?.message || "An error occurred.");
@@ -271,7 +271,7 @@ navigate2("/inbox");
     return container.innerHTML;
   };
 
-const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
+  const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
 
   const handleMouseEnter = () => {
     clearTimeout(hideTimeoutRef.current); // ✅ cancel pending hide
@@ -283,40 +283,40 @@ const hideTimeoutRef = useRef(null); // ✅ persist timeout between renders
       setTakeAction3(false);
     }, 3000); // ✅ delay hiding for 3 seconds
   };
-useEffect(() => {
-  const fetchContacts = async () => {
-    const token = sessionStorage.getItem("authToken");
-    try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_BASE_URL}/view-introduction-email-list`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+  useEffect(() => {
+    const fetchContacts = async () => {
+      const token = sessionStorage.getItem("authToken");
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_BASE_URL}/view-introduction-email-list`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-      const normalized = response.data.template.data.map((c) => ({
-        id: c.id,
-        name: `${c.first_name} ${c.last_name}`,
-        email: c.email,
-        phone: c.phone,
-        website: c.website,
-        linkedin: c.linkedin,
-        business_name: c.group_name,
-        image: c.photo || "",
-        member_type: "3",
-        about: c.about || "",
-      }));
+        const normalized = response.data.template.data.map((c) => ({
+          id: c.id,
+          name: `${c.first_name} ${c.last_name}`,
+          email: c.email,
+          phone: c.phone,
+          website: c.website,
+          linkedin: c.linkedin,
+          business_name: c.group_name,
+          image: c.photo || "",
+          member_type: "3",
+          about: c.about || "",
+        }));
 
-      setContacts(normalized);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+        setContacts(normalized);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-  fetchContacts();
-}, []);
+    fetchContacts();
+  }, []);
 
 
   return (
@@ -355,7 +355,7 @@ useEffect(() => {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             {
-              showTakeAction && <div style={{marginTop:"-120px",width:"300px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"95px",background:"black",color:"white"}}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field1 || "") }} onMouseLeave={()=>setTakeAction(false)} /></div>
+              showTakeAction && <div style={{ marginTop: "-120px", width: "300px", borderRadius: "10px", opacity: "0.9", padding: "10px", height: "95px", background: "black", color: "white" }}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field1 || "") }} onMouseLeave={() => setTakeAction(false)} /></div>
             }
             <div style={{ display: "flex" }}><div><label>Directory</label></div><div style={{ marginLeft: "5px", marginTop: "2px" }} onMouseEnter={handleMouseEnter} ><FaCircleQuestion /></div></div>
             <br />
@@ -590,7 +590,7 @@ useEffect(() => {
                               <IoMail />
                             </div>
                             <div>
-                              <h4 style={{marginTop:"3px"}}>{user.email}</h4>
+                              <h4 style={{ marginTop: "3px" }}>{user.email}</h4>
                             </div>
                           </div>
                           <div style={{ display: "flex" }}>
@@ -599,7 +599,7 @@ useEffect(() => {
                               <FaAddressCard />
                             </div>
                             <div className="emailSpan">
-                             <h4 style={{marginTop:"3px"}}>{user?.listings?.[0]?.title || "No business name"}</h4>
+                              <h4 style={{ marginTop: "3px" }}>{user?.listings?.[0]?.title || "No business name"}</h4>
                             </div>
                           </div>
                         </div>
@@ -687,15 +687,15 @@ useEffect(() => {
             className="manageHeadingTEmplate"
             style={{ display: "flex", justifyContent: "space-between" }}
           >
-             {
-              showTakeAction2 && <div style={{marginTop:"-140px",position:"absolute",width:"350px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"115px",background:"black",color:"white"}}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field2 || "") }}  onMouseLeave={() => setTakeAction2(false)}/></div>
+            {
+              showTakeAction2 && <div style={{ marginTop: "-140px", position: "absolute", width: "350px", borderRadius: "10px", opacity: "0.9", padding: "10px", height: "115px", background: "black", color: "white" }}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field2 || "") }} onMouseLeave={() => setTakeAction2(false)} /></div>
             }
             <div style={{ display: "flex", marginBottom: "-29px" }}>
               <div>
                 <label>Select Template </label>
               </div>
-              <div  onMouseEnter={() => setTakeAction2(true)} style={{marginTop:"2px",marginLeft:"6px"}}><FaCircleQuestion /></div>
-             
+              <div onMouseEnter={() => setTakeAction2(true)} style={{ marginTop: "2px", marginLeft: "6px" }}><FaCircleQuestion /></div>
+
               {bestPractice && (
                 <div className="practice-overlay">
                   <div className="practiceHolder">
@@ -703,20 +703,20 @@ useEffect(() => {
                       <div><strong style={{ fontSize: "20px" }}>Help</strong></div>
                       <div onClick={handelbestcancel}><RxCross2 /></div>
                     </div>
-                  <div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field4 || "") }} ></div>
+                    <div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field4 || "") }} ></div>
                   </div></div>
               )}
             </div>
-            
+
             <div>
               <Link to='/addTemplate' style={{ textDecoration: "none", color: "inherit" }}>  <label>ManageTemplates</label></Link>
             </div>
           </div>
-           <div style={{ marginTop: "10px", marginLeft: "0px" }} onClick={handelbest}>
-                <p style={{ fontSize: "12px !important",textDecoration:"underline" }} className="pset">
-                  Best Practices ?
-                </p>
-              </div>{" "}
+          <div style={{ marginTop: "10px", marginLeft: "0px" }} onClick={handelbest}>
+            <p style={{ fontSize: "12px !important", textDecoration: "underline" }} className="pset">
+              Best Practices ?
+            </p>
+          </div>{" "}
           <br />
           <select
             className="templateSelect"
@@ -770,7 +770,7 @@ useEffect(() => {
                 let replaced = message
                   .replace(/\[\[name_1\]\]/gi, user1.name)
                   .replace(/\[\[name_2\]\]/gi, user2.name);
-let replaced1 = ggText
+                let replaced1 = ggText
                   .replace(/\[\[name_1\]\]/gi, user1.name)
                   .replace(/\[\[name_2\]\]/gi, user2.name);
 
@@ -785,7 +785,7 @@ let replaced1 = ggText
           <br />
           <label>Message</label>
           <br />
-          <div 
+          <div
             className="text-Area"
             contentEditable
             dangerouslySetInnerHTML={{ __html: adjustInternalHtml(ggText) }}
@@ -794,46 +794,52 @@ let replaced1 = ggText
               border: "1px solid #ccc",
               padding: "10px",
               minHeight: "100px",
-              marginTop:"20px",
-              marginBottom:"20px",
-              background:"white",
+              marginTop: "20px",
+              marginBottom: "20px",
+              background: "white",
             }}
           ></div>
-{/*
+          {/*
       <textarea
             className="messageText"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
 */}
-      
+
           <br />
-          <div style={{ marginTop: "0px" ,marginBottom:"20px",color:"#e6410fff",whiteSpace: 'pre-line',fontWeight:"600"}}>{msg}</div>
+          <div style={{ marginTop: "0px", marginBottom: "20px", color: "#e6410fff", whiteSpace: 'pre-line', fontWeight: "600" }}>{msg}</div>
           <div className="lastbutton" style={{ display: "flex" }}>
             <div style={{ display: "flex" }}>
-              <input
-                type="checkbox"
-                checked={!!signature}
-              onChange={(e) => {
-  const checked = e.target.checked;
-  const rawSignature = data.signature.name;
-  const wrappedSignature = `<div class="signature-block">${rawSignature}</div>`;
-  const htmlSignature = adjustInternalHtml(wrappedSignature);
+           <input
+  type="checkbox"
+  checked={!!signature}
+  onChange={(e) => {
+    const checked = e.target.checked;
 
-  if (checked) {
-    setGGText((prev) => prev + htmlSignature);
-    setSignature(htmlSignature);
-  } else {
-    setGGText((prev) => prev.replace(signature, "").trim());
-    setSignature("");
-  }
-}}
+    if (!data?.signature?.name) {
+      setMsg("No signature found. Please add one first.");
+      return;
+    }
 
-              />
-                  {
-              showTakeAction3 && <div className="showTakeAction3" style={{marginTop:"-155px",position:"absolute",width:"350px",borderRadius:"10px",opacity:"0.9",padding:"10px",height:"90px",color:"white"}}><div className="signatureDiv" dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field3 || "") }} onMouseLeave={()=>setTakeAction3(false)}/></div>
-            }
-              <h3 style={{marginLeft:"4PX"}}>Include Signature</h3><div style={{ marginLeft: "5px", marginTop: "5px" }} onMouseEnter={() => setTakeAction3(true)}><FaCircleQuestion /></div>
+    const rawSignature = data.signature.name;
+    const wrappedSignature = `<div class="signature-block">${rawSignature}</div>`;
+    const htmlSignature = adjustInternalHtml(wrappedSignature);
+
+    if (checked) {
+      setGGText((prev) => prev + htmlSignature);
+      setSignature(htmlSignature);
+    } else {
+      setGGText((prev) => prev.replace(signature, "").trim());
+      setSignature("");
+    }
+  }}
+/>
+
+              {
+                showTakeAction3 && <div className="showTakeAction3" style={{ marginTop: "-155px", position: "absolute", width: "350px", borderRadius: "10px", opacity: "0.9", padding: "10px", height: "90px", color: "white" }}><div className="signatureDiv" dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field3 || "") }} onMouseLeave={() => setTakeAction3(false)} /></div>
+              }
+              <h3 style={{ marginLeft: "4PX" }}>Include Signature</h3><div style={{ marginLeft: "5px", marginTop: "5px" }} onMouseEnter={() => setTakeAction3(true)}><FaCircleQuestion /></div>
             </div>
             <div className="formButtons">
               <button style={{ background: "#dc3545", height: "37px", fontSize: "1rem", marginTop: "20px" }}>Cancel</button>
