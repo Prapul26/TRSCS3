@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ReplyMessage.css";
 import UserHeader from "../components/UserHeader";
 import SideNav from "./SideNav";
@@ -27,7 +27,10 @@ const ReplyMessage = () => {
   const [showSignature, setShowSignature] = useState(true);
   const [sentMail, setSentMails] = useState([]);
   const [signature, setSignature] = useState([]);
+  const [template1,setTemplate1]=useState([])
   const [popUp, setPopUp] = useState(false);
+  
+  const messageRef = useRef(null);
  const handleGoBack = () => {
     navigate(-1); // Go back to the previous page in history
   };
@@ -40,7 +43,7 @@ const ReplyMessage = () => {
     month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true
   }) : "";
 
-  const emailPreview = data.email_templates?.filter(template => template.id === selectedTemplateId);
+const emailPreview = template1?.filter(template => template.id === selectedTemplateId);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,6 +57,7 @@ const ReplyMessage = () => {
         setSentMails(response.data.sentMails.data);
         const sigValue = response.data.keyfields?.find(item => item.id === 4)?.description || "";
         setSignature(sigValue);
+        setTemplate1(response.data.normal_email_templates)
       } catch (err) {
         console.error("Error fetching inbox history:", err);
       }
@@ -79,7 +83,7 @@ const ReplyMessage = () => {
     cc_mail_id: null,
     emails: selectedEmails,
     email_template: selectedTemplate,
-    message: emailPreview?.[0]?.email_body || "testing purpose only",
+      message: messageRef.current?.innerHTML || "", // ✅ grab edited HTML
     files: null
   };
 
@@ -199,20 +203,22 @@ const ReplyMessage = () => {
                         style={{ width: "90%", height: "40px", marginBottom: "10px", border: "1px solid #ccc", borderRadius: "5px", padding: "5px" }}
                       />
                       <p style={{ marginLeft: "10px" }}>Select Template</p>
-                      {data.email_templates?.filter(temp => temp.template_name.toLowerCase().includes(templateSearch.toLowerCase())).map(temp => (
-                        <div
-                          className="tempddd"
-                          key={temp.id}
-                          onClick={() => {
-                            setSelectedTemplate(temp.template_name);
-                            setSelectedTemplateId(temp.id);
-                            setTemplate(false);
-                            setTemplateSearch("");
-                          }}
-                        >
-                          <p style={{ cursor: "pointer", padding: "5px 10px" }}>{temp.template_name}</p>
-                        </div>
-                      ))}
+                     {template1
+  ?.filter(t => t.template_name.toLowerCase().includes(templateSearch.toLowerCase()))
+  .map((t) => (
+    <div
+      key={t.id}
+      onClick={() => {
+        setSelectedTemplate(t.template_name);
+        setSelectedTemplateId(t.id);
+        setTemplate(false); // close dropdown after selecting
+      }}
+      style={{ padding: "8px", cursor: "pointer", borderBottom: "1px solid #eee" }}
+    >
+      {t.template_name}
+    </div>
+  ))}
+
                     </div>
                   )}
                  <Link to="/addTemplate"> <div>Add template</div></Link>
@@ -220,7 +226,7 @@ const ReplyMessage = () => {
               </div>
               <div className="messageRead">
                 <h3>Message:</h3>
-                <div className="text-Area" style={{marginTop:"15px"}}  contentEditable>
+                <div className="text-Area" style={{marginTop:"15px"}}  contentEditable  ref={messageRef}  >
                   <div className="tempBody">
                     {emailPreview?.map(template => (
                       <div style={{ margin: "10px", fontSize: '15px' }} key={template.id} dangerouslySetInnerHTML={{ __html: template.email_body }} />

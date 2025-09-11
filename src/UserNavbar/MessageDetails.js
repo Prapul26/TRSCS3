@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect,useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import UserHeader from "../components/UserHeader";
 import SideNav from "./SideNav";
@@ -27,8 +27,12 @@ const MessageDetails = () => {
   const handleCheckboxChange = (e) => setShowSignature(e.target.checked);
   const handleSelectedMails = () => setSelectedMails(!selectedMails);
   const [sentMail, setSentMails] = useState([]);
+    const [template1,setTemplate1]=useState([])
+    
     const [signature, setSignature] = useState([]);
     const [popUp, setPopUp] = useState(false);
+      const messageRef = useRef(null);
+    
   const timestamp = sentMail?.created_at;
   const formatted = timestamp ? new Date(timestamp).toLocaleString('en-US', {
     month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true
@@ -48,6 +52,7 @@ const MessageDetails = () => {
         );
         setData(response.data);
         setSentMails(response.data.sentMails.data);
+        setTemplate1(response.data.normal_email_templates)
          const sigValue = response.data.keyfields?.find(item => item.id === 4)?.description || "";
         setSignature(sigValue);
       } catch (err) {
@@ -85,7 +90,7 @@ const stripHtmlTags = (html) => {
     cc_mail_id: null,
     emails: selectedEmails,
     email_template: selectedTemplate,
-    message: emailPreview?.[0]?.email_body || "testing purpose only",
+   message: messageRef.current?.innerHTML || "",
     files: null
   };
 
@@ -202,31 +207,32 @@ const stripHtmlTags = (html) => {
                             style={{ width: "90%", height: "40px", marginBottom: "10px", border: "1px solid #ccc", borderRadius: "5px", padding: "5px" }}
                           />
                           <p style={{ marginLeft: "10px" }}>Select Template</p>
-                          {data.email_templates?.filter(temp => temp.template_name.toLowerCase().includes(templateSearch.toLowerCase())).map(temp => (
-                            <div
-                              className="tempddd"
-                              key={temp.id}
-                              onClick={() => {
-                                setSelectedTemplate(temp.template_name);
-                                setSelectedTemplateId(temp.id);
-                                setTemplate(false);
-                                setTemplateSearch("");
-                              }}
-                            >
-                              <p style={{ cursor: "pointer", padding: "5px 10px" }}>{temp.template_name}</p>
-                            </div>
-                          ))}
+                           {template1
+  ?.filter(t => t.template_name.toLowerCase().includes(templateSearch.toLowerCase()))
+  .map((t) => (
+    <div
+      key={t.id}
+      onClick={() => {
+        setSelectedTemplate(t.template_name);
+        setSelectedTemplateId(t.id);
+        setTemplate(false); // close dropdown after selecting
+      }}
+      style={{ padding: "8px", cursor: "pointer", borderBottom: "1px solid #eee" }}
+    >
+      {t.template_name}
+    </div>
+  ))}
                         </div>
                       )}
                     </div>
                   </div>
                   <div className="messageRead">
                     <h3 style={{marginBottom:"20px"}}>Message:</h3>
-                    <div className="text-Area" contentEditable>
+                    <div className="text-Area"  contentEditable  ref={messageRef} >
                       <div className="tempBody">
-                        {emailPreview?.map(template => (
-                          <div key={template.id} dangerouslySetInnerHTML={{ __html: template.email_body }} />
-                        ))}
+                         {emailPreview?.map(template => (
+                      <div style={{ margin: "10px", fontSize: '15px' }} key={template.id} dangerouslySetInnerHTML={{ __html: template.email_body }} />
+                    ))}
                       </div>
                       {showSignature && (
                         <div className="signature" style={{ display: "flex", flexDirection: "column" }}>
