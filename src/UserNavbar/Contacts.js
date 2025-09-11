@@ -268,7 +268,7 @@ const handleDownloadTemplate = () => {
                   <div className="giofo" >
                     <div className="importB">
   <button onClick={handleDownloadTemplate}>Download Template</button>
-  {message && <p>{message}</p>}
+
 </div>
 
 
@@ -300,6 +300,7 @@ const handleDownloadTemplate = () => {
 
                   <div className="contacts-table">
                     {error && <p className="error-message">{error}</p>}
+                      {message && <p>{message}</p>}
                     <table>
                       <thead>
                         <tr>

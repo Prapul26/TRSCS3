@@ -138,10 +138,10 @@ const MakeIntroduction = () => {
       return user.email.includes("@");
     });
 
-    if (validEmails.length < 2) {
-      setMsg("Select at least two emails.");
-      return;
-    }
+   if (validEmails.length !== 2) {
+  setMsg("You must select exactly 2 recipients to send.");
+  return;
+}
 
     // ❗ Check if tokens are still present
     if (message.includes("[[name_1]]") || message.includes("[[name_2]]")) {
