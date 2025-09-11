@@ -66,9 +66,12 @@ useEffect(() => {
   };
 
   return (
-    <div className="addcon">
+   <div>
+    <div className="mobMenuaa">
+            <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
+
       <UserHeader />
-      {showSidebar && <MobileMenu />}
+     
       <div className="usernav">
         <SideNav />
       </div>
@@ -139,7 +142,7 @@ useEffect(() => {
           </form>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 

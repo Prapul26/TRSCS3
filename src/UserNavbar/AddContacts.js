@@ -46,8 +46,10 @@ const AddContacts = () => {
     }
   }
   return (
-    <div className="addcon">
-      <UserHeader />{showSidebar && <MobileMenu />}
+    <div>
+    <div className="mobMenuaa">
+      <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
+      <UserHeader />
       <div className="usernav">
         <SideNav />
       </div>
@@ -85,7 +87,7 @@ const AddContacts = () => {
           </form>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 
