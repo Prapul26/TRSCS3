@@ -38,8 +38,9 @@ const MessageDetails = () => {
     month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true
   }) : "";
 
-  const emailPreview = data.email_templates?.filter(template => template.id === selectedTemplateId);
-  const onReplyClick = () => {
+const emailPreview = template1?.filter(
+  t => t.id === selectedTemplateId
+);  const onReplyClick = () => {
     setReplyBump(!showReplyBump)
   }
   useEffect(() => {
@@ -230,9 +231,13 @@ const stripHtmlTags = (html) => {
                     <h3 style={{marginBottom:"20px"}}>Message:</h3>
                     <div className="text-Area"  contentEditable  ref={messageRef} >
                       <div className="tempBody">
-                         {emailPreview?.map(template => (
-                      <div style={{ margin: "10px", fontSize: '15px' }} key={template.id} dangerouslySetInnerHTML={{ __html: template.email_body }} />
-                    ))}
+                          {emailPreview?.map((template) => (
+    <div
+      key={template.id}
+      style={{ margin: "10px", fontSize: "15px" }}
+      dangerouslySetInnerHTML={{ __html: template.email_body }}
+    />
+  ))}
                       </div>
                       {showSignature && (
                         <div className="signature" style={{ display: "flex", flexDirection: "column" }}>
