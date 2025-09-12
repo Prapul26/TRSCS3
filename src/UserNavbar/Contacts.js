@@ -252,7 +252,9 @@ const handleImport = async () => {
           </div>
         )
       }
+      
       <div className="mobMenuaa">
+         { <div className="errmsg"><p>{message}</p></div>}
         <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
         <div>
           <UserHeader />
@@ -307,7 +309,7 @@ const handleImport = async () => {
 
                   <div className="contacts-table">
                     {error && <p className="error-message">{error}</p>}
-                    {message && <p>{message}</p>}
+                   
                     <table>
                       <thead>
                         <tr>
