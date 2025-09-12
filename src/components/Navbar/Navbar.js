@@ -22,7 +22,7 @@ const Navbar = () => {
            <li
             onMouseEnter={()=>{setDropdownVisible(true);setResources(false)}} 
            
-            style={{ position: 'relative', cursor: 'pointer' }}
+           
           >
             ABOUT US
             {isDropdownVisible && (

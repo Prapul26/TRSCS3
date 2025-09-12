@@ -66,11 +66,32 @@ const MakeIntroduction = () => {
   const [showTakeAction, setTakeAction] = useState(false)
   const [showTakeAction2, setTakeAction2] = useState(false);
   const [showTakeAction3, setTakeAction3] = useState(false)
+  const[showpopup1,setpopup1]=useState(false);
+    const[showpopup2,setpopup2]=useState(false);
+      const[showpopup3,setpopup3]=useState(false);
   const field1 = keyFeilds.find(item => item.id === 1)?.description;
   const field2 = keyFeilds.find(item => item.id === 9)?.description;
   const field3 = keyFeilds.find(item => item.id === 4)?.description;
   const field4 = keyFeilds.find(item => item.id === 6)?.description;
   const navigate2 = useNavigate();
+const handlepopup1=()=>{
+  setpopup1(true)
+};
+const handlepopup2=()=>{
+  setpopup2(true)
+};
+const handlepopup3=()=>{
+  setpopup3(true)
+};
+const closepopup1=()=>{
+  setpopup1(false)
+}
+const closepopup2=()=>{
+  setpopup2(false)
+}
+const closepopup3=()=>{
+  setpopup3(false)
+}
 
   const adjustInternalhtml = (html) => {
     const container = document.createElement("div");
@@ -319,8 +340,41 @@ const MakeIntroduction = () => {
   }, []);
 
 
-  return (
+  return (<div> {
+        showpopup1 && (
+          <div className="popup1-overlay">
+            <div className="popUp1" >
+               <div className="popuph"><div><h2>Directory</h2></div>
+                <div onClick={closepopup1}><p>X</p></div></div>
+              <iframe className="popupcontent" src="https://tracsdev.apttechsol.com/helpsection-descriptionnew/06"/>
+            </div>
+          </div>
+        )
+      }
+      {
+        showpopup2 && (
+          <div className="popup1-overlay">
+            <div className="popUp1" >
+               <div className="popuph"><div><h2>Make-Introduction-Select-Template</h2></div>
+                <div onClick={closepopup2}><p>X</p></div></div>
+              <iframe className="popupcontent" src="https://tracsdev.apttechsol.com/helpsection-descriptionnew/7"/>
+            </div>
+          </div>
+        )
+      }
+       {
+        showpopup3 && (
+          <div className="popup1-overlay">
+            <div className="popUp1" >
+               <div className="popuph"><div><h2>A preset closing text automatically added to your Email/Messages</h2></div>
+                <div onClick={closepopup3}><p>X</p></div></div>
+              <iframe className="popupcontent" src="https://tracsdev.apttechsol.com/helpsection-descriptionnew/9"/>
+            </div>
+          </div>
+        )
+      }
     <div className="make">
+     
       <Header />
       <Navbar />
       <div className="crub">
@@ -354,10 +408,8 @@ const MakeIntroduction = () => {
       <div className="info-holder">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            {
-              showTakeAction && <div style={{ marginTop: "-120px", width: "300px", borderRadius: "10px", opacity: "0.9", padding: "10px", height: "95px", background: "black", color: "white" }}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field1 || "") }} onMouseLeave={() => setTakeAction(false)} /></div>
-            }
-            <div style={{ display: "flex" }}><div><label>Directory</label></div><div style={{ marginLeft: "5px", marginTop: "2px" }} onMouseEnter={handleMouseEnter} ><FaCircleQuestion /></div></div>
+           
+            <div style={{ display: "flex" }}><div><label>Directory</label></div><div style={{ marginLeft: "5px", marginTop: "2px" }}  ><FaCircleQuestion onClick={handlepopup1} /></div></div>
             <br />
             <select
               className="toSelect"
@@ -687,14 +739,12 @@ const MakeIntroduction = () => {
             className="manageHeadingTEmplate"
             style={{ display: "flex", justifyContent: "space-between" }}
           >
-            {
-              showTakeAction2 && <div style={{ marginTop: "-140px", position: "absolute", width: "350px", borderRadius: "10px", opacity: "0.9", padding: "10px", height: "115px", background: "black", color: "white" }}><div dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field2 || "") }} onMouseLeave={() => setTakeAction2(false)} /></div>
-            }
+          
             <div style={{ display: "flex", marginBottom: "-29px" }}>
               <div>
                 <label>Select Template </label>
               </div>
-              <div onMouseEnter={() => setTakeAction2(true)} style={{ marginTop: "2px", marginLeft: "6px" }}><FaCircleQuestion /></div>
+              <div  style={{ marginTop: "2px", marginLeft: "6px" }}><FaCircleQuestion onClick={handlepopup2}/></div>
 
               {bestPractice && (
                 <div className="practice-overlay">
@@ -709,7 +759,7 @@ const MakeIntroduction = () => {
             </div>
 
             <div>
-              <Link to='/addTemplate' style={{ textDecoration: "none", color: "inherit" }}>  <label>ManageTemplates</label></Link>
+              <Link to='/addTemplate' style={{ textDecoration: "none", color: "inherit" }}>  <label>Add Templates</label></Link>
             </div>
           </div>
           <div style={{ marginTop: "10px", marginLeft: "0px" }} onClick={handelbest}>
@@ -836,10 +886,8 @@ const MakeIntroduction = () => {
   }}
 />
 
-              {
-                showTakeAction3 && <div className="showTakeAction3" style={{ marginTop: "-155px", position: "absolute", width: "350px", borderRadius: "10px", opacity: "0.9", padding: "10px", height: "90px", color: "white" }}><div className="signatureDiv" dangerouslySetInnerHTML={{ __html: adjustInternalhtml(field3 || "") }} onMouseLeave={() => setTakeAction3(false)} /></div>
-              }
-              <h3 style={{ marginLeft: "4PX" }}>Include Signature</h3><div style={{ marginLeft: "5px", marginTop: "5px" }} onMouseEnter={() => setTakeAction3(true)}><FaCircleQuestion /></div>
+             
+              <h3 style={{ marginLeft: "4PX" }}>Include Signature</h3><div style={{ marginLeft: "5px", marginTop: "5px" }} ><FaCircleQuestion onClick={handlepopup3}/></div>
             </div>
             <div className="formButtons">
               <button style={{ background: "#dc3545", height: "37px", fontSize: "1rem", marginTop: "20px" }}>Cancel</button>
@@ -860,7 +908,7 @@ const MakeIntroduction = () => {
         )}
       </div>
 
-    </div>
+    </div></div>
   );
 };
 

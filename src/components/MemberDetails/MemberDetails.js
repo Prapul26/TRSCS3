@@ -136,11 +136,17 @@ useEffect(() => {
       <div className="member-holder">
         <div className="pic-Holder">
           <div>
-            <div className="userPic">
-              <img
-                src={`https://tracsdev.apttechsol.com/public/${data.image} `}
-              />
-            </div>
+           <div className="userPic">
+  <img
+    src={
+      data?.image
+        ? `https://tracsdev.apttechsol.com/public/${data.image}`
+        : "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg"
+    }
+    alt="User"
+  />
+</div>
+
           </div>
           <div className="dataName">
             <div className="userNAME">

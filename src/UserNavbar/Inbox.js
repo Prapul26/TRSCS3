@@ -108,6 +108,11 @@ const Inbox = () => {
   const handleExpand = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
+   const adjustInternalHtml = (html) => {
+  const container = document.createElement("div");
+  container.innerHTML = html;
+  return container.innerHTML;
+};
   const stripHtmlTags = (html) => {
     const div = document.createElement("div");
     div.innerHTML = html;
@@ -391,12 +396,16 @@ const Inbox = () => {
                             {item.recipients_info.map((recipient, idx) => (
                               <Link style={{ textDecoration: "none" }} to={`/memberDetails/${recipient.user_id}/${recipient.member_type}`}>
                                 <div key={idx} className="pic66">
-                                  <div className="pic66img">
-                                    <img
-                                      src={`https://tracsdev.apttechsol.com/public/${recipient.profile_image} ` || "/default.jpg"}
-
-                                    />
-                                  </div>
+                              <div className="pic66img">
+  <img
+    src={
+      recipient?.profile_image
+        ? `https://tracsdev.apttechsol.com/public/${recipient.profile_image}`
+        : "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg"
+    }
+    alt="profile"
+  />
+</div>
                                   <div className="pic66name">
                                     <p style={{ textDecoration: "underline", color: "black", fontWeight: "500" }}>{recipient.name}</p>
                                   </div>
@@ -432,7 +441,7 @@ const Inbox = () => {
                             <div style={{ marginTop: "-24px" }}><h5 style={{ fontSize: "16px", fontWeight: "700" }}>Message</h5></div>
                             <div style={{ display: "flex", marginTop: "-10px" }}>
                               <div style={{ display: "flex" }}>
-                                <div className="pic55img">< img src={item.sender_full_image} />
+                                <div className="pic55img">< img src={item.sender_full_image || "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg"} />
                                 </div>
                                 <div className="pic55name">
                                   <p>{item.sender_full_name}</p>
@@ -466,7 +475,7 @@ const Inbox = () => {
 
                               {/* Show expanded message only when expanded */}
                               {!showExpandedMessage && (
-                                <div className="expandedMessage">{stripHtmlTags(item.body)}</div>
+                                <div className="expandedMessage" dangerouslySetInnerHTML={{ __html: adjustInternalHtml(item.body) }}></div>
                               )}
 
                               <div>

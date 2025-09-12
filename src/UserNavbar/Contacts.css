@@ -37,6 +37,9 @@ border-radius: 5px;
     border-radius: 5px;
     float: right;
 }
+.errmsg p{
+   
+}
 .c-h2 p{
     color: white;
 }

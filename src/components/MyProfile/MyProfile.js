@@ -197,8 +197,20 @@ const MyProfile = () => {
         <div className="pic-Holder">
           <div>
             <div className="userPic">
-              <img src={imagePreview} />
-            </div>
+  <img
+    src={
+      imagePreview
+        ? imagePreview
+        : "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg"
+    }
+    alt="User"
+    onError={(e) =>
+      (e.target.src =
+        "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg")
+    }
+  />
+</div>
+
           </div>
           <div className="dataName">
             <div className="userNAME">

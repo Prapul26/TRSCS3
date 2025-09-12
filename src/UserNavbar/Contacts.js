@@ -20,7 +20,7 @@ const Contacts = () => {
   const [showpage, setShowPage] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [message, setMessage] = useState("");
-
+const [messageType, setMessageType] = useState(""); // "success" or "error"
 
 
   const handleFileChange = (e) => {
@@ -50,12 +50,15 @@ const Contacts = () => {
 
   // Step 2: handle import click
 // helper function
-const showTempMessage = (msg) => {
+const showTempMessage = (msg, type = "success") => {
   setMessage(msg);
+  setMessageType(type);
   setTimeout(() => {
-    setMessage(""); // vanish after 5s
+    setMessage("");
+    setMessageType("");
   }, 5000);
 };
+
 
 const handleImport = async () => {
   if (!selectedFile) {
@@ -131,12 +134,12 @@ const handleImport = async () => {
       }
 
       let finalMsg = "";
-      if (imported > 0) finalMsg += `✅ ${imported} contacts imported successfully. `;
-      if (duplicates > 0) finalMsg += `⚠ ${duplicates} contacts already exist. `;
-      if (skipped > 0) finalMsg += `⚠ ${skipped} rows skipped (missing fields). `;
-      if (failed > 0) finalMsg += `❌ ${failed} contacts failed to import.`;
-
-      showTempMessage(finalMsg.trim());
+      if (imported > 0) finalMsg += ` .   ✅ ${imported} contacts imported successfully .  `;
+      if (duplicates > 0) finalMsg += `.    ⚠ ${duplicates} contacts already exist  . `;
+      if (skipped > 0) finalMsg += `.    ⚠ ${skipped} rows skipped (missing fields)  . `;
+      if (failed > 0) finalMsg += `.    ❌ ${failed} contacts failed to import  .`;
+const type = imported > 0 && failed === 0 ? "success" : "error";
+      showTempMessage(finalMsg.trim(),type);
       fetchContacts();
     };
 
@@ -254,7 +257,7 @@ const handleImport = async () => {
       }
       
       <div className="mobMenuaa">
-         { <div className="errmsg"><p>{message}</p></div>}
+         { <div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red"}}><p>{message}</p></div>}
         <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
         <div>
           <UserHeader />
