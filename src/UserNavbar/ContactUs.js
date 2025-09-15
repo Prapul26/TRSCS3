@@ -24,6 +24,7 @@ const ContactUs = () => {
       const[email,setEmail]=useState("");
       const [description,setDescription]=useState("");
         const [message, setMessage] = useState("");
+    const [messageType, setMessageType] = useState(""); // "success" | "error"
   
      const showMobnav = () => {
        setShowSidebar(prev => !prev);
@@ -48,10 +49,18 @@ const response=await axios.post("https://tracsdev.apttechsol.com/api/storeuserco
           },
         });
         setMessage(response.data.message);
+        setMessageType("success");
+      setTimeout(() => {
+       setMessage(""); // change "/email" to your actual email page route
+      }, 2000);
 
 
    }catch(err){
-
+    setMessage("message failed to send");
+     setMessageType("error");
+      setTimeout(() => {
+       setMessage(""); // change "/email" to your actual email page route
+      }, 2000);
    }
 }
 useEffect(()=>{
@@ -78,6 +87,8 @@ console.log("formData :" + data.user?.email,data.user?.id,description,capVal)
     <div>
   
     <div className='mobMenuaa'>
+              {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
+
     <div className='mobMenu33'>
     {showSidebar && (<MobileMenu />)}
     </div>

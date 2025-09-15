@@ -72,6 +72,8 @@ const AccountSettings = () => {
   const [images, setImages] = useState([
 
   ]);
+    const [messageType, setMessageType] = useState(""); // "success" | "error"
+  
   const [showpage, setShowPage] = useState(false);
   const urlClick = () => {
     setShowPage(!showpage)
@@ -141,8 +143,16 @@ const AccountSettings = () => {
         setImages((prev) => prev.filter((img) => img.id !== id));
         setTotalPhotos((prev) => prev.filter((img) => img.id !== id));
         setMessage("Image deleted successfully!");
+          setMessageType("success");
+      setTimeout(() => {
+        setMessage(""); // change "/email" to your actual email page route
+      }, 2000);
       } else {
         setMessage("Failed to delete image.");
+          setMessageType("error");
+      setTimeout(() => {
+       setMessage("");
+      }, 2000);
       }
     } catch (error) {
       console.error("Delete image error:", error.response?.data || error.message);
@@ -228,6 +238,7 @@ const AccountSettings = () => {
           setLinkedIn(data.user.linkedin || "");
           setStates(data.states || []);
           setMemberType(data.user.member_type || "")
+          
 
           // 👇 Fix: Set additional image URLs
           const additional = data.total_photos || [];
@@ -307,9 +318,17 @@ const AccountSettings = () => {
       );
 
       setMessage("Profile updated successfully!");
+       setMessageType("success");
+      setTimeout(() => {
+        setMessage("")
+      }, 3000);
     } catch (error) {
       console.error("Update failed:", error);
       setMessage("Failed to update profile. Please try again.");
+      setMessageType("error");
+      setTimeout(() => {
+        setMessage("")
+      }, 3000);
     } finally {
       setIsUpdating(false);
     }
@@ -338,6 +357,8 @@ const AccountSettings = () => {
         )
       }
       <div className="mobMenuaa">
+                {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
+
         <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
         <div>
           <UserHeader />

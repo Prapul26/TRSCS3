@@ -13,6 +13,8 @@ const Password = () => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState('');
+    const [messageType, setMessageType] = useState(""); // "success" | "error"
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -32,8 +34,19 @@ const Password = () => {
         });
 
       setMessage("Password updated successfully!");
+         setMessageType("success");
+      setTimeout(() => {
+       setMessage("") ; // change "/email" to your actual email page route
+       window.location.reload()
+      }, 2000);
+      
     } catch (error) {
       setMessage(error.response?.data?.message || "Error updating the password");
+       setMessageType("error");
+      setTimeout(() => {
+       setMessage("") ; // change "/email" to your actual email page route
+       window.location.reload()
+      }, 2000);
     }
   };
   const showMobnav = () => {
@@ -41,6 +54,8 @@ const Password = () => {
   };
   return (
     <div className="mobMenuaa">
+              {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
+
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
       <div>
         <UserHeader />
@@ -93,8 +108,8 @@ const Password = () => {
                   </div>
                   <div className="passButton">
                     {" "}
-                    <button type="submit" style={{ background: "#eeba2b", color: "black", fontSize: "15px" }}>UPDATE</button>
-                    {message && <p>{message}</p>}
+                    <button type="submit" style={{ background: "#eeba2b", color: "black", fontSize: "15px" }} onClick={handleSubmit}>UPDATE</button>
+                   
                   </div>
                 </div></div>
             </div>

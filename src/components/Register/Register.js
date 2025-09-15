@@ -20,6 +20,8 @@ const Register = ({ switchToLogin }) => {
     const [businessName, setBusinessName] = useState('');
     const [message, setMessage] = useState('');
     const [csrfToken, setCsrfToken] = useState('');
+          const [messageType, setMessageType] = useState(""); // "success" | "error"
+    
 
     // 🟢 Fetch CSRF Token on Component Mount
 
@@ -67,6 +69,7 @@ const navigate=useNavigate()
                     ? Object.values(error.response.data.errors).flat().join(' ')
                     : error.response.data.message || 'Registration failed. Please try again.';
                 setMessage(errorMsg);
+                
             } else {
                 setMessage('An unexpected error occurred. Please try again.');
             }

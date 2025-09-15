@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AddTemplate.css";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import SideNav from "./SideNav";
@@ -17,6 +17,7 @@ const AddTemplate = () => {
   const [templateTokens, showTemplateTokens] = useState(false);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
+  const [adminTemplates, setAdminTemplates] = useState([])
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
@@ -67,6 +68,28 @@ const AddTemplate = () => {
   };
   const handleGoBack = () => {
     navigate(-1); // Go back to the previous page in history
+  };
+  useEffect(() => {
+    const token = sessionStorage.getItem("authToken")
+    const fetchTempplates = async () => {
+      try {
+        const response = await axios.get("https://tracsdev.apttechsol.com/api/create-template", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setAdminTemplates(response.data.admintemplates);
+        console.log("adminTemplates" + adminTemplates)
+      } catch (err) {
+        console.log(err)
+      }
+
+    }; fetchTempplates()
+  }, [])
+ const stripHtmlTags = (html) => {
+    const div = document.createElement("div");
+    div.innerHTML = html;
+    return div.textContent || div.innerText || "";
   };
   return (
     <div>
@@ -123,11 +146,25 @@ const AddTemplate = () => {
                     </select>
                   </div>
                   <div>
+                    <label>Admin Templates</label>
+                    <br /><select onChange={(e) => {
+                      const selectedTemplate = adminTemplates.find(
+                        (item) => item.id === parseInt(e.target.value)
+                      );
+                      if (selectedTemplate) {
+                        setDescription(selectedTemplate.email_body); // set email body in textarea
+                      }
+                    }}>
+                      <option value=''>Select an Admin Template</option>
+                      {adminTemplates.map((item, index) => (
+                        <option key={item.id} value={item.id}>{item.template_name}</option>))}</select>
+                  </div>
+                  <div>
                     <lable>Email body</lable>
                     <span style={{ color: "red" }}>*</span>
                     <br />
                     <textarea
-                      value={description}
+                      value={stripHtmlTags(description)}
                       onChange={(e) => setDescription(e.target.value)}
                     />
                   </div>

@@ -69,6 +69,10 @@ const MakeIntroduction = () => {
   const [showpopup1, setpopup1] = useState(false);
   const [showpopup2, setpopup2] = useState(false);
   const [showpopup3, setpopup3] = useState(false);
+  
+    const [messageType, setMessageType] = useState(""); // "success" | "error"
+    const [message2, setMessage2] = useState("");
+  
   const field1 = keyFeilds.find(item => item.id === 1)?.description;
   const field2 = keyFeilds.find(item => item.id === 9)?.description;
   const field3 = keyFeilds.find(item => item.id === 4)?.description;
@@ -203,9 +207,19 @@ const MakeIntroduction = () => {
       );
 
       setMsg(response.data?.message || "Introduction sent successfully.");
-      navigate2("/inbox");
+     
+      setMessage2("...Introduction sent successfully...")
+      setMessageType("success")
+          setTimeout(() => {
+        navigate("/inbox"); // change "/email" to your actual email page route
+      }, 2000);
       console.log("Success:", response.data);
     } catch (err) {
+       setMessageType("error")
+       setMessage2(err.response?.data?.message || "An error occurred.");
+          setTimeout(() => {
+        setMessage2() // change "/email" to your actual email page route
+      }, 2000);
       setMsg(err.response?.data?.message || "An error occurred.");
     }
   };
@@ -266,9 +280,17 @@ const MakeIntroduction = () => {
           },
         }
       );
-      setMessage("Contact added successfully!");
+      setMessage2("Contact added successfully!");
+      setMessageType("success")
+      setTimeout(() => {
+       setMessage2();
+      }, 2000);
     } catch (error) {
-      setMessage(error.response?.data?.message || "Error adding the Contact");
+      setMessage2(error.response?.data?.message || "Error adding the Contact");
+         setMessageType("error")
+      setTimeout(() => {
+       setMessage2();
+      }, 2000);
     }
   };
   useEffect(() => {
@@ -372,8 +394,9 @@ const MakeIntroduction = () => {
           </div>
         </div>
       )
-    }
+    }   {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message2}</p></div>}
     <div className="make">
+     
 
       <Header />
       <Navbar />

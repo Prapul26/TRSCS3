@@ -205,7 +205,7 @@ const Email = () => {
                   <tr>
                     <td style={{ color: "black", fontSize: "16px" }}>Name</td>
                     <td style={{ color: "black", fontSize: "16px" }}>Category</td>
-                    <td style={{ color: "black", fontSize: "16px" }}>Subject</td>
+                   
                     <td style={{ color: "black", fontSize: "16px" }} >Body</td>
                     <td style={{ color: "black", fontSize: "16px" }}>Created On</td>
                     <td style={{ color: "black", fontSize: "16px" }}>Status</td>
@@ -217,7 +217,7 @@ const Email = () => {
                     <tr key={template.id}>
                       <td><p>{template.template_name}</p></td>
                       <td><p>{template.category_id === "5" ? "Reply-Email" : template.category_id === "1" ? "Introduction-Email" : template.category_id === "2" ? "Bump" : template.category_id === "3" ? "Follow-up" : template.category_id === "4" ? "Member-Email" : template.category_id?.toString()}</p></td>
-                      <td><p>{template.subject || "N/A"}</p></td>
+                     
                       <td
                         onClick={() =>
                           navigate("/viewTemplate", {

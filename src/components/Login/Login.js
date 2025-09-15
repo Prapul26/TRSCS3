@@ -14,6 +14,8 @@ const Login = ({ switchToRegister }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+      const [messageType, setMessageType] = useState(""); // "success" | "error"
+    
     const[popUp,setPopUp]=useState(false);
     const[popupMessage,setPopupMessage]=useState([])
     const showPopUp=()=>{
@@ -39,13 +41,25 @@ const handleLogin = async (e) => {
     const data = await response.json();
 
     if (response.ok && data.success) {
-      setMessage("Login successful!");
+      setMessage(". . . Login successful! . . .");
       sessionStorage.setItem("authToken", data.token);
-      navigate("/inbox");
+      setMessageType("success");
+      setTimeout(() => {
+        navigate("/inbox"); // change "/email" to your actual email page route
+      }, 2000);
+     
     } else {
-      setMessage(data.message || "Login failed. Please check your credentials.");
+        setMessageType("error");
+        setTimeout(() => {
+        setMessage() 
+      }, 2000);
+      setMessage( "Login failed. Please check your credentials.");
     }
   } catch (error) {
+      setMessageType("error");
+           setTimeout(() => {
+        setMessage()
+      }, 2000);
     console.error("Error during login:", error);
     setMessage("An error occurred. Please try again later.");
   }
@@ -87,10 +101,12 @@ const adjustInternalHtml=(html)=>{
 }
 
     return (
-        <div>
+        <div>   {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
             <Header />
             <Navbar />
             <div className='LoginPage'>
+                   
+
                 <div className='abd'>
                     <h1>Sign up or log in to your account</h1>
 

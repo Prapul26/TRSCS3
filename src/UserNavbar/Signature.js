@@ -33,6 +33,8 @@ const Signature = () => {
   const [data,setData]=useState("")
   const [msg,setMsg]=useState("")
       const [showpage, setShowPage] = useState(false);
+        const [message, setMessage] = useState("");
+        const [messageType, setMessageType] = useState(""); // "success" | "error"
     const urlClick = () => {
       setShowPage(!showpage)
     }
@@ -61,6 +63,13 @@ const handleSave=async(e)=>{
           Authorization:`Bearer ${token}`
         }
       }); setMsg(response.data.message || "Signature saved successfully");
+
+          setMessage(response.data.message || "Signature saved successfully");
+      setMessageType("success");
+      setTimeout(() => {
+       setMessage();
+       setMsg() // change "/email" to your actual email page route
+      }, 2000);
     
     }  catch (err) {
   const errorMessage =
@@ -116,6 +125,8 @@ const handleSave=async(e)=>{
                           )
                         }
     <div className='mobMenuaa'>
+              {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
+
     <div className='mobMenu33'>
     {showSidebar && (<MobileMenu />)}
     </div>
