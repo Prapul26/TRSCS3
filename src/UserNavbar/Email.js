@@ -37,7 +37,10 @@ const Email = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [templates, setTemplates] = useState([]);
   const [error, setError] = useState("");
+  const [message,setMessage]=useState("");
+   const [messageType, setMessageType2] = useState(""); // "success" | "error"
   const [isActive, setIsActive] = useState(false);
+  const setMessageType=useState("")
   const [activeStatuses, setActiveStatuses] = useState({});
     const [showpage, setShowPage] = useState(false);
   const urlClick = () => {
@@ -113,9 +116,20 @@ const Email = () => {
 
       const updatedTemplates = templates.filter((template) => template.id !== id);
       setTemplates(updatedTemplates);
+      setMessage(".  Deleted successfully  .")
+      setMessageType2("success")
+       setTimeout(() => {
+      setMessage("");
+      setMessageType2("");
+    }, 2000);
     } catch (err) {
       console.error("Delete failed:", err);
-      setError("Failed to delete the contact.");
+      setMessage("Failed to delete the contact.");
+      setMessageType2("error")
+       setTimeout(() => {
+      setMessage("");
+      setMessageType2("");
+    }, 2000);
     }
   };
   const stripHtmlTags = (html) => {
@@ -129,6 +143,7 @@ const Email = () => {
          {
                     showpage && (
                       <div className="pageURLContainer">
+
                         <div className="pageURLHolder" >
                           <div className="pageURLHeader">
                             <div><h4 style={{ color: "white" }}>Ready-made messages you can use and edit</h4></div>
@@ -144,6 +159,21 @@ const Email = () => {
                     )
                   }
     <div className='mobMenuaa'>
+{message && (
+  <div
+    className="errmsg"
+    style={{
+      backgroundColor: messageType === "success" ? "green" : "red",
+      color: "white",
+      padding: "8px",
+      marginBottom: "10px",
+      borderRadius: "5px",
+    }}
+  >
+    <p>{message}</p>
+  </div>
+)}
+
       <div className='mobMenu33'>
         {showSidebar && (<MobileMenu />)}
       </div>
@@ -186,7 +216,7 @@ const Email = () => {
                   {templates.map((template) => (
                     <tr key={template.id}>
                       <td><p>{template.template_name}</p></td>
-                      <td><p>{template.category_id === "6" ? "Reply-Email" : template.category_id === "2" ? "Introduction-Email" : template.category_id === "3" ? "Bump" : template.category_id === "4" ? "Follow-up" : template.category_id === "5" ? "Member-Email" : template.category_id?.toString()}</p></td>
+                      <td><p>{template.category_id === "5" ? "Reply-Email" : template.category_id === "1" ? "Introduction-Email" : template.category_id === "2" ? "Bump" : template.category_id === "3" ? "Follow-up" : template.category_id === "4" ? "Member-Email" : template.category_id?.toString()}</p></td>
                       <td><p>{template.subject || "N/A"}</p></td>
                       <td
                         onClick={() =>

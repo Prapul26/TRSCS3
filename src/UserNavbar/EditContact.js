@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./EditTemplate.css";
 import "./AddContacts.css";
 import UserHeader from "../components/UserHeader";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { TiArrowBackOutline } from "react-icons/ti";
 import axios from "axios";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
@@ -20,7 +20,8 @@ const contact = location.state?.contact;
   const [groupName, setGroupName] = useState("");
   const [message, setMessage] = useState("");
   const [showSidebar, setShowSidebar] = useState(false);
-
+ const navigate2 = useNavigate();
+ const [messageType, setMessageType] = useState(""); // "success" | "error"
 useEffect(() => {
   if (contact) {
     setFirstName(contact.first_name);
@@ -59,15 +60,22 @@ useEffect(() => {
       );
     
       setMessage("Contact updated successfully!");
+      setMessageType("success");
+      setTimeout(() => {
+        navigate2("/contacts"); // change "/email" to your actual email page route
+      }, 2000);
      
     } catch (error) {
       setMessage(error.response?.data?.message || "Error updating the Contact");
+      setMessageType("error");
     }
   };
 
   return (
    <div>
     <div className="mobMenuaa">
+              {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
+
             <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
 
       <UserHeader />

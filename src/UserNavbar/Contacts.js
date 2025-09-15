@@ -151,6 +151,12 @@ const type = imported > 0 && failed === 0 ? "success" : "error";
   } catch (error) {
     console.error("Error reading file:", error);
     showTempMessage("❌ Failed to import contacts.");
+     setMessage("❌ Failed to import contacts.");
+  setMessageType(error);
+  setTimeout(() => {
+    setMessage("");
+    setMessageType("");
+  }, 2000);
   }
 };
 
@@ -224,6 +230,12 @@ const type = imported > 0 && failed === 0 ? "success" : "error";
 
       const updatedContacts = contacts.filter((contact) => contact.id !== id);
       setContacts(updatedContacts);
+       setMessage("contacts deleted successfully");
+  setMessageType("success");
+  setTimeout(() => {
+    setMessage("");
+    setMessageType("");
+  }, 2000);
     } catch (err) {
       console.error("Delete failed:", err);
       setError("Failed to delete the contact.");

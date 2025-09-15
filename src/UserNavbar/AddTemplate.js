@@ -18,7 +18,7 @@ const AddTemplate = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     showTemplateTokens(!templateTokens);
@@ -27,6 +27,8 @@ const AddTemplate = () => {
     showTemplateTokens(false);
   };
   const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState(""); // "success" | "error"
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -53,8 +55,14 @@ const AddTemplate = () => {
         }
       );
       setMessage(response.data.message || "Template created successfully!");
+      setMessageType("success");
+      setTimeout(() => {
+        navigate("/email"); // change "/email" to your actual email page route
+      }, 2000);
+
     } catch (error) {
       setMessage(error.response?.data?.message || "Error adding the Template");
+      setMessageType("error");
     }
   };
   const handleGoBack = () => {
@@ -63,6 +71,7 @@ const AddTemplate = () => {
   return (
     <div>
       <div className="mobMenuaa">
+        {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
         <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
         <div>
           {" "}
@@ -76,16 +85,16 @@ const AddTemplate = () => {
               <div className="d-header">
                 <h2>Add Template</h2>
               </div>
-              <div style={{ marginLeft: "20px" ,marginBottom:"20px"}}>
-                        {" "}
-                        <button style={{ borderRadius: "30px", border: "transparent", background: "#163b6d" }} onClick={handleGoBack}>
-                          <span>
-              
-                            <TiArrowBack color="white" size={35} style={{ background: "#163b6d" }} />
-              
-                          </span>{" "}
-                        </button>
-                      </div>
+              <div style={{ marginLeft: "20px", marginBottom: "20px" }}>
+                {" "}
+                <button style={{ borderRadius: "30px", border: "transparent", background: "#163b6d" }} onClick={handleGoBack}>
+                  <span>
+
+                    <TiArrowBack color="white" size={35} style={{ background: "#163b6d" }} />
+
+                  </span>{" "}
+                </button>
+              </div>
               <div className="templateContainer">
                 <form onSubmit={handleSubmit}>
                   <div>
@@ -123,12 +132,12 @@ const AddTemplate = () => {
                     />
                   </div>
                   <div className="saveTempButton">
-                    <button type="submit" style={{background:"#eeba2b",color:'black'}}>SAVE</button>
+                    <button type="submit" style={{ background: "#eeba2b", color: 'black' }}>SAVE</button>
                   </div>
                   {message && <div className="message">{message}</div>}
                 </form>
               </div>
-              <div style={{ marginLeft: "20px" }}>
+              <div style={{ marginLeft: "20px", marginBottom: "40px" }}>
                 <button onClick={handleClick}>Template Token</button>
               </div>
             </div>

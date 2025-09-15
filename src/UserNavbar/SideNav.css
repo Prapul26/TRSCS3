@@ -9,6 +9,12 @@ background-color: rgb(240, 239, 238);
   padding-top: 20px;
   
 }
+.navs ul{
+  font-size: 15px !important;
+}
+.navs{
+  width: 90% !important;
+}
 .tracsimG img{
   height: 40px;
   margin-left: 20px;  

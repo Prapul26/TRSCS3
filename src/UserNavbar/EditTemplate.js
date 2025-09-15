@@ -4,7 +4,7 @@ import UserHeader from '../components/UserHeader';
 import MobileNavbar from '../components/MobileNavbar/MobileNavbar';
 import MobileMenu from '../components/MobileMenu/MobileMenu';
 import SideNav from './SideNav';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 const EditTemplate = () => {
       const [showSidebar, setShowSidebar] = useState(false);
@@ -18,6 +18,8 @@ const EditTemplate = () => {
         const [title, setTitle] = useState("");
         const [category, setCategory] = useState("");
         const [description, setDescription] = useState("");
+        const [messageType, setMessageType] = useState(""); // "success" | "error"
+        const navigate=useNavigate();
           const handleClick = () => {
             showTemplateTokens(!templateTokens);
           };
@@ -74,14 +76,20 @@ const EditTemplate = () => {
               );
           
               setMessage("Template updated successfully!");
+                setMessageType("success");
+         setTimeout(() => {
+    navigate("/email"); // change "/email" to your actual email page route
+  }, 2000);
             } catch (error) {
               setMessage(error.response?.data?.message || "Failed to update template.");
+              setMessageType("error");
             }
           };
           
   return (
     <div>
     <div className="mobMenuaa">
+             { <div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red"}}><p>{message}</p></div>}
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
       <div>
         {" "}
@@ -126,7 +134,7 @@ const EditTemplate = () => {
                   <div className="saveTempButton">
                     <button type="submit">SAVE</button>
                   </div>
-                  {message && <div className="message">{message}</div>}
+                 
                 </form>
               </div>
               <div style={{ marginLeft: "20px" }}>
