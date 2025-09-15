@@ -69,6 +69,8 @@ padding-top: 20px;
 .rdsewdx{
   
   display: flex;
+  margin-top: 1px;
+  border-top: 1px solid black;
   padding-left: 5px;
     border-bottom: 1px solid black;
 }
@@ -80,11 +82,24 @@ padding-top: 20px;
     width: 100%;
   background-color: black !important;
   margin-left: -10px;
-  margin-top: -10px;
-  height: 29px;
-padding-top: 0px;
+  margin-top: -px;
+  height: 22px;
+padding-top: 5px;
+
 padding-bottom: 30px;
 color: white !important;
+}
+.rdsewdx.active ul{
+  margin-left: -23px !important;
+}
+.uk22{
+  margin-top: 9px;
+  display: flex;
+  margin-left: -10px;
+}
+.uk22 ul{
+margin-top: 2px !important;
+margin-left: -6px !important;
 }
 .asDiv{
 display: flex;

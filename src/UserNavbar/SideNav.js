@@ -66,6 +66,7 @@ const SideNav = () => {
     }
     if (
       currentPath === "/help2" ||
+      currentPath ==='/contactUs'||
       currentPath.startsWith("/helpSection2/") ||
       currentPath.startsWith("/helpDescription2/")
     ) {
@@ -86,7 +87,7 @@ const SideNav = () => {
             currentPath === "/accountSettings" ||
             currentPath === "/affiliation" ||
             currentPath === "/passwordChange"
-          ) ? " " : ""}`} onClick={handelSettings} style={{ marginBottom: "5px" }} ><div style={{ display: "flex" }}><div style={{ marginTop: '19px', marginRight: "5px", marginLeft: "px" }}><IoSettingsSharp size={20} /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "19px", marginLeft: "-20px" }}>Account Settings</ul></div> <div style={{ marginTop: "15px", marginLeft: '10px' }}>{settings ? < RiArrowDropUpLine size={25} style={{ marginTop: "0px" }} /> : <RiArrowDropDownLine size={25} style={{ marginTop: "0px" }} />}</div>
+          ) ? " " : ""}`} onClick={handelSettings} style={{ marginBottom: "5px" }} ><div style={{ display: "flex" }}><div style={{ marginTop: '19px', marginRight: "5px", marginLeft: "px" }}><IoSettingsSharp size={20} /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "19px", marginLeft: "-20px",marginTop:"20px" }}>Account Settings</ul></div> <div style={{ marginTop: "15px", marginLeft: '10px' }}>{settings ? < RiArrowDropUpLine size={25} style={{ marginTop: "0px" }} /> : <RiArrowDropDownLine size={25} style={{ marginTop: "0px" }} />}</div>
 
           </div>
           {
@@ -107,7 +108,7 @@ const SideNav = () => {
             currentPath === "/inbox" ||
             currentPath === "/email" ||
             currentPath === "/signature"
-          ) ? " " : ""}`} onClick={handelIntro} style={{ marginBottom: "5px" }} ><div style={{ display: "flex" }}><div style={{ marginTop: '19px', marginRight: "5px", marginLeft: "5px" }}><FaBriefcase size={20} /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "19px", marginLeft: "-20px" }}>Introduction</ul></div> <div style={{ marginTop: "15px" }}>{intro ? < RiArrowDropUpLine size={22} style={{ marginTop: "0px" }} /> : <RiArrowDropDownLine size={25} style={{ marginTop: "0px" }} />}</div>
+          ) ? " " : ""}`} onClick={handelIntro} style={{ marginBottom: "5px" }} ><div style={{ display: "flex" }}><div style={{ marginTop: '19px', marginRight: "5px", marginLeft: "5px" }}><FaBriefcase size={20} /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "19px", marginLeft: "-20px",marginTop:"20px"  }}>Introduction</ul></div> <div style={{ marginTop: "15px" }}>{intro ? < RiArrowDropUpLine size={22} style={{ marginTop: "0px" }} /> : <RiArrowDropDownLine size={25} style={{ marginTop: "0px" }} />}</div>
 
           </div>                                  {
             intro && <div className="intoNav" style={{ marginLeft: "7px" }}>
@@ -123,7 +124,7 @@ const SideNav = () => {
         <div style={{ borderBottom: "1px solid black" }}>
           <div className='resources' onClick={handleResources}>
             <div style={{ marginTop: "15px" }}>< MdOutlineCreditCard size={22} /></div>
-            <div style={{ marginLeft: "-65px", marginTop: '-4px' }}><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "19px", marginLeft: "-20px" }}>Resources</ul></div>
+            <div style={{ marginLeft: "-65px", marginTop: '-4px' }}><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "19px", marginLeft: "-20px" ,marginTop:"20px" }}>Resources</ul></div>
             <div style={{ marginTop: "15px" }} >{showResources ? < RiArrowDropUpLine size={22} style={{ marginTop: "0px" }} /> : <RiArrowDropDownLine size={25} style={{ marginTop: "0px" }} />}</div>
           </div>
           {
@@ -137,16 +138,18 @@ const SideNav = () => {
                   currentPath.startsWith("/helpDescription2/") ? "active" : ""}`}> <div style={{ marginLeft: "14px" }}><RiFeedbackFill size={20} />
                   </div><div> <ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "-23px", marginLeft: "10px" }}>App Help</ul></div></div>
                 </Link>
-
+<Link to="/contactUs" style={{ color: "inherit", textDecoration: "none" }} >          <div className={`rdsewdx ${currentPath === "/contactUs"  ? "active" : ""}`}> <div style={{ marginLeft: "14px",marginTop:"9px" }}><FaRegComment  size={20} />
+                  </div><div> <ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "10px", marginLeft: "10px" }}>Contact Us</ul></div></div>
+                </Link>
               </div>
+              
             )
           }
         </div>
-
-        <Link to='/contactUs' style={{ textDecoration: "none", color: "inherit" }}><div className={`rdsewdx ${currentPath === "/contactUs" ? "active" : ""}`}>
-          <div style={{ marginTop: "20px" }}><FaRegComment size={20} /></div>
-          <div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "18px", marginLeft: "-20px" }}>Contact Us</ul></div>
-        </div></Link>
+          <div className={`uk22 ${currentPath === "/help2"  ? "active" : ""}`}> <div style={{ marginLeft: "14px" }}><RiFeedbackFill size={20} />
+                  </div><div> <ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "-23px", marginLeft: "10px" }}>Referral Support</ul></div></div>
+               
+       
 
       </div>
     </div>

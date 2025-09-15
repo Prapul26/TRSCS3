@@ -106,6 +106,7 @@ padding-bottom: 5px;
 .constactUS{
 display: flex;
  border-bottom: 1px solid black;
+
 }
 .apppphelp{
 display: flex;
@@ -113,9 +114,13 @@ display: flex;
 }
 .constactUS.active{
   background-color: black !important;
-  margin-left: -10px;
-  
+  margin-left: -20px;
+  padding-top: 15px;
+  padding-left: 20px;
   color:white !important;
+}
+.constactUS.active h3{
+  color: white !important;
 }
 
 }
