@@ -51,18 +51,35 @@ const handleLogin = async (e) => {
   }
 };
 
-   
-useEffect(()=>{
-  const fetchData=async()=>{
-        try{
-const response=await axios.get("https://tracsdev.apttechsol.com/api/login");
-setPopupMessage(response.data.keyfields.find(item=>item.id === 10)?.description || "")
-        }catch(err){
-console.log(err)
-        }
-    };
+useEffect(() => {
+  const fetchKeyfield = async () => {
+    try {
+      // 👇 Replace this with the correct endpoint for keyfields
+      const response = await axios.get(
+        "https://tracsdev.apttechsol.com/api/helpsection-descriptionnew/10"
+      );
 
-fetchData();},[]);
+      console.log("Keyfield API response:", response.data);
+
+      // If API returns an object with "description"
+      if (response.data.description) {
+        setPopupMessage(response.data.description);
+      }
+
+      // If API returns an array of keyfields instead
+      if (response.data.keyfields) {
+        const field = response.data.keyfields.find((item) => item.id === 10);
+        setPopupMessage(field?.description || "");
+      }
+    } catch (err) {
+      console.error("Error fetching keyfield:", err);
+    }
+  };
+
+  fetchKeyfield();
+}, []);
+
+
 const adjustInternalHtml=(html)=>{
     const container =document.createElement("div");
     container.innerHTML=html;
@@ -126,9 +143,14 @@ const adjustInternalHtml=(html)=>{
                         <Link to='/forgotPassword' style={{ textDecoration: "none" }}> <div className='forpass'><p>Forgot Password ?</p></div></Link>
                     </div>
                     <button type='submit'>Login</button>
-{
-    popUp && (<div className='popShow' dangerouslySetInnerHTML={{ __html: adjustInternalHtml(popupMessage) }} onMouseLeave={()=>setPopUp(false)} ></div>)
-}
+{popUp && popupMessage && (
+  <div
+    className="popShow" style={{color:'white'}}
+    dangerouslySetInnerHTML={{ __html: adjustInternalHtml(popupMessage) }}
+    onMouseLeave={() => setPopUp(false)}
+  />
+)}
+
                   <div className='registerKey'>  <div className='regP'><Link to="/register" style={{ textDecoration: "none" }}><p >Register</p></Link></div>
                   <div style={{marginTop:"15px",marginLeft:"4px"}} onMouseEnter={()=>setPopUp(true)}><FaCircleQuestion  color='black'/></div></div>
                     <p>{message}</p>

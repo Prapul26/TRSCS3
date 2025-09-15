@@ -173,8 +173,12 @@ height: 31px;
     height: 180px;
     width: 220px;
     background-color: black;
-    opacity: 0.9;
+    
     color: white !important;
+}
+.popShow p{
+    color: rgb(255, 255, 255) !important;
+    
 }
 @media (max-width: 1024px) {
     .LoginContainer {

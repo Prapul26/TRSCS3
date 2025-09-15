@@ -54,7 +54,34 @@ height: 80%;
     border-bottom-right-radius: 10px;
     overflow-y: auto;
 }
+.subtext1 p{
+font-size: 12px !important;
+}
+.subtext1{
+margin-top: -29px;
+width: 80%;
+}
+.subtext2{ margin-top: -9px;
+width: 80%;   
 
+}
+.subtext2 p{
+font-size: 12px !important;
+}
+.subtext3{
+margin-top: -13px;
+width: 80%;
+}
+.subtext3 p{
+    font-size: 12px !important;
+}
+.subtext4{
+margin-top: -5px;
+margin-left: 6px;
+}
+.subtext4 p{
+    font-size: 12px !important;
+}
 .info-holder{
     margin-top: 30px;
     padding: 20px;

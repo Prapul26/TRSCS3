@@ -66,32 +66,32 @@ const MakeIntroduction = () => {
   const [showTakeAction, setTakeAction] = useState(false)
   const [showTakeAction2, setTakeAction2] = useState(false);
   const [showTakeAction3, setTakeAction3] = useState(false)
-  const[showpopup1,setpopup1]=useState(false);
-    const[showpopup2,setpopup2]=useState(false);
-      const[showpopup3,setpopup3]=useState(false);
+  const [showpopup1, setpopup1] = useState(false);
+  const [showpopup2, setpopup2] = useState(false);
+  const [showpopup3, setpopup3] = useState(false);
   const field1 = keyFeilds.find(item => item.id === 1)?.description;
   const field2 = keyFeilds.find(item => item.id === 9)?.description;
   const field3 = keyFeilds.find(item => item.id === 4)?.description;
   const field4 = keyFeilds.find(item => item.id === 6)?.description;
   const navigate2 = useNavigate();
-const handlepopup1=()=>{
-  setpopup1(true)
-};
-const handlepopup2=()=>{
-  setpopup2(true)
-};
-const handlepopup3=()=>{
-  setpopup3(true)
-};
-const closepopup1=()=>{
-  setpopup1(false)
-}
-const closepopup2=()=>{
-  setpopup2(false)
-}
-const closepopup3=()=>{
-  setpopup3(false)
-}
+  const handlepopup1 = () => {
+    setpopup1(true)
+  };
+  const handlepopup2 = () => {
+    setpopup2(true)
+  };
+  const handlepopup3 = () => {
+    setpopup3(true)
+  };
+  const closepopup1 = () => {
+    setpopup1(false)
+  }
+  const closepopup2 = () => {
+    setpopup2(false)
+  }
+  const closepopup3 = () => {
+    setpopup3(false)
+  }
 
   const adjustInternalhtml = (html) => {
     const container = document.createElement("div");
@@ -159,10 +159,10 @@ const closepopup3=()=>{
       return user.email.includes("@");
     });
 
-   if (validEmails.length !== 2) {
-  setMsg("You must select exactly 2 recipients to send.");
-  return;
-}
+    if (validEmails.length !== 2) {
+      setMsg("You must select exactly 2 recipients to send.");
+      return;
+    }
 
     // ❗ Check if tokens are still present
     if (message.includes("[[name_1]]") || message.includes("[[name_2]]")) {
@@ -341,40 +341,40 @@ const closepopup3=()=>{
 
 
   return (<div> {
-        showpopup1 && (
-          <div className="popup1-overlay">
-            <div className="popUp1" >
-               <div className="popuph"><div><h2>Directory</h2></div>
-                <div onClick={closepopup1}><p>X</p></div></div>
-              <iframe className="popupcontent" src="https://tracsdev.apttechsol.com/helpsection-descriptionnew/06"/>
-            </div>
+    showpopup1 && (
+      <div className="popup1-overlay">
+        <div className="popUp1" >
+          <div className="popuph"><div><h2>Directory</h2></div>
+            <div onClick={closepopup1}><p>X</p></div></div>
+          <iframe className="popupcontent" src="https://tracsdev.apttechsol.com/helpsection-descriptionnew/06" />
+        </div>
+      </div>
+    )
+  }
+    {
+      showpopup2 && (
+        <div className="popup1-overlay">
+          <div className="popUp1" >
+            <div className="popuph"><div><h2>Make-Introduction-Select-Template</h2></div>
+              <div onClick={closepopup2}><p>X</p></div></div>
+            <iframe className="popupcontent" src="https://tracsdev.apttechsol.com/helpsection-descriptionnew/7" />
           </div>
-        )
-      }
-      {
-        showpopup2 && (
-          <div className="popup1-overlay">
-            <div className="popUp1" >
-               <div className="popuph"><div><h2>Make-Introduction-Select-Template</h2></div>
-                <div onClick={closepopup2}><p>X</p></div></div>
-              <iframe className="popupcontent" src="https://tracsdev.apttechsol.com/helpsection-descriptionnew/7"/>
-            </div>
+        </div>
+      )
+    }
+    {
+      showpopup3 && (
+        <div className="popup1-overlay">
+          <div className="popUp1" >
+            <div className="popuph"><div><h2>A preset closing text automatically added to your Email/Messages</h2></div>
+              <div onClick={closepopup3}><p>X</p></div></div>
+            <iframe className="popupcontent" src="https://tracsdev.apttechsol.com/helpsection-descriptionnew/9" />
           </div>
-        )
-      }
-       {
-        showpopup3 && (
-          <div className="popup1-overlay">
-            <div className="popUp1" >
-               <div className="popuph"><div><h2>A preset closing text automatically added to your Email/Messages</h2></div>
-                <div onClick={closepopup3}><p>X</p></div></div>
-              <iframe className="popupcontent" src="https://tracsdev.apttechsol.com/helpsection-descriptionnew/9"/>
-            </div>
-          </div>
-        )
-      }
+        </div>
+      )
+    }
     <div className="make">
-     
+
       <Header />
       <Navbar />
       <div className="crub">
@@ -408,9 +408,10 @@ const closepopup3=()=>{
       <div className="info-holder">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-           
+
             <div style={{ display: "flex" }}><div><label>Directory</label></div><div style={{ marginLeft: "5px", marginTop: "2px" }}  ><FaCircleQuestion onClick={handlepopup1} /></div></div>
             <br />
+            <div className="subtext1"><p>The Member Directory is a centralized list of all registered members, displaying their key details such as Name, Email, and Business Name. It allows users to easily search, view, and connect with members, serving as a quick reference for networking and communication.</p></div>
             <select
               className="toSelect"
               value={recepientType}
@@ -663,7 +664,9 @@ const closepopup3=()=>{
           </div>
 
           <div className="selected-emails">
-            <h4>Selected Emails</h4>
+            <div style={{display:"flex"}}>
+              <div><h4>Selected Emails</h4></div>
+              <div className="subtext4"><p> ( Minimum 2 parties are required. )</p></div></div>
             <div className="colorCOrner1">
               {selectedEmails.map((user, index) => (
 
@@ -739,12 +742,12 @@ const closepopup3=()=>{
             className="manageHeadingTEmplate"
             style={{ display: "flex", justifyContent: "space-between" }}
           >
-          
+
             <div style={{ display: "flex", marginBottom: "-29px" }}>
               <div>
                 <label>Select Template </label>
               </div>
-              <div  style={{ marginTop: "2px", marginLeft: "6px" }}><FaCircleQuestion onClick={handlepopup2}/></div>
+              <div style={{ marginTop: "2px", marginLeft: "6px" }}><FaCircleQuestion onClick={handlepopup2} /></div>
 
               {bestPractice && (
                 <div className="practice-overlay">
@@ -759,9 +762,10 @@ const closepopup3=()=>{
             </div>
 
             <div>
-              <Link to='/addTemplate' style={{ textDecoration: "none", color: "inherit" }}>  <label>Add Templates</label></Link>
+              <Link to='/addTemplate' style={{ textDecoration: "none", color: "inherit" }}>  <label style={{ textDecoration: "underline" }}>Add Templates</label></Link>
             </div>
           </div>
+          <div className="subtext2"><p>Email templates are pre-designed layouts used to create emails quickly and consistently.</p></div>
           <div style={{ marginTop: "10px", marginLeft: "0px" }} onClick={handelbest}>
             <p style={{ fontSize: "12px !important", textDecoration: "underline" }} className="pset">
               Best Practices ?
@@ -861,34 +865,35 @@ const closepopup3=()=>{
           <div style={{ marginTop: "0px", marginBottom: "20px", color: "#e6410fff", whiteSpace: 'pre-line', fontWeight: "600" }}>{msg}</div>
           <div className="lastbutton" style={{ display: "flex" }}>
             <div style={{ display: "flex" }}>
-           <input
-  type="checkbox"
-  checked={!!signature}
-  onChange={(e) => {
-    const checked = e.target.checked;
+              <input
+                type="checkbox"
+                checked={!!signature}
+                onChange={(e) => {
+                  const checked = e.target.checked;
 
-    if (!data?.signature?.name) {
-      setMsg("No signature found. Please add one first.");
-      return;
-    }
+                  if (!data?.signature?.name) {
+                    setMsg("No signature found. Please add one first.");
+                    return;
+                  }
 
-    const rawSignature = data.signature.name;
-    const wrappedSignature = `<div class="signature-block">${rawSignature}</div>`;
-    const htmlSignature = adjustInternalHtml(wrappedSignature);
+                  const rawSignature = data.signature.name;
+                  const wrappedSignature = `<div class="signature-block">${rawSignature}</div>`;
+                  const htmlSignature = adjustInternalHtml(wrappedSignature);
 
-    if (checked) {
-      setGGText((prev) => prev + htmlSignature);
-      setSignature(htmlSignature);
-    } else {
-      setGGText((prev) => prev.replace(signature, "").trim());
-      setSignature("");
-    }
-  }}
-/>
+                  if (checked) {
+                    setGGText((prev) => prev + htmlSignature);
+                    setSignature(htmlSignature);
+                  } else {
+                    setGGText((prev) => prev.replace(signature, "").trim());
+                    setSignature("");
+                  }
+                }}
+              />
 
-             
-              <h3 style={{ marginLeft: "4PX" }}>Include Signature</h3><div style={{ marginLeft: "5px", marginTop: "5px" }} ><FaCircleQuestion onClick={handlepopup3}/></div>
+
+              <h3 style={{ marginLeft: "4PX" }}>Include Signature</h3><div style={{ marginLeft: "5px", marginTop: "5px" }} ><FaCircleQuestion onClick={handlepopup3} /></div>
             </div>
+           
             <div className="formButtons">
               <button style={{ background: "#dc3545", height: "37px", fontSize: "1rem", marginTop: "20px" }}>Cancel</button>
               <button
@@ -900,7 +905,8 @@ const closepopup3=()=>{
             </div>
 
 
-          </div>
+          </div> 
+          <div className="subtext3"><p>Users can add their signature before submitting the form.</p></div>
         </form> {validationError && (
           <p style={{ color: "red", marginTop: "5px", whiteSpace: "pre-line" }}>
             {validationError}
