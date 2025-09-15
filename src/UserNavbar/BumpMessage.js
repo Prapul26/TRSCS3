@@ -23,7 +23,8 @@ const BumpMessage = () =>{
   const [selectedTemplateId, setSelectedTemplateId] = useState(null);
   const [showSignature, setShowSignature] = useState(true);
     const [template1,setTemplate1]=useState([])
-  
+   const [message, setMessage] = useState("");
+    const [messageType, setMessageType] = useState(""); // "success" | "error"
   const [sentMail, setSentMails] = useState([]);
       const [signature, setSignature] = useState([]);
       const [popUp, setPopUp] = useState(false);
@@ -100,8 +101,20 @@ const stripHtmlTags = (html) => {
         { headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" } }
       );
       console.log("Mail Sent Successfully", response.data);
+        setMessage( "Mail sent successfully!");
+      setMessageType("success");
+      setTimeout(() => {
+        navigate("/inbox"); // change "/email" to your actual email page route
+      }, 2000);
+
     } catch (error) {
       console.error("Error sending reply mail:", error);
+        setMessage("Error sending reply mail");
+      setMessageType("error");
+      setTimeout(() => {
+        setMessage(""); // change "/email" to your actual email page route
+      }, 2000);
+
     }
   };
  const adjustInnerHtml=(html)=>{
@@ -115,6 +128,8 @@ const stripHtmlTags = (html) => {
   };
   return (
     <div className="mobMenuaa">
+              {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
+
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
       <div>
         <UserHeader />
