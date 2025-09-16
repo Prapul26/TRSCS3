@@ -411,7 +411,7 @@ const Inbox = () => {
                                   </div>
                                   <div className="pic66name">
                                     <p style={{ fontWeight: "500" }}>
-                                      (Replies : {recipient.replied ? "Yes" : "No"})
+                                      (Replies : {recipient.replied_count})
                                     </p>
                                   </div>
                                 </div>
