@@ -9,6 +9,9 @@ background-color: rgb(240, 239, 238);
   padding-top: 20px;
   
 }
+.rdsewdx2{
+
+}
 .uk166{
     height: 40px;
   background-color: rgb(255, 255, 255);
@@ -90,6 +93,18 @@ padding-top: 20px;
   margin-left: -5px;
     border-bottom: 1px solid black;
 }
+.rdsewdx2{
+  
+  display: flex;
+  margin-top: 1px;
+  
+  padding-left: 5px;
+  margin-left: -5px;
+    border-bottom: 1px solid black;
+}
+.rdsewdx2 ul{
+  font-weight: 600;
+}
 .rdsewdx ul{
   margin-left: -24px !important;
 }
@@ -98,6 +113,17 @@ padding-top: 20px;
   justify-content: space-between;
 }
 .rdsewdx.active{
+    width: 100%;
+  background-color: black !important;
+  margin-left: -10px;
+  margin-top: -px;
+  height: 22px;
+padding-top: 5px;
+
+padding-bottom: 30px;
+color: white !important;
+}
+.rdsewdx2.active{
     width: 100%;
   background-color: black !important;
   margin-left: -10px;

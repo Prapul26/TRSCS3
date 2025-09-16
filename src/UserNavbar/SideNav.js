@@ -120,12 +120,9 @@ const SideNav = () => {
 
             </div>
           }</div>
-          <div >
-            <Link to="/referralSupport" style={{ color: "inherit", textDecoration: "none" }} >          <div className={`rdsewdx ${currentPath === "/referralSupport" || "/createReferral"  ? "active" : ""}`}> <div style={{ marginLeft: "14px",marginTop:"9px" }}><BsPersonFillAdd  size={20} />
-                  </div><div> <ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "10px", marginLeft: "10px" }}>Referral Support</ul></div></div>
-                </Link>
-          </div>
-
+        
+<Link to="/referralSupport" style={{ color: "inherit", textDecoration: "none" }}><div className={`rdsewdx2  ${currentPath === "/referralSupport"  ? "active" : ""}`}><div style={{marginTop:"15px"}}><BsPersonFillAdd /></div>
+<div><ul>Referral Support</ul></div></div></Link>
         <div style={{ borderBottom: "1px solid black" }}>
           <div className='resources' onClick={handleResources}>
             <div style={{ marginTop: "15px" }}>< MdOutlineCreditCard size={22} /></div>
