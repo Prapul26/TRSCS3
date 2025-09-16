@@ -22,7 +22,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { IoPerson } from "react-icons/io5";
-import { BsGraphUp } from "react-icons/bs";
+import { BsGraphUp, BsPersonFillAdd } from "react-icons/bs";
 import "./SideNav.css"
 import { CiFileOn } from 'react-icons/ci';
 const SideNav = () => {
@@ -116,10 +116,15 @@ const SideNav = () => {
               <Link to='/contacts' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/contacts" ? "active" : ""}`}><div style={{ display: "flex" }} className={`uk1 ${currentPath === "/contacts" ? "active" : ""}`}> <div style={{ paddingLeft: "0px" }}>< RiContactsFill /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "0px", marginLeft: "-20px" }}>My Contacts</ul></div></Link>
 
               <Link to='/email' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/email" ? "active" : ""}`}><div style={{ display: "flex" }} className={`uk1 ${currentPath === "/email" ? "active" : ""}`}> <div style={{ paddingLeft: "0px" }}><MdOutlineEmail /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "0px", marginLeft: "-20px" }}>Email Template</ul></div></Link>
-              <Link to='/signature' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/signature" ? "active" : ""}`}> <div style={{ display: "flex", borderBottom: "1px solid transparent" }} className={`uk1 ${currentPath === "/signature" ? "active" : ""}`}><div style={{ paddingLeft: "0px" }}><FaFileSignature /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "0px", marginLeft: "-20px" }}>Email Signature</ul></div></Link>
+              <Link to='/signature' style={{ color: "inherit", textDecoration: "none" }} className={`menu-item ${currentPath === "/signature" ? "active" : ""}`}> <div style={{ display: "flex" }} className={`uk166 ${currentPath === "/signature" ? "active" : ""}`}><div style={{ paddingLeft: "0px" }}><FaFileSignature /></div><ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "0px", marginLeft: "-20px" }}>Email Signature</ul></div></Link>
 
             </div>
           }</div>
+          <div >
+            <Link to="/referralSupport" style={{ color: "inherit", textDecoration: "none" }} >          <div className={`rdsewdx ${currentPath === "/referralSupport" || "/createReferral"  ? "active" : ""}`}> <div style={{ marginLeft: "14px",marginTop:"9px" }}><BsPersonFillAdd  size={20} />
+                  </div><div> <ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "10px", marginLeft: "10px" }}>Referral Support</ul></div></div>
+                </Link>
+          </div>
 
         <div style={{ borderBottom: "1px solid black" }}>
           <div className='resources' onClick={handleResources}>
@@ -146,8 +151,7 @@ const SideNav = () => {
             )
           }
         </div>
-          <div className={`uk22 ${currentPath === "/help2"  ? "active" : ""}`}> <div style={{ marginLeft: "14px" }}><RiFeedbackFill size={20} />
-                  </div><div> <ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "-23px", marginLeft: "10px" }}>Referral Support</ul></div></div>
+
                
        
 

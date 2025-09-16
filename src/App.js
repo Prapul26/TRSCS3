@@ -59,6 +59,8 @@ import Faq from "./components/Faq/Faq";
 import Help2 from "./components/Help2/Help2";
 import HelpSection2 from "./components/Help2/HelpSection2";
 import HelpDescription2 from "./components/Help2/HelpDescription2";
+import ReferralSupport from "./components/ReferralSupport/ReferralSupport";
+import CreateReferral from "./components/ReferralSupport/CreateReferral";
 
 
 
@@ -108,6 +110,7 @@ const App = () => {
           <Route path="/mobileMenu" element={<MobileMenu />}/>
           <Route path='/profileData' element={<ProfileData />}/>
           <Route path="/addTemplate" element={<AddTemplate />}/>
+          <Route path="/referralSupport" element={<ReferralSupport/>}/>
           <Route path="/editTemplate/:id" element={<EditTemplate/>}/>
           <Route path="/editContact/:id" element={<EditContact/>}/>
           <Route path="/orderDetails/:orderId" element={<OrderDetails/>}/>
@@ -127,6 +130,7 @@ const App = () => {
 <Route path="/helpDescription/:id" element={<RegisterHelp/>}/>
 <Route path="/whatIsMakeIntro" element={<WhatIsMakeInro />}/>
 <Route path="/contactUs" element={<ContactUs />}/>
+<Route path="/createReferral" element={<CreateReferral />}/>
         </Routes>
       </div>
     </Router>

@@ -1,0 +1,90 @@
+.creatredHolder{
+    background-color: white;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+.createInfoHolder{
+    padding:20px;
+    background-color: white;
+}
+.titleHolder{
+    display: flex;
+    background-color: aliceblue;
+    padding: 5px;
+    border-radius: 4px;
+    margin-top: 20px;
+    width: 90%;
+
+}
+.titleHolder input{
+    width: 100%;
+    font-size: larger;
+    border: transparent;
+    background-color: aliceblue;
+    outline: transparent;
+}
+.catinfohold{
+    display: flex;
+    justify-content: space-between;
+}
+.catinfohold1{
+    width: 49%;
+}
+.catinfohold2{
+width: 47%;
+margin-right: 10px;
+}
+.catdrophold{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+      border: 2px solid rgb(221, 221, 221);
+      border-radius: 10px;
+}
+.ijnhy p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.catinput{
+    margin-top: 10px;
+    background-color: white;
+    width: 100%;
+    border: 2px solid rgb(221, 221, 221);
+    padding: 11px;
+    border-radius: 10px;
+}
+.dropdowncatinfo{
+    width: 96%;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+   border: 1px solid rgb(165, 164, 164);
+}
+.dropdowncatinfo input{
+    width: 98%;
+    height: 40px;
+}
+.dropdowncatinfo ul{
+
+}
+.categoryTypes:hover{
+    background-color: blue;
+}
+.categoryTypes{
+padding: 1px;
+width: 98%;
+}
+.spp{
+   height: fit-content !important;
+    background-color: #e9edf0 !important;
+}
+.sppp{
+    height: fit-content !important;
+    background-color: #e9edf0 !important;
+}
+.saveconbutton{
+    margin-top: 20px;
+    margin-bottom: 40px;
+}

@@ -118,7 +118,10 @@ const MobileMenu = () => {
         }
 
       </div>
-
+<Link to='/referralSupport' style={{textDecoration:"none",color:"inherit"}}><div className={`constactUS ${currentPath === "/referralSupport" ? "active" : ""}`}>
+        <div style={{ marginTop: "16px", marginRight: "10px", marginLeft: "10px" }}><FaRegComment /></div>
+        <div ><h2>Referral Support</h2></div>
+      </div></Link>
       <div style={{ borderBottom: "1px solid black" }}>
         <div className={`introduction4 ${(
           currentPath === "" ||
@@ -144,10 +147,7 @@ const MobileMenu = () => {
       </div>
 
 
-      <div className={`constactUS ${currentPath === "/contactUsw" ? "active" : ""}`}>
-        <div style={{ marginTop: "16px", marginRight: "10px", marginLeft: "10px" }}><FaRegComment /></div>
-        <div ><h2>Referral Support</h2></div>
-      </div>
+      
 
     </div>
   )
