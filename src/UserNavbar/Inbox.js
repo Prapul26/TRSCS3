@@ -330,10 +330,10 @@ const Inbox = () => {
                           </div>                  </div>
                         <div className="pictime">
                           <div className="pic55">
-                            <div className="pic55img">< img src={item.sender_full_image} />
+                            <div className="pic55img">< img src={item.first_senderFullImage} />
                             </div>
                             <div className="pic55name">
-                              <p style={{ fontSize: "14px !important" }}>{item.sender_full_name}</p>
+                              <p style={{ fontSize: "14px !important" }}>{item.first_sender_name}</p>
                             </div>
                           </div>
                           <div className="time55">
@@ -360,7 +360,12 @@ const Inbox = () => {
                               </p>
                             </div>
 
-                            {item.recipients_info.some(recipient => recipient.replied === false) && (<div className="timeStar" style={{ marginTop: "-0px" }}><IoIosStar color="#eeba2b" /></div>)}
+                          {item.recipients_info.every(recipient => recipient.replied_count === 0) && (
+  <div className="timeStar" style={{ marginTop: "-0px" }}>
+    <IoIosStar color="#eeba2b" />
+  </div>
+)}
+
                           </div>
                         </div>
                         {item.id === latestMessageId && (
@@ -452,7 +457,7 @@ const Inbox = () => {
                                 </div>
                                 <div className="time55days">
                                   <p style={{ fontSize: "14px !important" }}>{(() => {
-                                    const diffMs = Date.now() - new Date(item.created_at).getTime();
+                                    const diffMs = Date.now() - new Date(item.senderDate).getTime();
                                     const diffMinutes = Math.floor(diffMs / (1000 * 60));
                                     const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
                                     const diffDays = Math.floor(diffHours / 24);
@@ -475,7 +480,7 @@ const Inbox = () => {
 
                               {/* Show expanded message only when expanded */}
                               {!showExpandedMessage && (
-                                <div className="expandedMessage" dangerouslySetInnerHTML={{ __html: adjustInternalHtml(item.body) }}></div>
+                                <div className="expandedMessage" dangerouslySetInnerHTML={{ __html: adjustInternalHtml(item.senderMessage) }}></div>
                               )}
 
                               <div>
