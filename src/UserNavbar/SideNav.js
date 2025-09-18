@@ -121,7 +121,7 @@ const SideNav = () => {
             </div>
           }</div>
         
-<Link to="/referralSupport" style={{ color: "inherit", textDecoration: "none" }}><div className={`rdsewdx2  ${currentPath === "/referralSupport"  ? "active" : ""}`}><div style={{marginTop:"15px"}}><BsPersonFillAdd /></div>
+<Link to="/viewReferralSupport" style={{ color: "inherit", textDecoration: "none" }}><div className={`rdsewdx2  ${currentPath === "/viewReferralSupport"  ? "active" : ""}`}><div style={{marginTop:"15px"}}><BsPersonFillAdd /></div>
 <div><ul>Referral Support</ul></div></div></Link>
         <div style={{ borderBottom: "1px solid black" }}>
           <div className='resources' onClick={handleResources}>

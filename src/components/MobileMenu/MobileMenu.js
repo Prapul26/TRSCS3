@@ -118,7 +118,7 @@ const MobileMenu = () => {
         }
 
       </div>
-<Link to='/referralSupport' style={{textDecoration:"none",color:"inherit"}}><div className={`constactUS ${currentPath === "/referralSupport" ? "active" : ""}`}>
+<Link to='/viewReferralSupport' style={{textDecoration:"none",color:"inherit"}}><div className={`constactUS ${currentPath === "/viewReferralSupport" ? "active" : ""}`}>
         <div style={{ marginTop: "16px", marginRight: "10px", marginLeft: "10px" }}><FaRegComment /></div>
         <div ><h2>Referral Support</h2></div>
       </div></Link>
