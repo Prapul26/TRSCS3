@@ -298,6 +298,9 @@ color: #025ea3;
     overflow-x: auto;
     text-overflow: inherit;
   }
+  .replyMessww{
+    display: flex;
+  }
   
   thead tr {
     background-color: #0078d4;
@@ -515,6 +518,13 @@ width: 99%;
         margin: 0px;
   
    }
+   .latestReply{
+    display: flex;
+   }
+   .replyMessww{
+    display: flex;
+    flex-direction: column;
+   }
    .pageURLHolder{
   margin-left: 5%;
   margin-right: 5%;
@@ -529,6 +539,14 @@ width: 99%;
    .mobMenu331{
     display: block;
     
+   }
+   .cloclReply{
+    margin-top: -20px;
+   }
+   .cloclReply p{
+    margin-top: 13px;
+    margin-left: 5px;
+    margin-right: -10px;
    }
 .message{
     

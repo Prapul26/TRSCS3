@@ -108,11 +108,11 @@ const Inbox = () => {
   const handleExpand = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
-   const adjustInternalHtml = (html) => {
-  const container = document.createElement("div");
-  container.innerHTML = html;
-  return container.innerHTML;
-};
+  const adjustInternalHtml = (html) => {
+    const container = document.createElement("div");
+    container.innerHTML = html;
+    return container.innerHTML;
+  };
   const stripHtmlTags = (html) => {
     const div = document.createElement("div");
     div.innerHTML = html;
@@ -359,37 +359,41 @@ const Inbox = () => {
                               </p>
                             </div>
 
-                          {item.recipients_info.every(recipient => recipient.replied_count === 0) && (
-  <div className="timeStar" style={{ marginTop: "-0px" }}>
-    <IoIosStar color="#eeba2b" />
-  </div>
-)}
+                            {item.recipients_info.every(recipient => recipient.replied_count === 0) && (
+                              <div className="timeStar" style={{ marginTop: "-0px" }}>
+                                <IoIosStar color="#eeba2b" />
+                              </div>
+                            )}
 
                           </div>
                         </div>
-                        {item.id === latestMessageId  && !(isExpanded || expandedId === item.id) && (
-                          <div style={{ display: 'flex', alignItems: 'center' }} className="latestReply">
-                            <p style={{ marginRight: "5px", fontWeight: "600" }}>Latest Message:</p>
-                            <p style={{ marginRight: "10px" }}>
-                              {item.sender_full_name}
-                            </p>
-                            <FaClock />
-                            <p style={{ color: "#025ea3", marginLeft: "5px" }}>
-                              {(() => {
-                                const diffMs = Date.now() - new Date(item.created_at).getTime();
-                                const diffMinutes = Math.floor(diffMs / (1000 * 60));
-                                const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-                                const diffDays = Math.floor(diffHours / 24);
+                        {item.id === latestMessageId && !(isExpanded || expandedId === item.id) && (
+                          <div className="replyMessww">
 
-                                if (diffMinutes < 60) {
-                                  return `${diffMinutes} minute${diffMinutes !== 1 ? "s" : ""} ago`;
-                                } else if (diffHours < 24) {
-                                  return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
-                                } else {
-                                  return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
-                                }
-                              })()}
-                            </p>
+                          <div style={{ display: 'flex' }} className="latestReply">
+                            
+                            <div><p style={{ marginRight: "5px", fontWeight: "600" }}>Latest Message by:</p></div>
+                            <div> <p style={{ marginRight: "10px" }}>
+                              {item.sender_full_name}
+                            </p></div></div>
+                            <div style={{ display: "flex" }} className="cloclReply"> <div style={{ marginTop: "15px" }}><FaClock /></div>
+                              <p style={{ color: "#025ea3", marginLeft: "5px" }}>
+                                {(() => {
+                                  const diffMs = Date.now() - new Date(item.created_at).getTime();
+                                  const diffMinutes = Math.floor(diffMs / (1000 * 60));
+                                  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+                                  const diffDays = Math.floor(diffHours / 24);
+
+                                  if (diffMinutes < 60) {
+                                    return `${diffMinutes} minute${diffMinutes !== 1 ? "s" : ""} ago`;
+                                  } else if (diffHours < 24) {
+                                    return `${diffHours} hour${diffHours !== 1 ? "s" : ""} ago`;
+                                  } else {
+                                    return `${diffDays} day${diffDays !== 1 ? "s" : ""} ago`;
+                                  }
+                                })()}
+                              </p></div>
+                          
                           </div>
                         )}
                         {(isExpanded || expandedId === item.id) && (
@@ -400,16 +404,16 @@ const Inbox = () => {
                             {item.recipients_info.map((recipient, idx) => (
                               <Link style={{ textDecoration: "none" }} to={`/memberDetails/${recipient.user_id}/${recipient.member_type}`}>
                                 <div key={idx} className="pic66">
-                              <div className="pic66img">
-  <img
-    src={
-      recipient?.profile_image
-        ? `https://tracsdev.apttechsol.com/public/${recipient.profile_image}`
-        : "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg"
-    }
-    alt="profile"
-  />
-</div>
+                                  <div className="pic66img">
+                                    <img
+                                      src={
+                                        recipient?.profile_image
+                                          ? `https://tracsdev.apttechsol.com/public/${recipient.profile_image}`
+                                          : "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg"
+                                      }
+                                      alt="profile"
+                                    />
+                                  </div>
                                   <div className="pic66name">
                                     <p style={{ textDecoration: "underline", color: "black", fontWeight: "500" }}>{recipient.name}</p>
                                   </div>
