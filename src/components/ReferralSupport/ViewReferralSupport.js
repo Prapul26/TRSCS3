@@ -51,21 +51,30 @@ const ViewReferralSupport = () => {
         }; fetchData()
 
     }, []);
-    const handleSearch = () => {
-        let filtered = data;
+const handleSearch = () => {
+    let filtered = data;
 
-        if (selectedCategory) {
-            filtered = filtered.filter(item => item.category === selectedCategory);
-        }
+if (selectedCategory) {
+    const normalizedCategory = selectedCategory.toLowerCase().trim().replace(/\s+/g, " ");
+    filtered = filtered.filter(item => {
+        const normalizedItemCategory = item.category.toLowerCase().trim().replace(/\s+/g, " ");
+        return normalizedItemCategory === normalizedCategory;
+    });
+}
 
-        if (searchTerm.trim() !== "") {
-            filtered = filtered.filter(item =>
-                item.blog_title.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-        }
 
-        setFilteredData(filtered);
-    };
+    if (searchTerm.trim() !== "") {
+        // normalize both searchTerm and blog_title
+        const normalizedSearch = searchTerm.toLowerCase().trim().replace(/\s+/g, " ");
+        filtered = filtered.filter(item => {
+            const normalizedTitle = item.blog_title.toLowerCase().trim().replace(/\s+/g, " ");
+            return normalizedTitle.includes(normalizedSearch);
+        });
+    }
+
+    setFilteredData(filtered);
+};
+
 
     return (
         <div>
@@ -86,7 +95,7 @@ const ViewReferralSupport = () => {
                                     <div><h2>Referral Support</h2></div>
 
                                 </div>
-                                <div className='addrefbutton'><Link to="/createReferral"><button>Add Post</button></Link></div>
+                                <div className='addrefbutton'><Link to="/createReferral"><button>Create</button></Link></div>
                                 <div className='refHolder'>
                                     <div style={{ padding: "20px", borderRadius: "10px", marginTop: "30px", boxShadow: " 0 4px 6px rgba(0, 0, 0, 0.1)" }}>
                                         <div className='catsearch'>
@@ -111,8 +120,8 @@ const ViewReferralSupport = () => {
                                                     </div>
                                                 )}
                                             </div>
-                                            <div className='catsearch2' ><input placeholder='What you are looking for ?'   value={searchTerm}
-                          onChange={(e) => setSearchTerm(e.target.value)}/></div>
+                                            <div className='catsearch2' ><input placeholder='What you are looking for ?' value={searchTerm}
+                                                onChange={(e) => setSearchTerm(e.target.value)} /></div>
                                             <div><button onClick={handleSearch}>GO</button></div>
                                         </div>
                                         <div className='refTabg'>
@@ -129,15 +138,23 @@ const ViewReferralSupport = () => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {data.map((item) => (
-                                                        <tr key={item.id}>
-                                                            <td>{item.blog_title}</td>
-                                                            <td>{item.category}</td>
-                                                            <td>{item.posted_by?.name}</td>
-                                                            <td>{item.referral_chat.length}</td>
-                                                            <td>{new Date(item.created_at).toLocaleDateString()}</td>
-                                                        </tr>))}
+                                                    {filteredData.length > 0 ? (
+                                                        filteredData.map((item) => (
+                                                            <tr key={item.id}>
+                                                                <td>{item.blog_title}</td>
+                                                                <td>{item.category}</td>
+                                                                <td>{item.posted_by?.name}</td>
+                                                                <td>{item.referral_chat.length}</td>
+                                                                <td>{new Date(item.created_at).toLocaleDateString()}</td>
+                                                            </tr>
+                                                        ))
+                                                    ) : (
+                                                        <tr>
+                                                            <td colSpan="5" style={{ textAlign: "center" }}>No results found</td>
+                                                        </tr>
+                                                    )}
                                                 </tbody>
+
                                             </table>
                                         </div>
                                     </div>

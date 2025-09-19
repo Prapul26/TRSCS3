@@ -8,22 +8,26 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaEdit } from 'react-icons/fa';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { Editor } from "@tinymce/tinymce-react";
+import axios from 'axios';
 
 const CreateReferral = () => {
     const [showSidebar, setShowSidebar] = useState(false);
     const navigate = useNavigate();
-
+    const [message, setMessage] = useState("");
+    const [messageType, setMessageType] = useState(""); // "success" | "error"
     const [dropdown, setDropdown] = useState(false);
     const [categories] = useState([
-        "Category 1",
-        "Category 2",
-        "Category 3",
-        "Category 4",
-        "Category 5"
+        "Category1",
+        "Category2",
+        "Category3",
+        "Category4",
+        "Category5"
     ]);
     const [search, setSearch] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
-    const [description, setDescription] = useState(""); // <-- TinyMCE state
+    const [description, setDescription] = useState("");
+    const [title, setTitle] = useState("");
+    const [image, setImage] = useState(null);
     const handleDropdown = () => {
         setDropdown((prev) => !prev);
     };
@@ -40,10 +44,52 @@ const CreateReferral = () => {
     const showMobnav = () => {
         setShowSidebar((prev) => !prev);
     };
+    const handleSave = async () => {
+        if (!title || !selectedCategory || !description) {
+            alert("Please fill all required fields.");
+            return;
+        }
+
+        const token = sessionStorage.getItem("authToken");
+
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("category", selectedCategory);
+        formData.append("description", description);
+        if (image) {
+            formData.append("banner_image", image);
+        }
+
+        try {
+            const response = await axios.post(
+                "https://tracsdev.apttechsol.com/api/store-referral",
+                formData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                      
+                    },
+                }
+            );
+            console.log("Success:", response.data);
+            setMessage(response.data.message || "Saved successfully!");
+             console.log("formData:"+formData)
+            setMessageType("success");
+            setTimeout(() => {
+                navigate("/viewReferralSupport");
+            }, 2000);
+        } catch (error) {
+            console.error("Error:", error.response?.data || error.message);
+            alert("Failed to create referral");
+            console.log("formData:"+formData)
+        }
+    };
 
     return (
         <div>
             <div className='mobMenuaa'>
+                {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
+
                 <div className='mobMenu33'>
                     {showSidebar && <MobileMenu />}
                 </div>
@@ -89,7 +135,8 @@ const CreateReferral = () => {
                                         <label>Title<span style={{ color: "red" }}> *</span></label><br />
                                         <div className='titleHolder'>
                                             <div style={{ marginTop: "2px" }}><FaEdit /></div>
-                                            <div style={{ width: "97%" }}><input /></div>
+                                            <div style={{ width: "97%" }}><input value={title}
+                                                onChange={(e) => setTitle(e.target.value)} /></div>
                                         </div><br />
 
                                         <div className='catinfohold'>
@@ -127,7 +174,7 @@ const CreateReferral = () => {
 
                                             <div className='catinfohold2'>
                                                 <label>Image</label><br />
-                                                <div className='catinput'><input type='file' /></div>
+                                                <div className='catinput'><input type='file' onChange={(e) => setImage(e.target.files[0])} /></div>
                                             </div>
                                         </div><br />
 
@@ -153,7 +200,7 @@ const CreateReferral = () => {
                                             />
 
                                         </div>
-                                        <div className='saveconbutton'><button>SAVE</button></div>
+                                        <div className='saveconbutton'><button onClick={handleSave}>SAVE</button></div>
                                     </div>
                                 </div>
 
