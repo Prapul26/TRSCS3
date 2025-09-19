@@ -193,6 +193,7 @@ height: 31px;
         flex-direction: column;
         height: fit-content;
         margin-bottom: 0px;
+        margin-top: -30px;
     }
     .abd{
         margin-top: 18px;
@@ -219,6 +220,7 @@ font-weight: 500 !important;
     .oneContent{
         width: 70%;
         margin-left: 5px;
+        margin-top: -10px;
     }
     .no2{
         margin-top: -40px;
@@ -226,10 +228,10 @@ font-weight: 500 !important;
     .twoContent{
         width: 70%;
         margin-left: 5px;
-        margin-top: -5px;
+        margin-top: -20px;
     }
     .oneb{
-    margin-top: 40px;
+    margin-top: 20px;
     height: 50px;
     width: 50px;
     text-align: center;
@@ -238,8 +240,11 @@ font-weight: 500 !important;
     margin-left: -30px;
     border-radius: 70px;
 }
+.registerKey{
+    margin-bottom: -10px;
+}
 .twob{
-    margin-top: 40px;
+    margin-top: 20px;
     height: 50px;
     text-align: center;
     width: 50px;

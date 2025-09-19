@@ -257,14 +257,14 @@ const Header = () => {
               rel="noopener noreferrer">
               {" "}
               <div className="fff">
-                <FaFacebook size={22} color="#163b6d" />
+                <FaFacebook size={30} color="#163b6d" />
               </div>
             </a>
             <a href="https://www.linkedin.com/company/h7network/" target="_blank"
               rel="noopener noreferrer">
               <div className="ffn" style={{ marginLeft: "15px" }}>
                 {" "}
-                <FaLinkedin size={22} color="#163b6d" />
+                <FaLinkedin size={30} color="#163b6d" />
               </div>
             </a>
           </div>
