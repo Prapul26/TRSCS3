@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./ViewReferralSupport.css"
 import MobileMenu from '../MobileMenu/MobileMenu';
 import UserHeader from '../UserHeader';
@@ -9,16 +9,20 @@ import { Link } from 'react-router-dom';
 import { FaEdit, FaEye } from 'react-icons/fa';
 import { IoTrashBinSharp } from 'react-icons/io5';
 import { RiArrowDropDownLine } from 'react-icons/ri';
+import axios from 'axios';
 const ViewReferralSupport = () => {
     const [showSidebar, setShowSidebar] = useState(false);
-       const categories = ["Category1", "Category2", "Category3", "Category4", "Category5"];
+    const categories = ["Category1", "Category2", "Category3", "Category4", "Category5"];
 
     const [showDropDown, setDropDown] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
+    const [data, setData] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
     const handleDropDown = () => {
         setDropDown(true);
     }
-    
+
     const handleCategorySelect = (category) => {
         setSelectedCategory(category); // update selected category
         setDropDown(false);            // close dropdown
@@ -27,6 +31,42 @@ const ViewReferralSupport = () => {
         setShowSidebar(prev => !prev);
 
     };
+    useEffect(() => {
+        const fetchData = async () => {
+
+
+            try {
+                const token = sessionStorage.getItem("authToken");
+                const response = await axios.get("https://tracsdev.apttechsol.com/api/view-referral-list", {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                setData(response.data.blogs.data);
+                setFilteredData(response.data.blogs.data);
+            } catch (err) {
+                console.log(err)
+            }
+
+        }; fetchData()
+
+    }, []);
+    const handleSearch = () => {
+        let filtered = data;
+
+        if (selectedCategory) {
+            filtered = filtered.filter(item => item.category === selectedCategory);
+        }
+
+        if (searchTerm.trim() !== "") {
+            filtered = filtered.filter(item =>
+                item.blog_title.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+        }
+
+        setFilteredData(filtered);
+    };
+
     return (
         <div>
             <div className='mobMenuaa'>
@@ -57,12 +97,12 @@ const ViewReferralSupport = () => {
                                                     </div>
                                                     <div style={{ marginTop: "8px" }}><RiArrowDropDownLine size={30} /></div>
                                                 </div>
-                                               {showDropDown && (
+                                                {showDropDown && (
                                                     <div className='dropDownyy'>
                                                         {categories.map((cat, index) => (
-                                                            <div 
-                                                                key={index} 
-                                                                onClick={() => handleCategorySelect(cat)} 
+                                                            <div
+                                                                key={index}
+                                                                onClick={() => handleCategorySelect(cat)}
                                                                 className="dropdownItem"
                                                             >
                                                                 {cat}
@@ -71,30 +111,35 @@ const ViewReferralSupport = () => {
                                                     </div>
                                                 )}
                                             </div>
-                                            <div className='catsearch2' ><input placeholder='What you are looking for ?' /></div>
-                                            <div><button>GO</button></div>
+                                            <div className='catsearch2' ><input placeholder='What you are looking for ?'   value={searchTerm}
+                          onChange={(e) => setSearchTerm(e.target.value)}/></div>
+                                            <div><button onClick={handleSearch}>GO</button></div>
                                         </div>
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <td>Titile</td>
-                                                    <td>Category</td>
-                                                    <td>Author</td>
-                                                    <td>Replies</td>
-                                                    <td>Posted on</td>
+                                        <div className='refTabg'>
+                                            <table>
 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                <thead>
+                                                    <tr>
+                                                        <td>Titile</td>
+                                                        <td>Category</td>
+                                                        <td>Author</td>
+                                                        <td>Replies</td>
+                                                        <td>Posted on</td>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {data.map((item) => (
+                                                        <tr key={item.id}>
+                                                            <td>{item.blog_title}</td>
+                                                            <td>{item.category}</td>
+                                                            <td>{item.posted_by?.name}</td>
+                                                            <td>{item.referral_chat.length}</td>
+                                                            <td>{new Date(item.created_at).toLocaleDateString()}</td>
+                                                        </tr>))}
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

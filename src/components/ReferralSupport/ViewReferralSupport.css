@@ -33,3 +33,6 @@
 .catsearch button{
      background-color: #163b6d !important;
 }
+.refTabg{
+    overflow-x: auto;
+}
