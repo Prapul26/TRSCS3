@@ -562,9 +562,22 @@ color: #000000;
      }
      .mI3{
       width: 80%;
-      margin-left: 10%;
+      margin-left: 40%;
+      margin-top: -20px;
       margin-right: 10%;
      }
+     .mI3 {
+  order: -1;   /* show before everything */
+  margin-bottom: 15px; /* optional spacing */
+}
+
+.mI1 {
+  order: 1;
+}
+
+.mI2 {
+  order: 2;
+}
      .plr{
       margin-left: 20px !important;
      }

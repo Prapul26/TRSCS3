@@ -278,10 +278,9 @@ const Inbox = () => {
 
                 <div className="collapseButton" style={{ display: "flex", flexDirection: "column" }}>
                   <div>
-                    {" "}
-                    <button className="collapseButton-button" style={{ background: "#163b6d !important" }} onClick={() => setIsExpanded(prev => !prev)}>
+                    {/*<button className="collapseButton-button" style={{ background: "#163b6d !important" }} onClick={() => setIsExpanded(prev => !prev)}>
                       {isExpanded ? "Collapse all" : "Expand all"}
-                    </button>
+                    </button>*/}
                   </div>
                   <div style={{ marginTop: "1px", marginLeft: "20px" }}  >{showTakeAction && (<div className="takeAction1">   <div
                     dangerouslySetInnerHTML={{
@@ -368,9 +367,9 @@ const Inbox = () => {
 
                           </div>
                         </div>
-                        {item.id === latestMessageId && (
+                        {item.id === latestMessageId  && !(isExpanded || expandedId === item.id) && (
                           <div style={{ display: 'flex', alignItems: 'center' }} className="latestReply">
-                            <p style={{ marginRight: "5px", fontWeight: "600" }}>Latest Reply:</p>
+                            <p style={{ marginRight: "5px", fontWeight: "600" }}>Latest Message:</p>
                             <p style={{ marginRight: "10px" }}>
                               {item.sender_full_name}
                             </p>
