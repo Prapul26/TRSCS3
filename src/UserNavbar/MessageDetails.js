@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect,useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import UserHeader from "../components/UserHeader";
 import SideNav from "./SideNav";
@@ -27,21 +27,21 @@ const MessageDetails = () => {
   const handleCheckboxChange = (e) => setShowSignature(e.target.checked);
   const handleSelectedMails = () => setSelectedMails(!selectedMails);
   const [sentMail, setSentMails] = useState([]);
-    const [template1,setTemplate1]=useState([])
-     const [message, setMessage] = useState("");
-     const [messageType, setMessageType] = useState(""); // "success" | "error" 
-    const [signature, setSignature] = useState([]);
-    const [popUp, setPopUp] = useState(false);
-      const messageRef = useRef(null);
-    
+  const [template1, setTemplate1] = useState([])
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState(""); // "success" | "error" 
+  const [signature, setSignature] = useState([]);
+  const [popUp, setPopUp] = useState(false);
+  const messageRef = useRef(null);
+
   const timestamp = sentMail?.created_at;
   const formatted = timestamp ? new Date(timestamp).toLocaleString('en-US', {
     month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true
   }) : "";
 
-const emailPreview = template1?.filter(
-  t => t.id === selectedTemplateId
-);  const onReplyClick = () => {
+  const emailPreview = template1?.filter(
+    t => t.id === selectedTemplateId
+  ); const onReplyClick = () => {
     setReplyBump(!showReplyBump)
   }
   useEffect(() => {
@@ -55,7 +55,7 @@ const emailPreview = template1?.filter(
         setData(response.data);
         setSentMails(response.data.sentMails.data);
         setTemplate1(response.data.normal_email_templates)
-         const sigValue = response.data.keyfields?.find(item => item.id === 4)?.description || "";
+        const sigValue = response.data.keyfields?.find(item => item.id === 4)?.description || "";
         setSignature(sigValue);
       } catch (err) {
         console.error("Error fetching inbox history:", err);
@@ -63,12 +63,12 @@ const emailPreview = template1?.filter(
     };
     fetchData();
   }, [subject, user_id, replies_code]);
-const stripHtmlTags = (html) => {
-  const div = document.createElement("div");
-  div.innerHTML = html;
-  return div.textContent || div.innerText || "";
-};
- const formatWithLineBreaks = (text) => {
+  const stripHtmlTags = (html) => {
+    const div = document.createElement("div");
+    div.innerHTML = html;
+    return div.textContent || div.innerText || "";
+  };
+  const formatWithLineBreaks = (text) => {
     if (!text) return "";
 
     const parts = text.trim().split(/\s+/); // split on 1+ spaces
@@ -92,7 +92,7 @@ const stripHtmlTags = (html) => {
     cc_mail_id: null,
     emails: selectedEmails,
     email_template: selectedTemplate,
-   message: messageRef.current?.innerHTML || "",
+    message: messageRef.current?.innerHTML || "",
     files: null
   };
 
@@ -105,7 +105,7 @@ const stripHtmlTags = (html) => {
         { headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" } }
       );
       console.log("Mail Sent Successfully", response.data);
-        setMessage( "Mail Sent Successfully");
+      setMessage("Mail Sent Successfully");
       setMessageType("success");
       setTimeout(() => {
         navigate("/inbox"); // change "/email" to your actual email page route
@@ -113,7 +113,7 @@ const stripHtmlTags = (html) => {
 
     } catch (error) {
       console.error("Error sending reply mail:", error);
-        setMessage( "Error sending reply mail:");
+      setMessage("Error sending reply mail:");
       setMessageType("errr");
       setTimeout(() => {
         setMessage("") // change "/email" to your actual email page route
@@ -121,18 +121,18 @@ const stripHtmlTags = (html) => {
 
     }
   };
- const adjustInnerHtml=(html)=>{
-    const container=document.createElement("div");
-    container.innerHTML=html;
+  const adjustInnerHtml = (html) => {
+    const container = document.createElement("div");
+    container.innerHTML = html;
     return container.innerHTML;
   }
-    const navigate=useNavigate();
+  const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1); // Go back to the previous page in history
   };
   return (
     <div className="mobMenuaa">
-              {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
+      {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
 
       <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
       <div>
@@ -141,22 +141,23 @@ const stripHtmlTags = (html) => {
           <div className="usernav"><SideNav /></div>
           <div className="mdpp">
             <MobileNavbar showMobnav={showMobnav} />
-              <div style={{ marginLeft: "0px" }}>
-                                  {" "}
-                                  <button style={{ borderRadius: "30px", border: "transparent", background: "#163b6d" }} onClick={handleGoBack}>
-                                    <span>
-                        
-                                      <TiArrowBack color="white" size={35} style={{ background: "#163b6d" }} />
-                        
-                                    </span>{" "}
-                                  </button>
-                                </div>
+           
             <div className="d-header"><h2>Messages Details</h2></div>
-            <div className="messageDetails-container">
-              <div style={{ width: "100%", display: "flex", justifyContent: "flex-end", gap: "10px" }}>
+             <div style={{ marginLeft: "13px" }}>
+              {" "}
+              <button style={{ borderRadius: "30px", border: "transparent", background: "#163b6d" }} onClick={handleGoBack}>
+                <span>
+
+                  <TiArrowBack color="white" size={35} style={{ background: "#163b6d" }} />
+
+                </span>{" "}
+              </button>
+            </div><div style={{ width: "100%",marginTop:"-52px", display: "flex", justifyContent: "flex-end", gap: "10px" }}>
                 <button style={{ background: "#163b6d" }} onClick={onReplyClick}>Reply</button>
                 <button style={{ marginRight: "10px", background: "#dc3545" }} onClick={onReplyClick}>Bump</button>
               </div>
+            <div className="messageDetails-container">
+              
 
               {showReplyBump &&
                 <div>
@@ -223,55 +224,55 @@ const stripHtmlTags = (html) => {
                             style={{ width: "90%", height: "40px", marginBottom: "10px", border: "1px solid #ccc", borderRadius: "5px", padding: "5px" }}
                           />
                           <p style={{ marginLeft: "10px" }}>Select Template</p>
-                           {template1
-  ?.filter(t => t.template_name.toLowerCase().includes(templateSearch.toLowerCase()))
-  .map((t) => (
-    <div
-      key={t.id}
-      onClick={() => {
-        setSelectedTemplate(t.template_name);
-        setSelectedTemplateId(t.id);
-        setTemplate(false); // close dropdown after selecting
-      }}
-      style={{ padding: "8px", cursor: "pointer", borderBottom: "1px solid #eee" }}
-    >
-      {t.template_name}
-    </div>
-  ))}
+                          {template1
+                            ?.filter(t => t.template_name.toLowerCase().includes(templateSearch.toLowerCase()))
+                            .map((t) => (
+                              <div
+                                key={t.id}
+                                onClick={() => {
+                                  setSelectedTemplate(t.template_name);
+                                  setSelectedTemplateId(t.id);
+                                  setTemplate(false); // close dropdown after selecting
+                                }}
+                                style={{ padding: "8px", cursor: "pointer", borderBottom: "1px solid #eee" }}
+                              >
+                                {t.template_name}
+                              </div>
+                            ))}
                         </div>
                       )}
                     </div>
                   </div>
                   <div className="messageRead">
-                    <h3 style={{marginBottom:"20px"}}>Message:</h3>
-                    <div className="text-Area"  contentEditable  ref={messageRef} >
+                    <h3 style={{ marginBottom: "20px" }}>Message:</h3>
+                    <div className="text-Area" contentEditable ref={messageRef} >
                       <div className="tempBody">
-                          {emailPreview?.map((template) => (
-    <div
-      key={template.id}
-      style={{ margin: "10px", fontSize: "15px" }}
-      dangerouslySetInnerHTML={{ __html: template.email_body }}
-    />
-  ))}
+                        {emailPreview?.map((template) => (
+                          <div
+                            key={template.id}
+                            style={{ margin: "10px", fontSize: "15px" }}
+                            dangerouslySetInnerHTML={{ __html: template.email_body }}
+                          />
+                        ))}
                       </div>
                       {showSignature && (
                         <div className="signature" style={{ display: "flex", flexDirection: "column" }}>
-                       <div style={{ whiteSpace: "pre-line" ,fontSize:'14.5px'}} className="sigter">
-                        {formatWithLineBreaks(stripHtmlTags(data.authsignature?.name))}
-                      </div>
+                          <div style={{ whiteSpace: "pre-line", fontSize: '14.5px' }} className="sigter">
+                            {formatWithLineBreaks(stripHtmlTags(data.authsignature?.name))}
+                          </div>
                         </div>
                       )}
                     </div>
                   </div>
-              {
-                  popUp &&(<div className="sigPop" onMouseLeave={()=>setPopUp(false)}><div className="sispp" dangerouslySetInnerHTML={{ __html: adjustInnerHtml(signature) }} 
-></div></div>)
-                }
+                  {
+                    popUp && (<div className="sigPop" onMouseLeave={() => setPopUp(false)}><div className="sispp" dangerouslySetInnerHTML={{ __html: adjustInnerHtml(signature) }}
+                    ></div></div>)
+                  }
                   <div className="signature">
                     <div className="checkbox-container">
                       <input type="checkbox" id="include-signature" checked={showSignature} onChange={handleCheckboxChange} style={{ marginTop: "-5px" }} />
                       <div></div> <label htmlFor="include-signature" style={{ marginTop: "10px" }}>Include Signature</label>
-                      <div style={{marginTop:"-10px",marginLeft:"5px",marginRight:"5px"}}></div> <FaCircleQuestion onMouseEnter={()=>setPopUp(true)} style={{ marginLeft: "5px", marginTop: "11px" }} />
+                      <div style={{ marginTop: "-10px", marginLeft: "5px", marginRight: "5px" }}></div> <FaCircleQuestion onMouseEnter={() => setPopUp(true)} style={{ marginLeft: "5px", marginTop: "11px" }} />
                     </div>
                     <div className="button-container">
                       <button onClick={handleSendReply}>Send</button>
@@ -285,38 +286,38 @@ const stripHtmlTags = (html) => {
                   <h3>Introduction - {data.usersData?.map((user) => user.name).join("& ")}</h3>
 
                 </div> {sentMail?.map((mail, index) => {
-  const formattedDate = new Date(mail.created_at).toLocaleString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-    hour12: true
-  });
+                  const formattedDate = new Date(mail.created_at).toLocaleString('en-US', {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric',
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    hour12: true
+                  });
 
-  return (
-    <div className="hoverall" key={index}>
-      <div className="MessageInDetail">
-        <div className="messageDetails">
-          <div className="mpicmname">
-            <div className="mPic">
-              <img src={`https://tracsdev.apttechsol.com/public/${data.userInfo?.image}`} />
-            </div>
-            <div className="mName">
-              <h3>{data.userInfo?.name}</h3>
-            </div>
-          </div>
-          <div className="mdate">
-            <h3>{formattedDate}</h3>
-          </div>
-        </div>
-        <div className="messageData">
-          <p>{stripHtmlTags(mail.body)}</p>
-        </div>
-      </div>
-    </div>
-  );
-})}
+                  return (
+                    <div className="hoverall" key={index}>
+                      <div className="MessageInDetail">
+                        <div className="messageDetails">
+                          <div className="mpicmname">
+                            <div className="mPic">
+                              <img src={`https://tracsdev.apttechsol.com/public/${data.userInfo?.image}`} />
+                            </div>
+                            <div className="mName">
+                              <h3>{data.userInfo?.name}</h3>
+                            </div>
+                          </div>
+                          <div className="mdate">
+                            <h3>{formattedDate}</h3>
+                          </div>
+                        </div>
+                        <div className="messageData">
+                          <p>{stripHtmlTags(mail.body)}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
             </div>
