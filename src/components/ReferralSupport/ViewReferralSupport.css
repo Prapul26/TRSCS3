@@ -1,9 +1,9 @@
 .catsearch{
     display: flex;
-  
+  width: 70%;
     padding-top: 20px;
     padding-bottom: 10px;
-    border-bottom: 1px solid black;
+   
     margin-bottom: 20px;
     justify-content: space-between;
 }
@@ -35,4 +35,44 @@
 }
 .refTabg{
     overflow-x: auto;
+}
+.flexer{
+    display: flex;
+    justify-content: space-between;
+}
+.addrefbutton{
+    margin-top: 30px !important;
+
+}
+.addrefbutton button{
+  background-color: #163b6d !important;
+    margin-top: -38px !important;
+}
+.headerRef p{
+    margin-top: -12px;
+}
+@media (max-width:1024px) {
+
+.catsearch{
+    flex-direction: column;
+    width: 100%;
+}
+.flexer{
+    flex-direction: column;
+}
+.catsearch0{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.catsearch2{
+     width: 100%;
+    margin-bottom: 15px;
+}
+.addrefbutton{
+    margin-top: -20px !important;
+    justify-content: end;
+    display: flex;
+    float: right;
+
+}
 }

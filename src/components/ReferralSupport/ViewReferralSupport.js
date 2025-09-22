@@ -20,7 +20,7 @@ const ViewReferralSupport = () => {
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const handleDropDown = () => {
-        setDropDown(true);
+        setDropDown(prev => !prev);
     }
 
     const handleCategorySelect = (category) => {
@@ -62,15 +62,19 @@ if (selectedCategory) {
     });
 }
 
+if (searchTerm.trim() !== "") {
+    const normalizedSearch = searchTerm.toLowerCase().trim().replace(/\s+/g, " ");
+    filtered = filtered.filter(item => {
+        const normalizedTitle = item.blog_title?.toLowerCase().trim().replace(/\s+/g, " ") || "";
+        const normalizedAuthor = item.posted_by?.name?.toLowerCase().trim().replace(/\s+/g, " ") || "";
 
-    if (searchTerm.trim() !== "") {
-        // normalize both searchTerm and blog_title
-        const normalizedSearch = searchTerm.toLowerCase().trim().replace(/\s+/g, " ");
-        filtered = filtered.filter(item => {
-            const normalizedTitle = item.blog_title.toLowerCase().trim().replace(/\s+/g, " ");
-            return normalizedTitle.includes(normalizedSearch);
-        });
-    }
+        return (
+            normalizedTitle.includes(normalizedSearch) ||
+            normalizedAuthor.includes(normalizedSearch)
+        );
+    });
+}
+
 
     setFilteredData(filtered);
 };
@@ -93,12 +97,13 @@ if (selectedCategory) {
                             <div className='reffContainer'>
                                 <div className='headerRef'>
                                     <div><h2>Referral Support</h2></div>
+                                    <div><p>Referral Support is designed to help members get the guidance and connections they need from our network of directors. </p></div>
 
                                 </div>
-                                <div className='addrefbutton'><Link to="/createReferral"><button>Create</button></Link></div>
                                 <div className='refHolder'>
                                     <div style={{ padding: "20px", borderRadius: "10px", marginTop: "30px", boxShadow: " 0 4px 6px rgba(0, 0, 0, 0.1)" }}>
-                                        <div className='catsearch'>
+                                        <div className='flexer'>
+                                         <div className='catsearch'>
                                             <div className='catsearch0'>
                                                 <div className='catsearch1' onClick={handleDropDown}>
                                                     <div className='categoryuu' style={{ marginTop: "-5px", marginLeft: "5px" }}>
@@ -123,6 +128,9 @@ if (selectedCategory) {
                                             <div className='catsearch2' ><input placeholder='What you are looking for ?' value={searchTerm}
                                                 onChange={(e) => setSearchTerm(e.target.value)} /></div>
                                             <div><button onClick={handleSearch}>GO</button></div>
+                                         </div>
+                                                                         <div className='addrefbutton'><Link to="/createReferral"><button>Create</button></Link></div>
+
                                         </div>
                                         <div className='refTabg'>
                                             <table>
@@ -141,7 +149,7 @@ if (selectedCategory) {
                                                     {filteredData.length > 0 ? (
                                                         filteredData.map((item) => (
                                                             <tr key={item.id}>
-                                                                <td>{item.blog_title}</td>
+                                                                <td><Link to={`/viewReferral/${btoa(item.id)}`}  style={{textDecoration:"none",color:"inherit"}}>{item.blog_title}</Link></td>
                                                                 <td>{item.category}</td>
                                                                 <td>{item.posted_by?.name}</td>
                                                                 <td>{item.referral_chat.length}</td>

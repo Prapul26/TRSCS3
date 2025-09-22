@@ -8,27 +8,19 @@ height: 100%;
     padding-right: 30px;
     margin-top: 20px;
     padding-left: 30px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
+ 
     width: 94%;
     background-color: rgb(255, 255, 255);
 }
 .headerRef h2{
         color: #334e6f !important;
+        margin-top: 15px !important;
 
 }
-.addrefbutton{
-display: flex;
-align-items: end;
-float: right;
-margin-top: 10px;
-}
-.addrefbutton button{
-        background-color: #163b6d !important;
-}
+
 .refHolder{
 margin-top: 60px;
 padding: 10px;

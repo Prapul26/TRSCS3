@@ -62,6 +62,7 @@ import HelpDescription2 from "./components/Help2/HelpDescription2";
 import ReferralSupport from "./components/ReferralSupport/ReferralSupport";
 import CreateReferral from "./components/ReferralSupport/CreateReferral";
 import ViewReferralSupport from "./components/ReferralSupport/ViewReferralSupport";
+import ViewReferral from "./components/ReferralSupport/ViewReferral";
 
 
 
@@ -133,6 +134,7 @@ const App = () => {
 <Route path="/contactUs" element={<ContactUs />}/>
 <Route path="/createReferral" element={<CreateReferral />}/>
 <Route path="/viewReferralSupport" element={<ViewReferralSupport />}/>
+<Route path="/viewReferral/:id" element={<ViewReferral />}/>
         </Routes>
       </div>
     </Router>
