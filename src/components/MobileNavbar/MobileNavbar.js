@@ -3,7 +3,7 @@ import { LuMenu } from "react-icons/lu";
 import "./MobileNavbar.css";
 import { HiInboxArrowDown } from "react-icons/hi2";
 import { MdAccountCircle, MdOutlineEmail } from "react-icons/md";
-import { FaFileSignature } from "react-icons/fa";
+import { FaFileSignature, FaHome } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import { FaHouse } from "react-icons/fa6";
 import { RiArrowDropDownLine, RiContactsFill, RiLogoutBoxLine } from "react-icons/ri";
@@ -97,10 +97,10 @@ const MobileNavbar = ({showMobnav}) => {
         <LuMenu size={30} color="white"/>
       </div>
       <Link to="/home" style={{color:"inherit"}}><div style={{marginTop:"17px",marginRight:"70px"}}>
-        <FaHouse size={30 }  color="white"/></div></Link>
+        <FaHome size={30 }  color="white"/></div></Link>
         </div>
       <div style={{display:"flex"}}>
-        <div className={`mobnavPic ${mobnav ?"hidden":""}`}><img src={profileImg}/></div>
+        <div className={`mobnavPic ${mobnav ?"hidden":""}`}><img src={profileImg || "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg"} /></div>
         
         <div className={`profile-name ${mobnav ?"hidden":""}`} onClick={handelMenuDrop} style={{marginTop:"22px"}}>
                 {menuDrop ?(  <IoMdArrowDropup color="white" size={22} />):(<IoMdArrowDropdown color="white" size={22}/> )}

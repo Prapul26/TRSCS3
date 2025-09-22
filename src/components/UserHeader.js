@@ -257,7 +257,7 @@ useEffect(() => {
           </div>
           <div className="profile-pic">
             <img
-src={profileImg}              style={{ height: "100%", width: "100%"}}
+src={profileImg || "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg"}              style={{ height: "100%", width: "100%"}}
             />
           </div>
           <div className="profile-name" onClick={handelMenuDrop}>
