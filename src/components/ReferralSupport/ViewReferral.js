@@ -5,14 +5,78 @@ import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
 import { TiArrowBack } from 'react-icons/ti'
 import { useNavigate, useParams } from 'react-router-dom'
+import MobileMenu from '../MobileMenu/MobileMenu';
+import UserHeader from '../UserHeader';
+import SideNav from '../../UserNavbar/SideNav';
+import MobileNavbar from '../MobileNavbar/MobileNavbar';
 import axios from 'axios';
 import moment from "moment";
 import { format } from 'date-fns';
 const ViewReferral = () => {
     const [data, setData] = useState("")
+    const [messageText, setMessageText] = useState("")
     const { id } = useParams();
+    const [showSidebar, setShowSidebar] = useState(false);
+    const [showReply, setReply] = useState(true)
     const [chat, setChat] = useState([])
+    const [messageInput, setMessageInput] = useState(false)
+    const [replyText, setReplyText] = useState("");
+    const [replierId, setReplier] = useState("")
+    const [message, setMessage] = useState("");
+    const [messageType, setMessageType] = useState(""); // "success" | "error"
 
+    const handleReply = async (id) => {
+        setMessageInput(id);
+        setReply(false)
+    }
+    const handleCancel = () => {
+        setMessageInput(false);
+
+    }
+    const handleSend = async (id) => {
+        const message = chat.find(item => item.id === id);
+        if (!message) return;
+
+
+
+        console.log(`chat ID: ${id}, comment from: ${message.chat_from?.id}, Reply Message: ${replyText}, reply from: ${replierId}, blogId: ${message.blog_id}`);
+
+        try {
+            const token = sessionStorage.getItem("authToken");
+            const formData = new FormData();
+            formData.append("blog_id", message.blog_id);
+            formData.append("message_from", replierId); // your logged-in user ID
+            formData.append("message", replyText);
+            formData.append("chat_id", message.id);
+            formData.append("comment_from", message.chat_from?.id); // original sender ID
+
+            const response = await axios.post(
+                "https://tracsdev.apttechsol.com/api/send_referral_reply",
+                formData,
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+
+            if (response.data.status) {
+
+
+                setMessage("...Reply sent successfully!..");
+                setMessageType("success");
+                setTimeout(() => {
+                    setMessage();
+                    window.location.reload(); handleCancel();
+                }, 2000);
+            }
+        } catch (err) {
+            console.error(err);
+            alert("Failed to send reply.");
+        }
+    };
+
+
+
+    const showMobnav = () => {
+        setShowSidebar((prev) => !prev);
+    };
     const navigate = useNavigate()
     const handleGoBack = () => {
         navigate(-1);
@@ -31,6 +95,9 @@ const ViewReferral = () => {
                 );
                 setData(response.data.blog);
                 setChat(response.data.referral_chat)
+
+                setReplier(response.data.blog?.blog_created_by);
+                console.log("Message:" + replyText)
             } catch (err) {
                 console.log(err);
             }
@@ -48,80 +115,130 @@ const ViewReferral = () => {
     const formattedDate = moment("2025-09-16T02:08:49.000000Z").format("MMMM, DD YYYY hh:mm a");
 
     return (
-        <div>
-            <div className='referaalViewContainer'>
-                <Header />
-                <Navbar />
-                <div className="ph1">
-                    <div className="p1h1">
-                        <h1 style={{ fontSize: '35px' }}>Referral Support</h1>
-                    </div>
+        <div style={{ height: "fit-content" }}>
+            <div className='mobMenuaa'>
+                {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
+
+                <div className='mobMenu33'>
+                    {showSidebar && <MobileMenu />}
                 </div>
-                <div className='referaalViewHolder'>
-                    <div style={{ marginTop: "20px", marginBottom: "20px" }}>
-                        {" "}
-                        <button style={{ borderRadius: "30px", border: "transparent", background: "#163b6d" }} onClick={handleGoBack}>
-                            <span>
+                <div>
+                    <UserHeader />
 
-                                <TiArrowBack color="white" size={35} style={{ background: "#163b6d" }} />
+                    <div className="SPPP">
+                        <div className="usernav">
+                            <SideNav />
+                        </div>
+                        <div className="SPP">
+                            <MobileNavbar showMobnav={showMobnav} />
+                            <div className='reffContainer'>
+                                <div className='headerRef'>
+                                    <div><h2>Create Referral Support</h2></div>
 
-                            </span>{" "}
-                        </button>
-                    </div>
-                    <div className='refererDetails'>
-                        <div className='refererDetails1'><img src={`https://tracsdev.apttechsol.com/public/${data.posted_by?.image}`
-                        } /></div>
-                        <div className='refererDetails2'>
-                            <h2>{data.blog_title}</h2>
-                            <div style={{ marginTop: "-10px" }}>{data.posted_by?.name}</div>
-                            <div style={{ marginTop: "-10px" }}><p>
-                                {data?.created_at
-                                    ? format(new Date(data.created_at), "MMMM, dd yyyy hh:mm a")
-                                    : ""}
-                            </p></div>
+
+                                </div>
+
+                                <div>
+                                    <button
+                                        style={{ marginTop: "20px", background: " #163b6d", marginBottom: "20px" }}
+                                        onClick={() => navigate(-1)}
+                                    >
+                                        Back
+                                    </button>
+                                </div>
+<div className='refdetailscontaoner'>
+                                <div className='refererDetails'>
+                                    <div className='refererDetails1'><img src={`https://tracsdev.apttechsol.com/public/${data.posted_by?.image}`
+                                    } /></div>
+                                    <div className='refererDetails2'>
+                                        <h2>{data.blog_title}</h2>
+                                        <div style={{ marginTop: "-30px",display:"flex" }}><p>{data.posted_by?.name}</p></div>
+                                        <div style={{ marginTop: "-30px",display:"flex" }}><p>
+                                            {data?.created_at
+                                                ? format(new Date(data.created_at), "MMMM, dd yyyy hh:mm a")
+                                                : ""}
+                                        </p></div>
+                                    </div>
+                                </div>
+                                <div className='referralDescription' >
+                                    <div className='referralDescription1'><img src={`https://tracsdev.apttechsol.com/public/${data.blog_file} || ""`
+                                    } /></div>
+                                    <div dangerouslySetInnerHTML={{ __html: adjustInternalHtml(data.description) }} ></div>
+                                </div>
+                                <div className='refMessages'>
+                                    <table>
+                                        <tbody>
+                                            {chat.map((item) => {
+                                                const sender = item.chat_from || item.reply_from;
+                                                const parentMessage = item.reply_to ? chat.find((msg) => msg.id === Number(item.reply_to)) : null;
+                                                return (
+                                                    <tr key={item.id}>
+                                                        <td>
+                                                            <p>{item.chat_from?.name || item.reply_from?.name}</p>
+                                                            <img
+                                                                src={
+                                                                    item.chat_from?.image
+                                                                        ? `https://tracsdev.apttechsol.com/public/${item.chat_from.image}`
+                                                                        : item.reply_from?.image
+                                                                            ? `https://tracsdev.apttechsol.com/public/${item.reply_from.image}`
+                                                                            : "/default-profile.png"
+                                                                }
+                                                                alt="User"
+                                                            />
+
+
+                                                            <div>
+                                                                {item.created_at
+                                                                    ? format(new Date(item.created_at), "MMMM, dd yyyy hh:mm a")
+                                                                    : ""}
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div style={{ display: "flex", justifyContent: "space-between" }}>
+                                                                <div>
+                                                                    {parentMessage && (
+                                                                        <div style={{ color: "gray", marginBottom: "5px" }}>
+                                                                            {parentMessage.message}
+                                                                        </div>)}
+                                                                    <div style={{ color: item.reply_to !== null ? "blue" : "black" }}>{item.reply_to !== null && ("Re:")} {item.message}</div>
+                                                                    {messageInput === item.id && (
+                                                                        <input
+                                                                            type="text"
+                                                                            value={replyText}
+                                                                            onChange={(e) => setReplyText(e.target.value)}
+                                                                            placeholder="Type your reply..."
+                                                                        />
+                                                                    )}
+                                                                </div>
+                                                                {
+                                                                    <div>
+                                                                        {messageInput === item.id ? (
+                                                                            <div>
+                                                                                <div> <button onClick={() => handleSend(item.id)}>Send</button></div>
+                                                                                <div>  <button onClick={handleCancel}>Cancel</button></div>
+                                                                            </div>
+                                                                        ) : (
+                                                                            item.reply_to === null && (
+                                                                                <button onClick={() => handleReply(item.id)}>Reply</button>
+                                                                            )
+                                                                        )}
+                                                                    </div>
+
+                                                                }
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            })}
+                                        </tbody>
+                                    </table>
+                                </div>
+</div>
+
+                            </div>
                         </div>
                     </div>
-                    <div className='referralDescription' >
-                        <div className='referralDescription1'><img src={`https://tracsdev.apttechsol.com/public/${data.blog_file}`
-                        } /></div>
-                        <div dangerouslySetInnerHTML={{ __html: adjustInternalHtml(data.description) }} ></div>
-                    </div>
-                    <div className='refMessages'>
-                        <table>
-                            <tbody>
-                                {chat.map((item) => (
-                                    <tr key={item.id}>
-                                        <td>
-                                            <p>{item.chat_from?.name || item.reply_from?.name}</p>
-                                            <img 
-                                                src={
-                                                    item.chat_from?.image
-                                                        ? `https://tracsdev.apttechsol.com/public/${item.chat_from.image}`
-                                                        : item.reply_from?.image
-                                                            ? `https://tracsdev.apttechsol.com/public/${item.reply_from.image}`
-                                                            : "/default-profile.png"
-                                                }
-                                                alt="User"
-                                            />
-
-
-                                            <div>
-                                                {item.created_at
-                                                    ? format(new Date(item.created_at), "MMMM, dd yyyy hh:mm a")
-                                                    : ""}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>{item.message}</div>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-
                 </div>
-                <Footer />
             </div>
         </div>
     )
