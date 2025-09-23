@@ -133,7 +133,7 @@ const ViewReferral = () => {
                             <MobileNavbar showMobnav={showMobnav} />
                             <div className='reffContainer'>
                                 <div className='headerRef'>
-                                    <div><h2>Create Referral Support</h2></div>
+                                    <div><h2>Referral Support</h2></div>
 
 
                                 </div>
@@ -146,94 +146,94 @@ const ViewReferral = () => {
                                         Back
                                     </button>
                                 </div>
-<div className='refdetailscontaoner'>
-                                <div className='refererDetails'>
-                                    <div className='refererDetails1'><img src={`https://tracsdev.apttechsol.com/public/${data.posted_by?.image}`
-                                    } /></div>
-                                    <div className='refererDetails2'>
-                                        <h2>{data.blog_title}</h2>
-                                        <div style={{ marginTop: "-30px",display:"flex" }}><p>{data.posted_by?.name}</p></div>
-                                        <div style={{ marginTop: "-30px",display:"flex" }}><p>
-                                            {data?.created_at
-                                                ? format(new Date(data.created_at), "MMMM, dd yyyy hh:mm a")
-                                                : ""}
-                                        </p></div>
+                                <div className='refdetailscontaoner'>
+                                    <div className='refererDetails'>
+                                        <div className='refererDetails1'><img src={`https://tracsdev.apttechsol.com/public/${data.posted_by?.image}`
+                                        } /></div>
+                                        <div className='refererDetails2'>
+                                            <h2>{data.blog_title}</h2>
+                                            <div style={{ marginTop: "-30px", display: "flex" }}><p>{data.posted_by?.name}</p></div>
+                                            <div style={{ marginTop: "-30px", display: "flex" }}><p>
+                                                {data?.created_at
+                                                    ? format(new Date(data.created_at), "MMMM, dd yyyy hh:mm a")
+                                                    : ""}
+                                            </p></div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className='referralDescription' >
-                                    <div className='referralDescription1'><img src={`https://tracsdev.apttechsol.com/public/${data.blog_file} || ""`
-                                    } /></div>
-                                    <div dangerouslySetInnerHTML={{ __html: adjustInternalHtml(data.description) }} ></div>
-                                </div>
-                                <div className='refMessages'>
-                                    <table>
-                                        <tbody>
-                                            {chat.map((item) => {
-                                                const sender = item.chat_from || item.reply_from;
-                                                const parentMessage = item.reply_to ? chat.find((msg) => msg.id === Number(item.reply_to)) : null;
-                                                return (
-                                                    <tr key={item.id}>
-                                                        <td>
-                                                            <p>{item.chat_from?.name || item.reply_from?.name}</p>
-                                                            <img
-                                                                src={
-                                                                    item.chat_from?.image
-                                                                        ? `https://tracsdev.apttechsol.com/public/${item.chat_from.image}`
-                                                                        : item.reply_from?.image
-                                                                            ? `https://tracsdev.apttechsol.com/public/${item.reply_from.image}`
-                                                                            : "/default-profile.png"
-                                                                }
-                                                                alt="User"
-                                                            />
+                                    <div className='referralDescription' >
+                                        <div className='referralDescription1'><img src={`https://tracsdev.apttechsol.com/public/${data.blog_file} || ""`
+                                        } /></div>
+                                        <div dangerouslySetInnerHTML={{ __html: adjustInternalHtml(data.description) }} ></div>
+                                    </div>
+                                    <div className='refMessages'>
+                                        <table>
+                                            <tbody>
+                                                {chat.map((item) => {
+                                                    const sender = item.chat_from || item.reply_from;
+                                                    const parentMessage = item.reply_to ? chat.find((msg) => msg.id === Number(item.reply_to)) : null;
+                                                    return (
+                                                        <tr key={item.id}>
+                                                            <td style={{width:"20%"}}>
+                                                                <p>{item.chat_from?.name || item.reply_from?.name}</p>
+                                                                <img
+                                                                    src={
+                                                                        item.chat_from?.image
+                                                                            ? `https://tracsdev.apttechsol.com/public/${item.chat_from.image}`
+                                                                            : item.reply_from?.image
+                                                                                ? `https://tracsdev.apttechsol.com/public/${item.reply_from.image}`
+                                                                                : "/default-profile.png"
+                                                                    }
+                                                                    alt="User"
+                                                                />
 
 
-                                                            <div>
-                                                                {item.created_at
-                                                                    ? format(new Date(item.created_at), "MMMM, dd yyyy hh:mm a")
-                                                                    : ""}
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div style={{ display: "flex", justifyContent: "space-between" }}>
                                                                 <div>
-                                                                    {parentMessage && (
-                                                                        <div style={{ color: "gray", marginBottom: "5px" }}>
-                                                                            {parentMessage.message}
-                                                                        </div>)}
-                                                                    <div style={{ color: item.reply_to !== null ? "blue" : "black" }}>{item.reply_to !== null && ("Re:")} {item.message}</div>
-                                                                    {messageInput === item.id && (
-                                                                        <input
-                                                                            type="text"
-                                                                            value={replyText}
-                                                                            onChange={(e) => setReplyText(e.target.value)}
-                                                                            placeholder="Type your reply..."
-                                                                        />
-                                                                    )}
+                                                                    {item.created_at
+                                                                        ? format(new Date(item.created_at), "MMMM, dd yyyy hh:mm a")
+                                                                        : ""}
                                                                 </div>
-                                                                {
+                                                            </td>
+                                                            <td>
+                                                                <div style={{ display: "flex", justifyContent: "space-between" }}>
                                                                     <div>
-                                                                        {messageInput === item.id ? (
-                                                                            <div>
-                                                                                <div> <button onClick={() => handleSend(item.id)}>Send</button></div>
-                                                                                <div>  <button onClick={handleCancel}>Cancel</button></div>
-                                                                            </div>
-                                                                        ) : (
-                                                                            item.reply_to === null && (
-                                                                                <button onClick={() => handleReply(item.id)}>Reply</button>
-                                                                            )
+                                                                        {parentMessage && (
+                                                                            <div style={{ color: "gray", marginBottom: "5px" }}>
+                                                                                {parentMessage.message}
+                                                                            </div>)}
+                                                                        <div style={{ color: item.reply_to !== null ? "blue" : "black" }}>{item.reply_to !== null && ("Re:")} {item.message}</div>
+                                                                        {messageInput === item.id && (
+                                                                            <input
+                                                                                type="text"
+                                                                                value={replyText}
+                                                                                onChange={(e) => setReplyText(e.target.value)}
+                                                                                placeholder="Type your reply..."
+                                                                            />
                                                                         )}
                                                                     </div>
+                                                                    {
+                                                                        <div>
+                                                                            {messageInput === item.id ? (
+                                                                                <div>
+                                                                                    <div> <button onClick={() => handleSend(item.id)}>Send</button></div>
+                                                                                    <div>  <button onClick={handleCancel}>Cancel</button></div>
+                                                                                </div>
+                                                                            ) : (
+                                                                                item.reply_to === null && (
+                                                                                    <button onClick={() => handleReply(item.id)}>Reply</button>
+                                                                                )
+                                                                            )}
+                                                                        </div>
 
-                                                                }
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                )
-                                            })}
-                                        </tbody>
-                                    </table>
+                                                                    }
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                })}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-</div>
 
                             </div>
                         </div>
