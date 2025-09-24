@@ -14,6 +14,7 @@ import moment from "moment";
 import { format } from 'date-fns';
 const ViewReferral = () => {
     const [data, setData] = useState("")
+    const [userId, setUserId] = useState(null);
     const [messageText, setMessageText] = useState("")
     const { id } = useParams();
     const [showSidebar, setShowSidebar] = useState(false);
@@ -21,10 +22,13 @@ const ViewReferral = () => {
     const [chat, setChat] = useState([])
     const [messageInput, setMessageInput] = useState(false)
     const [replyText, setReplyText] = useState("");
+    const [commentText, setComment] = useState("")
     const [replierId, setReplier] = useState("")
     const [message, setMessage] = useState("");
     const [messageType, setMessageType] = useState(""); // "success" | "error"
-
+    const [blogOwner, setOwner] = useState("")
+    const [storedUserId, setrr] = useState("");
+    const [userid, setUser] = useState("")
     const handleReply = async (id) => {
         setMessageInput(id);
         setReply(false)
@@ -81,38 +85,102 @@ const ViewReferral = () => {
     const handleGoBack = () => {
         navigate(-1);
     }
+    const fetchData = async () => {
+        try {
+            const token = sessionStorage.getItem("authToken");
+            setrr(sessionStorage.getItem("userId"));
+            setUserId(storedUserId);
+
+            const response = await axios.get(
+                `https://tracsdev.apttechsol.com/api/view_referralsupport/${id}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            setData(response.data.blog);
+            setChat(response.data.referral_chat);
+            setOwner(response.data.blog?.posted_by?.id);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const token = sessionStorage.getItem("authToken");
-                const response = await axios.get(
-                    `https://tracsdev.apttechsol.com/api/view_referralsupport/${id}`,
-                    {
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                        },
-                    }
-                );
-                setData(response.data.blog);
-                setChat(response.data.referral_chat)
-
-                setReplier(response.data.blog?.blog_created_by);
-                console.log("Message:" + replyText)
-            } catch (err) {
-                console.log(err);
-            }
-        };
-
-        fetchData();
+        fetchData(); // run on mount
     }, [id]);
+
     const adjustInternalHtml = (html) => {
         const container = document.createElement("div");
         container.innerHTML = html;
         return container.innerHTML;
     };
+    const sendComment = async () => {
+        console.log(`my Id : ${userid} , comment : ${commentText} , blogOwner: ${blogOwner}`);
 
+        try {
+            const token = sessionStorage.getItem("authToken");
+
+            const formdata2 = new FormData();
+            formdata2.append("blog_id", data.id);
+            formdata2.append("message_from", userid);   // logged-in user ID
+            formdata2.append("message", commentText);   // comment text
+            formdata2.append("blog_owner", blogOwner);  // blog owner ID
+
+            const response = await axios.post(
+                "https://tracsdev.apttechsol.com/api/send_referral_comment",
+                formdata2, // ✅ send the form data here
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            if (response.data.status) {
+                setMessage("...Comment sent successfully!..");
+                setMessageType("success");
+                fetchData();
+                setTimeout(() => {
+                    setMessage("");
+
+                    setComment("");
+                }, 2000);
+            }
+        } catch (err) {
+            console.error(err);
+            alert("Comment not sent");
+        }
+    };
 
     const formattedDate = moment("2025-09-16T02:08:49.000000Z").format("MMMM, DD YYYY hh:mm a");
+    const shouldShowCommentSection = !chat.some(
+        (item) => item.chat_from?.id === data.blog_created_by
+    );
+    const fetchData2 = async () => {
+
+        try {
+            const token = sessionStorage.getItem("authToken");
+
+            const response = await axios.get(
+                `https://tracsdev.apttechsol.com/api/my-profile`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            setUser(response.data.user.id)
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    useEffect(() => {
+        fetchData2(); // run on mount
+    }, [id]);
 
     return (
         <div style={{ height: "fit-content" }}>
@@ -161,8 +229,15 @@ const ViewReferral = () => {
                                         </div>
                                     </div>
                                     <div className='referralDescription' >
-                                        <div className='referralDescription1'><img src={`https://tracsdev.apttechsol.com/public/${data.blog_file} || ""`
-                                        } /></div>
+                                        <div className='referralDescription1'>
+                                            {data.blog_file && (
+                                                <img
+                                                    src={`https://tracsdev.apttechsol.com/public/${data.blog_file}`}
+                                                    alt="Referral"
+                                                />
+                                            )}
+                                        </div>
+
                                         <div dangerouslySetInnerHTML={{ __html: adjustInternalHtml(data.description) }} ></div>
                                     </div>
                                     <div className='refMessages'>
@@ -173,7 +248,7 @@ const ViewReferral = () => {
                                                     const parentMessage = item.reply_to ? chat.find((msg) => msg.id === Number(item.reply_to)) : null;
                                                     return (
                                                         <tr key={item.id}>
-                                                            <td style={{width:"20%"}}>
+                                                            <td style={{ width: "20%" }}>
                                                                 <p>{item.chat_from?.name || item.reply_from?.name}</p>
                                                                 <img
                                                                     src={
@@ -201,16 +276,16 @@ const ViewReferral = () => {
                                                                                 {parentMessage.message}
                                                                             </div>)}
                                                                         <div style={{ color: item.reply_to !== null ? "blue" : "black" }}>{item.reply_to !== null && ("Re:")} {item.message}</div>
-                                                                        {messageInput === item.id && (
+                                                                        {/*  {messageInput === item.id && (
                                                                             <input
                                                                                 type="text"
                                                                                 value={replyText}
                                                                                 onChange={(e) => setReplyText(e.target.value)}
                                                                                 placeholder="Type your reply..."
                                                                             />
-                                                                        )}
+                                                                        )} */}
                                                                     </div>
-                                                                    {
+                                                                    { /* {
                                                                         <div>
                                                                             {messageInput === item.id ? (
                                                                                 <div>
@@ -224,12 +299,25 @@ const ViewReferral = () => {
                                                                             )}
                                                                         </div>
 
-                                                                    }
+                                                                    } */}
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                     )
                                                 })}
+
+                                                <tr className='commentSection'>
+                                                    <td></td>
+                                                    <td>
+                                                        <div className='commentSecHolder'>
+                                                            <div className='commentSecHolder1'><input placeholder='comment here' onChange={(e) => setComment(e.target.value)} /></div>
+                                                            <div className='commentSecHolder2'><button onClick={sendComment}>Send</button></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+
+
                                             </tbody>
                                         </table>
                                     </div>

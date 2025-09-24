@@ -69,9 +69,9 @@ const Password = () => {
             </div>
             <div className="alfa" style={{ height: "100vh" }}>
               <div className="d-header">
-                <h2>Add Contacts</h2>
+                <h2>Change Password</h2>
               </div>
-              <div className="passChange" style={{ marginTop: "40px" }}>
+              <div className="passChange" style={{ marginTop: "10px" }}>
                 <div style={{ paddingTop: "10px", paddingBottom: "20px", paddingLeft: "10px" }}>
                   <div>
                     <label>Current Password</label>

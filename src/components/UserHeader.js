@@ -54,6 +54,8 @@ setMenuDrop(!menuDrop)
   }, []);
   const handleLogout = () => {
     sessionStorage.removeItem("authToken");
+        sessionStorage.removeItem("userId")
+
     sessionStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
     navigate("/"); // Redirect to login page

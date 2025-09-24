@@ -210,6 +210,11 @@ border-radius: 5px;
 .editProfileText{
     
 }
+.addDeltetButton{
+    margin-top: -40px !important;
+    color:white !important;
+    margin-left: 22%;
+}
 @media (max-width:1024px) {
 
     .profileContainer1{

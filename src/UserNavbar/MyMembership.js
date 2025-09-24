@@ -80,6 +80,8 @@ const MyMembership = () => {
                       <td style={{ fontSize: "15px" }}>
   {order.listing_package_id === "2"
     ? "Basic"
+    : order.listing_package_id === "1"
+    ? "Trail"
     : order.listing_package_id === "3"
     ? "Standard"
     : "Unknown"}

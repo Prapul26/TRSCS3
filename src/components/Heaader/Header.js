@@ -46,6 +46,8 @@ const Header = () => {
         });
         if (response?.data?.user) {
           setIsLoggedIn(true);
+                const userId = response.data.user.id;
+        sessionStorage.setItem("userId", userId);
           const newImage = response.data.user?.image;
           if (newImage) {
             setProfileImg(`https://tracsdev.apttechsol.com/public/${newImage}`);
@@ -68,6 +70,8 @@ const Header = () => {
 
   const handleLogout = () => {
     sessionStorage.removeItem("authToken");
+        sessionStorage.removeItem("userId")
+
     sessionStorage.removeItem("profileImageUrl")
     setIsLoggedIn(false);
     navigate("/"); // Redirect to login page

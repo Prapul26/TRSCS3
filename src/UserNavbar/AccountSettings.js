@@ -8,6 +8,7 @@ import {
   FaHome,
   FaPhoneAlt,
   FaWindowMinimize,
+  FaPlus,
 } from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
 import {
@@ -72,8 +73,8 @@ const AccountSettings = () => {
   const [images, setImages] = useState([
 
   ]);
-    const [messageType, setMessageType] = useState(""); // "success" | "error"
-  
+  const [messageType, setMessageType] = useState(""); // "success" | "error"
+
   const [showpage, setShowPage] = useState(false);
   const urlClick = () => {
     setShowPage(!showpage)
@@ -143,16 +144,16 @@ const AccountSettings = () => {
         setImages((prev) => prev.filter((img) => img.id !== id));
         setTotalPhotos((prev) => prev.filter((img) => img.id !== id));
         setMessage("Image deleted successfully!");
-          setMessageType("success");
-      setTimeout(() => {
-        setMessage(""); // change "/email" to your actual email page route
-      }, 2000);
+        setMessageType("success");
+        setTimeout(() => {
+          setMessage(""); // change "/email" to your actual email page route
+        }, 2000);
       } else {
         setMessage("Failed to delete image.");
-          setMessageType("error");
-      setTimeout(() => {
-       setMessage("");
-      }, 2000);
+        setMessageType("error");
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
       }
     } catch (error) {
       console.error("Delete image error:", error.response?.data || error.message);
@@ -214,6 +215,12 @@ const AccountSettings = () => {
             }
           );
           const data = response.data;
+
+          // ✅ Store userId in sessionStorage
+          if (data.user?.id) {
+            sessionStorage.setItem("userId", data.user.id);
+          }
+
           const newImage = data.user?.image;
           if (newImage) {
             setImagePreview(`https://tracsdev.apttechsol.com/public/${newImage}`);
@@ -237,8 +244,7 @@ const AccountSettings = () => {
           setWebsite(data.user.website || "");
           setLinkedIn(data.user.linkedin || "");
           setStates(data.states || []);
-          setMemberType(data.user.member_type || "")
-          
+          setMemberType(data.user.member_type || "");
 
           // 👇 Fix: Set additional image URLs
           const additional = data.total_photos || [];
@@ -250,10 +256,9 @@ const AccountSettings = () => {
             }));
 
           setImages(fullImageUrls);
-
           setTotalPhotos(data.total_photos || []);
+          console.log("✅ Stored userId:", data.user?.id);
           console.log("eff:", JSON.stringify(fullImageUrls));
-
 
         } catch (error) {
           console.error("Error fetching profile data:", error);
@@ -265,6 +270,7 @@ const AccountSettings = () => {
 
     return () => clearTimeout(timeoutId);
   }, []);
+
   const stripHtmlTags = (html) => {
     const div = document.createElement("div");
     div.innerHTML = html;
@@ -318,7 +324,7 @@ const AccountSettings = () => {
       );
 
       setMessage("Profile updated successfully!");
-       setMessageType("success");
+      setMessageType("success");
       setTimeout(() => {
         setMessage("")
       }, 3000);
@@ -357,7 +363,7 @@ const AccountSettings = () => {
         )
       }
       <div className="mobMenuaa">
-                {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
+        {<div className="errmsg" style={{ backgroundColor: messageType === "success" ? "green" : "red" }}><p>{message}</p></div>}
 
         <div className="mobMenu33">{showSidebar && <MobileMenu />}</div>
         <div>
@@ -648,23 +654,39 @@ const AccountSettings = () => {
 
 
                         {/* Previews of new selected files only if a file is selected */}
+                        {/* Previews of new selected files only if a file is selected */}
                         {previews.map((preview, index) => (
                           preview && (
-                            <div key={preview.id}>
+                            <div key={index} style={{ marginBottom: "10px" }}>
                               <img
                                 src={preview}
                                 alt={`preview-${index}`}
                                 width={150}
                                 height={100}
                               />
+                              <div>
+                                <button
+                                  style={{
+                                    backgroundColor: "crimson",
+                                    color: "white",
+                                    marginTop: "5px",
+                                  }}
+                                  onClick={() => handleRemoveField(index)} // delete preview + file
+                                >
+                                  Delete
+                                </button>
+                              </div>
                             </div>
                           )
                         ))}
+
                       </div>
 
                       <h4 style={{ marginTop: '20px' }}>Photos (Allowed = {maxPhotos})</h4>
                       {files.map((file, index) => (
-                        <div key={index} style={{ marginBottom: '10px' }}>
+                        
+                        
+                      <div key={index} style={{ marginBottom: '10px' }}>
                           <input
                             type="file"
                             accept="image/*"
@@ -673,16 +695,16 @@ const AccountSettings = () => {
                         </div>
                       ))}
 
-                      <div style={{ marginTop: '10px', display: 'flex', gap: '10px' }}>
+                      <div  className="addDeltetButton"style={{ marginTop: '10px', display: 'flex', gap: '10px' }}>
                         {images.length + files.length < maxPhotos && (
                           <button
                             style={{ backgroundColor: 'green', color: 'white', padding: '5px 10px' }}
                             onClick={handleAddField}
                           >
-                            ➕
+                          <FaPlus />
                           </button>
                         )}
-                        {files.length >= 1 && (
+                        {files.length >= 2 && (
                           <button
                             style={{ backgroundColor: 'red', color: 'white', padding: '5px 10px' }}
                             onClick={() => handleRemoveField(files.length - 1)}
