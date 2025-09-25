@@ -105,16 +105,16 @@ const CreateReferral = () => {
                             <div className='reffContainer'>
                                 <div className='headerRef'>
                                     <div><h2>Create Referral Support</h2></div>
-                                    <div className='sunhead' style={{ display: "flex" }}>
+                                    <div className='sunhead' style={{ display: "flex",marginTop:"-45px" }}>
                                         <div style={{ marginTop: "32px", marginRight: "5px" }}>
-                                            <Link to="/home" style={{ textDecoration: "none", color: "inherit" }}>Home</Link>
+                                            <Link to="/home" style={{ textDecoration: "none", color: "inherit",fontSize:"13px" }}>Home</Link>
                                         </div>
                                         <div><h1>.</h1></div>
                                         <div style={{ marginLeft: "5px", marginTop: "32px", marginRight: "5px" }}>
-                                            <Link to="/myMembership" style={{ textDecoration: "none", color: "inherit" }}>Dashboard</Link>
+                                            <Link to="/myMembership" style={{ textDecoration: "none", color: "inherit",fontSize:"13px"  }}>Dashboard</Link>
                                         </div>
                                         <div><h1>.</h1></div>
-                                        <div style={{ marginLeft: "5px", marginTop: "32px" }}>Referral Support</div>
+                                        <div style={{ marginLeft: "5px", marginTop: "34px",fontSize:"13px"  }}>Referral Support</div>
                                     </div>
                                 </div>
 

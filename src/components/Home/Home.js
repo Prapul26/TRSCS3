@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
+import "./Home2.css";
 import Slider from "react-slick";
 import imgage from "../../assets/image.png"
 import Navbar from "../../components/Navbar/Navbar";
@@ -94,33 +95,107 @@ const Home = () => {
     <div className="homeHolder">
       <Header />
       <Navbar />
-    
+
       <div className="home-details">
-        <div style={{textAlign:"center"}} className="hd0"><h3>Total Referral Advanced Conversion System</h3></div>
-        <div className="hd1">
-
-          <div className="hd1-details">
-            
-            <div><h3>TRACS helps you effortlessly connect and make introductions like a champion!</h3></div>
-            <div>{isLoggedIn ?<Link to="/inbox"><button className="ncb1">DASHBOARD</button></Link> :<Link to='/whatIsMakeIntro'><button className="ncb1" >LEARN MORE</button></Link>}</div>
-
-
-           
-
-          </div>
-          <div className="hd1-pic">
-            <img src={imgage} style={{ width: "100%", height: "100%" }} />
-          </div>
+        <div className="heading1">
+          <h1 >
+            Turn Connections into Relationships Effortlessly.
+          </h1>
+          <p class="">
+            TRACS is a smart tool that helps you manage your network, make seamless introductions, and drive business growth through warm referrals.
+          </p>
+          {!isLoggedIn && (
+    <div>
+      <Link to="/pricing" style={{ textDecoration: "none", color: "inherit" }}>
+        <button>Start Your Free Trial</button>
+      </Link>
+    </div>
+  )}
         </div>
-        <div className="down2" style={{textAlign:"center"}}>
-          <div><h3>How it Works</h3></div>
-          <div><p>Strengthening your reputation, while strengthening your Trusted-Relationships.</p></div>
-          <div><img  src={image}/></div>
+        <div className="heading2">
+          <h2 class="">What TRACS Can Do for You</h2>
+          <p class="">
+            Discover a new way to leverage your professional relationships for mutual success.
+          </p>
+        </div>
+        <div className="hoverCards">
+          <div className="hover1">
+            <div className="hoverCenrterimg">
+              <div className="hoverImg"> <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /><path d="M22 17v-2a4 4 0 0 0-3-3.87" /><path d="M5 11v-1a4 4 0 0 1 4-4h.5" /><path d="M15 7v-1a4 4 0 0 0-4-4h-.5" />
+              </svg></div></div>
+            <h3 class="">Seamless Networking</h3>
+            <p class="">Easily manage your contacts, remember key details, and stay connected with the people who matter most.</p>
+          </div>
+          <div className="hover1">
+            <div className="hoverCenrterimg">
+              <div className="hoverImg2"> <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3h-2zM6 8a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h2a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3H6z" />
+                <line x1="12" y1="12" x2="12" y2="17" />
+                <line x1="12" y1="7" x2="12" y2="7" />
+              </svg></div></div>
+            <h3 class="">Warm Introductions</h3>
+            <p class="">Make professional to others with simple, trackable system that ensures a smooth hand-off.</p>
+          </div>
+          <div className="hover1">
+            <div className="hoverCenrterimg">
+              <div className="hoverImg3">  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg></div></div>
+            <h3 class="">Drive Referrals</h3>
+            <p class="">Track the success of your introductions and see the direct impact they have on your business and professional network.</p>
+          </div>
+
+        </div>
+        <div className="heading3">
+          <h2 >How It Works in 3 Simple Steps</h2>
+          <p>
+            Getting started with TRACS is quick and intuitive.
+          </p>
+        </div>
+        <div className="numberCards">
+          <div className="numcard1">
+            <div className="nimImgholder">
+              <div className="numImg">1</div>
+            </div>
+
+            <h3 >Build Your Network</h3>
+            <p >Easily make introductions, keep track of them, and even import all your contacts to make introductions to them seamlessly.</p>
+          </div>
+
+          <div className="numcard1">
+            <div className="nimImgholder">
+              <div className="numImg2">2</div>
+            </div>
+            <h3>Make the Right Intro</h3>
+            <p>Identify the perfect match and create a warm introduction with a simple, automated process.</p>
+          </div>
+
+          <div className="numcard1">
+            <div className="nimImgholder">
+              <div className="numImg3">3</div>
+            </div>
+
+            <h3>Track and Follow-Up</h3>
+            <p>Monitor the progress of your referrals and get notified when it's time to follow up to ensure a successful outcome.</p>
+          </div>
         </div>
         
 
       </div>
-
+<div className="heading4">
+           <h2 >Ready to leverage your network?</h2>
+            <p >
+                Join TRACS and start making powerful introductions today.
+            </p>
+              {!isLoggedIn && (
+    <div>
+      <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
+        <button>Sign Up for Free</button>
+      </Link>
+    </div>
+  )}
+        </div>
       <Footer />
     </div>
   );

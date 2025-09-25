@@ -248,9 +248,9 @@ const ViewReferral = () => {
                                                     const parentMessage = item.reply_to ? chat.find((msg) => msg.id === Number(item.reply_to)) : null;
                                                     return (
                                                         <tr key={item.id}>
-                                                            <td style={{ width: "20%" }}>
-                                                                <p>{item.chat_from?.name || item.reply_from?.name}</p>
-                                                                <img
+                                                            <td style={{ width: "15%",padding:"20px" }}>
+                                                              <div style={{display:"flex"}}>
+                                                             <div>  <img
                                                                     src={
                                                                         item.chat_from?.image
                                                                             ? `https://tracsdev.apttechsol.com/public/${item.chat_from.image}`
@@ -259,17 +259,17 @@ const ViewReferral = () => {
                                                                                 : "/default-profile.png"
                                                                     }
                                                                     alt="User"
-                                                                />
-
+                                                                /></div> 
+                                                            <div style={{marginLeft:"7px"}}>  <p>{item.chat_from?.name || item.reply_from?.name}</p>
 
                                                                 <div>
                                                                     {item.created_at
                                                                         ? format(new Date(item.created_at), "MMMM, dd yyyy hh:mm a")
                                                                         : ""}
-                                                                </div>
+                                                                </div></div> </div>
                                                             </td>
                                                             <td>
-                                                                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                                                                <div style={{ display: "flex", justifyContent: "space-between",width:"80%" }}>
                                                                     <div>
                                                                         {parentMessage && (
                                                                             <div style={{ color: "gray", marginBottom: "5px" }}>

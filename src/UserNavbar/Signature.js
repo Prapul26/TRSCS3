@@ -32,9 +32,11 @@ const Signature = () => {
    const [showSidebar, setShowSidebar] = useState(false);
   const [data,setData]=useState("")
   const [msg,setMsg]=useState("")
-      const [showpage, setShowPage] = useState(false);
+      
         const [message, setMessage] = useState("");
         const [messageType, setMessageType] = useState(""); // "success" | "error"
+        // 
+        const [showpage, setShowPage] = useState(false);
     const urlClick = () => {
       setShowPage(!showpage)
     }

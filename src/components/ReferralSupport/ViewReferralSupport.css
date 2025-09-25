@@ -51,6 +51,17 @@
 .headerRef p{
     margin-top: -12px;
 }
+.urlPage1{
+font-style: 19px !important;
+}
+.pageURLContainer{
+    margin-top: 0px !important;
+  
+}
+.pageIframe iframe{
+    height: 400px;
+    border-bottom: 1px solid black;
+}
 @media (max-width:1024px) {
 
 .catsearch{

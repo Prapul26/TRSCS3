@@ -10,6 +10,7 @@ import { FaEdit, FaEye } from 'react-icons/fa';
 import { IoTrashBinSharp } from 'react-icons/io5';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import axios from 'axios';
+import { ImCross } from 'react-icons/im';
 const ViewReferralSupport = () => {
     const [showSidebar, setShowSidebar] = useState(false);
     const categories = ["Category1", "Category2", "Category3", "Category4", "Category5"];
@@ -19,6 +20,13 @@ const ViewReferralSupport = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
+      const [showpage, setShowPage] = useState(false);
+        const urlClick = () => {
+          setShowPage(!showpage)
+        }
+          const closeURlCLick = () => {
+      setShowPage(false)
+    }
     const handleDropDown = () => {
         setDropDown(prev => !prev);
     }
@@ -82,6 +90,23 @@ if (searchTerm.trim() !== "") {
 
     return (
         <div>
+              {
+                                      showpage && (
+                                        <div className="pageURLContainer">
+                                          <div className="pageURLHolder" >
+                                            <div className="pageURLHeader">
+                                              <div><h4 style={{ color: "white" }}>Referral Support is designed to help members get the guidance and connections they need from our network of directors.</h4></div>
+                                              
+                                              <div onClick={closeURlCLick} style={{ marginTop: "9px" }}> <ImCross /></div>
+                                            </div>
+                                            <div className="pageiframeContainer">
+                                              <div className="pageIframe"><iframe src="https://tracsdev.apttechsol.com/helpsection-descriptionnew/18" /></div>
+                              
+                                            </div>
+                                          </div>
+                                        </div>
+                                      )
+                                    }
             <div className='mobMenuaa'>
                 <div className='mobMenu33'>
                     {showSidebar && (<MobileMenu />)}
@@ -97,7 +122,9 @@ if (searchTerm.trim() !== "") {
                             <div className='reffContainer'>
                                 <div className='headerRef'>
                                     <div><h2>Referral Support</h2></div>
-                                    <div><p>Referral Support is designed to help members get the guidance and connections they need from our network of directors. </p></div>
+                                   <div style={{ display: "flex", marginTop: "14px" }} className="urlPage" onClick={urlClick}><div><p>Referral Support is designed to help members get the guidance and connections they need from our network of directors.</p></div>
+                                                                                            <div style={{ marginTop: "-15px", marginLeft: "5px" }}><IoIosInformationCircle size={15} /></div>
+                                                                                          </div>
 
                                 </div>
                                 <div className='refHolder'>

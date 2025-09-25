@@ -88,4 +88,28 @@ width: 98%;
 .saveconbutton{
     margin-top: 20px;
     margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.saveconbutton button{
+    color: black;
+    background-color: #EEBA2B;
+}
+@media (max-width: 1024px) {
+    .catinfohold{
+        flex-direction: column;
+    }
+    .catdrophold{
+        width: 100%;
+    }
+    .dropdowncatinfo{
+        width: 100%;
+    }
+    .catinfohold1{
+        width: 90%;
+    }
+    .catinfohold2{
+        width: 90%;
+    }
 }

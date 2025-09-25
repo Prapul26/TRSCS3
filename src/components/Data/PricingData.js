@@ -1,7 +1,7 @@
-const Trail =[{
+const Free =[{
     price:'0',
-    days:'30',
-    details:['View All Members','Share Profile','Send Mails','Manage Connections','Add Notes','5 Photos','1 Videos','View Events','Video Library','Manage Email Templates']
+    days:'7',
+    details:['No Introductions per month','Manage Previous Introductions','Receive and Reply to introduction messages']
 }];
 const Basic=[{
     price:'80',
@@ -13,4 +13,4 @@ const Standard=[{
     days:'14',
     details:['Unlimited Introductions per month','Manage Previous Introductions','Use Our Templates','Networking Resources','Allows CRM Integrations','(Additional Charges for Integration)','Networking Events','Customise your Templates','Easy Follow Up']
 }];
-export { Trail, Basic, Standard };
+export { Free, Basic, Standard };

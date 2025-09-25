@@ -4,7 +4,7 @@ import "./Pricing.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { RxCross2 } from "react-icons/rx";
-import { Trail, Standard, Basic } from "../../components/Data/PricingData";
+import { Free, Standard, Basic } from "../../components/Data/PricingData";
 import { Link } from "react-router-dom";
 import Header from "../Heaader/Header";
 const Pricing = () => {
@@ -14,7 +14,7 @@ const Pricing = () => {
     setPopup(!popup);
     console.log("Popup state:", popup);
   };
-  
+
 
   return (
     <div>
@@ -37,7 +37,7 @@ const Pricing = () => {
         <Navbar />
         <div className="ph1">
           <div className="p1h1">
-            <h1 style={{fontSize:'35px'}}>Pricing</h1>
+            <h1 style={{ fontSize: '35px' }}>Pricing</h1>
           </div>
         </div>
         <div className="pricing-holder">
@@ -52,12 +52,12 @@ const Pricing = () => {
             </p>
           </div>
           <div className="pricing-details2">
-            {Basic.map((item, index) => (
+            {Free.map((item, index) => (
               <div key={index} className="pd2">
-               <div className="pd2-button">   <button>Basic</button></div>
-                <h2 style={{color:"#163b6d"}}>${item.price}
+                <div className="pd2-button">   <button>Free</button></div>
+                <h2 style={{ color: "#163b6d" }}>${item.price}
                 </h2>
-                <p style={{fontWeight:"400"}}>{item.days} Days Trail</p>
+                <p style={{ fontWeight: "400" }}>{item.days} Days Trail</p>
                 <ul>
                   {item.details.map((detail, i) => (
                     <li key={i}>
@@ -66,15 +66,33 @@ const Pricing = () => {
                   ))}
                 </ul>
                 <div className="getb">
-                <Link to='/payment'><button>GetStarted</button></Link> 
+                  <Link to='/payment'><button>GetStarted</button></Link>
+                </div>
+              </div>
+            ))}
+            {Basic.map((item, index) => (
+              <div key={index} className="pd2">
+                <div className="pd2-button">   <button>Basic</button></div>
+                <h2 style={{ color: "#163b6d" }}>${item.price}
+                </h2>
+                <p style={{ fontWeight: "400" }}>{item.days} Days Trail</p>
+                <ul>
+                  {item.details.map((detail, i) => (
+                    <li key={i}>
+                      <p style={{ fontWeight: detail.includes("Additional Charges for Integration") ? "500" : "300" }}>{detail}</p>
+                    </li>
+                  ))}
+                </ul>
+                <div className="getb">
+                  <Link to='/payment'><button>GetStarted</button></Link>
                 </div>
               </div>
             ))}
             {Standard.map((item, index) => (
               <div key={index} className="pd3">
-              <div className="pd2-button">  <button>Standard</button></div>
-                <h2 style={{color:"#163b6d"}}>${item.price}</h2>
-                <p style={{fontWeight:"400"}}>{item.days} Days Trail</p>
+                <div className="pd2-button">  <button>Standard</button></div>
+                <h2 style={{ color: "#163b6d" }}>${item.price}</h2>
+                <p style={{ fontWeight: "400" }}>{item.days} Days Trail</p>
                 <ul>
                   {item.details.map((detail, i) => (
                     <li key={i}>
@@ -83,12 +101,12 @@ const Pricing = () => {
                   ))}
                 </ul>
                 <div className="getb">
-                 <Link to='/payment'><button >GetStarted</button></Link> 
+                  <Link to='/payment'><button >GetStarted</button></Link>
                 </div>
               </div>
             ))}
           </div>
-         
+
         </div>{" "}
         <div className="pricingSearch">
           <div className="priceData">
@@ -109,7 +127,7 @@ const Pricing = () => {
         </div>
         <Footer />
       </div>
-     
+
     </div>
   );
 };
