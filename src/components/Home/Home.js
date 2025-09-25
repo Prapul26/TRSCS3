@@ -105,12 +105,12 @@ const Home = () => {
             TRACS is a smart tool that helps you manage your network, make seamless introductions, and drive business growth through warm referrals.
           </p>
           {!isLoggedIn && (
-    <div>
-      <Link to="/pricing" style={{ textDecoration: "none", color: "inherit" }}>
-        <button>Start Your Free Trial</button>
-      </Link>
-    </div>
-  )}
+            <div>
+              <Link to="/pricing" style={{ textDecoration: "none", color: "inherit" }}>
+                <button>Start Your Free Trial</button>
+              </Link>
+            </div>
+          )}
         </div>
         <div className="heading2">
           <h2 class="">What TRACS Can Do for You</h2>
@@ -180,22 +180,22 @@ const Home = () => {
             <p>Monitor the progress of your referrals and get notified when it's time to follow up to ensure a successful outcome.</p>
           </div>
         </div>
-        
+
 
       </div>
-<div className="heading4">
-           <h2 >Ready to leverage your network?</h2>
-            <p >
-                Join TRACS and start making powerful introductions today.
-            </p>
-              {!isLoggedIn && (
-    <div>
-      <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
-        <button>Sign Up for Free</button>
-      </Link>
-    </div>
-  )}
-        </div>
+      <div className="heading4">
+        <h2 >Ready to leverage your network?</h2>
+        <p >
+          Join TRACS and start making powerful introductions today.
+        </p>
+        {!isLoggedIn && (
+          <div>
+            <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
+              <button>Sign Up for Free</button>
+            </Link>
+          </div>
+        )}
+      </div>
       <Footer />
     </div>
   );
