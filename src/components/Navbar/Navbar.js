@@ -1,5 +1,6 @@
 import React, { useEffect, useState }  from 'react'
 import { Link } from 'react-router-dom'
+import tracsLogo from "../Logo/Tracs.png"
 import './Navbar.css'
 import Header from '../Heaader/Header'
 const Navbar = () => {
@@ -15,8 +16,8 @@ const Navbar = () => {
     <div className='Navbar-Container'>
        
       <div className='navbar-holder'onMouseLeave={() =>{ setDropdownVisible(false);setResources(false)}}>
-       <Link to="/"> <img  src="https://tracsdev.apttechsol.com/public/uploads/website-images/logo-2024-09-05-10-18-08-4078.png"
-            style={{ height: "50px" }}/></Link>
+       <Link to="/"> <img  src={tracsLogo}
+            style={{ height: "100px",width:"200px",marginTop:"-17px" }}/></Link>
         <ul style={{display:"flex",listStyleType:"none"}} >
            <Link to='/home' style={{textDecoration:"none",color:"inherit"}}><li >HOME</li></Link> 
            <li

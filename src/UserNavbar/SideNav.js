@@ -23,7 +23,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { IoPerson } from "react-icons/io5";
 import { BsGraphUp, BsPersonFillAdd } from "react-icons/bs";
-import "./SideNav.css"
+import "./SideNav.css";
+import logo from "../components/Logo/Tracs.png"
 import { CiFileOn } from 'react-icons/ci';
 const SideNav = () => {
   const location = useLocation();
@@ -80,7 +81,7 @@ const SideNav = () => {
     <div>
 
       <div className="navs">
-        <Link to="/home"> <div className='tracsimG'><img src="https://tracsdev.apttechsol.com/public/uploads/website-images/logo-2024-09-05-10-18-08-4078.png" /></div></Link>
+        <Link to="/home"> <div className='tracsimG'><img src={logo}  style={{height:"100px",width:"200px"}}/></div></Link>
         <div className='intro9'>
           <div className={`asDiv ${(
             currentPath === "/myMembership" ||
