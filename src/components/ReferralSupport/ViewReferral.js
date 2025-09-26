@@ -240,88 +240,49 @@ const ViewReferral = () => {
 
                                         <div dangerouslySetInnerHTML={{ __html: adjustInternalHtml(data.description) }} ></div>
                                     </div>
-                                    <div className='refMessages'>
-                                        <table>
-                                            <tbody>
-                                                {chat.map((item) => {
-                                                    const sender = item.chat_from || item.reply_from;
-                                                    const parentMessage = item.reply_to ? chat.find((msg) => msg.id === Number(item.reply_to)) : null;
-                                                    return (
-                                                        <tr key={item.id}>
-                                                            <td style={{ width: "15%",padding:"20px" }}>
-                                                              <div style={{display:"flex"}}>
-                                                             <div>  <img
-                                                                    src={
-                                                                        item.chat_from?.image
-                                                                            ? `https://tracsdev.apttechsol.com/public/${item.chat_from.image}`
-                                                                            : item.reply_from?.image
-                                                                                ? `https://tracsdev.apttechsol.com/public/${item.reply_from.image}`
-                                                                                : "/default-profile.png"
-                                                                    }
-                                                                    alt="User"
-                                                                /></div> 
-                                                            <div style={{marginLeft:"7px"}}>  <p>{item.chat_from?.name || item.reply_from?.name}</p>
+                                   
+                                    <div className='viewComment'>
+                                        {chat.map((item) => {
+                                            const sender = item.chat_from || item.reply_from;
+                                            const parentMessage = item.reply_to ? chat.find((msg) => msg.id === Number(item.reply_to)) : null;
+                                            return (<div className='viewCommentHolde' key={item.id}>
+                                                <div className='senderCard'>
+                                                    <div className='senderImage'>
+                                                        <img src={
+                                                            item.chat_from?.image
+                                                                ? `https://tracsdev.apttechsol.com/public/${item.chat_from.image}`
+                                                                : item.reply_from?.image
+                                                                    ? `https://tracsdev.apttechsol.com/public/${item.reply_from.image}`
+                                                                    : "/default-profile.png"
+                                                        }
+                                                            alt="User" />
+                                                    </div>
+                                                    <div className='senderDetails'>
+                                                        <p className='p1co'>{item.chat_from?.name || item.reply_from?.name}</p>
+                                                        <p className='p2co'>  {item.created_at
+                                                            ? format(new Date(item.created_at), "MMMM, dd yyyy hh:mm a")
+                                                            : ""}</p>
+                                                    </div>
+                                                </div>
+                                                <div className='senderComment'>
+                                                    <div>
+                                                        {parentMessage && (
+                                                            <div style={{ color: "gray", marginBottom: "5px" }}>
+                                                             <h3>  {parentMessage.message}</h3> 
+                                                            </div>)}
+                                                        <div style={{ color: item.reply_to !== null ? "blue" : "black" }}><h3>{item.reply_to !== null && ("Re:")} {item.message}</h3> </div>
 
-                                                                <div>
-                                                                    {item.created_at
-                                                                        ? format(new Date(item.created_at), "MMMM, dd yyyy hh:mm a")
-                                                                        : ""}
-                                                                </div></div> </div>
-                                                            </td>
-                                                            <td>
-                                                                <div style={{ display: "flex", justifyContent: "space-between",width:"80%" }}>
-                                                                    <div>
-                                                                        {parentMessage && (
-                                                                            <div style={{ color: "gray", marginBottom: "5px" }}>
-                                                                                {parentMessage.message}
-                                                                            </div>)}
-                                                                        <div style={{ color: item.reply_to !== null ? "blue" : "black" }}>{item.reply_to !== null && ("Re:")} {item.message}</div>
-                                                                        {/*  {messageInput === item.id && (
-                                                                            <input
-                                                                                type="text"
-                                                                                value={replyText}
-                                                                                onChange={(e) => setReplyText(e.target.value)}
-                                                                                placeholder="Type your reply..."
-                                                                            />
-                                                                        )} */}
-                                                                    </div>
-                                                                    { /* {
-                                                                        <div>
-                                                                            {messageInput === item.id ? (
-                                                                                <div>
-                                                                                    <div> <button onClick={() => handleSend(item.id)}>Send</button></div>
-                                                                                    <div>  <button onClick={handleCancel}>Cancel</button></div>
-                                                                                </div>
-                                                                            ) : (
-                                                                                item.reply_to === null && (
-                                                                                    <button onClick={() => handleReply(item.id)}>Reply</button>
-                                                                                )
-                                                                            )}
-                                                                        </div>
-
-                                                                    } */}
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    )
-                                                })}
-
-                                                <tr className='commentSection'>
-                                                    <td></td>
-                                                    <td>
-                                                        <div className='commentSecHolder'>
+                                                    </div>
+                                                </div>
+                                            </div>)
+                                        })}
+                                    </div>
+                                     <div className='commentSecHolder'>
                                                             <div className='commentSecHolder1'><input placeholder='comment here' onChange={(e) => setComment(e.target.value)} /></div>
                                                             <div className='commentSecHolder2'><button onClick={sendComment}>Send</button></div>
                                                         </div>
-                                                    </td>
-                                                </tr>
-
-
-
-                                            </tbody>
-                                        </table>
-                                    </div>
                                 </div>
+
 
                             </div>
                         </div>
