@@ -57,7 +57,7 @@ const Pricing = () => {
                 <div className="pd2-button">   <button>Free</button></div>
                 <h2 style={{ color: "#163b6d" }}>${item.price}
                 </h2>
-                <p style={{ fontWeight: "400" }}>{item.days} Days Trail</p>
+                <p style={{ fontWeight: "400" }}>{item.days} 1 Year Trial</p>
                 <ul>
                   {item.details.map((detail, i) => (
                     <li key={i}>

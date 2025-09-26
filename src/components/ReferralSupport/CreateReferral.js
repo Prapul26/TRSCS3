@@ -80,10 +80,20 @@ const CreateReferral = () => {
             }, 2000);
         } catch (error) {
             console.error("Error:", error.response?.data || error.message);
-            alert("Failed to create referral");
-            console.log("formData:"+formData)
+         setMessage("Referral not Saved !");
+         setMessageType("error");
+         setTimeout(()=>{
+            setMessage("");
+         },2000)
         }
     };
+    const handleCancel=()=>{
+         setTitle("");
+  setDescription("");
+  setSelectedCategory("");
+  setSearch("");
+  setImage(null);
+    }
 
     return (
         <div>
@@ -129,7 +139,7 @@ const CreateReferral = () => {
 
                                 <div className='creatredHolder'>
                                     <div style={{ paddingTop: "5px", paddingLeft: "20px", borderBottom: "1px solid black" }}>
-                                        <h2>Basic Informations</h2>
+                                      
                                     </div>
                                     <div className='createInfoHolder'>
                                         <label>Title<span style={{ color: "red" }}> *</span></label><br />
@@ -172,35 +182,18 @@ const CreateReferral = () => {
                                                 )}
                                             </div>
 
-                                            <div className='catinfohold2'>
-                                                <label>Image</label><br />
-                                                <div className='catinput'><input type='file' onChange={(e) => setImage(e.target.files[0])} /></div>
-                                            </div>
+                                        
                                         </div><br />
 
                                         <label>Description <span style={{ color: "red" }}> *</span></label><br />
-                                        <div>
-                                            <Editor
-                                                apiKey="um41ycg3nnml2svuefabmr62enrlukoncxy0g0hi0ugo9dqd" // you can get a free key from TinyMCE site
-                                                value={description}
-                                                onEditorChange={(newValue) => setDescription(newValue)}
-                                                init={{
-                                                    height: 200,
-                                                    menubar: false,
-                                                    plugins: [
-                                                        "advlist autolink lists link image",
-                                                        "charmap print preview anchor",
-                                                        "searchreplace visualblocks code",
-                                                        "insertdatetime media table paste help wordcount"
-                                                    ],
-                                                    toolbar:
-                                                        "undo redo | formatselect | bold italic | \
-                                                       alignleft aligncenter alignright | bullist numlist outdent indent | help",
-                                                }}
-                                            />
-
+                                        <div className='desarea'> 
+                                          
+<textarea value={description} onChange={(e)=>setDescription(e.target.value)}/>
                                         </div>
-                                        <div className='saveconbutton'><button onClick={handleSave}>SAVE</button></div>
+                                        <div className='saveconbutton'>
+                                            <div><button onClick={handleSave}>SAVE</button></div>
+                                            <div className='cancel1'><button onClick={handleCancel}>Cancel</button></div>
+                                        </div>
                                     </div>
                                 </div>
 
