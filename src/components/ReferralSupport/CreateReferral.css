@@ -110,6 +110,9 @@ width: 98%;
     .catinfohold{
         flex-direction: column;
     }
+    .desarea textarea{
+        width: 100%;
+    }
     .catdrophold{
         width: 100%;
     }
