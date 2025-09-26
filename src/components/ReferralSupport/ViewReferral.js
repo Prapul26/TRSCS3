@@ -22,7 +22,7 @@ const ViewReferral = () => {
     const [chat, setChat] = useState([])
     const [messageInput, setMessageInput] = useState(false)
     const [replyText, setReplyText] = useState("");
-    const [commentText, setComment] = useState("")
+    const [commentText, setComment] = useState(null)
     const [replierId, setReplier] = useState("")
     const [message, setMessage] = useState("");
     const [messageType, setMessageType] = useState(""); // "success" | "error"
@@ -146,7 +146,8 @@ const ViewReferral = () => {
                 setTimeout(() => {
                     setMessage("");
 
-                    setComment("");
+                    setComment(null);
+                    
                 }, 2000);
             }
         } catch (err) {
@@ -278,7 +279,7 @@ const ViewReferral = () => {
                                         })}
                                     </div>
                                      <div className='commentSecHolder'>
-                                                            <div className='commentSecHolder1'><input placeholder='comment here' onChange={(e) => setComment(e.target.value)} /></div>
+                                                            <div className='commentSecHolder1'><input placeholder='comment here'    value={commentText || ""}        onChange={(e) => setComment(e.target.value)} /></div>
                                                             <div className='commentSecHolder2'><button onClick={sendComment}>Send</button></div>
                                                         </div>
                                 </div>
