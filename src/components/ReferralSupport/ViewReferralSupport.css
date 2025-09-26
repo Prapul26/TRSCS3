@@ -161,11 +161,14 @@ background-color: rgb(255, 255, 255);
 }
 .addrefbutton{
     margin-top: -64px !important;
-    justify-content: start;
+    justify-content: end;
     margin-left: 20%;
     display: flex;
     float: right;
     margin-bottom: 20px;
 
+}
+.flexer{
+    margin-top: -65px
 }
 }
