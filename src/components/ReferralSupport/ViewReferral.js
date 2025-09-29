@@ -147,7 +147,7 @@ const ViewReferral = () => {
                     setMessage("");
 
                     setComment(null);
-                    
+
                 }, 2000);
             }
         } catch (err) {
@@ -217,8 +217,15 @@ const ViewReferral = () => {
                                 </div>
                                 <div className='refdetailscontaoner'>
                                     <div className='refererDetails'>
-                                        <div className='refererDetails1'><img src={`https://tracsdev.apttechsol.com/public/${data.posted_by?.image}`
-                                        } /></div>
+                                        <div className='refererDetails1'><img
+                                            src={
+                                                data.posted_by?.image
+                                                    ? `https://tracsdev.apttechsol.com/public/${data.posted_by.image}`
+                                                    : "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg"
+                                            }
+                                            alt="User"
+                                        />
+                                        </div>
                                         <div className='refererDetails2'>
                                             <h2>{data.blog_title}</h2>
                                             <div style={{ marginTop: "-30px", display: "flex" }}><p>{data.posted_by?.name}</p></div>
@@ -233,15 +240,20 @@ const ViewReferral = () => {
                                         <div className='referralDescription1'>
                                             {data.blog_file && (
                                                 <img
-                                                    src={`https://tracsdev.apttechsol.com/public/${data.blog_file}`}
+                                                    src={
+                                                        data.blog_file
+                                                            ? `https://tracsdev.apttechsol.com/public/${data.blog_file}`
+                                                            : "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg" // 👈 fallback
+                                                    }
                                                     alt="Referral"
                                                 />
+
                                             )}
                                         </div>
 
                                         <div dangerouslySetInnerHTML={{ __html: adjustInternalHtml(data.description) }} ></div>
                                     </div>
-                                   
+
                                     <div className='viewComment'>
                                         {chat.map((item) => {
                                             const sender = item.chat_from || item.reply_from;
@@ -249,14 +261,17 @@ const ViewReferral = () => {
                                             return (<div className='viewCommentHolde' key={item.id}>
                                                 <div className='senderCard'>
                                                     <div className='senderImage'>
-                                                        <img src={
-                                                            item.chat_from?.image
-                                                                ? `https://tracsdev.apttechsol.com/public/${item.chat_from.image}`
-                                                                : item.reply_from?.image
-                                                                    ? `https://tracsdev.apttechsol.com/public/${item.reply_from.image}`
-                                                                    : "/default-profile.png"
-                                                        }
-                                                            alt="User" />
+                                                        <img
+                                                            src={
+                                                                item.chat_from?.image
+                                                                    ? `https://tracsdev.apttechsol.com/public/${item.chat_from.image}`
+                                                                    : item.reply_from?.image
+                                                                        ? `https://tracsdev.apttechsol.com/public/${item.reply_from.image}`
+                                                                        : "https://tracsdev.apttechsol.com/public/uploads/user_avatar.jpeg" // 👈 fallback
+                                                            }
+                                                            alt="User"
+                                                        />
+
                                                     </div>
                                                     <div className='senderDetails'>
                                                         <p className='p1co'>{item.chat_from?.name || item.reply_from?.name}</p>
@@ -269,7 +284,7 @@ const ViewReferral = () => {
                                                     <div>
                                                         {parentMessage && (
                                                             <div style={{ color: "gray", marginBottom: "5px" }}>
-                                                             <h3>  {parentMessage.message}</h3> 
+                                                                <h3>  {parentMessage.message}</h3>
                                                             </div>)}
                                                         <div style={{ color: item.reply_to !== null ? "blue" : "black" }}><h3>{item.reply_to !== null && ("Re:")} {item.message}</h3> </div>
 
@@ -278,10 +293,10 @@ const ViewReferral = () => {
                                             </div>)
                                         })}
                                     </div>
-                                     <div className='commentSecHolder'>
-                                                            <div className='commentSecHolder1'><input placeholder='comment here'    value={commentText || ""}        onChange={(e) => setComment(e.target.value)} /></div>
-                                                            <div className='commentSecHolder2'><button onClick={sendComment}>Send</button></div>
-                                                        </div>
+                                    <div className='commentSecHolder'>
+                                        <div className='commentSecHolder1'><input placeholder='comment here' value={commentText || ""} onChange={(e) => setComment(e.target.value)} /></div>
+                                        <div className='commentSecHolder2'><button onClick={sendComment}>Send</button></div>
+                                    </div>
                                 </div>
 
 
