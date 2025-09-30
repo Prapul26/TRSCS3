@@ -13,6 +13,7 @@ import axios from 'axios';
 import { ImCross } from 'react-icons/im';
 import { MdQuickreply } from 'react-icons/md';
 import { FaMessage } from 'react-icons/fa6';
+import { TiMessages } from 'react-icons/ti';
 const ViewReferralSupport = () => {
     const [showSidebar, setShowSidebar] = useState(false);
     const categories = ["Category1", "Category2", "Category3", "Category4", "Category5"];
@@ -161,7 +162,7 @@ const ViewReferralSupport = () => {
                                             <div className='addrefbutton'><Link to="/createReferral"><button>Create</button></Link></div>
 
                                         </div>
-                                     
+
                                         <div className='newDetailsModel'>
                                             {filteredData.length > 0 ? (
                                                 filteredData.map((item) => (
@@ -181,12 +182,13 @@ const ViewReferralSupport = () => {
                                                                     <div>
                                                                         <p className='nameP'>{item.posted_by?.name}</p>
                                                                         <p className='cattime'>{new Date(item.created_at).toLocaleDateString()} . Posted in {item.category}</p>
-                                                                        </div>
+                                                                        <strong style={{ marginTop: "-13px" }}>{item.blog_title}</strong>
+                                                                    </div>
                                                                 </div>
-                                                                <div><h3>{item.blog_title}</h3></div>
+                                                                <div className='deth3'></div>
                                                             </div>
                                                             <div className='newModel2'>
-                                                                <div className='famreply'><FaMessage /></div>
+                                                                <div className='famreply' style={{ marginTop: "17px" }}><TiMessages size={20} /></div>
                                                                 <p>{item.referral_chat.length}</p>
                                                             </div>
                                                         </div></Link>

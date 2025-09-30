@@ -216,6 +216,7 @@ const ViewReferral = () => {
                                     </button>
                                 </div>
                                 <div className='refdetailscontaoner'>
+                                     <h2>{data.blog_title}</h2>
                                     <div className='refererDetails'>
                                         <div className='refererDetails1'><img
                                             src={
@@ -227,9 +228,9 @@ const ViewReferral = () => {
                                         />
                                         </div>
                                         <div className='refererDetails2'>
-                                            <h2>{data.blog_title}</h2>
-                                            <div style={{ marginTop: "-30px", display: "flex" }}><p>{data.posted_by?.name}</p></div>
-                                            <div style={{ marginTop: "-30px", display: "flex" }}><p>
+                                           
+                                            <div style={{ marginTop: "-30px", display: "flex" }}><p className='fontp1'>{data.posted_by?.name}</p></div>
+                                            <div style={{ marginTop: "-30px", display: "flex" }}><p className='fontp2'>
                                                 {data?.created_at
                                                     ? format(new Date(data.created_at), "MMMM, dd yyyy hh:mm a")
                                                     : ""}

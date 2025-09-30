@@ -30,6 +30,10 @@
     border:1px solid black;
     border-radius: 5px;
 }
+.dropdownItem:hover{
+      background: #f5b900;  /* Yellow */
+  color: white;
+}
 .catsearch button{
      background-color: #163b6d !important;
 }
@@ -49,7 +53,8 @@
     margin-top: -38px !important;
 }
 .headerRef p{
-    margin-top: -12px;
+    margin-top: -10px;
+    font-size: 14px !important;
 }
 .urlPage1{
 font-style: 19px !important;
@@ -58,11 +63,14 @@ font-style: 19px !important;
     margin-top: 0px !important;
   
 }
+
 .nameP{
-    font-weight: 600;
+    font-weight: 400;
+    font-size: 16px !important;
 }
 .cattime{
     color: rgb(97, 89, 89);
+    margin-top: -12px;
     font-size: 14px !important;
 }
 .newDetailsModelHolder2{
@@ -73,8 +81,8 @@ font-style: 19px !important;
     display: flex;
 }
 .newModel1Img{
-    height: 70px;
-    width: 70px;
+    height: 55px;
+    width: 55px;
     margin-top: 15px;
     margin-right: 20px;
     border-radius: 50%;
@@ -96,7 +104,7 @@ font-style: 19px !important;
     border-bottom: 1px solid black;
 }
 .newDetailsModelHolder:hover{
-      border: 5px solid rgb(53, 189, 220);
+      border: 3px solid rgb(53, 189, 220);
       background-color: rgb(222, 219, 219);
 }
 .newModel2{
@@ -106,11 +114,24 @@ font-style: 19px !important;
     margin-top: 21px;
     margin-right:10px;
 }
+.deth3 h3{
+    font-size: 18px !important;
+}
+.newModel0{
+    margin-top: -20px;
+}
+.refHolder{
+    margin-top: -55px;
+}
+.headerRef h2{
+    font-size: 16px !important;
+}
 @media (max-width:1024px) {
     .refHolder{
        
         padding: 0px;
         width: 109%;
+        margin-top: 15px;
         margin-left: -4%;
     }
 .newModel1Img{

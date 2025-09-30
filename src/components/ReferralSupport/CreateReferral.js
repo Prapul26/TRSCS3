@@ -142,7 +142,7 @@ const CreateReferral = () => {
                                       
                                     </div>
                                     <div className='createInfoHolder'>
-                                        <label>Title<span style={{ color: "red" }}> *</span></label><br />
+                                        <label>Subject<span style={{ color: "red" }}> *</span></label><br />
                                         <div className='titleHolder'>
                                             <div style={{ marginTop: "2px" }}><FaEdit /></div>
                                             <div style={{ width: "97%" }}><input value={title}
