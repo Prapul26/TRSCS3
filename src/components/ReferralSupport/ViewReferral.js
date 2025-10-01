@@ -12,6 +12,7 @@ import MobileNavbar from '../MobileNavbar/MobileNavbar';
 import axios from 'axios';
 import moment from "moment";
 import { format } from 'date-fns';
+import { FaPaperPlane } from 'react-icons/fa'
 const ViewReferral = () => {
     const [data, setData] = useState("")
     const [userId, setUserId] = useState(null);
@@ -295,8 +296,9 @@ const ViewReferral = () => {
                                         })}
                                     </div>
                                     <div className='commentSecHolder'>
-                                        <div className='commentSecHolder1'><input placeholder='comment here' value={commentText || ""} onChange={(e) => setComment(e.target.value)} /></div>
-                                        <div className='commentSecHolder2'><button onClick={sendComment}>Send</button></div>
+                                        <div><h3>Reply to the topic</h3></div>
+                                        <div className='commentSecHolder1'><textarea placeholder='Type your message here...' value={commentText || ""} onChange={(e) => setComment(e.target.value)} /></div>
+                                        <div className='commentSecHolder2'><button onClick={sendComment} style={{display:"flex"}}><div style={{marginRight:"5px"}}><FaPaperPlane /></div>Send Message</button></div>
                                     </div>
                                 </div>
 

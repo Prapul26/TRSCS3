@@ -4,9 +4,9 @@ import MobileMenu from '../MobileMenu/MobileMenu';
 import UserHeader from '../UserHeader';
 import SideNav from '../../UserNavbar/SideNav';
 import MobileNavbar from '../MobileNavbar/MobileNavbar';
-import { IoIosInformationCircle } from 'react-icons/io';
+import { IoIosInformationCircle, IoIosSearch } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-import { FaEdit, FaEye } from 'react-icons/fa';
+import { FaEdit, FaEye, FaPlus } from 'react-icons/fa';
 import { IoTrashBinSharp } from 'react-icons/io5';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import axios from 'axios';
@@ -156,10 +156,10 @@ const ViewReferralSupport = () => {
                                                     )}
                                                 </div>
                                                 <div className='catsearch2' ><input placeholder='Search Topic' value={searchTerm}
-                                                    onChange={(e) => setSearchTerm(e.target.value)} /></div>
-                                                <div><button onClick={handleSearch}>GO</button></div>
+                                                    onChange={(e) => setSearchTerm(e.target.value)} /> <div ><button style={{display:"flex"}} onClick={handleSearch}><div style={{marginRight:"5px"}}><IoIosSearch  size={24}/></div>Go</button></div></div>
+                                               
                                             </div>
-                                            <div className='addrefbutton'><Link to="/createReferral"><button>Create</button></Link></div>
+                                            <div className='addrefbutton'><Link to="/createReferral"><button style={{display:"flex"}}> <div style={{marginRight:"5px"}}> <FaPlus /></div>Create</button></Link></div>
 
                                         </div>
 

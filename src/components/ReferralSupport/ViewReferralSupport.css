@@ -12,13 +12,28 @@
     border-radius: 5px;
     width: 100%;
 }
+.catsearch2 input{
+    border-radius: 0px;
+    padding-left: 7px;
+    
+}
 .catsearch2{
-    width: 30%;
+    width: 50%;
+    display: flex;
+}
+.catsearch2 button{
+    font-size: 20px;
+    padding-top: 10px;
+    background-color: #6c757d !important;
+    height: 46px;
+    margin-top: 0px;
+    border-radius: 0px !important;
 }
 .catsearch1{
     width: 100%;
     height: 45px;
     display: flex;
+    margin-left: 20px;
     justify-content: space-between;
     border: 1px solid black;
     border-radius: 5px;
@@ -29,6 +44,11 @@
 .dropDownyy{
     border:1px solid black;
     border-radius: 5px;
+    margin-left: 20px;
+    width: 14.5%;
+    background-color: white;
+    margin-top: 4px;
+    position: absolute;
 }
 .dropdownItem:hover{
       background: #f5b900;  /* Yellow */
@@ -42,15 +62,21 @@
 }
 .flexer{
     display: flex;
+    background-color: #e7e7e8;
+    padding-right: 20px;
+    padding-top: 10px;
+    border-radius: 20px;
     justify-content: space-between;
 }
 .addrefbutton{
-    margin-top: 30px !important;
+    margin-top: 60px !important;
 
 }
 .addrefbutton button{
   background-color: #163b6d !important;
     margin-top: -38px !important;
+    height: 40px;
+    padding-top: 12px;
 }
 .headerRef p{
     margin-top: -10px;
@@ -77,6 +103,7 @@ font-style: 19px !important;
     display: flex;
     justify-content: space-between;
 }
+
 .newModel1{
     display: flex;
 }
@@ -141,6 +168,9 @@ font-style: 19px !important;
     margin-right: 20px;
     border-radius: 50%;
 }
+.dropDownyy{
+    width: 83%;
+}
 .newModel1 p{
     margin-top: -10px;
 }
@@ -167,27 +197,43 @@ background-color: rgb(255, 255, 255);
 
 .catsearch{
     flex-direction: column;
-    width: 100%;
+    width: 110%;
 }
 .flexer{
     flex-direction: column;
+     display: flex;
+    padding-right: 0px;
+    background-color: white;
+    padding-top: 0px;
+    border-radius: 0px;
+    margin-left: -20px;
+    margin-bottom: 10px;
+    width: 90%;
+    justify-content: space-between;
+    
 }
 .catsearch0{
     width: 100%;
     margin-bottom: 15px;
 }
 .catsearch2{
-     width: 100%;
-    margin-bottom: 15px;
+     width:100%;
+     
+    margin-left: 19px;
 }
+
 .addrefbutton{
-    margin-top: -64px !important;
+    margin-top: 19px !important;
     justify-content: end;
-    margin-left: 20%;
+    margin-left: 15%;
     display: flex;
+    width: 100%;
     float: right;
     margin-bottom: 20px;
 
+}
+.addrefbutton button{
+    width: 395px !important;
 }
 .flexer{
     margin-top: -65px

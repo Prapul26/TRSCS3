@@ -67,20 +67,28 @@
 }
 
 .commentSecHolder {
-    display: flex;
+border: 1px solid rgb(235, 231, 231);
     margin-top: 20px;
     margin-bottom: 60px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    padding: 20px;
     justify-content: space-between;
 }
 
 .commentSecHolder1 {
     width: 80%;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
 }
 
-.commentSecHolder1 input {
-    height: 40px;
+.commentSecHolder1 textarea {
+    height: 140px;
     width: 100%;
+    padding: 20px;
+    border-radius: 10px;
     padding-left: 5px;
     border-radius: 5px;
     outline: transparent;
@@ -90,6 +98,7 @@
 .commentSecHolder2 button {
     background-color: #17A2B8;
     height: 40px;
+    padding-top: 10px;
 
 }
 .fontp1{
@@ -162,7 +171,7 @@
  margin-top: 22px;
 }
     .commentSecHolder1 {
-        width: 75%;
+        width: 90%;
     }
 
     .refererDetails {
