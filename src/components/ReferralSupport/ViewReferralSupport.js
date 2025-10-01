@@ -155,7 +155,7 @@ const ViewReferralSupport = () => {
                                                         </div>
                                                     )}
                                                 </div>
-                                                <div className='catsearch2' ><input placeholder='What you are looking for ?' value={searchTerm}
+                                                <div className='catsearch2' ><input placeholder='Search Topic' value={searchTerm}
                                                     onChange={(e) => setSearchTerm(e.target.value)} /></div>
                                                 <div><button onClick={handleSearch}>GO</button></div>
                                             </div>

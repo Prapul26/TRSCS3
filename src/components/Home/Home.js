@@ -13,6 +13,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../Heaader/Header";
+import image2 from"../assets/TRACS_Pic.png"
 import image from "../../assets/image2.png"
 
 const Home = () => {
@@ -97,6 +98,8 @@ const Home = () => {
       <Navbar />
 
       <div className="home-details">
+        <div className="heading1Holder">
+       
         <div className="heading1">
           <h1 >
             Turn Connections into Relationships Effortlessly.
@@ -111,6 +114,8 @@ const Home = () => {
               </Link>
             </div>
           )}
+        </div>
+           <div className="tracsPic"><img src={image2}/></div>
         </div>
         <div className="heading2">
           <h2 class="">What TRACS Can Do for You</h2>
