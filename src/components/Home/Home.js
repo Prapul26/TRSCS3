@@ -109,8 +109,8 @@ const Home = () => {
           </p>
           {!isLoggedIn && (
             <div>
-              <Link to="/pricing" style={{ textDecoration: "none", color: "inherit" }}>
-                <button>Start Your Free Trial</button>
+              <Link to="/register" style={{ textDecoration: "none", color: "inherit" }}>
+                <button>Register</button>
               </Link>
             </div>
           )}
@@ -188,19 +188,7 @@ const Home = () => {
 
 
       </div>
-      <div className="heading4">
-        <h2 >Ready to leverage your network?</h2>
-        <p >
-          Join TRACS and start making powerful introductions today.
-        </p>
-        {!isLoggedIn && (
-          <div>
-            <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
-              <button>Sign Up for Free</button>
-            </Link>
-          </div>
-        )}
-      </div>
+     
       <Footer />
     </div>
   );

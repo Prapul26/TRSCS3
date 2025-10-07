@@ -359,11 +359,12 @@ const Header = () => {
             </div>
           </div>
           {!loading && !isLoggedIn && (
-            <div className="LRButton"> <div style={{ marginLeft: "10px" }}>
+            <div className="LRButton">
+              { /*<div style={{ marginLeft: "10px" }}>
               <Link to="/register">
                 <button style={{ background: " #eeba2b", color: "black", padding: "5px 8px 5px 8px" }}>Register</button>
               </Link>
-            </div>
+            </div> */}
               <div style={{ marginLeft: "10px" }}>
                 <Link to="/login">
                   <button style={{ background: " #eeba2b", color: "black", padding: "5px 8px 5px 8px" }}>Login</button>
