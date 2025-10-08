@@ -35,7 +35,7 @@ const NewMessage = () => {
                             <div className='showFolloup1'>Messages Sent</div>
                             <div className='showFolloup1'>Messages Received</div>
                         </div>}</div></div>
-                    <div className='shortby'><label>Short By :</label><div><div className='shortby1' onClick={handleShortBy}><strong>Oldest</strong> <div style={{marginTop:"3px"}}><IoIosArrowDown /></div></div>
+                    <div className='shortby'><label>Sort By :</label><div><div className='shortby1' onClick={handleShortBy}><strong>Oldest</strong> <div style={{marginTop:"3px"}}><IoIosArrowDown /></div></div>
                         {showShortBy && <div className='showShortBy'>
                             <div className='showShortBy1'>Latest</div>
                             <div className='showShortBy1'>Oldest</div>
