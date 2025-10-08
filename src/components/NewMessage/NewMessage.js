@@ -210,7 +210,7 @@ const NewMessage = () => {
 
                             </div>
                             <div className='cardmemberDetails5'>
-                                <p>Hi Tracs Member, I'd like to introduce you to Shankar Vanga, who I believe could be a valuable connection for your work in sustainable energy solutions. I thought your expertise in battery technology would perfectly complement his project goals...</p>
+                                <p>Jenna, meet our new Market Analyst. I thought they should connect with you directly regarding the Q3 sales projections and budget allocations for the digital advertising campaigns starting next month...</p>
                             </div>
                         </div>
                         <div className='cardmembersbuttons'>
