@@ -144,6 +144,9 @@ const SideNav = () => {
 <Link to="/contactUs" style={{ color: "inherit", textDecoration: "none" }} >          <div className={`rdsewdx ${currentPath === "/contactUs"  ? "active" : ""}`}> <div style={{ marginLeft: "14px",marginTop:"9px" }}><FaRegComment  size={20} />
                   </div><div> <ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "10px", marginLeft: "10px" }}>Contact Us</ul></div></div>
                 </Link>
+                <Link to="/network" style={{ color: "inherit", textDecoration: "none" }} >          <div className={`rdsewdx ${currentPath === "/contactUs"  ? "active" : ""}`}> <div style={{ marginLeft: "14px",marginTop:"9px" }}><FaRegComment  size={20} />
+                  </div><div> <ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "10px", marginLeft: "10px" }}>NETWORKING 101</ul></div></div>
+                </Link>
               </div>
               
             )
