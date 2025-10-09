@@ -428,7 +428,28 @@ border-radius: 20px;
     width: 100%;
     height: 100%;
 }
-
+.bluefooter{
+       padding-top: 1rem !important;
+    padding-bottom: 1.4rem !important;
+    background-color: #007BFF;
+    text-align: center;
+    align-items: center;
+}
+.bluefooter h2{
+    color: white !important;
+    font-size: 35px !important;
+    margin-top: 0px;
+}
+.bluefooter strong{
+    color: white;
+    font-size: 18px !important;
+    margin-top: -4px !important;
+}
+.bluefooter button{
+    background-color: #eeba2b;
+    margin-top: 20px;
+    color: black;
+}
 @media (max-width: 1024px) {
 .heading1Holder{
 flex-direction: column;

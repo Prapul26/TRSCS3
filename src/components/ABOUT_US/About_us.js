@@ -45,7 +45,7 @@ const About_us = () => {
                 <ul> Join Us in Building the Future:</ul>
                 <p>We invite you to be part of a community that values collaboration, innovation, and the limitless possibilities that arise when great minds come together. Whether you're looking for career opportunities, business partnerships, or simply seeking inspiration, TRACS is the catalyst for your success.</p>
                 </div>
-                <div><button className='joinnnnn' onClick={handelJoin}>JOIN NOW</button></div>
+                <div><button className='joinnnnn' onClick={handelJoin}>Register</button></div>
             </div>
             <Footer />
         </div>

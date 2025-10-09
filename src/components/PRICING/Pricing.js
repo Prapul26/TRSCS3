@@ -52,12 +52,12 @@ const Pricing = () => {
             </p>
           </div>
           <div className="pricing-details2">
-            {Free.map((item, index) => (
+           {/*{Free.map((item, index) => (
               <div key={index} className="pd2">
                 <div className="pd2-button">   <button>Free</button></div>
                 <h2 style={{ color: "#163b6d" }}>${item.price}
                 </h2>
-                <p style={{ fontWeight: "400" }}>{item.days} 1 Year Trial</p>
+                <p style={{ fontWeight: "400" }}> 1 Year Trial</p>
                 <ul>
                   {item.details.map((detail, i) => (
                     <li key={i}>
@@ -68,31 +68,12 @@ const Pricing = () => {
                 <div className="getb">
                   <Link to='/payment'><button>GetStarted</button></Link>
                 </div>
-              </div>
-            ))}
-            {Basic.map((item, index) => (
-              <div key={index} className="pd2">
-                <div className="pd2-button">   <button>Basic</button></div>
-                <h2 style={{ color: "#163b6d" }}>${item.price}
-                </h2>
-                <p style={{ fontWeight: "400" }}>{item.days} Days Trail</p>
-                <ul>
-                  {item.details.map((detail, i) => (
-                    <li key={i}>
-                      <p style={{ fontWeight: detail.includes("Additional Charges for Integration") ? "500" : "300" }}>{detail}</p>
-                    </li>
-                  ))}
-                </ul>
-                <div className="getb">
-                  <Link to='/payment'><button>GetStarted</button></Link>
-                </div>
-              </div>
-            ))}
-            {Standard.map((item, index) => (
+              </div>  ))}*/} 
+              {Standard.map((item, index) => (
               <div key={index} className="pd3">
                 <div className="pd2-button">  <button>Standard</button></div>
                 <h2 style={{ color: "#163b6d" }}>${item.price}</h2>
-                <p style={{ fontWeight: "400" }}>{item.days} Days Trail</p>
+                <p style={{ fontWeight: "400" }}>{item.days} Days Trial</p>
                 <ul>
                   {item.details.map((detail, i) => (
                     <li key={i}>
@@ -105,6 +86,25 @@ const Pricing = () => {
                 </div>
               </div>
             ))}
+            {Basic.map((item, index) => (
+              <div key={index} className="pd2">
+                <div className="pd2-button">   <button>Basic</button></div>
+                <h2 style={{ color: "#163b6d" }}>${item.price}
+                </h2>
+                <p style={{ fontWeight: "400" }}>{item.days} Days Trial</p>
+                <ul>
+                  {item.details.map((detail, i) => (
+                    <li key={i}>
+                      <p style={{ fontWeight: detail.includes("Additional Charges for Integration") ? "500" : "300" }}>{detail}</p>
+                    </li>
+                  ))}
+                </ul>
+                <div className="getb">
+                  <Link to='/payment'><button>GetStarted</button></Link>
+                </div>
+              </div>
+            ))}
+          
           </div>
 
         </div>{" "}

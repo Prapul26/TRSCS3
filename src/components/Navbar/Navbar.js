@@ -41,11 +41,12 @@ const Navbar = () => {
                       setDropdownVisible(false)}}> RESOURCES
                       {showResources &&(<div className='resources1' onMouseLeave={()=>setResources(false)  }>
               <div className='fopl' style={{paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid #e6e9e8"}}> <Link to='/faq' style={{ textDecoration: 'none', color: 'inherit' }}><span style={{marginLeft:"10px",fontSize:"14px"}}>FAQ'S</span></Link></div> 
+              <div className='fopl' style={{paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid #e6e9e8"}}> <Link to='/network' style={{ textDecoration: 'none', color: 'inherit' }}><span style={{marginLeft:"10px",fontSize:"14px"}}>NETWORKING 101</span></Link></div> 
 
                       </div>)}</li> 
 
            <Link to="/pricing" style={{textDecoration:"none",color:"inherit"}}><li>PRICING</li></Link> 
-           <Link to='/network' style={{textDecoration:"none",color:"inherit"}}> <li>NETWORKING 101</li></Link>
+          
         </ul>
       </div>
     </div>
