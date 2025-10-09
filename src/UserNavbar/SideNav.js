@@ -6,6 +6,7 @@ import { MdOutlineArrowDropDown, MdOutlineArrowDropUp, MdOutlineCardMembership, 
 import { FaBriefcase } from "react-icons/fa6";
 import { IoSettingsSharp } from "react-icons/io5";
 import { ImProfile } from "react-icons/im";
+import { LuChartNetwork } from "react-icons/lu";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
 import { RiArrowDropDownLine, RiArrowDropUpLine, RiFeedbackFill, RiLockPasswordFill } from "react-icons/ri";
@@ -144,7 +145,7 @@ const SideNav = () => {
 <Link to="/contactUs" style={{ color: "inherit", textDecoration: "none" }} >          <div className={`rdsewdx ${currentPath === "/contactUs"  ? "active" : ""}`}> <div style={{ marginLeft: "14px",marginTop:"9px" }}><FaRegComment  size={20} />
                   </div><div> <ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "10px", marginLeft: "10px" }}>Contact Us</ul></div></div>
                 </Link>
-                <Link to="/network" style={{ color: "inherit", textDecoration: "none" }} >          <div className={`rdsewdx ${currentPath === "/contactUs"  ? "active" : ""}`}> <div style={{ marginLeft: "14px",marginTop:"9px" }}><FaRegComment  size={20} />
+                <Link to="/network" style={{ color: "inherit", textDecoration: "none" }} >          <div className={`rdsewdx ${currentPath === "/contactUs"  ? "active" : ""}`}> <div style={{ marginLeft: "14px",marginTop:"9px" }}><LuChartNetwork  size={20} />
                   </div><div> <ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "10px", marginLeft: "10px" }}>NETWORKING 101</ul></div></div>
                 </Link>
               </div>

@@ -103,11 +103,16 @@ padding-bottom: 5px;
   color: black;
 
 }
-.constactUS{
+.constactUSs{
 display: flex;
- border-bottom: 1px solid black;
+ 
 
 }
+.constactUSss{
+  display: flex;
+  border-bottom: 1px solid black;
+}
+
 .apppphelp{
 display: flex;
  border-bottom: 1px solid black;
@@ -121,6 +126,26 @@ display: flex;
 }
 .constactUS.active h3{
   color: white !important;
+  margin-bottom: 3px;
 }
-
+.constactUSs.active{
+  background-color: black !important;
+  margin-left: -20px;
+  padding-top: 15px;
+  padding-left: 20px;
+  color:white !important;
+}
+.constactUSs.active h3{
+  color: white !important;
+}
+.constactUSss.active{
+  background-color: black !important;
+  margin-left: -20px;
+  padding-top: 15px;
+  padding-left: 20px;
+  color:white !important;
+}
+.constactUSss.active h3{
+  color: white !important;
+}
 }

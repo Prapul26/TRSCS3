@@ -118,7 +118,7 @@ const MobileMenu = () => {
         }
 
       </div>
-<Link to='/viewReferralSupport' style={{textDecoration:"none",color:"inherit"}}><div className={`constactUS ${currentPath === "/viewReferralSupport" ? "active" : ""}`}>
+<Link to='/viewReferralSupport' style={{textDecoration:"none",color:"inherit"}}><div className={`constactUSss ${currentPath === "/viewReferralSupport" ? "active" : ""}`}>
         <div style={{ marginTop: "16px", marginRight: "10px", marginLeft: "10px" }}><FaRegComment /></div>
         <div ><h2>Referral Support</h2></div>
       </div></Link>
@@ -139,7 +139,8 @@ const MobileMenu = () => {
               currentPath.startsWith("/helpSection2/") ||
               currentPath.startsWith("/helpDescription2/") ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< FaRegFile size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>App Help</h3></div></Link>
 
-            <Link to='/contactUs' style={{ color: "inherit", textDecoration: "none" }} className={`constactUS ${currentPath === "/contactUs" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< FaRegComment size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Contact Us</h3></div></Link>
+            <Link to='/contactUs' style={{ color: "inherit", textDecoration: "none" }} className={`constactUSs ${currentPath === "/contactUs" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< FaRegComment size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Contact Us</h3></div></Link>
+            <Link to='/network' style={{ color: "inherit", textDecoration: "none" }} className={`constactUSs ${currentPath === "/network" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< FaRegComment size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}> NETWORKING 101</h3></div></Link>
 
           </div>
         }
