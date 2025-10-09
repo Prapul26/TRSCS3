@@ -40,38 +40,7 @@ const About_us = () => {
                         <ul>Our Vision</ul>
                         <p>Our platform aims to be the cornerstone of global networking, empowering individuals and enterprises to expand their reach, exchange knowledge, and forge impactful partnerships.</p></div>
                 </div>
-                <div className='a_5'>
-                    <div className='a_51'><ul >What We Offer:</ul>
-                        <h3>Effortless Networking:</h3>
-                        <p>Connect with like-minded professionals effortlessly through our intuitive platform.</p>
-                        <h3>Explore Opportunities:</h3>
-                        <p>Discover new opportunities, collaborations, and business ventures with ease.</p>
-                        <h3>Community Hub:</h3>
-                        <p>Join a vibrant community of professionals, exchange ideas, and stay updated on industry trends.</p>
-                        <h3>Global Reach, Local Impact:</h3>
-                        <p>Connect with professionals from around the world while also having the ability to tap into local networks and opportunities.</p>
-                    </div>
-                    <div className='a_52'>
-
-                        <img src={pic2} style={{height:"fit-content",width:"100%"}}/>
-                    </div>
-
-                </div>
-                <div className='a_6'>
-                <div className='a_62'>
-                        <ul >Key Features:</ul>
-                        <h3>Connection Management:</h3>
-                        <p>Our intelligent algorithm ensures that you connect with the right people based on your professional goals and interests.</p>
-                        <h3>Search and Discovery:</h3>
-                        <p>Robust search functionality allows users to find professionals or businesses based on criteria such as industry, location, skills.</p>
-                        <h3>Content Sharing:</h3>
-                        <p>Users can share articles, blog posts, videos, and other content relevant to their industry or expertise, showcasing their knowledge and expertise to their network.</p>
-                        <h3>Secure Collaboration:</h3>
-                        <p>Experience seamless and secure communication with fellow members, fostering a trusted environment for collaboration and idea exchange.</p>
-                    </div>
-                    <div className='a_61'><img src={pic3} style={{height:"fit-content",width:"100%"}} /></div>
-                    
-                </div>
+               
                 <div className='a_7'>
                 <ul> Join Us in Building the Future:</ul>
                 <p>We invite you to be part of a community that values collaboration, innovation, and the limitless possibilities that arise when great minds come together. Whether you're looking for career opportunities, business partnerships, or simply seeking inspiration, TRACS is the catalyst for your success.</p>
