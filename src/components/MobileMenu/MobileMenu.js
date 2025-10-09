@@ -118,10 +118,10 @@ const MobileMenu = () => {
         }
 
       </div>
-<Link to='/viewReferralSupport' style={{textDecoration:"none",color:"inherit"}}><div className={`constactUSss ${currentPath === "/viewReferralSupport" ? "active" : ""}`}>
+     {/* <Link to='/viewReferralSupport' style={{ textDecoration: "none", color: "inherit" }}><div className={`constactUSss ${currentPath === "/viewReferralSupport" ? "active" : ""}`}>
         <div style={{ marginTop: "16px", marginRight: "10px", marginLeft: "10px" }}><FaRegComment /></div>
         <div ><h2>Referral Support</h2></div>
-      </div></Link>
+      </div></Link>*/} 
       <div style={{ borderBottom: "1px solid black" }}>
         <div className={`introduction4 ${(
           currentPath === "" ||
@@ -148,7 +148,7 @@ const MobileMenu = () => {
       </div>
 
 
-      
+
 
     </div>
   )

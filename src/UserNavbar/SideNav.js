@@ -123,8 +123,8 @@ const SideNav = () => {
             </div>
           }</div>
         
-<Link to="/viewReferralSupport" style={{ color: "inherit", textDecoration: "none" }}><div className={`rdsewdx2  ${currentPath === "/viewReferralSupport"  ? "active" : ""}`}><div style={{marginTop:"15px"}}><BsPersonFillAdd /></div>
-<div><ul>Referral Support</ul></div></div></Link>
+ {/* <Link to="/viewReferralSupport" style={{ color: "inherit", textDecoration: "none" }}><div className={`rdsewdx2  ${currentPath === "/viewReferralSupport"  ? "active" : ""}`}><div style={{marginTop:"15px"}}><BsPersonFillAdd /></div>
+<div><ul>Referral Support</ul></div></div></Link>*/}
         <div style={{ borderBottom: "1px solid black" }}>
           <div className='resources' onClick={handleResources}>
             <div style={{ marginTop: "15px" }}>< MdOutlineCreditCard size={22} /></div>
@@ -145,7 +145,7 @@ const SideNav = () => {
 <Link to="/contactUs" style={{ color: "inherit", textDecoration: "none" }} >          <div className={`rdsewdx ${currentPath === "/contactUs"  ? "active" : ""}`}> <div style={{ marginLeft: "14px",marginTop:"9px" }}><FaRegComment  size={20} />
                   </div><div> <ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "10px", marginLeft: "10px" }}>Contact Us</ul></div></div>
                 </Link>
-                <Link to="/network" style={{ color: "inherit", textDecoration: "none" }} >          <div className={`rdsewdx ${currentPath === "/contactUs"  ? "active" : ""}`}> <div style={{ marginLeft: "14px",marginTop:"9px" }}><LuChartNetwork  size={20} />
+                <Link to="/network" style={{ color: "inherit", textDecoration: "none" }} >          <div className={`rdsewdx ${currentPath === "/network"  ? "active" : ""}`}> <div style={{ marginLeft: "14px",marginTop:"9px" }}><LuChartNetwork  size={20} />
                   </div><div> <ul style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: "600", fontSize: "16px", marginTop: "10px", marginLeft: "10px" }}>NETWORKING 101</ul></div></div>
                 </Link>
               </div>
