@@ -56,6 +56,7 @@ const MobileMenu = () => {
     if (
       currentPath === "/help2" ||
       currentPath === "/contactUs" ||
+      currentPath === "/networking" ||
       currentPath.startsWith("/helpSection2/") ||
       currentPath.startsWith("/helpDescription2/")
     ) {
@@ -140,7 +141,7 @@ const MobileMenu = () => {
               currentPath.startsWith("/helpDescription2/") ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< FaRegFile size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>App Help</h3></div></Link>
 
             <Link to='/contactUs' style={{ color: "inherit", textDecoration: "none" }} className={`constactUSs ${currentPath === "/contactUs" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< FaRegComment size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}>Contact Us</h3></div></Link>
-            <Link to='/network' style={{ color: "inherit", textDecoration: "none" }} className={`constactUSs ${currentPath === "/network" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< FaRegComment size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}> NETWORKING 101</h3></div></Link>
+            <Link to='/networking' style={{ color: "inherit", textDecoration: "none" }} className={`constactUSs ${currentPath === "/networking" ? "active" : ""}`}><div style={{ display: "flex", marginBottom: "8px" }}><div>< FaRegComment size={17} style={{ marginRight: '7px', marginTop: '1px' }} /></div><h3 style={{ fontSize: 'large' }}> NETWORKING 101</h3></div></Link>
 
           </div>
         }

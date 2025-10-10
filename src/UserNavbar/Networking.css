@@ -1,0 +1,10 @@
+.netwoking101Container{
+    height: 1000px;
+    width: 102.2%;
+    margin-left: -2.2%;
+}
+@media(max-width:1028px){
+    .netwoking101Container{
+        margin-left: 0%;
+    }
+}

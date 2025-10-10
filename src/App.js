@@ -43,6 +43,7 @@ import AddTemplate from "./UserNavbar/AddTemplate";
 import EditTemplate from "./UserNavbar/EditTemplate";
 import EditContact from "./UserNavbar/EditContact";
 import OrderDetails from "./UserNavbar/OrderDetails";
+import Networking from "./UserNavbar/Networking";
 import ReplyMessage from "./UserNavbar/ReplyMessage";
 import BumpMessage from "./UserNavbar/BumpMessage";
 import TermsAndCondition from "./components/TermsAndCondition/TermsAndCondition";
@@ -100,6 +101,7 @@ const App = () => {
           <Route path="/businessProfile" element={<BusinessProfile/>}/>
 <Route path="/signature" element={<Signature/>}/>
           <Route path="/createBusinessProfile" element={<CreateBusinessProfile/>} />
+          <Route path="/networking" element={<Networking />}/>
           <Route path="/mobileNavbar" element={<MobileNavbar/>}/>
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/affiliation" element={<Affiliation/>}/>
@@ -139,6 +141,7 @@ const App = () => {
 <Route path="/viewReferral/:id" element={<ViewReferral />}/>
 <Route path="/trail" element={<Trail/>}/>
 <Route path="/newMessage" element={<NewMessage/>}/>
+
         </Routes>
       </div>
     </Router>

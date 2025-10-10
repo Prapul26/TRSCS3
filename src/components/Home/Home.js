@@ -107,7 +107,13 @@ const Home = () => {
           <p class="">
             TRACS is a smart tool that helps you manage your network, make seamless introductions, and drive business growth through warm referrals.
           </p>
-         
+          {!isLoggedIn && (
+            <div>
+              <Link to="/register" style={{ textDecoration: "none", color: "inherit" }}>
+                <button style={{background:"#eeba2b"}}>Register</button>
+              </Link>
+            </div>
+          )}
         </div>
            <div className="tracsPic"><img src={image2}/></div>
         </div>

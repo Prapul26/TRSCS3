@@ -450,6 +450,11 @@ border-radius: 20px;
     margin-top: 20px;
     color: black;
 }
+.heading1 button{
+       background-color: #eeba2b !important;
+  
+    color: black;
+}
 @media (max-width: 1024px) {
 .heading1Holder{
 flex-direction: column;
